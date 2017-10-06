@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.build",
+  "compilerOptions": {
+    "outDir": "dist/test",
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true
+  },
+  "exclude": [
+    "aurelia_project",
+    ".vscode",
+    "dist",
+    "node_modules"
+  ]
+}

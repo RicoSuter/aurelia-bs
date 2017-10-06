@@ -1,0 +1,13 @@
+<template>
+    <div style="position: relative">
+        <div style="position: absolute; right: 0; top: 5px">
+            <a click.trigger="toggleFilter()">
+                        <i class="fa fa-filter" style="font-size: 24px" aria-hidden="true" style.bind="filter ? 'color: red' : 'color: black'"></i>
+                    </a>
+        </div>
+        <div show.bind="showFilter" style="position: absolute; background: #EEEEEE; padding-right: 10px; padding-left: 10px; right: 30px; top: -10px; width: 300px">
+            <bs-textbox placeholder="Filter" value.bind="filter" enter-pressed.trigger="toggleFilter()" view-model.ref="filterBox"></bs-textbox>
+        </div>
+    </div>
+    <slot></slot>
+</template>

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "outDir": "dist/amd",
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "stripInternal": true
+  },
+  "exclude": [
+    "src/demo",
+    "src/main.ts",
+    "src/environment.ts",
+    "aurelia_project",
+    ".vscode",
+    "dist",
+    "node_modules"
+  ]
+}

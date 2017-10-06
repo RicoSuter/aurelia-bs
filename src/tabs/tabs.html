@@ -1,0 +1,18 @@
+﻿<template>
+    <ul class="nav nav-tabs"
+        css="display: ${tabs.length > 0 ? 'block' : 'none'}">
+        <li repeat.for="tab of tabs"
+            class="${tab.active ? 'active' : ''}">
+            <a click.trigger="selectTab(tab)"
+               href="#">
+                <template part="header-template"
+                          replaceable>
+                    ${tab.header}
+                </template>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <slot></slot>
+    </div>
+</template>

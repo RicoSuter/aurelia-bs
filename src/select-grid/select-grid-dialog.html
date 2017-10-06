@@ -1,0 +1,32 @@
+﻿<template>
+    <require from="../dialog"></require>
+
+    <bs-dialog title.bind="title">
+        <div class="modal-body">
+            <bs-textbox placeholder="Filter"
+                        value.bind="filter"
+                        view-model.ref="filterBox"
+                        enter-pressed.trigger="enterPressed()"></bs-textbox>
+            <bs-grid rows.bind="items"
+                     load-data.bind="loadData"
+                     default-sort-column.bind="defaultSortColumn"
+                     default-sort-order.bind="defaultSortOrder"
+                     filter.bind="filter"
+                     height.bind="400"
+                     class="basic"
+                     selection-mode="single"
+                     selected-item.bind="selectedItem"
+                     view-model.ref="grid">
+            </bs-grid>
+        </div>
+        <div class="modal-footer">
+            <bs-button click.trigger="cancel()">
+                Abbrechen
+            </bs-button>
+            <bs-button click.trigger="none()"
+                       if.bind="!required">
+                Keine
+            </bs-button>
+        </div>
+    </bs-dialog>
+</template>

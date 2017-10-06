@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%- htmlWebpackPlugin.options.metadata.title %>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>"> -->
+</head>
+
+<body>
+  <div aurelia-app="main"></div>
+  <% if (htmlWebpackPlugin.options.metadata.server) { %>
+  <!-- Webpack Dev Server reload -->
+  <script src="/webpack-dev-server.js"></script>
+  <% } %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+  <script>
+    if (window.location.search.indexOf('css=mdb') !== -1) {
+      var tag = document.createElement('link');
+      tag.setAttribute('rel', 'stylesheet');
+      tag.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css');
+      document.body.appendChild(tag);
+
+      var tag = document.createElement('script');
+      tag.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js');
+      document.body.appendChild(tag);
+    } else if (window.location.search.indexOf('css=flatui') !== -1 || !window.location.search) {
+      var tag = document.createElement('link');
+      tag.setAttribute('rel', 'stylesheet');
+      tag.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css');
+      document.body.appendChild(tag);
+    }
+  </script>
+
+  <style type="text/css">
+    html {
+      font-size: 100%;
+    }
+  </style>
+</body>
+
+</html>

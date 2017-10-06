@@ -1,0 +1,18 @@
+<template>
+    <div class="input-group">
+        <input ref="inputElement"
+               type="text"
+               class="form-control"
+               value.bind="value"
+               placeholder.bind="placeholder"
+               disabled.bind="enabled === false ? 'disabled' : undefined"
+               readonly.bind="readonly ? 'readonly' : undefined">
+
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" click.trigger="onClick()" 
+                    disabled.bind="value || allowEmpty ? null : 'disabled'">
+                ${button}
+            </button>
+        </span>
+    </div>
+</template>

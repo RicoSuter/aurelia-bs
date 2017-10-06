@@ -1,0 +1,26 @@
+﻿<template>
+    <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
+        <label class="control-label"
+               if.bind="label !== ''">
+            ${label}
+        </label>
+
+        <div class="input-group date"
+             ref="element">
+            <input type="text"
+                   class="form-control"
+                   placeholder.bind="!value && !required ? '&lt;Kein Datum&gt;' : '&lt;Bitte wählen&gt;'"
+                   disabled.bind="enabled === false ? 'disabled' : undefined">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-th"></i>
+            </span>
+        </div>
+
+        <p class="help-block"
+           if.bind="help">${help}</p>
+        <p class="help-block"
+           repeat.for="error of errors">
+            ${error.message}
+            <p>
+    </div>
+</template>

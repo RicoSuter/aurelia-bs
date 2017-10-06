@@ -1,0 +1,25 @@
+﻿<template>
+    <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
+        <label class="control-label"
+               if.bind="label !== ''">
+            ${label}
+        </label>
+        <select class="form-control"
+                change.trigger="onChange($event)"
+                ref="select"
+                multiple.bind="multiple ? 'multiple' : null"
+                disabled.bind="enabled === false ? 'disabled' : undefined"
+                readonly.bind="readonly ? 'readonly' : undefined">
+            <option if.bind="renderNullOption" value="null">&lt;Bitte wählen&gt;</option>
+            <option repeat.for="item of items" value.bind="$index">
+                ${displayPath ? getValue(item, displayPath) : item}
+            </option>
+        </select>
+        <p class="help-block"
+           if.bind="help">${help}</p>
+        <p class="help-block"
+           repeat.for="error of errors">
+            ${error.message}
+            <p>
+    </div>
+</template>

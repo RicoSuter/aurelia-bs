@@ -1,0 +1,27 @@
+<template>
+    <h2>bs-textbox</h2>
+    <bs-textbox label="Firstname 1" value.bind="firstName & bsValidate"></bs-textbox>
+    <bs-textbox label="Firstname 2" value.bind="firstName & bsValidate"></bs-textbox>
+
+    <h2>bs-datepicker</h2>
+    <bs-datepicker label="Date of birth 1" value.bind="dateOfBirth & bsValidate"></bs-datepicker>
+    <bs-datepicker label="Date of birth 2" value.bind="dateOfBirth & bsValidate"></bs-datepicker>
+    <p>
+        Selected date of birth: ${date}
+    </p>
+
+    <h2>bs-textbox</h2>
+    <bs-checkbox label="Checkbox 1" value.bind="checked"></bs-checkbox>
+    <bs-checkbox label="Checkbox 2" value.bind="checked"></bs-checkbox>
+
+    <h2>bs-fileupload</h2>
+    <bs-fileupload label="Image" value.bind="image & bsValidate"></bs-fileupload>
+
+    <h2>bs-select</h2>
+    <bs-select label="Choose" items.bind="['Foo', 'Bar', 'Baz']" value.bind="selection"></bs-select>
+    <bs-select label="Choose" items.bind="['Foo', 'Bar', 'Baz']" value.bind="selection"></bs-select>
+
+    <bs-button click.trigger="submit()" enabled.bind="validation.canSubmit">
+        Submit
+    </bs-button>
+</template>
