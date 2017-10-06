@@ -8,7 +8,6 @@ export let StringConverter = (value: any) => {
 };
 
 export let BooleanConverter = (value: any) => {
-    debugger;
     if (value === null || value === undefined || typeof value === 'boolean')
         return value;
 
