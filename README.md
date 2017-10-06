@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/aurelia-bs.svg)](https://www.npmjs.com/package/aurelia-bs)
 
+**This project is currently in development. It is not recommended to use it in production until version 1.x is released.**
+
 This project provides Bootstrap UI (CSS framework) components for Aurelia JS. 
 
 [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
