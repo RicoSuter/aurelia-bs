@@ -147,14 +147,15 @@ export class Grid extends ResizeContainer {
     @bindable
     rowClass = '';
 
-    showFooter = false;
-
     /** Set to false to not automatically initialize data, a manual call to refresh() is required to initialize the data. */
     @bindable
     autoInit = true;
 
     @bindable
     hideUnfilteredCounter = GridDefaults.hideUnfilteredCounter;
+
+    @bindable
+    showFooter = false;
 
     @computedFrom('filteredCount', 'pageSize')
     get pageCount() {
@@ -320,7 +321,8 @@ export class Grid extends ResizeContainer {
 
         if (!this.refreshingGrid) {
             this.refreshingGrid = true;
-            let result = await this.loadData(this.getCurrentGridDataRequest());
+            let promise = this.loadData(this.getCurrentGridDataRequest());
+            let result = (<any>promise.then) ? await promise : <any>promise;
 
             this.totalCount = result.totalCount;
             this.filteredCount = result.filteredCount;
