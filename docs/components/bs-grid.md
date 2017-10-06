@@ -19,14 +19,14 @@
 </bs-grid>
 ```
 
-Methods:
+## Methods
 
 - refresh()
 - getPageNumberForIndex(index)
 - showItemAtIndex(index)
 - showPage(pageNumber)
 
-Bindable properties:
+## Bindable properties:
 
 **Initialization**
 
@@ -64,7 +64,7 @@ Data can be loaded either with 'rows' (in-memory data) or with 'loadData' (paged
 - enabled
 - showFooter
 
-Bindable properties of bs-column:
+## Bindable properties of bs-column:
 
 - header
 - width
