@@ -1,6 +1,6 @@
 # aurelia-bs
 
-[![npm](https://img.shields.io/npm/v/nswag.svg)](https://www.npmjs.com/package/nswag)
+[![npm](https://img.shields.io/npm/v/aurelia-bs.svg)](https://www.npmjs.com/package/aurelia-bs)
 
 This project provides Bootstrap UI (CSS framework) components for Aurelia JS. 
 
