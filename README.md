@@ -26,7 +26,14 @@ export function configure(aurelia: Aurelia) {
 
 ## Usage
 
-[Available components](docs/components/index.md)
+- [bs-button](docs/components/bs-button.md)
+- [bs-checkbox](docs/components/bs-button.md)
+- [bs-grid](docs/components/bs-button.md)
+- [bs-scroll](docs/components/bs-button.md)
+- [bs-searchbox](docs/components/bs-button.md)
+- [bs-searchbox](docs/components/bs-button.md)
+- [bs-select](docs/components/bs-button.md)
+- [bs-textbox](docs/components/bs-button.md)
 
 ## Development
 
