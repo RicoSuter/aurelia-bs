@@ -8,14 +8,20 @@ This project provides Bootstrap UI (CSS framework) components for Aurelia JS.
 
 ## Installation
 
-- Install via NPM: `npm install aurelia-bs --save`
-- Register plugin in `boot.ts`
+- Install `aurelia-bs` via NPM: `npm install aurelia-bs --save`
+- Install `aurelia-validation` via NPM: `npm install aurelia-validation --save`
+- Register both plugins in `boot.ts`
 
 ```
+import { Aurelia, PLATFORM } from 'aurelia-framework';
+
+...
+
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .plugin(PLATFORM.moduleName('aurelia-bs'))
+    .plugin(PLATFORM.moduleName('aurelia-validation'))
+    .plugin(PLATFORM.moduleName('aurelia-bs'));
 ```
 
 ## Usage
