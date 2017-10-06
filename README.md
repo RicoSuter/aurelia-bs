@@ -2,6 +2,8 @@
 
 This project provides Bootstrap UI (CSS framework) components for Aurelia JS. 
 
+[Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
+
 ## Usage
 
 [Available components](docs/components/index.md)
