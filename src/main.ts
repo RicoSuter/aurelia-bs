@@ -9,10 +9,18 @@ import { PLATFORM } from 'aurelia-pal';
 import * as Promise from 'bluebird';
 
 Promise.config({
-    longStackTraces: false,
-    warnings: false // note, run node with --trace-warnings to see full stack traces for warnings
+  longStackTraces: false,
+  warnings: false // note, run node with --trace-warnings to see full stack traces for warnings
 });
 (<any>window).Promise = Promise;
+
+import * as binding from 'aurelia-binding';
+
+let subscribe = (<any>binding).DirtyCheckProperty.prototype.subscribe;
+(<any>binding).DirtyCheckProperty.prototype.subscribe = (context: any, callable: any) => {
+  subscribe(context, callable);
+  console.warn(`'${this.obj.constructor.name}.${this.propertyName}' is being dirty checked!`, this.obj);
+};
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
