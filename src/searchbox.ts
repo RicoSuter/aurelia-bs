@@ -1,6 +1,5 @@
-import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
+import { customElement, bindable, containerless, bindingMode, inject } from 'aurelia-framework';
 import { convert, BooleanConverter } from './convert';
-import { inject } from 'aurelia-dependency-injection';
 
 export { BsValidateBindingBehavior } from './validation-component';
 

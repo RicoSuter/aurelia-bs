@@ -8,6 +8,9 @@ export class ResizeContainer {
     offset = 20;
 
     @bindable
+    minHeight = 0;
+
+    @bindable
     limitToContentHeight = false;
 
     @observable
@@ -54,8 +57,13 @@ export class ResizeContainer {
 
         let innerChild = child.children[0] as HTMLElement;
         let innerChildHeight = this.getAbsoluteHeight(innerChild);
+
         if (this.limitToContentHeight && innerChildHeight < maxHeight) {
             maxHeight = innerChildHeight;
+        }
+
+        if (maxHeight < this.minHeight) {
+            maxHeight = this.minHeight;
         }
 
         return maxHeight;

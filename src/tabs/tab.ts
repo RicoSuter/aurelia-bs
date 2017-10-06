@@ -1,16 +1,19 @@
-﻿import { customElement, bindable } from 'aurelia-framework';
+﻿import { customElement, bindable, observable } from 'aurelia-framework';
 
 @customElement('bs-tab')
-// @containerless
 export class Tab {
+    @bindable
+    id: string = '';
+
+    @observable
     active = false;
 
     @bindable
     header: any = '';
 
     @bindable
-    id: string = '';
+    panel: boolean = true;
 
     @bindable
-    panel: boolean = true;
+    visible: boolean = true;
 }

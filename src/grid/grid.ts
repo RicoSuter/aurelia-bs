@@ -30,6 +30,7 @@ export enum SelectionMode {
 export let GridDefaults = {
     offset: 75,
     itemHeight: 36,
+    minHeight: 100,
     hideUnfilteredCounter: false,
 };
 
@@ -78,6 +79,9 @@ export class Grid extends ResizeContainer {
 
     @bindable
     height: number | null = null;
+
+    @bindable
+    minHeight = GridDefaults.minHeight;
 
     @children('bs-column')
     columns: Column[] = [];
@@ -139,9 +143,6 @@ export class Grid extends ResizeContainer {
     @bindable
     itemHeight = GridDefaults.itemHeight;
 
-    sortColumn: Column | undefined;
-    sortOrder: 'asc' | 'desc';
-
     /** Sets the additional row CSS classes ('row' is available in the binding). */
     @bindable
     rowClass = '';
@@ -179,6 +180,9 @@ export class Grid extends ResizeContainer {
         }
         return pages;
     }
+
+    private currentSortColumn: Column | undefined;
+    private currentSortOrder: 'asc' | 'desc';
 
     /**
 	 * You can use this in your cell templates to reference the binding context
@@ -297,8 +301,8 @@ export class Grid extends ResizeContainer {
         return <GridDataRequest>{
             skip: this.pageSize * this.currentPage,
             take: this.pageSize,
-            sortColumn: this.sortColumn,
-            sortOrder: this.sortOrder,
+            sortColumn: this.currentSortColumn,
+            sortOrder: this.currentSortOrder,
             filter: this.filter
         };
     }
@@ -372,18 +376,13 @@ export class Grid extends ResizeContainer {
         if (!column.sortable || !this.rowsSortable)
             return;
 
-        if (column === this.sortColumn)
-            this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+        if (column === this.currentSortColumn)
+            this.currentSortOrder = this.currentSortOrder === 'asc' ? 'desc' : 'asc';
         else {
-            if (this.sortColumn) {
-                this.sortColumn.sortedOrder = null;
-            }
-
-            this.sortColumn = column;
-            this.sortOrder = 'asc';
+            this.currentSortColumn = column;
+            this.currentSortOrder = this.currentSortColumn.defaultSortOrder;
         }
 
-        this.sortColumn.sortedOrder = this.sortOrder;
         return this.refreshInternal();
     }
 
@@ -419,13 +418,13 @@ export class Grid extends ResizeContainer {
     }
 
     private sortItems(items: any[]) {
-        let orderMultiplier = this.sortOrder === 'asc' ? 1 : -1;
-        if (this.sortColumn && this.sortColumn.sorter) {
+        let orderMultiplier = this.currentSortOrder === 'asc' ? 1 : -1;
+        if (this.currentSortColumn && this.currentSortColumn.sorter) {
             return items.slice().sort((a: any, b: any) => {
-                return this.sortColumn!.sorter(a, b) * orderMultiplier;
+                return this.currentSortColumn!.sorter(a, b) * orderMultiplier;
             });
-        } else if (this.sortColumn) {
-            let fields = this.sortColumn!.field;
+        } else if (this.currentSortColumn) {
+            let fields = this.currentSortColumn!.field;
             return items.slice().sort((aRow: any, bRow: any) => {
                 let aValues = fields.map(field => this.getObjectValueFromPath(field, aRow));
                 let bValues = fields.map(field => this.getObjectValueFromPath(field, bRow));
@@ -561,15 +560,14 @@ export class Grid extends ResizeContainer {
     }
 
     private initializeDefaultSortOrder() {
-        if (!this.sortColumn) {
+        if (!this.currentSortColumn) {
             if (this.defaultSortColumn)
-                this.sortColumn = this.columns.find(column => column.field && column.field.indexOf(this.defaultSortColumn) !== -1);
+                this.currentSortColumn = this.columns.find(column => column.field && column.field.indexOf(this.defaultSortColumn) !== -1);
             else
-                this.sortColumn = this.columns.find(column => column.sortable);
+                this.currentSortColumn = this.columns.find(column => column.sortable);
 
-            if (this.sortColumn) {
-                this.sortOrder = this.defaultSortOrder;
-                this.sortColumn.sortedOrder = this.sortOrder;
+            if (this.currentSortColumn) {
+                this.currentSortOrder = this.defaultSortOrder;
             }
         }
     }
@@ -641,8 +639,8 @@ export class Grid extends ResizeContainer {
                     style.bind="(columns[${index}].width ? 'width: ' + columns[${index}].width + 'px;' : '') + (columns[${index}].sortable && rowsSortable ? 'cursor: pointer' : '')"
                     click.trigger="onColumnHeaderClick(columns[${index}])">
                     ${column.header || ''}
-                    <span if.bind="columns[${index}].sortable && rowsSortable && sortColumn === columns[${index}] && sortOrder === 'asc'" aria-hidden="true">&#9650;</span>
-                    <span if.bind="columns[${index}].sortable && rowsSortable && sortColumn === columns[${index}] && sortOrder === 'desc'" aria-hidden="true">&#9660;</span>
+                    <span if.bind="columns[${index}].sortable && rowsSortable && currentSortColumn === columns[${index}] && currentSortOrder === 'asc'" aria-hidden="true">&#9650;</span>
+                    <span if.bind="columns[${index}].sortable && rowsSortable && currentSortColumn === columns[${index}] && currentSortOrder === 'desc'" aria-hidden="true">&#9660;</span>
                 </th>`;
             });
 

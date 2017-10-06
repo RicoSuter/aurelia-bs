@@ -16,6 +16,9 @@ export class Scroll extends ResizeContainer {
     @bindable
     height: number | null = null;
 
+    @bindable
+    minHeight = 0;
+
     constructor(element: Element) {
         super(element);
     }

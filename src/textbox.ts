@@ -45,7 +45,7 @@ export class Textbox extends ValidationComponent {
     elementChanged() {
         if (this.element) {
             this.element.addEventListener('keyup', (event) => {
-                if (event.keyCode === 13) {
+                if (event.keyCode === 13 && this.enabled) {
                     let event = new CustomEvent('enter-pressed');
                     this.root.dispatchEvent(event);
                 }

@@ -1,11 +1,8 @@
 ﻿import { customElement, children, bindable, bindingMode, observable } from 'aurelia-framework';
 import { Tab } from './tab';
 
-// @containerless
 @customElement('bs-tabs')
 export class Tabs {
-    private selectedTab: Tab;
-
     @children('bs-tab')
     tabs: Tab[] = [];
 
@@ -27,14 +24,13 @@ export class Tabs {
     }
 
     selectTab(tab: Tab) {
-        if (this.internalTabs.find(t => t === tab)) {
-            this.internalTabs.forEach(t => t.active = t === tab);
-            if (this.selectedTabId !== tab.id) {
-                this.selectedTab = tab;
+        if (tab && this.internalTabs) {
+            if (this.internalTabs.find(t => t === tab)) {
+                this.internalTabs.forEach(t => t.active = t === tab);
                 this.selectedTabId = tab.id;
-            }
-        } else
-            throw Error('Tab could not be found.');
+            } else
+                throw Error('Tab could not be found.');
+        }
     }
 
     tabsChanged() {
@@ -56,7 +52,8 @@ export class Tabs {
         }
 
         if (this.internalTabs.length > 0) {
-            this.selectTab(this.internalTabs[0]);
+            let tab = this.internalTabs.filter(t => t.active)[0];
+            this.selectTab(tab ? tab : this.internalTabs[0]);
         }
     }
 }

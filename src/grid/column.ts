@@ -75,6 +75,9 @@ export class Column {
     @bindable
     public matcher: (term: string, waardes: any[]) => boolean;
 
+    @bindable
+    defaultSortOrder: 'asc' | 'desc' = 'asc';
+
     /**
 	 * Set to false to disable sorting for this column.
 	 */
@@ -100,8 +103,6 @@ export class Column {
 	 * context within which the datagrid is placed is bound to `parent`.
 	 */
     public cellTemplate: string;
-
-    public sortedOrder: string | null;
 
     private bound = new Deferred<void>();
 
