@@ -1,5 +1,7 @@
 # bs-grid
 
+[Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html#/grid)
+
 ```
 <bs-grid rows.bind="data"
          filter.bind="filter"
