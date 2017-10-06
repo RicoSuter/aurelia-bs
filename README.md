@@ -26,6 +26,11 @@ export function configure(aurelia: Aurelia) {
 
 ## Usage
 
+- [Dialogs](docs/dialogs.md)
+- [Validation](docs/validation.md)
+
+### Components
+
 - [bs-button](docs/components/bs-button.md)
 - [bs-checkbox](docs/components/bs-button.md)
 - [bs-grid](docs/components/bs-button.md)
