@@ -1,0 +1,9 @@
+{
+    "tslint.configFile": "./tslint.json",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.enable": true,
+    "tslint.autoFixOnSave": true,
+    "html.format.wrapAttributes": "force-aligned",
+    "editor.formatOnSave": true,
+    "aurelia.autocomplete.quotes": "single"
+}

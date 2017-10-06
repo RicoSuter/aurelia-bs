@@ -28,8 +28,7 @@ export function convert(converter?: (value: any) => any) {
                 throw new Error('The Reflect API is not available.');
 
             let metadata = Reflect.getMetadata ? Reflect.getMetadata('design:type', target, key) :
-                Reflect.getOwnMetadata ? Reflect.getOwnMetadata('design:type', target, key) :
-                undefined;
+                Reflect.getOwnMetadata ? Reflect.getOwnMetadata('design:type', target, key) : undefined;
 
             if (metadata === undefined || metadata === null)
                 throw new Error('The reflection metadata could not be found.');
