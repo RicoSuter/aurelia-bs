@@ -6,6 +6,18 @@ This project provides Bootstrap UI (CSS framework) components for Aurelia JS.
 
 [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
 
+## Installation
+
+- Install via NPM: `npm install aurelia-bs --save`
+- Register plugin in `boot.ts`
+
+```
+export function configure(aurelia: Aurelia) {
+  aurelia.use
+    .standardConfiguration()
+    .plugin(PLATFORM.moduleName('aurelia-bs'))
+```
+
 ## Usage
 
 [Available components](docs/components/index.md)
