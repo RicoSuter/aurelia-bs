@@ -1,4 +1,4 @@
-# aurelia-bs
+# aurelia-bs - Bootstrap UI components for Aurelia JS
 
 [![npm](https://img.shields.io/npm/v/aurelia-bs.svg)](https://www.npmjs.com/package/aurelia-bs)
 
