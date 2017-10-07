@@ -64,7 +64,7 @@ export class Select extends ValidationComponent {
     private changing = false;
 
     attached() {
-        this.updateSelection();
+        this.updateSelection(false);
     }
 
     @computedFrom('multiple', 'required', 'value', 'items')
@@ -79,7 +79,7 @@ export class Select extends ValidationComponent {
     }
 
     protected itemsChanged() {
-        setTimeout(() => this.updateSelection());
+        setTimeout(() => this.updateSelection(false));
     }
 
     protected valueChanged() {
@@ -88,7 +88,7 @@ export class Select extends ValidationComponent {
         }
 
         super.valueChanged();
-        this.updateSelection();
+        this.updateSelection(true);
     }
 
     protected valuesChanged() {
@@ -97,10 +97,10 @@ export class Select extends ValidationComponent {
         }
 
         super.valueChanged();
-        this.updateSelection();
+        this.updateSelection(true);
     }
 
-    protected updateSelection() {
+    protected updateSelection(repeat: boolean) {
         if (this.items && this.select) {
             this.changing = true;
 
@@ -114,6 +114,12 @@ export class Select extends ValidationComponent {
                     let value = this.valuePath ? this.getValue(item, this.valuePath) : item;
                     option.selected = values.indexOf(value) !== -1;
                 }
+            }
+
+            if (repeat) {
+                setTimeout(() => {
+                    this.updateSelection(false);
+                });
             }
 
             this.changing = false;
