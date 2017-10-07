@@ -1,9 +1,5 @@
 <template>
-    <h1>Basic Controls</h1>
-
-    <h2>bs-button</h2>
-    <bs-button>Button</bs-button>
-    <bs-button enabled.bind="false">Disabled button</bs-button>
+    <h1>Content Controls</h1>
 
     <h2>bs-tabs</h2>
     <bs-tabs>
@@ -16,7 +12,8 @@
     </bs-tabs>
 
     <h2>bs-expander</h2>
-    <bs-expander header="Foo">
+    <bs-expander header="Foo"
+                 expanded.bind="true">
         Bar
     </bs-expander>
 </template>

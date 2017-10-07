@@ -1,0 +1,30 @@
+<template>
+    <h1>bs-scroll</h1>
+
+    <div class="row">
+        <div class="col-sm-6">
+            Scroll with full height of page:
+            <bs-scroll>
+                <div repeat.for="item of randomData">
+                    ${item}
+                </div>
+            </bs-scroll>
+        </div>
+        <div class="col-sm-6">
+            Fixed height set to 200px:
+            <bs-scroll height="200">
+                <div repeat.for="item of randomData">
+                    ${item}
+                </div>
+            </bs-scroll>
+
+            <br />
+            <br /> Scroll with full height of page:
+            <bs-scroll>
+                <div repeat.for="item of randomData">
+                    ${item}
+                </div>
+            </bs-scroll>
+        </div>
+    </div>
+</template>

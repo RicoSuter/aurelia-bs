@@ -1,9 +1,13 @@
 import * as moment from 'moment';
+import { observable } from 'aurelia-framework';
 
 export class Grid {
     filter = '';
     currentCount = 0;
     data: any[] = [];
+
+    @observable
+    selectedItems: any[] = [];
 
     constructor() {
         for (let index = 0; index < 500; index++) {

@@ -2,6 +2,8 @@ import { inject } from 'aurelia-framework';
 import { computedFrom } from 'aurelia-binding';
 import { ValidationController, ValidationControllerFactory, ControllerValidateResult } from 'aurelia-validation';
 
+export let language = 'en';
+
 @inject(ValidationControllerFactory)
 export class BsValidation {
     hasValidated = false;

@@ -1,9 +1,23 @@
 ﻿import { inject, Container, CompositionEngine, Controller, ViewSlot } from 'aurelia-framework';
 import { IDialogBase, Dialog } from './dialog';
 import { AlertDialog, IDialogButton } from './dialogs/alert-dialog';
+import { language } from './validation';
+
+let translations = {
+    'de': {
+        'buttonYes': 'Ja',
+        'buttonNo': 'Nein'
+    },
+    'en': {
+        'buttonYes': 'Yes',
+        'buttonNo': 'No'
+    }
+};
 
 @inject(CompositionEngine, Container)
 export class DialogService {
+    translations = (<any>translations)[language];
+
     constructor(
         private compositionEngine: CompositionEngine,
         private container: Container) {
@@ -29,12 +43,12 @@ export class DialogService {
         return this.alert(title, message, [
             {
                 name: 'no',
-                title: 'Nein',
+                title: this.translations.buttonNo,
                 isDefault: false
             },
             {
                 name: 'yes',
-                title: 'Ja',
+                title: this.translations.buttonYes,
                 isDefault: true
             }
         ]).then(button => {

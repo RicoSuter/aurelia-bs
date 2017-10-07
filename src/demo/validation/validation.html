@@ -28,12 +28,16 @@
   <bs-select label="Choose"
              items.bind="['Foo', 'Bar', 'Baz']"
              value.bind="selection"></bs-select>
-  <bs-select label="Choose"
+  <bs-select label="Choose (Required)"
              items.bind="['Foo', 'Bar', 'Baz']"
-             value.bind="selection"></bs-select>
+             value.bind="selection"
+             required.bind="true"></bs-select>
 
   <bs-button click.trigger="submit()"
              enabled.bind="validation.canSubmit">
     Submit
   </bs-button>
+
+  <br />
+  <br />
 </template>

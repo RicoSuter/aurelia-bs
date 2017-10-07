@@ -11,6 +11,9 @@ export class GridFilter {
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     filter = '';
 
+    @bindable
+    position: 'left' | 'right' = 'right';
+
     @observable
     showFilter = false;
 

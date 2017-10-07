@@ -4,10 +4,22 @@ import { computedFrom } from 'aurelia-binding';
 import { ValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 export { BsValidateBindingBehavior } from './validation-component';
+import { language } from './validation';
+
+let translations = {
+    'de': {
+        'select': '<Bitte wählen>'
+    },
+    'en': {
+        'select': '<Please select>'
+    }
+};
 
 @containerless
 @customElement('bs-select')
 export class Select extends ValidationComponent {
+    translations = (<any>translations)[language];
+
     @bindable
     label = '';
 

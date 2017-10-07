@@ -1,29 +1,29 @@
 import { FrameworkConfiguration, PLATFORM } from 'aurelia-framework';
 
 export function configure(config: FrameworkConfiguration): void {
-    config.globalResources([
-      PLATFORM.moduleName('./dialog'),
-      PLATFORM.moduleName('./grid/column'),
-      PLATFORM.moduleName('./grid/grid'),
-      PLATFORM.moduleName('./select-grid/select-grid'),
-      PLATFORM.moduleName('./datepicker'),
-      PLATFORM.moduleName('./dialog'),
-      PLATFORM.moduleName('./scroll'),
-      PLATFORM.moduleName('./checkbox'),
-      PLATFORM.moduleName('./resize-container'),
-      PLATFORM.moduleName('./textbox'),
-      PLATFORM.moduleName('./searchbox'),
-      PLATFORM.moduleName('./select'),
-      PLATFORM.moduleName('./expander'),
-      PLATFORM.moduleName('./fileupload'),
-      PLATFORM.moduleName('./loader'),
-      PLATFORM.moduleName('./navbar-header'),
-      PLATFORM.moduleName('./button'),
-      PLATFORM.moduleName('./label-collection'),
-      PLATFORM.moduleName('./grid-filter'),
-      PLATFORM.moduleName('./tabs/tabs'),
-      PLATFORM.moduleName('./tabs/tab')
-    ]);
+  config.globalResources([
+    PLATFORM.moduleName('./dialog'),
+    PLATFORM.moduleName('./grid/column'),
+    PLATFORM.moduleName('./grid/grid'),
+    PLATFORM.moduleName('./select-grid/select-grid'),
+    PLATFORM.moduleName('./datepicker'),
+    PLATFORM.moduleName('./dialog'),
+    PLATFORM.moduleName('./scroll'),
+    PLATFORM.moduleName('./checkbox'),
+    PLATFORM.moduleName('./resize-container'),
+    PLATFORM.moduleName('./textbox'),
+    PLATFORM.moduleName('./searchbox'),
+    PLATFORM.moduleName('./select'),
+    PLATFORM.moduleName('./expander'),
+    PLATFORM.moduleName('./fileupload'),
+    PLATFORM.moduleName('./loader'),
+    PLATFORM.moduleName('./navbar-header'),
+    PLATFORM.moduleName('./button'),
+    PLATFORM.moduleName('./label-collection'),
+    PLATFORM.moduleName('./grid-filter'),
+    PLATFORM.moduleName('./tabs/tabs'),
+    PLATFORM.moduleName('./tabs/tab')
+  ]);
 }
 
 export * from './resize-container';

@@ -11,13 +11,14 @@
 </bs-tabs>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - selectedTabId
 
-Bindable properties of bs-tab:
+## Bindable properties of bs-tab
 
 - id
 - header
 - panel: Specifies whether to render a panel
 - visible
+- style

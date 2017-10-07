@@ -1,14 +1,20 @@
 <template>
     <h1>bs-grid</h1>
+
+    <bs-label-collection label="Selected Items"
+                         items.bind="selectedItems"
+                         display-path="string">
+    </bs-label-collection>
+
     <bs-grid-filter filter.bind="filter">
         <bs-grid rows.bind="data"
+                 selection-mode="multiple"
+                 selected-items.bind="selectedItems"
                  filter.bind="filter"
                  offset.bind="100"
                  default-sort-column="string"
                  class="basic"
                  item-height.bind="40">
-            <bs-column width="100">
-            </bs-column>
             <bs-column field="date"
                        header="Date field"
                        width="200">
