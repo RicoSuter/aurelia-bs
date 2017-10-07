@@ -16,6 +16,13 @@ export class DialogDemo {
 }
 ```
 
+Methods of DialogService: 
+
+- alert(title, text): Shows a message box. 
+- confirm(title, text): boolean: Shows a yes/no dialog.
+- show<TDialog extends IDialogBase>(viewUrl: string, model?: any, created?: (dialog: TDialog) => void): Promise<TDialog>()
+  
+
 ## Implement a custom dialog
 
 TBD.
