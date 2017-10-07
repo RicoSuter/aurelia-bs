@@ -33,6 +33,29 @@
              value.bind="selection"
              required.bind="true"></bs-select>
 
+  <p>
+    Selected item: ${selection}
+  </p>
+
+  <bs-select label="Choose"
+             items.bind="['Foo', 'Bar', 'Baz']"
+             values.bind="selections"
+             height.bind="100"
+             multiple.bind="true">
+  </bs-select>
+  <bs-select label="Choose (Required)"
+             items.bind="['Foo', 'Bar', 'Baz']"
+             values.bind="selections"
+             height.bind="100"
+             multiple.bind="true"
+             required.bind="true">
+  </bs-select>
+
+  <h2>bs-label-collection</h2>
+  <bs-label-collection label="Selected Items"
+                       items.bind="selections">
+  </bs-label-collection>
+
   <bs-button click.trigger="submit()"
              enabled.bind="validation.canSubmit">
     Submit

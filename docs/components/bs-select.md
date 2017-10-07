@@ -10,12 +10,14 @@
 Bindable properties:
 
 - label
-- value
 - items
+- value
+- values
 - displayPath
 - valuePath
-- multiple
+- required
 - enabled
 - readonly
 - help
-- required
+- multiple
+- height

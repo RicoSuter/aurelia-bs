@@ -37,10 +37,6 @@ export class Select extends ValidationComponent {
 
     @bindable
     @convert(BooleanConverter)
-    multiple = false;
-
-    @bindable
-    @convert(BooleanConverter)
     enabled = true;
 
     @bindable
@@ -56,6 +52,13 @@ export class Select extends ValidationComponent {
 
     @bindable
     displayPath: string | null = null;
+
+    @bindable
+    @convert(BooleanConverter)
+    multiple = false;
+
+    @bindable
+    height: number | undefined = undefined;
 
     private select: HTMLSelectElement;
     private changing = false;
@@ -80,11 +83,20 @@ export class Select extends ValidationComponent {
     }
 
     protected valueChanged() {
+        if (!this.changing) {
+            this.values = this.value ? [this.value] : null;
+        }
+
         super.valueChanged();
         this.updateSelection();
     }
 
     protected valuesChanged() {
+        if (!this.changing) {
+            this.value = this.values && this.values.length > 0 ? this.values[0] : null;
+        }
+
+        super.valueChanged();
         this.updateSelection();
     }
 
@@ -128,8 +140,10 @@ export class Select extends ValidationComponent {
                 }
             }
 
+            this.changing = true;
             this.values = selectedItems;
             this.value = selectedItems != null && selectedItems.length > 0 ? selectedItems[0] : null;
+            this.changing = false;
         }
     }
 

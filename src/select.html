@@ -7,6 +7,7 @@
         <select class="form-control"
                 change.trigger="onChange($event)"
                 ref="select"
+                style="${height ? 'height: ' + height + 'px !important' : ''}"
                 multiple.bind="multiple ? 'multiple' : null"
                 disabled.bind="enabled === false ? 'disabled' : undefined"
                 readonly.bind="readonly ? 'readonly' : undefined">
