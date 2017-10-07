@@ -7,7 +7,7 @@ import * as moment from 'moment';
 
 import { BooleanConverter, convert } from './convert';
 import { ValidationComponent } from './validation-component';
-import { language } from './validation';
+import { BsSettings } from './settings';
 
 let translations = {
     'de': {
@@ -23,7 +23,7 @@ let translations = {
 @containerless
 @customElement('bs-datepicker')
 export class Datepicker extends ValidationComponent {
-    translations = (<any>translations)[language];
+    translations = (<any>translations)[BsSettings.language];
 
     private element: HTMLElement;
     private updating = false;

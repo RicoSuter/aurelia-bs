@@ -1,11 +1,13 @@
 <template>
-    <h1>bs-grid</h1>
-
+    <h2>bs-label-collection</h2>
     <bs-label-collection label="Selected Items"
                          items.bind="selectedItems"
                          display-path="string">
     </bs-label-collection>
 
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-label-collection.md">Docs</a>
+
+    <h1>bs-grid</h1>
     <bs-grid-filter filter.bind="filter">
         <bs-grid rows.bind="data"
                  selection-mode="multiple"
@@ -14,6 +16,7 @@
                  offset.bind="100"
                  default-sort-column="string"
                  class="basic"
+                 offset="100"
                  item-height.bind="40">
             <bs-column field="date"
                        header="Date field"
@@ -41,4 +44,8 @@
             </bs-column>
         </bs-grid>
     </bs-grid-filter>
+
+    <p>
+        <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-grid.md">Docs</a>
+    </p>
 </template>

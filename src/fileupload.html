@@ -8,7 +8,7 @@
              disabled.bind="enabled === false ? 'disabled' : undefined"
              readonly.bind="readonly ? 'readonly' : undefined">
             <p>
-                ${description === null ? 'No file selected' : description.name}
+                ${description === null ? translations.noItemSelected : description.name}
             </p>
 
             <bs-button click.trigger="select()">

@@ -5,14 +5,18 @@ import 'bootstrap';
 
 import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
+import { BsSettings } from './settings';
 
 import * as Promise from 'bluebird';
 
 Promise.config({
-    longStackTraces: false,
-    warnings: false // note, run node with --trace-warnings to see full stack traces for warnings
+  longStackTraces: false,
+  warnings: false // note, run node with --trace-warnings to see full stack traces for warnings
 });
 (<any>window).Promise = Promise;
+
+// Change aurelia-bs settings
+BsSettings.language = window.location.search.indexOf('lang=de') !== -1 ? 'de' : 'en';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use

@@ -1,11 +1,10 @@
 ﻿import { bindable, inject, customElement, View } from 'aurelia-framework';
 import { convert, BooleanConverter, StringConverter } from './convert';
+import { DialogService } from './dialog-service';
 
-@inject(Element)
+@inject(DialogService)
 @customElement('bs-dialog')
 export class Dialog {
-    static openedDialogs: IDialogBase[] = [];
-
     @bindable
     @convert(StringConverter)
     title = '';
@@ -24,6 +23,9 @@ export class Dialog {
 
     dialog: IDialogBase;
 
+    constructor(private dialogService: DialogService) {
+    }
+
     bind(_view: any, myView: View) {
         this.dialog = myView.bindingContext as IDialogBase;
     }
@@ -31,7 +33,7 @@ export class Dialog {
     checkDismissClick(event: MouseEvent) {
         let classAttribute = event.srcElement!.getAttribute('class');
         if (this.closeOnBackdrop &&
-            Dialog.openedDialogs[Dialog.openedDialogs.length - 1] === this.dialog &&
+            this.dialogService.openedDialogs[this.dialogService.openedDialogs.length - 1] === this.dialog &&
             classAttribute && classAttribute.indexOf('modal fade in') !== -1) {
 
             event.stopPropagation();
@@ -46,6 +48,8 @@ export class DialogBase implements IDialogBase {
     constructor(public element: Element) {
 
     }
+
+    viewModelUrl = 'n/a';
 
     static dispatchCloseEvent(dialog: IDialogBase) {
         let event = new CustomEvent('close', { detail: dialog });
@@ -62,6 +66,7 @@ export class DialogBase implements IDialogBase {
 }
 
 export interface IDialogBase {
+    viewModelUrl: string;
     element: Element;
     close(): void;
     cancel(): void;

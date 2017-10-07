@@ -4,7 +4,7 @@ import { computedFrom } from 'aurelia-binding';
 import { ValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 export { BsValidateBindingBehavior } from './validation-component';
-import { language } from './validation';
+import { BsSettings } from './settings';
 
 let translations = {
     'de': {
@@ -18,7 +18,7 @@ let translations = {
 @containerless
 @customElement('bs-select')
 export class Select extends ValidationComponent {
-    translations = (<any>translations)[language];
+    translations = (<any>translations)[BsSettings.language];
 
     @bindable
     label = '';

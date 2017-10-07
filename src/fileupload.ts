@@ -2,6 +2,7 @@ import { customElement, bindable, containerless, bindingMode } from 'aurelia-fra
 
 import { ValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
+import { BsSettings } from './settings';
 
 export interface FileDescription {
     name: string;
@@ -10,9 +11,20 @@ export interface FileDescription {
     size: number;
 }
 
+let translations = {
+    'de': {
+        noItemSelected: 'Keine Datei.'
+    },
+    'en': {
+        noItemSelected: 'No File.'
+    }
+};
+
 @containerless
 @customElement('bs-fileupload')
 export class FileUpload extends ValidationComponent {
+    translations = (<any>translations)[BsSettings.language];
+
     @bindable
     label = '';
 

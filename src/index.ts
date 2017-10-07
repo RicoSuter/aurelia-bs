@@ -26,6 +26,8 @@ export function configure(config: FrameworkConfiguration): void {
   ]);
 }
 
+export * from './settings';
+
 export * from './resize-container';
 
 export * from './dialogs/alert-dialog';

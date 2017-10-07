@@ -3,46 +3,48 @@
 
     <h2>bs-button</h2>
 
+    <bs-button>Button</bs-button>
+    <bs-button enabled.bind="false">Disabled button</bs-button>
+
     <p>
         <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-button.md">Docs</a>
     </p>
 
-    <bs-button>Button</bs-button>
-    <bs-button enabled.bind="false">Disabled button</bs-button>
-
     <h2>bs-textbox</h2>
 
-    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md">Docs</a>
     <bs-textbox label="My Textbox"></bs-textbox>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md">Docs</a>
 
     <h2>bs-checkbox</h2>
 
-    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md">Docs</a>
     <bs-checkbox label="My Checkbox"></bs-checkbox>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md">Docs</a>
 
     <h2>bs-select</h2>
 
-    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md">Docs</a>
     <bs-select label="My Select"
                items.bind="['foo', 'bar']">
     </bs-select>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md">Docs</a>
 
     <h2>bs-select-grid</h2>
-    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md">Docs</a>
     <bs-select-grid label="My Select Grid"
-                    rows.bind="[{name: 'foo', age: 45}, { name: 'bar', age: 34}]">
+                    display-path="name"
+                    items.bind="[{name: 'foo', age: 45}, { name: 'bar', age: 34}]">
         <bs-column field="name"
                    header="Name">
             ${row.name}
         </bs-column>
         <bs-column field="age"
+                   width="100"
                    header="Age">
             ${row.age}
         </bs-column>
     </bs-select-grid>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md">Docs</a>
 
     <h2>bs-fileupload</h2>
-    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md">Docs</a>
     <bs-fileupload label="Image">
     </bs-fileupload>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md">Docs</a>
 </template>

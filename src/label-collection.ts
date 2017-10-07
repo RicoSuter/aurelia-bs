@@ -1,19 +1,19 @@
 import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
-import { language } from './validation';
+import { BsSettings } from './settings';
 
 let translations = {
     'de': {
-        'noItems': '<Keine>'
+        'noItems': '<Keine Auswahl>'
     },
     'en': {
-        'noItems': '<None>'
+        'noItems': '<No selection>'
     }
 };
 
 @containerless
 @customElement('bs-label-collection')
 export class LabelCollection {
-    translations = (<any>translations)[language];
+    translations = (<any>translations)[BsSettings.language];
 
     @bindable
     label = '';
