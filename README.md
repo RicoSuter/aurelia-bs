@@ -1,4 +1,4 @@
-# aurelia-bs - Bootstrap UI components for Aurelia JS
+# aurelia-bs: Bootstrap UI components for Aurelia JS
 
 [![npm](https://img.shields.io/npm/v/aurelia-bs.svg)](https://www.npmjs.com/package/aurelia-bs)
 
@@ -10,8 +10,9 @@ This project provides Bootstrap UI (CSS framework) components for Aurelia JS.
 
 ## Installation
 
-- Install `aurelia-bs` via NPM: `npm install aurelia-bs --save`
-- Install `aurelia-validation` via NPM: `npm install aurelia-validation --save`
+- Install `aurelia-bs` and `aurelia-validation` via NPM: 
+    - `npm install aurelia-bs --save`
+    - `npm install aurelia-validation --save`
 - Register both plugins in `boot.ts`
 
 ```
