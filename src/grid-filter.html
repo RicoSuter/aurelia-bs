@@ -1,11 +1,11 @@
 <template>
     <div style="position: relative">
-        <div style="position: absolute; ${position}: 0; top: 5px">
+        <div style.bind="'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'">
             <a click.trigger="toggleFilter()"
                style="cursor: pointer">
                <big>
-                   <span class="glyphicon glyphicon-filter" 
-                         style.bind="filter ? 'color: red' : 'color: black'"></span> 
+                    <i class="glyphicon glyphicon-filter"
+                       style.bind="filter ? 'color: red' : 'color: black'"></i>
                 </big>
             </a>
         </div>

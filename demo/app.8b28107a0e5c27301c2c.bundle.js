@@ -17638,8 +17638,8 @@ var DialogService = /** @class */ (function () {
                         _this.openedDialogs = _this.openedDialogs.filter(function (d) { return d !== e.detail; });
                         if (_this.openedDialogs.length === 0)
                             document.body.classList.toggle('modal-open');
-                        dialogDiv.remove();
-                        backdropDiv.remove();
+                        _this.removeElement(dialogDiv);
+                        _this.removeElement(backdropDiv);
                         view.unbind();
                         view.detached();
                         view.removeNodes(); // TODO: Use correct destroy method
@@ -17648,6 +17648,14 @@ var DialogService = /** @class */ (function () {
                 });
             });
         });
+    };
+    DialogService.prototype.removeElement = function (element) {
+        if (element.remove) {
+            element.remove();
+        }
+        else if (element.parentNode) {
+            element.parentNode.removeChild(element);
+        }
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["E" /* observable */],
@@ -56231,7 +56239,7 @@ var GridFilter = /** @class */ (function () {
 /***/ "grid-filter.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div style=\"position: relative\">\r\n        <div style=\"position: absolute; ${position}: 0; top: 5px\">\r\n            <a click.trigger=\"toggleFilter()\"\r\n               style=\"cursor: pointer\">\r\n               <big>\r\n                   <span class=\"glyphicon glyphicon-filter\" \r\n                         style.bind=\"filter ? 'color: red' : 'color: black'\"></span> \r\n                </big>\r\n            </a>\r\n        </div>\r\n        <div show.bind=\"showFilter\"\r\n             style=\"position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px\">\r\n            <bs-textbox placeholder=\"Filter\"\r\n                        value.bind=\"filter\"\r\n                        enter-pressed.trigger=\"toggleFilter()\"\r\n                        view-model.ref=\"filterBox\"></bs-textbox>\r\n        </div>\r\n    </div>\r\n    <slot></slot>\r\n</template>";
+module.exports = "<template>\r\n    <div style=\"position: relative\">\r\n        <div style.bind=\"'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'\">\r\n            <a click.trigger=\"toggleFilter()\"\r\n               style=\"cursor: pointer\">\r\n               <big>\r\n                    <i class=\"glyphicon glyphicon-filter\"\r\n                       style.bind=\"filter ? 'color: red' : 'color: black'\"></i>\r\n                </big>\r\n            </a>\r\n        </div>\r\n        <div show.bind=\"showFilter\"\r\n             style=\"position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px\">\r\n            <bs-textbox placeholder=\"Filter\"\r\n                        value.bind=\"filter\"\r\n                        enter-pressed.trigger=\"toggleFilter()\"\r\n                        view-model.ref=\"filterBox\"></bs-textbox>\r\n        </div>\r\n    </div>\r\n    <slot></slot>\r\n</template>";
 
 /***/ }),
 
@@ -58667,4 +58675,4 @@ module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.cf1fb87b4490e0c9b4cc.bundle.map
+//# sourceMappingURL=app.8b28107a0e5c27301c2c.bundle.map

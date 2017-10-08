@@ -101,8 +101,8 @@ export class DialogService {
                         if (this.openedDialogs.length === 0)
                             document.body.classList.toggle('modal-open');
 
-                        dialogDiv.remove();
-                        backdropDiv.remove();
+                        this.removeElement(dialogDiv);
+                        this.removeElement(backdropDiv);
 
                         view.unbind();
                         view.detached();
@@ -113,5 +113,13 @@ export class DialogService {
                 });
             });
         });
+    }
+
+    private removeElement(element: HTMLElement) {
+        if (element.remove) {
+            element.remove();
+        } else if (element.parentNode) {
+            element.parentNode.removeChild(element);
+        }
     }
 }
