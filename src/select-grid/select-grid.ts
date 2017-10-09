@@ -7,10 +7,22 @@ import { SelectGridDialog } from './select-grid-dialog';
 import { Column } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
 import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
+import { BsSettings } from '../settings';
+
+let translations = {
+  'de': {
+    'select': '<Bitte wählen>'
+  },
+  'en': {
+    'select': '<Please select>'
+  }
+};
 
 @inject(DialogService)
 @customElement('bs-select-grid')
 export class SelectGrid extends ValidationComponent {
+  translations = (<any>translations)[BsSettings.language];
+
   id = createComponentId();
   controlElement: HTMLDivElement;
 
