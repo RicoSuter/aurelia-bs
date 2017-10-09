@@ -1,16 +1,34 @@
-﻿import { inject, Container, CompositionEngine, Controller, ViewSlot } from 'aurelia-framework';
-import { IDialogBase, Dialog } from './dialog';
+﻿import { inject, Container, CompositionEngine, Controller, ViewSlot, PLATFORM } from 'aurelia-framework';
+import { IDialogBase } from './dialog';
 import { AlertDialog, IDialogButton } from './dialogs/alert-dialog';
+import { BsSettings } from './settings';
+import { observable } from 'aurelia-binding';
+
+let translations = {
+    'de': {
+        'buttonYes': 'Ja',
+        'buttonNo': 'Nein'
+    },
+    'en': {
+        'buttonYes': 'Yes',
+        'buttonNo': 'No'
+    }
+};
 
 @inject(CompositionEngine, Container)
 export class DialogService {
+    translations = (<any>translations)[BsSettings.language];
+
     constructor(
         private compositionEngine: CompositionEngine,
         private container: Container) {
     }
 
+    @observable
+    openedDialogs: IDialogBase[] = [];
+
     alert(title: string, message: string, buttons?: IDialogButton[]) {
-        return this.show<AlertDialog>('aurelia-bs/dialogs/alert-dialog', {
+        return this.show<AlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), {
             title: title,
             message: message,
             buttons: buttons ? buttons : [
@@ -29,12 +47,12 @@ export class DialogService {
         return this.alert(title, message, [
             {
                 name: 'no',
-                title: 'Nein',
+                title: this.translations.buttonNo,
                 isDefault: false
             },
             {
                 name: 'yes',
-                title: 'Ja',
+                title: this.translations.buttonYes,
                 isDefault: true
             }
         ]).then(button => {
@@ -42,7 +60,7 @@ export class DialogService {
         });
     }
 
-    show<TDialog extends IDialogBase>(viewUrl: string, model?: any, created?: (dialog: TDialog) => void): Promise<TDialog> {
+    show<TDialog extends IDialogBase>(viewModelUrl: string, model?: any, created?: (dialog: TDialog) => void): Promise<TDialog> {
         if ((<any>document.activeElement).blur)
             (<any>document.activeElement).blur();
 
@@ -55,7 +73,7 @@ export class DialogService {
 
         let instruction = {
             model: model,
-            viewModel: viewUrl,
+            viewModel: viewModelUrl,
             container: this.container,
             bindingContext: <any>null,
             viewResources: <any>null,
@@ -63,12 +81,13 @@ export class DialogService {
         };
 
         return this.compositionEngine.compose(<any>instruction).then((controller: Controller) => {
-            if (Dialog.openedDialogs.length === 0)
+            if (this.openedDialogs.length === 0)
                 document.body.classList.toggle('modal-open');
 
             let view = controller.view;
             let dialog = view.bindingContext as TDialog;
-            Dialog.openedDialogs.push(dialog);
+            dialog.viewModelUrl = viewModelUrl;
+            this.openedDialogs = this.openedDialogs.concat([dialog]);
 
             if (created)
                 created(dialog);
@@ -77,13 +96,13 @@ export class DialogService {
                 view.attached();
                 dialog.element.addEventListener('close', (e: CustomEvent) => {
                     if (e.detail === dialog) {
-                        Dialog.openedDialogs = Dialog.openedDialogs.filter(d => d !== e.detail);
+                        this.openedDialogs = this.openedDialogs.filter(d => d !== e.detail);
 
-                        if (Dialog.openedDialogs.length === 0)
+                        if (this.openedDialogs.length === 0)
                             document.body.classList.toggle('modal-open');
 
-                        dialogDiv.remove();
-                        backdropDiv.remove();
+                        this.removeElement(dialogDiv);
+                        this.removeElement(backdropDiv);
 
                         view.unbind();
                         view.detached();
@@ -94,5 +113,13 @@ export class DialogService {
                 });
             });
         });
+    }
+
+    private removeElement(element: HTMLElement) {
+        if (element.remove) {
+            element.remove();
+        } else if (element.parentNode) {
+            element.parentNode.removeChild(element);
+        }
     }
 }

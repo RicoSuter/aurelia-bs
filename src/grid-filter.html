@@ -1,12 +1,20 @@
 <template>
     <div style="position: relative">
-        <div style="position: absolute; right: 0; top: 5px">
-            <a click.trigger="toggleFilter()">
-                        <i class="fa fa-filter" style="font-size: 24px" aria-hidden="true" style.bind="filter ? 'color: red' : 'color: black'"></i>
-                    </a>
+        <div style.bind="'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'">
+            <a click.trigger="toggleFilter()"
+               style="cursor: pointer">
+               <big>
+                    <i class="glyphicon glyphicon-filter"
+                       style.bind="filter ? 'color: red' : 'color: black'"></i>
+                </big>
+            </a>
         </div>
-        <div show.bind="showFilter" style="position: absolute; background: #EEEEEE; padding-right: 10px; padding-left: 10px; right: 30px; top: -10px; width: 300px">
-            <bs-textbox placeholder="Filter" value.bind="filter" enter-pressed.trigger="toggleFilter()" view-model.ref="filterBox"></bs-textbox>
+        <div show.bind="showFilter"
+             style="position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px">
+            <bs-textbox placeholder="Filter"
+                        value.bind="filter"
+                        enter-pressed.trigger="toggleFilter()"
+                        view-model.ref="filterBox"></bs-textbox>
         </div>
     </div>
     <slot></slot>

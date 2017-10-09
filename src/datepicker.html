@@ -9,7 +9,7 @@
              ref="element">
             <input type="text"
                    class="form-control"
-                   placeholder.bind="!value && !required ? '&lt;Kein Datum&gt;' : '&lt;Bitte wählen&gt;'"
+                   placeholder.bind="!value && !required ? translations.noValue : translations.select"
                    disabled.bind="enabled === false ? 'disabled' : undefined">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-th"></i>

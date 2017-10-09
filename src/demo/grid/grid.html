@@ -1,25 +1,51 @@
 <template>
+    <h2>bs-label-collection</h2>
+    <bs-label-collection label="Selected Items"
+                         items.bind="selectedItems"
+                         display-path="string">
+    </bs-label-collection>
+
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-label-collection.md">Docs</a>
+
     <h1>bs-grid</h1>
     <bs-grid-filter filter.bind="filter">
-        <bs-grid rows.bind="data" filter.bind="filter" offset.bind="100" default-sort-column="string" class="basic" item-height.bind="40">
-            <bs-column width="100">
-            </bs-column>
-            <bs-column field="date" header="Date field" width="200">
+        <bs-grid rows.bind="data"
+                 selection-mode="multiple"
+                 selected-items.bind="selectedItems"
+                 filter.bind="filter"
+                 offset.bind="100"
+                 default-sort-column="string"
+                 class="basic"
+                 offset="100"
+                 item-height.bind="40">
+            <bs-column field="date"
+                       header="Date field"
+                       width="200">
                 ${row.date.format('DD.MM.YYYY')}
             </bs-column>
-            <bs-column field="string" row-header="true" width="200">
+            <bs-column field="string"
+                       row-header="true"
+                       width="200">
                 <header>
                     <em>Header with markup</em><br> These are row-headers.
                 </header>
             </bs-column>
-            <bs-column header="No field specified" width="150">
+            <bs-column header="No field specified"
+                       width="150">
                 ${parent.getRandomValue()}
             </bs-column>
-            <bs-column header="Unsortable, unsearchable boolean field" field="boolean" sortable="false" searchable="false">
+            <bs-column header="Unsortable, unsearchable boolean field"
+                       field="boolean"
+                       sortable="false"
+                       searchable="false">
                 <span class.bind="row.boolean ? 'green' : 'red'">
                     ${row.boolean ? "yes" : "no"}
                 </span>
             </bs-column>
         </bs-grid>
     </bs-grid-filter>
+
+    <p>
+        <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-grid.md">Docs</a>
+    </p>
 </template>

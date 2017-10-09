@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { autoinject } from "aurelia-framework";
+import { autoinject } from 'aurelia-framework';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 import { BsValidation } from '../../validation';
 import { FileDescription } from '../../fileupload';
@@ -11,6 +11,9 @@ export class Validation {
     firstName: string | null;
     dateOfBirth: moment.Moment | null = null;
     image: FileDescription | null;
+
+    selection: string | undefined = undefined;
+    selections: string[];
 
     constructor(private validation: BsValidation) {
         let rules = ValidationRules

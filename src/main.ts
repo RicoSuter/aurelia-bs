@@ -5,6 +5,7 @@ import 'bootstrap';
 
 import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
+import { BsSettings } from './settings';
 
 import * as Promise from 'bluebird';
 
@@ -21,6 +22,9 @@ let subscribe = (<any>binding).DirtyCheckProperty.prototype.subscribe;
   subscribe(context, callable);
   console.warn(`'${this.obj.constructor.name}.${this.propertyName}' is being dirty checked!`, this.obj);
 };
+
+// Change aurelia-bs settings
+BsSettings.language = window.location.search.indexOf('lang=de') !== -1 ? 'de' : 'en';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use

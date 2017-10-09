@@ -5,10 +5,11 @@
             ${label}
 		</label>
 		<div>
+			${!items || items.length == 0 ? translations.noItems : ''}
 			<span repeat.for="item of items"
 			      style="display: inline-block">
 				<span class="label label-default" if.bind="enabled">
-					<a click.trigger="removeItem(item)" style="color: white">
+					<a click.trigger="removeItem(item)" style="color: white; cursor: pointer">
 						${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;
 						<big aria-hidden="true">&times;</big>
 					</a>

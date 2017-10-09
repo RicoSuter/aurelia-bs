@@ -3,6 +3,7 @@
         css="display: ${tabs.length > 0 ? 'block' : 'none'}">
         <li repeat.for="tab of tabs"
             show.bind="tab.visible"
+            style.bind="tab.style"
             class="${tab.active ? 'active' : ''}">
             <a click.trigger="selectTab(tab)"
                href="#">

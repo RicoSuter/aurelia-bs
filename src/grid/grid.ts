@@ -60,14 +60,7 @@ export class Grid extends ResizeContainer {
     public static LOCALE: string;
 
     @bindable
-    loadData: (request: GridDataRequest) => Promise<GridDataResponse> = (request) => {
-        return Promise.resolve(<GridDataResponse>{
-            items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
-            filteredCount: this.actualRows ? this.actualRows.length : -1,
-            totalCount: this.rows ? this.rows.length : -1
-        });
-    }
-
+    loadData: ((request: GridDataRequest) => Promise<GridDataResponse>) | undefined = undefined;
     @bindable
     comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
@@ -147,14 +140,15 @@ export class Grid extends ResizeContainer {
     @bindable
     rowClass = '';
 
-    showFooter = false;
-
     /** Set to false to not automatically initialize data, a manual call to refresh() is required to initialize the data. */
     @bindable
     autoInit = true;
 
     @bindable
     hideUnfilteredCounter = GridDefaults.hideUnfilteredCounter;
+
+    @bindable
+    showFooter = false;
 
     @computedFrom('filteredCount', 'pageSize')
     get pageCount() {
@@ -312,15 +306,26 @@ export class Grid extends ResizeContainer {
         await this.refreshInternal();
     }
 
+    private loadDataFromItems(request: GridDataRequest): Promise<GridDataResponse> {
+        return Promise.resolve(<GridDataResponse>{
+            items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
+            filteredCount: this.actualRows ? this.actualRows.length : -1,
+            totalCount: this.rows ? this.rows.length : -1
+        });
+    }
+
     private async refreshInternal() {
         this.actualRows = this.rows ? this.sortItems(this.filterItems(this.rows)) : undefined;
 
-        if (!this.autoInit || !this.loadData || !this.isBound || this.pageSize === 0)
+        if (!this.autoInit || (!this.loadData && !this.rows) || !this.isBound || this.pageSize === 0)
             return;
 
         if (!this.refreshingGrid) {
             this.refreshingGrid = true;
-            let result = await this.loadData(this.getCurrentGridDataRequest());
+            let promise = this.rows ?
+                this.loadDataFromItems(this.getCurrentGridDataRequest()) :
+                this.loadData!(this.getCurrentGridDataRequest());
+            let result = (<any>promise.then) ? await promise : <any>promise;
 
             this.totalCount = result.totalCount;
             this.filteredCount = result.filteredCount;

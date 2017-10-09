@@ -8,11 +8,14 @@ import { Textbox } from './textbox';
 export class GridFilter {
     filterBox: Textbox;
 
-    @observable
-    showFilter = false;
-
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     filter = '';
+
+    @bindable
+    position: 'left' | 'right' = 'right';
+
+    @observable
+    showFilter = false;
 
     toggleFilter() {
         this.showFilter = !this.showFilter;

@@ -7,12 +7,19 @@ export class App {
     configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'Aurelia';
         config.map([{
-            route: ['', 'home'],
-            name: 'home',
-            settings: { icon: 'home' },
-            moduleId: PLATFORM.moduleName('../home/home'),
+            route: ['', 'common'],
+            name: 'common',
+            settings: { icon: 'education' },
+            moduleId: PLATFORM.moduleName('../common/common'),
             nav: true,
-            title: 'Home'
+            title: 'Common Controls'
+        }, {
+            route: 'content',
+            name: 'content',
+            settings: { icon: 'home' },
+            moduleId: PLATFORM.moduleName('../content/content'),
+            nav: true,
+            title: 'Content Controls'
         }, {
             route: 'dialog',
             name: 'dialog',
@@ -28,12 +35,19 @@ export class App {
             nav: true,
             title: 'Validation'
         }, {
+            route: 'scroll',
+            name: 'scroll',
+            settings: { icon: 'education' },
+            moduleId: PLATFORM.moduleName('../scroll/scroll'),
+            nav: true,
+            title: 'bs-scroll'
+        }, {
             route: 'grid',
             name: 'grid',
             settings: { icon: 'education' },
             moduleId: PLATFORM.moduleName('../grid/grid'),
             nav: true,
-            title: 'Grid'
+            title: 'bs-grid'
         }]);
 
         this.router = router;

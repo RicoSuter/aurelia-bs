@@ -1,6 +1,6 @@
-import * as moment from 'moment';
-import { autoinject } from "aurelia-framework";
+import { autoinject } from 'aurelia-framework';
 import { DialogService } from '../../dialog-service';
+import { CustomDialog } from './custom-dialog';
 
 @autoinject
 export class Dialog {
@@ -9,7 +9,15 @@ export class Dialog {
     constructor(private dialogService: DialogService) {
     }
 
-    showAlert() {
-        this.dialogService.alert('Hello World!', 'This is dialog #' + this.dialogCounter++);
+    async showAlert() {
+        await this.dialogService.alert('Hello World!', 'This is dialog #' + this.dialogCounter++);
+    }
+
+    async showConfirm() {
+        await this.dialogService.confirm('Confirm', 'Please choose wisely.');
+    }
+
+    async showCustom() {
+        await CustomDialog.show(this.dialogService);
     }
 }

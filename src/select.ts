@@ -4,10 +4,22 @@ import { computedFrom } from 'aurelia-binding';
 import { ValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 export { BsValidateBindingBehavior } from './validation-component';
+import { BsSettings } from './settings';
+
+let translations = {
+    'de': {
+        'select': '<Bitte wählen>'
+    },
+    'en': {
+        'select': '<Please select>'
+    }
+};
 
 @containerless
 @customElement('bs-select')
 export class Select extends ValidationComponent {
+    translations = (<any>translations)[BsSettings.language];
+
     @bindable
     label = '';
 
@@ -22,10 +34,6 @@ export class Select extends ValidationComponent {
 
     @bindable
     valuePath: string | null = null;
-
-    @bindable
-    @convert(BooleanConverter)
-    multiple = false;
 
     @bindable
     @convert(BooleanConverter)
@@ -45,11 +53,18 @@ export class Select extends ValidationComponent {
     @bindable
     displayPath: string | null = null;
 
+    @bindable
+    @convert(BooleanConverter)
+    multiple = false;
+
+    @bindable
+    height: number | undefined = undefined;
+
     private select: HTMLSelectElement;
     private changing = false;
 
     attached() {
-        this.updateSelection();
+        this.updateSelection(false);
     }
 
     @computedFrom('multiple', 'required', 'value', 'items')
@@ -64,19 +79,28 @@ export class Select extends ValidationComponent {
     }
 
     protected itemsChanged() {
-        setTimeout(() => this.updateSelection());
+        setTimeout(() => this.updateSelection(false));
     }
 
     protected valueChanged() {
+        if (!this.changing) {
+            this.values = this.value ? [this.value] : null;
+        }
+
         super.valueChanged();
-        this.updateSelection();
+        this.updateSelection(true);
     }
 
     protected valuesChanged() {
-        this.updateSelection();
+        if (!this.changing) {
+            this.value = this.values && this.values.length > 0 ? this.values[0] : null;
+        }
+
+        super.valueChanged();
+        this.updateSelection(true);
     }
 
-    protected updateSelection() {
+    protected updateSelection(repeat: boolean) {
         if (this.items && this.select) {
             this.changing = true;
 
@@ -90,6 +114,12 @@ export class Select extends ValidationComponent {
                     let value = this.valuePath ? this.getValue(item, this.valuePath) : item;
                     option.selected = values.indexOf(value) !== -1;
                 }
+            }
+
+            if (repeat) {
+                setTimeout(() => {
+                    this.updateSelection(false);
+                });
             }
 
             this.changing = false;
@@ -116,8 +146,10 @@ export class Select extends ValidationComponent {
                 }
             }
 
+            this.changing = true;
             this.values = selectedItems;
             this.value = selectedItems != null && selectedItems.length > 0 ? selectedItems[0] : null;
+            this.changing = false;
         }
     }
 

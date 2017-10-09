@@ -1,0 +1,13 @@
+<template>
+    <bs-dialog title.bind="title">
+        <div class="modal-body">
+            <h1>My custom dialog</h1>
+            <bs-button click.trigger="showAlert()">Show Alert</bs-button>
+        </div>
+        <div class="modal-footer">
+            <bs-button click.trigger="close()">
+                Close
+            </bs-button>
+        </div>
+    </bs-dialog>
+</template>

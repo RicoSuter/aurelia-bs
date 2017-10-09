@@ -1,27 +1,34 @@
 <template>
     <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
-        <label class="control-label" if.bind="label !== ''">
+        <label class="control-label"
+               if.bind="label !== ''">
             ${label}
         </label>
-        <div class="input-group" 
+        <div class="input-group"
              disabled.bind="enabled === false ? 'disabled' : undefined"
              readonly.bind="readonly ? 'readonly' : undefined">
             <p>
-                ${description === null ? 'No file selected' : description.name}
+                ${description === null ? translations.noItemSelected : description.name}
             </p>
 
             <bs-button click.trigger="select()">
                 Select
             </bs-button>
             &nbsp;
-            <bs-button if.bind="description !== null" click.trigger="clear()">
+            <bs-button if.bind="description !== null"
+                       click.trigger="clear()">
                 Clear
             </bs-button>
 
-            <input ref="fileInput" style="display: none" type="file" accept.bind="accept" change.trigger="fileSelected($event.target.files[0])" />
+            <input ref="fileInput"
+                   style="display: none"
+                   type="file"
+                   accept.bind="accept"
+                   change.trigger="fileSelected($event.target.files[0])" />
         </div>
-        <p class="help-block" repeat.for="error of errors">
+        <p class="help-block"
+           repeat.for="error of errors">
             ${error.message}
-        <p>
+            <p>
     </div>
 </template>

@@ -1,4 +1,19 @@
 <template>
     <h1>Dialogs</h1>
     <bs-button click.trigger="showAlert()">Show alert dialog</bs-button>
+    <bs-button click.trigger="showConfirm()">Show confirm dialog</bs-button>
+    <bs-button click.trigger="showCustom()">Show custom dialog</bs-button>
+
+    <p>
+        <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/dialogs.md">Docs</a>
+    </p>
+
+    <p style="padding-top: 200px">
+        Opened dialogs: ${dialogService.openedDialogs.length}
+
+
+        <div repeat.for="dlg of dialogService.openedDialogs">
+            ${dlg.viewModelUrl}
+        </div>
+    </p>
 </template>
