@@ -17,7 +17,7 @@ const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const baseUrl = '/';
+const baseUrl = 'https://rawgit.com/RSuter/aurelia-bs/master/demo/';
 
 const cssRules = [
   { loader: 'css-loader' },

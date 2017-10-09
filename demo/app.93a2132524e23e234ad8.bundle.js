@@ -4478,17 +4478,17 @@ return hooks;
 /* unused harmony export getArrayObserver */
 /* unused harmony export getMapObserver */
 /* unused harmony export getSetObserver */
-/* harmony export (immutable) */ __webpack_exports__["w"] = camelCase;
-/* harmony export (immutable) */ __webpack_exports__["z"] = createOverrideContext;
-/* harmony export (immutable) */ __webpack_exports__["C"] = getContextFor;
+/* harmony export (immutable) */ __webpack_exports__["x"] = camelCase;
+/* harmony export (immutable) */ __webpack_exports__["A"] = createOverrideContext;
+/* harmony export (immutable) */ __webpack_exports__["D"] = getContextFor;
 /* unused harmony export createScopeForTest */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return sourceContext; });
-/* harmony export (immutable) */ __webpack_exports__["y"] = connectable;
-/* harmony export (immutable) */ __webpack_exports__["B"] = enqueueBindingConnect;
-/* harmony export (immutable) */ __webpack_exports__["G"] = subscriberCollection;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return sourceContext; });
+/* harmony export (immutable) */ __webpack_exports__["z"] = connectable;
+/* harmony export (immutable) */ __webpack_exports__["C"] = enqueueBindingConnect;
+/* harmony export (immutable) */ __webpack_exports__["H"] = subscriberCollection;
 /* unused harmony export ExpressionObserver */
 /* unused harmony export calcSplices */
-/* harmony export (immutable) */ __webpack_exports__["D"] = mergeSplice;
+/* harmony export (immutable) */ __webpack_exports__["E"] = mergeSplice;
 /* unused harmony export projectArraySplices */
 /* unused harmony export getChangeRecords */
 /* unused harmony export ModifyCollectionObserver */
@@ -4496,7 +4496,7 @@ return hooks;
 /* unused harmony export Expression */
 /* unused harmony export Chain */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return BindingBehavior; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return ValueConverter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return ValueConverter; });
 /* unused harmony export Assign */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return Conditional; });
 /* unused harmony export AccessThis */
@@ -4508,23 +4508,23 @@ return hooks;
 /* unused harmony export CallFunction */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Binary; });
 /* unused harmony export PrefixNot */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return LiteralPrimitive; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return LiteralString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return LiteralPrimitive; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return LiteralString; });
 /* unused harmony export LiteralArray */
 /* unused harmony export LiteralObject */
 /* unused harmony export Unparser */
 /* unused harmony export ExpressionCloner */
 /* unused harmony export cloneExpression */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return bindingMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return bindingMode; });
 /* unused harmony export Token */
 /* unused harmony export Lexer */
 /* unused harmony export Scanner */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return Parser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return Parser; });
 /* unused harmony export ParserImplementation */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return delegationStrategy; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return EventManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return delegationStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return EventManager; });
 /* unused harmony export DirtyChecker */
-/* unused harmony export DirtyCheckProperty */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return DirtyCheckProperty; });
 /* unused harmony export propertyAccessor */
 /* unused harmony export PrimitiveObserver */
 /* unused harmony export SetterObserver */
@@ -4538,28 +4538,28 @@ return hooks;
 /* unused harmony export ClassObserver */
 /* unused harmony export hasDeclaredDependencies */
 /* unused harmony export declarePropertyDependencies */
-/* harmony export (immutable) */ __webpack_exports__["x"] = computedFrom;
+/* harmony export (immutable) */ __webpack_exports__["y"] = computedFrom;
 /* unused harmony export ComputedExpression */
 /* unused harmony export createComputedObserver */
 /* unused harmony export elements */
 /* unused harmony export presentationElements */
 /* unused harmony export presentationAttributes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return SVGAnalyzer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return ObserverLocator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return SVGAnalyzer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return ObserverLocator; });
 /* unused harmony export ObjectObservationAdapter */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return BindingExpression; });
 /* unused harmony export Binding */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return CallExpression; });
 /* unused harmony export Call */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return ValueConverterResource; });
-/* harmony export (immutable) */ __webpack_exports__["H"] = valueConverter;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return ValueConverterResource; });
+/* harmony export (immutable) */ __webpack_exports__["I"] = valueConverter;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return BindingBehaviorResource; });
 /* unused harmony export bindingBehavior */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return ListenerExpression; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return ListenerExpression; });
 /* unused harmony export Listener */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return NameExpression; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return NameExpression; });
 /* unused harmony export BindingEngine */
-/* harmony export (immutable) */ __webpack_exports__["E"] = observable;
+/* harmony export (immutable) */ __webpack_exports__["F"] = observable;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_logging__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_pal__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_task_queue__ = __webpack_require__(12);
@@ -13327,7 +13327,7 @@ return ptBr;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(1);
 
 
-var oneTime = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].oneTime;
+var oneTime = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].oneTime;
 
 function updateOverrideContexts(views, startIndex) {
   var length = views.length;
@@ -13343,7 +13343,7 @@ function updateOverrideContexts(views, startIndex) {
 
 function createFullOverrideContext(repeat, data, index, length, key) {
   var bindingContext = {};
-  var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["z" /* createOverrideContext */])(bindingContext, repeat.scope.overrideContext);
+  var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["A" /* createOverrideContext */])(bindingContext, repeat.scope.overrideContext);
 
   if (typeof key !== 'undefined') {
     bindingContext[repeat.key] = key;
@@ -13379,7 +13379,7 @@ function unwrapExpression(expression) {
   while (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["e" /* BindingBehavior */]) {
     expression = expression.expression;
   }
-  while (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["t" /* ValueConverter */]) {
+  while (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["u" /* ValueConverter */]) {
     expression = expression.expression;
     unwrapped = true;
   }
@@ -13398,7 +13398,7 @@ function isOneTime(expression) {
 
 function updateOneTimeBinding(binding) {
   if (binding.call && binding.mode === oneTime) {
-    binding.call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["F" /* sourceContext */]);
+    binding.call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["G" /* sourceContext */]);
   } else if (binding.updateOneTimeBindings) {
     binding.updateOneTimeBindings();
   }
@@ -15622,10 +15622,10 @@ return tr;
 /* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ValidationController; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__validator__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validate_trigger__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__property_info__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__property_info__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__validate_result__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_accessor_parser__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validate_event__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validate_event__ = __webpack_require__(43);
 
 
 
@@ -17375,7 +17375,7 @@ var BsValidation = /** @class */ (function () {
         this.controller.addObject(object);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('hasValidated', 'hasValidationErrors'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('hasValidated', 'hasValidationErrors'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], BsValidation.prototype, "canSubmit", null);
@@ -17658,7 +17658,7 @@ var DialogService = /** @class */ (function () {
         }
     };
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Array)
     ], DialogService.prototype, "openedDialogs", void 0);
     DialogService = __decorate([
@@ -18371,7 +18371,7 @@ function createDynamicClass(moduleId) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_controller__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__validate_trigger__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__get_target_dom_element__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__get_target_dom_element__ = __webpack_require__(44);
 
 
 
@@ -26988,7 +26988,7 @@ if (typeof FEATURE_NO_ESNEXT === 'undefined') {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropertyAccessorParser; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = getAccessorExpression;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util__ = __webpack_require__(42);
 
 
 var PropertyAccessorParser = (function () {
@@ -27007,7 +27007,7 @@ var PropertyAccessorParser = (function () {
         }
         throw new Error("Invalid property expression: \"" + accessor + "\"");
     };
-    PropertyAccessorParser.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["r" /* Parser */]];
+    PropertyAccessorParser.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["s" /* Parser */]];
     return PropertyAccessorParser;
 }());
 
@@ -27230,9 +27230,9 @@ var __extends = (this && this.__extends) || (function () {
 var ValidationMessageParser = (function () {
     function ValidationMessageParser(bindinqLanguage) {
         this.bindinqLanguage = bindinqLanguage;
-        this.emptyStringExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralString */]('');
-        this.nullExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["n" /* LiteralPrimitive */](null);
-        this.undefinedExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["n" /* LiteralPrimitive */](undefined);
+        this.emptyStringExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["p" /* LiteralString */]('');
+        this.nullExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralPrimitive */](null);
+        this.undefinedExpression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralPrimitive */](undefined);
         this.cache = {};
     }
     ValidationMessageParser.prototype.parse = function (message) {
@@ -27241,11 +27241,11 @@ var ValidationMessageParser = (function () {
         }
         var parts = this.bindinqLanguage.parseInterpolation(null, message);
         if (parts === null) {
-            return new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralString */](message);
+            return new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["p" /* LiteralString */](message);
         }
-        var expression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralString */](parts[0]);
+        var expression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["p" /* LiteralString */](parts[0]);
         for (var i = 1; i < parts.length; i += 2) {
-            expression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["d" /* Binary */]('+', expression, new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["d" /* Binary */]('+', this.coalesce(parts[i]), new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["o" /* LiteralString */](parts[i + 1])));
+            expression = new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["d" /* Binary */]('+', expression, new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["d" /* Binary */]('+', this.coalesce(parts[i]), new __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["p" /* LiteralString */](parts[i + 1])));
         }
         MessageExpressionValidator.validate(expression, message);
         this.cache[message] = expression;
@@ -27532,7 +27532,7 @@ var ArrayRepeatStrategy = function () {
             removed = _splices$i.removed,
             addedCount = _splices$i.addedCount;
 
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["D" /* mergeSplice */])(repeat.__queuedSplices, index, removed, addedCount);
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* mergeSplice */])(repeat.__queuedSplices, index, removed, addedCount);
       }
 
       repeat.__array = array.slice(0);
@@ -28085,7 +28085,7 @@ var BindingSignaler = function () {
     }
     var i = bindings.length;
     while (i--) {
-      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["F" /* sourceContext */]);
+      bindings[i].call(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["G" /* sourceContext */]);
     }
   };
 
@@ -29603,7 +29603,7 @@ var View = function () {
 
     this.isBound = true;
     this.bindingContext = bindingContext;
-    this.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["z" /* createOverrideContext */])(bindingContext);
+    this.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["A" /* createOverrideContext */])(bindingContext);
 
     this.resources._invokeHook('beforeBind', this);
 
@@ -31251,7 +31251,7 @@ var ModuleAnalyzer = function () {
           }
 
           __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["b" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["b" /* metadata */].resource, conventional, exportedValue);
-        } else if (conventional = __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["u" /* ValueConverterResource */].convention(key) || __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["f" /* BindingBehaviorResource */].convention(key) || ViewEngineHooksResource.convention(key)) {
+        } else if (conventional = __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["v" /* ValueConverterResource */].convention(key) || __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["f" /* BindingBehaviorResource */].convention(key) || ViewEngineHooksResource.convention(key)) {
           resources.push(new ResourceDescription(key, exportedValue, conventional));
           __WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["b" /* metadata */].define(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["b" /* metadata */].resource, conventional, exportedValue);
         } else if (!fallbackValue) {
@@ -31545,7 +31545,7 @@ var Controller = function () {
 
   Controller.prototype.automate = function automate(overrideContext, owningView) {
     this.view.bindingContext = this.viewModel;
-    this.view.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["z" /* createOverrideContext */])(this.viewModel);
+    this.view.overrideContext = overrideContext || Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["A" /* createOverrideContext */])(this.viewModel);
     this.view._isUserControlled = true;
 
     if (this.behavior.handlesCreated) {
@@ -31601,9 +31601,9 @@ var Controller = function () {
       if (this.viewModel === scope.overrideContext.bindingContext) {
         overrideContext = scope.overrideContext;
       } else if (this.instruction.inheritBindingContext) {
-        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["z" /* createOverrideContext */])(this.viewModel, scope.overrideContext);
+        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["A" /* createOverrideContext */])(this.viewModel, scope.overrideContext);
       } else {
-        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["z" /* createOverrideContext */])(this.viewModel);
+        overrideContext = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["A" /* createOverrideContext */])(this.viewModel);
         overrideContext.__parentOverrideContext = scope.overrideContext;
       }
 
@@ -31679,7 +31679,7 @@ var Controller = function () {
   return Controller;
 }();
 
-var BehaviorPropertyObserver = (_dec9 = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["G" /* subscriberCollection */])(), _dec9(_class16 = function () {
+var BehaviorPropertyObserver = (_dec9 = Object(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["H" /* subscriberCollection */])(), _dec9(_class16 = function () {
   function BehaviorPropertyObserver(taskQueue, obj, propertyName, selfSubscriber, initialValue) {
     
 
@@ -31770,7 +31770,7 @@ var BindableProperty = function () {
 
     this.attribute = this.attribute || _hyphenate(this.name);
     if (this.defaultBindingMode === null || this.defaultBindingMode === undefined) {
-      this.defaultBindingMode = __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["v" /* bindingMode */].oneWay;
+      this.defaultBindingMode = __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["w" /* bindingMode */].oneWay;
     }
     this.changeHandler = this.changeHandler || null;
     this.owner = null;
@@ -32037,7 +32037,7 @@ var HtmlBehaviorResource = function () {
     this.isInitialized = true;
     target.__providerId__ = nextProviderId();
 
-    this.observerLocator = container.get(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["q" /* ObserverLocator */]);
+    this.observerLocator = container.get(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["r" /* ObserverLocator */]);
     this.taskQueue = container.get(__WEBPACK_IMPORTED_MODULE_7_aurelia_task_queue__["a" /* TaskQueue */]);
 
     this.target = target;
@@ -32780,7 +32780,7 @@ var ElementConfigResource = function () {
 
   ElementConfigResource.prototype.load = function load(container, target) {
     var config = new target();
-    var eventManager = container.get(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["l" /* EventManager */]);
+    var eventManager = container.get(__WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["m" /* EventManager */]);
     eventManager.registerElementConfig(config);
   };
 
@@ -33031,6 +33031,56 @@ var TemplatingEngine = (_dec11 = Object(__WEBPACK_IMPORTED_MODULE_5_aurelia_depe
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Deferred; });
+var Deferred = /** @class */ (function () {
+    function Deferred() {
+        var _this = this;
+        this.state = 'pending';
+        this.fate = 'unresolved';
+        this.promise = new Promise(function (resolve, reject) {
+            _this._resolve = resolve;
+            _this._reject = reject;
+        });
+        this.promise.then(function () { return _this.state = 'fulfilled'; }, function () { return _this.state = 'rejected'; });
+    }
+    Deferred.prototype.resolve = function (value) {
+        if (this.fate === 'resolved') {
+            throw 'Deferred cannot be resolved twice';
+        }
+        this.fate = 'resolved';
+        this._resolve(value);
+    };
+    Deferred.prototype.reject = function (reason) {
+        if (this.fate === 'resolved') {
+            throw 'Deferred cannot be resolved twice';
+        }
+        this.fate = 'resolved';
+        this._reject(reason);
+    };
+    Deferred.prototype.isResolved = function () {
+        return this.fate === 'resolved';
+    };
+    Deferred.prototype.isPending = function () {
+        return this.state === 'pending';
+    };
+    Deferred.prototype.isFulfilled = function () {
+        return this.state === 'fulfilled';
+    };
+    Deferred.prototype.isRejected = function () {
+        return this.state === 'rejected';
+    };
+    return Deferred;
+}());
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getPropertyInfo;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__ = __webpack_require__(1);
 
@@ -33049,13 +33099,13 @@ function getObject(expression, objectExpression, source) {
  */
 function getPropertyInfo(expression, source) {
     var originalExpression = expression;
-    while (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["e" /* BindingBehavior */] || expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["t" /* ValueConverter */]) {
+    while (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["e" /* BindingBehavior */] || expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["u" /* ValueConverter */]) {
         expression = expression.expression;
     }
     var object;
     var propertyName;
     if (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["c" /* AccessScope */]) {
-        object = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["C" /* getContextFor */])(expression.name, source, expression.ancestor);
+        object = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["D" /* getContextFor */])(expression.name, source, expression.ancestor);
         propertyName = expression.name;
     }
     else if (expression instanceof __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["b" /* AccessMember */]) {
@@ -33078,7 +33128,7 @@ function getPropertyInfo(expression, source) {
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33090,7 +33140,7 @@ function isString(value) {
 
 /***/ }),
 
-/***/ 42:
+/***/ 43:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33138,7 +33188,7 @@ var ValidateEvent = (function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33175,7 +33225,7 @@ function getTargetDOMElement(binding, view) {
 
 /***/ }),
 
-/***/ 44:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33329,7 +33379,7 @@ var StandardValidator = (function (_super) {
 
 /***/ }),
 
-/***/ 45:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33339,7 +33389,7 @@ var StandardValidator = (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ValidationRules; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rules__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_messages__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util__ = __webpack_require__(42);
 
 
 
@@ -33782,56 +33832,6 @@ var ValidationRules = (function () {
 }());
 
 
-
-/***/ }),
-
-/***/ 46:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Deferred; });
-var Deferred = /** @class */ (function () {
-    function Deferred() {
-        var _this = this;
-        this.state = 'pending';
-        this.fate = 'unresolved';
-        this.promise = new Promise(function (resolve, reject) {
-            _this._resolve = resolve;
-            _this._reject = reject;
-        });
-        this.promise.then(function () { return _this.state = 'fulfilled'; }, function () { return _this.state = 'rejected'; });
-    }
-    Deferred.prototype.resolve = function (value) {
-        if (this.fate === 'resolved') {
-            throw 'Deferred cannot be resolved twice';
-        }
-        this.fate = 'resolved';
-        this._resolve(value);
-    };
-    Deferred.prototype.reject = function (reason) {
-        if (this.fate === 'resolved') {
-            throw 'Deferred cannot be resolved twice';
-        }
-        this.fate = 'resolved';
-        this._reject(reason);
-    };
-    Deferred.prototype.isResolved = function () {
-        return this.fate === 'resolved';
-    };
-    Deferred.prototype.isPending = function () {
-        return this.state === 'pending';
-    };
-    Deferred.prototype.isFulfilled = function () {
-        return this.state === 'fulfilled';
-    };
-    Deferred.prototype.isRejected = function () {
-        return this.state === 'rejected';
-    };
-    return Deferred;
-}());
-
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
 
@@ -47308,7 +47308,7 @@ var ValidationComponent = /** @class */ (function () {
         configurable: true
     });
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('controller.errors.length') // TODO: Also check content
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('controller.errors.length') // TODO: Also check content
         ,
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
@@ -50682,9 +50682,9 @@ function configure(config) {
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["d"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["e"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__ = __webpack_require__(1);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["v"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["x"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["E"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["w"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["y"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_6_aurelia_binding__["F"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_aurelia_metadata__ = __webpack_require__(9);
 /* unused harmony namespace reexport */
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3_aurelia_templating__["e"]; });
@@ -52138,11 +52138,11 @@ var AttributeMap = (_temp = _class = function () {
     if (/(?:^data-)|(?:^aria-)|:/.test(attributeName)) {
       return attributeName;
     }
-    return Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* camelCase */])(attributeName);
+    return Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* camelCase */])(attributeName);
   };
 
   return AttributeMap;
-}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["s" /* SVGAnalyzer */]], _temp);
+}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["t" /* SVGAnalyzer */]], _temp);
 
 var InterpolationBindingExpression = function () {
   function InterpolationBindingExpression(observerLocator, targetProperty, parts, mode, lookupFunctions, attribute) {
@@ -52203,7 +52203,7 @@ var InterpolationBinding = function () {
   InterpolationBinding.prototype.updateOneTimeBindings = function updateOneTimeBindings() {
     for (var i = 1, ii = this.parts.length; i < ii; i += 2) {
       var child = this['childBinding' + i];
-      if (child.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneTime) {
+      if (child.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneTime) {
         child.call();
       }
     }
@@ -52245,7 +52245,7 @@ var InterpolationBinding = function () {
   return InterpolationBinding;
 }();
 
-var ChildInterpolationBinding = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* connectable */])(), _dec(_class2 = function () {
+var ChildInterpolationBinding = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["z" /* connectable */])(), _dec(_class2 = function () {
   function ChildInterpolationBinding(target, observerLocator, sourceExpression, mode, lookupFunctions, targetProperty, left, right) {
     
 
@@ -52285,7 +52285,7 @@ var ChildInterpolationBinding = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurel
     this.rawValue = this.sourceExpression.evaluate(this.source, this.lookupFunctions);
     this.updateTarget(this.rawValue);
 
-    if (this.mode !== __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneTime) {
+    if (this.mode !== __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneTime) {
       this._version++;
       this.sourceExpression.connect(this, this.source);
       if (this.rawValue instanceof Array) {
@@ -52313,8 +52313,8 @@ var ChildInterpolationBinding = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurel
     this.rawValue = sourceExpression.evaluate(source, this.lookupFunctions);
     this.updateTarget(this.rawValue);
 
-    if (this.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay) {
-      Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["B" /* enqueueBindingConnect */])(this);
+    if (this.mode === __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay) {
+      Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["C" /* enqueueBindingConnect */])(this);
     }
   };
 
@@ -52377,14 +52377,14 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
     var tagName = element.tagName.toLowerCase();
 
     if (tagName === 'input' && (attrName === 'value' || attrName === 'files') && element.type !== 'checkbox' && element.type !== 'radio' || tagName === 'input' && attrName === 'checked' && (element.type === 'checkbox' || element.type === 'radio') || (tagName === 'textarea' || tagName === 'select') && attrName === 'value' || (attrName === 'textcontent' || attrName === 'innerhtml') && element.contentEditable === 'true' || attrName === 'scrolltop' || attrName === 'scrollleft') {
-      return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].twoWay;
+      return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay;
     }
 
-    if (context && attrName in context.attributes && context.attributes[attrName] && context.attributes[attrName].defaultBindingMode >= __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneTime) {
+    if (context && attrName in context.attributes && context.attributes[attrName] && context.attributes[attrName].defaultBindingMode >= __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneTime) {
       return context.attributes[attrName].defaultBindingMode;
     }
 
-    return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay;
+    return __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay;
   };
 
   SyntaxInterpreter.prototype.bind = function bind(resources, element, info, existingInstruction, context) {
@@ -52396,15 +52396,15 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
   };
 
   SyntaxInterpreter.prototype.trigger = function trigger(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["m" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["A" /* delegationStrategy */].none, true, resources.lookupFunctions);
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["n" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["B" /* delegationStrategy */].none, true, resources.lookupFunctions);
   };
 
   SyntaxInterpreter.prototype.capture = function capture(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["m" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["A" /* delegationStrategy */].capturing, true, resources.lookupFunctions);
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["n" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["B" /* delegationStrategy */].capturing, true, resources.lookupFunctions);
   };
 
   SyntaxInterpreter.prototype.delegate = function delegate(resources, element, info) {
-    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["m" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["A" /* delegationStrategy */].bubbling, true, resources.lookupFunctions);
+    return new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["n" /* ListenerExpression */](this.eventManager, info.attrName, this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["B" /* delegationStrategy */].bubbling, true, resources.lookupFunctions);
   };
 
   SyntaxInterpreter.prototype.call = function call(resources, element, info, existingInstruction) {
@@ -52512,7 +52512,7 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
       instruction.attributes.local = parts[0];
     }
 
-    instruction.attributes.items = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, 'items', this.parser.parse(parts[1]), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay, resources.lookupFunctions);
+    instruction.attributes.items = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, 'items', this.parser.parse(parts[1]), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay, resources.lookupFunctions);
 
     return instruction;
   };
@@ -52520,7 +52520,7 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
   SyntaxInterpreter.prototype['two-way'] = function twoWay(resources, element, info, existingInstruction) {
     var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["b" /* BehaviorInstruction */].attribute(info.attrName);
 
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].twoWay, resources.lookupFunctions);
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay, resources.lookupFunctions);
 
     return instruction;
   };
@@ -52528,7 +52528,7 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
   SyntaxInterpreter.prototype['one-way'] = function oneWay(resources, element, info, existingInstruction) {
     var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["b" /* BehaviorInstruction */].attribute(info.attrName);
 
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay, resources.lookupFunctions);
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay, resources.lookupFunctions);
 
     return instruction;
   };
@@ -52536,13 +52536,13 @@ var SyntaxInterpreter = (_temp2 = _class3 = function () {
   SyntaxInterpreter.prototype['one-time'] = function oneTime(resources, element, info, existingInstruction) {
     var instruction = existingInstruction || __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["b" /* BehaviorInstruction */].attribute(info.attrName);
 
-    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneTime, resources.lookupFunctions);
+    instruction.attributes[info.attrName] = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["g" /* BindingExpression */](this.observerLocator, this.attributeMap.map(element.tagName, info.attrName), this.parser.parse(info.attrValue), __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneTime, resources.lookupFunctions);
 
     return instruction;
   };
 
   return SyntaxInterpreter;
-}(), _class3.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["r" /* Parser */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["q" /* ObserverLocator */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["l" /* EventManager */], AttributeMap], _temp2);
+}(), _class3.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["s" /* Parser */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["r" /* ObserverLocator */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["m" /* EventManager */], AttributeMap], _temp2);
 
 var info = {};
 
@@ -52574,7 +52574,7 @@ var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) 
       info.command = parts[1].trim();
 
       if (info.command === 'ref') {
-        info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["p" /* NameExpression */](this.parser.parse(attrValue), info.attrName, resources.lookupFunctions);
+        info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["q" /* NameExpression */](this.parser.parse(attrValue), info.attrName, resources.lookupFunctions);
         info.command = null;
         info.attrName = 'ref';
       } else {
@@ -52584,7 +52584,7 @@ var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) 
       info.attrName = attrName;
       info.attrValue = attrValue;
       info.command = null;
-      info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["p" /* NameExpression */](this.parser.parse(attrValue), 'element', resources.lookupFunctions);
+      info.expression = new __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["q" /* NameExpression */](this.parser.parse(attrValue), 'element', resources.lookupFunctions);
     } else {
       info.attrName = attrName;
       info.attrValue = attrValue;
@@ -52593,7 +52593,7 @@ var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) 
       if (interpolationParts === null) {
         info.expression = null;
       } else {
-        info.expression = new InterpolationBindingExpression(this.observerLocator, this.attributeMap.map(elementName, attrName), interpolationParts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay, resources.lookupFunctions, attrName);
+        info.expression = new InterpolationBindingExpression(this.observerLocator, this.attributeMap.map(elementName, attrName), interpolationParts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay, resources.lookupFunctions, attrName);
       }
     }
 
@@ -52622,7 +52622,7 @@ var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) 
     if (parts === null) {
       return null;
     }
-    return new InterpolationBindingExpression(this.observerLocator, 'textContent', parts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].oneWay, resources.lookupFunctions, 'textContent');
+    return new InterpolationBindingExpression(this.observerLocator, 'textContent', parts, __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].oneWay, resources.lookupFunctions, 'textContent');
   };
 
   TemplatingBindingLanguage.prototype.parseInterpolation = function parseInterpolation(resources, value) {
@@ -52699,7 +52699,7 @@ var TemplatingBindingLanguage = (_temp3 = _class4 = function (_BindingLanguage) 
   };
 
   return TemplatingBindingLanguage;
-}(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["c" /* BindingLanguage */]), _class4.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["r" /* Parser */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["q" /* ObserverLocator */], SyntaxInterpreter, AttributeMap], _temp3);
+}(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["c" /* BindingLanguage */]), _class4.inject = [__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["s" /* Parser */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["r" /* ObserverLocator */], SyntaxInterpreter, AttributeMap], _temp3);
 
 function configure(config) {
   config.container.registerSingleton(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["c" /* BindingLanguage */], TemplatingBindingLanguage);
@@ -52894,19 +52894,19 @@ var modeBindingBehavior = {
 var OneTimeBindingBehavior = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["c" /* mixin */])(modeBindingBehavior), _dec(_class = function OneTimeBindingBehavior() {
   
 
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].oneTime;
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].oneTime;
 }) || _class);
 
 var OneWayBindingBehavior = (_dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["c" /* mixin */])(modeBindingBehavior), _dec2(_class2 = function OneWayBindingBehavior() {
   
 
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].oneWay;
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].oneWay;
 }) || _class2);
 
 var TwoWayBindingBehavior = (_dec3 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_metadata__["c" /* mixin */])(modeBindingBehavior), _dec3(_class3 = function TwoWayBindingBehavior() {
   
 
-  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].twoWay;
+  this.mode = __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].twoWay;
 }) || _class3);
 
 /***/ }),
@@ -53155,7 +53155,7 @@ var DebounceBindingBehavior = function () {
     var methodToDebounce = 'updateTarget';
     if (binding.callSource) {
       methodToDebounce = 'callSource';
-    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].twoWay) {
+    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].twoWay) {
       methodToDebounce = 'updateSource';
     }
 
@@ -53204,7 +53204,7 @@ var _dec, _dec2, _class;
 
 
 
-var Focus = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["s" /* customAttribute */])('focus', __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].twoWay), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["b" /* DOM */].Element, __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__["a" /* TaskQueue */]), _dec(_class = _dec2(_class = function () {
+var Focus = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_templating__["s" /* customAttribute */])('focus', __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["b" /* DOM */].Element, __WEBPACK_IMPORTED_MODULE_3_aurelia_task_queue__["a" /* TaskQueue */]), _dec(_class = _dec2(_class = function () {
   function Focus(element, taskQueue) {
     var _this = this;
 
@@ -53511,7 +53511,7 @@ function _initializerWarningHelper(descriptor, context) {
 
 
 
-var Repeat = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["s" /* customAttribute */])('repeat'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["d" /* BoundViewFactory */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["i" /* TargetInstruction */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["o" /* ViewSlot */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["n" /* ViewResources */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["q" /* ObserverLocator */], __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__["a" /* RepeatStrategyLocator */]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["x" /* templateController */])(_class = _dec2(_class = (_class2 = function (_AbstractRepeater) {
+var Repeat = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["s" /* customAttribute */])('repeat'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["d" /* BoundViewFactory */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["i" /* TargetInstruction */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["o" /* ViewSlot */], __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["n" /* ViewResources */], __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["r" /* ObserverLocator */], __WEBPACK_IMPORTED_MODULE_3__repeat_strategy_locator__["a" /* RepeatStrategyLocator */]), _dec(_class = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["x" /* templateController */])(_class = _dec2(_class = (_class2 = function (_AbstractRepeater) {
   _inherits(Repeat, _AbstractRepeater);
 
   function Repeat(viewFactory, instruction, viewSlot, viewResources, observerLocator, strategyLocator) {
@@ -53808,7 +53808,7 @@ var _dec, _dec2, _class;
 
 
 
-var SanitizeHTMLValueConverter = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["H" /* valueConverter */])('sanitizeHTML'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__html_sanitizer__["a" /* HTMLSanitizer */]), _dec(_class = _dec2(_class = function () {
+var SanitizeHTMLValueConverter = (_dec = Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["I" /* valueConverter */])('sanitizeHTML'), _dec2 = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["e" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__html_sanitizer__["a" /* HTMLSanitizer */]), _dec(_class = _dec2(_class = function () {
   function SanitizeHTMLValueConverter(sanitizer) {
     
 
@@ -54027,7 +54027,7 @@ var ThrottleBindingBehavior = function () {
     var methodToThrottle = 'updateTarget';
     if (binding.callSource) {
       methodToThrottle = 'callSource';
-    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].twoWay) {
+    } else if (binding.updateSource && binding.mode === __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].twoWay) {
       methodToThrottle = 'updateSource';
     }
 
@@ -54087,7 +54087,7 @@ var UpdateTriggerBindingBehavior = (_temp = _class = function () {
     if (events.length === 0) {
       throw new Error(eventNamesRequired);
     }
-    if (binding.mode !== __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].twoWay) {
+    if (binding.mode !== __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].twoWay) {
       throw new Error(notApplicableMessage);
     }
 
@@ -54109,7 +54109,7 @@ var UpdateTriggerBindingBehavior = (_temp = _class = function () {
   };
 
   return UpdateTriggerBindingBehavior;
-}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["l" /* EventManager */]], _temp);
+}(), _class.inject = [__WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["m" /* EventManager */]], _temp);
 
 /***/ }),
 
@@ -54146,7 +54146,7 @@ var With = (_dec = Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["s" /
   };
 
   With.prototype.valueChanged = function valueChanged(newValue) {
-    var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["z" /* createOverrideContext */])(newValue, this.parentOverrideContext);
+    var overrideContext = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["A" /* createOverrideContext */])(newValue, this.parentOverrideContext);
     if (!this.view) {
       this.view = this.viewFactory.create();
       this.view.bind(newValue, overrideContext);
@@ -54458,7 +54458,7 @@ var RouterView = (_dec = Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__
 
       return this.compositionEngine.createController(layoutInstruction).then(function (controller) {
         __WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["g" /* ShadowDOM */].distributeView(viewPortInstruction.controller.view, controller.slots || controller.view.slots);
-        controller.automate(Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["z" /* createOverrideContext */])(layoutInstruction.viewModel), _this2.owningView);
+        controller.automate(Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["A" /* createOverrideContext */])(layoutInstruction.viewModel), _this2.owningView);
         controller.view.children.push(viewPortInstruction.controller.view);
         return controller.view || controller;
       }).then(function (newView) {
@@ -54527,7 +54527,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AureliaValidationConfiguration", function() { return AureliaValidationConfiguration; });
 /* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "getTargetDOMElement", function() { return __WEBPACK_IMPORTED_MODULE_0__get_target_dom_element__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__property_info__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__property_info__ = __webpack_require__(41);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "getPropertyInfo", function() { return __WEBPACK_IMPORTED_MODULE_1__property_info__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__property_accessor_parser__ = __webpack_require__(21);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "PropertyAccessorParser", function() { return __WEBPACK_IMPORTED_MODULE_2__property_accessor_parser__["a"]; });
@@ -54538,7 +54538,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidateOnBlurBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_3__validate_binding_behavior__["ValidateOnBlurBindingBehavior"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidateOnChangeBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_3__validate_binding_behavior__["ValidateOnChangeBindingBehavior"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidateOnChangeOrBlurBindingBehavior", function() { return __WEBPACK_IMPORTED_MODULE_3__validate_binding_behavior__["ValidateOnChangeOrBlurBindingBehavior"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__validate_event__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__validate_event__ = __webpack_require__(43);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidateEvent", function() { return __WEBPACK_IMPORTED_MODULE_4__validate_event__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__validate_result__ = __webpack_require__(24);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidateResult", function() { return __WEBPACK_IMPORTED_MODULE_5__validate_result__["a"]; });
@@ -54555,8 +54555,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__validator__ = __webpack_require__(16);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Validator", function() { return __WEBPACK_IMPORTED_MODULE_11__validator__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__implementation_rules__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_target_dom_element__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__implementation_standard_validator__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__get_target_dom_element__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__implementation_standard_validator__ = __webpack_require__(45);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "StandardValidator", function() { return __WEBPACK_IMPORTED_MODULE_13__implementation_standard_validator__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__implementation_validation_messages__ = __webpack_require__(26);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "validationMessages", function() { return __WEBPACK_IMPORTED_MODULE_14__implementation_validation_messages__["b"]; });
@@ -54564,7 +54564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__implementation_validation_message_parser__ = __webpack_require__(27);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ValidationMessageParser", function() { return __WEBPACK_IMPORTED_MODULE_15__implementation_validation_message_parser__["b"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MessageExpressionValidator", function() { return __WEBPACK_IMPORTED_MODULE_15__implementation_validation_message_parser__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__implementation_validation_rules__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__implementation_validation_rules__ = __webpack_require__(46);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "FluentRuleCustomizer", function() { return __WEBPACK_IMPORTED_MODULE_16__implementation_validation_rules__["b"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "FluentRules", function() { return __WEBPACK_IMPORTED_MODULE_16__implementation_validation_rules__["c"]; });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "FluentEnsure", function() { return __WEBPACK_IMPORTED_MODULE_16__implementation_validation_rules__["a"]; });
@@ -54839,10 +54839,10 @@ var ValidationErrorsCustomAttribute = (function () {
     };
     ValidationErrorsCustomAttribute.inject = [__WEBPACK_IMPORTED_MODULE_4_aurelia_pal__["b" /* DOM */].Element, __WEBPACK_IMPORTED_MODULE_1_aurelia_dependency_injection__["b" /* Lazy */].of(__WEBPACK_IMPORTED_MODULE_3__validation_controller__["a" /* ValidationController */])];
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["p" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].oneWay })
+        Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["p" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].oneWay })
     ], ValidationErrorsCustomAttribute.prototype, "controller", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["p" /* bindable */])({ primaryProperty: true, defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["v" /* bindingMode */].twoWay })
+        Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["p" /* bindable */])({ primaryProperty: true, defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_binding__["w" /* bindingMode */].twoWay })
     ], ValidationErrorsCustomAttribute.prototype, "errors", void 0);
     ValidationErrorsCustomAttribute = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_templating__["s" /* customAttribute */])('validation-errors')
@@ -56250,7 +56250,7 @@ module.exports = "<template>\r\n    <div style=\"position: relative\">\r\n      
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return Column; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__deferred__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__deferred__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56405,7 +56405,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["attachView"] = attachView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__deferred__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__deferred__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resize_container__ = __webpack_require__("resize-container");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -57087,11 +57087,11 @@ var Grid = /** @class */ (function (_super) {
         __metadata("design:type", Object)
     ], Grid.prototype, "totalCount", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].twoWay }),
+        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
     ], Grid.prototype, "selectedItem", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["v" /* bindingMode */].twoWay }),
+        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay }),
         __metadata("design:type", Array)
     ], Grid.prototype, "selectedItems", void 0);
     __decorate([
@@ -57127,22 +57127,22 @@ var Grid = /** @class */ (function (_super) {
         __metadata("design:type", Object)
     ], Grid.prototype, "showFooter", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('filteredCount', 'pageSize'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('filteredCount', 'pageSize'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], Grid.prototype, "pageCount", null);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('currentIndex', 'pageSize'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('currentIndex', 'pageSize'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], Grid.prototype, "currentPage", null);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('sortable', 'rows'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('sortable', 'rows'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], Grid.prototype, "rowsSortable", null);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('currentPage', 'pageCount'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('currentPage', 'pageCount'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], Grid.prototype, "pages", null);
@@ -57412,6 +57412,7 @@ module.exports = "<template>\r\n    <span class=\"bs-loader__inline\"\r\n       
 /* harmony export (immutable) */ __webpack_exports__["configure"] = configure;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap_dist_css_bootstrap_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_aurelia_binding__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_bluebird__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_bluebird___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_bluebird__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings__ = __webpack_require__(11);
@@ -57419,6 +57420,7 @@ module.exports = "<template>\r\n    <span class=\"bs-loader__inline\"\r\n       
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bootstrap__);
 /// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
+var _this = this;
 
 
 
@@ -57429,6 +57431,12 @@ __WEBPACK_IMPORTED_MODULE_4_bluebird__["config"]({
     warnings: false // note, run node with --trace-warnings to see full stack traces for warnings
 });
 window.Promise = __WEBPACK_IMPORTED_MODULE_4_bluebird__;
+
+var subscribe = __WEBPACK_IMPORTED_MODULE_5_aurelia_binding__["l" /* DirtyCheckProperty */].prototype.subscribe;
+__WEBPACK_IMPORTED_MODULE_5_aurelia_binding__["l" /* DirtyCheckProperty */].prototype.subscribe = function (context, callable) {
+    subscribe(context, callable);
+    console.warn("'" + _this.obj.constructor.name + "." + _this.propertyName + "' is being dirty checked!", _this.obj);
+};
 // Change aurelia-bs settings
 __WEBPACK_IMPORTED_MODULE_3__settings__["a" /* BsSettings */].language = window.location.search.indexOf('lang=de') !== -1 ? 'de' : 'en';
 function configure(aurelia) {
@@ -57627,7 +57635,7 @@ var ResizeContainer = /** @class */ (function () {
         __metadata("design:type", Object)
     ], ResizeContainer.prototype, "limitToContentHeight", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], ResizeContainer.prototype, "containerHeight", void 0);
     ResizeContainer = __decorate([
@@ -58045,7 +58053,7 @@ var Select = /** @class */ (function (_super) {
         __metadata("design:type", Object)
     ], Select.prototype, "height", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["x" /* computedFrom */])('multiple', 'required', 'value', 'items'),
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('multiple', 'required', 'value', 'items'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
     ], Select.prototype, "renderNullOption", null);
@@ -58323,35 +58331,35 @@ var SelectGridDialog = /** @class */ (function (_super) {
         this.close();
     };
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
     ], SelectGridDialog.prototype, "title", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], SelectGridDialog.prototype, "filter", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], SelectGridDialog.prototype, "items", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Boolean)
     ], SelectGridDialog.prototype, "required", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], SelectGridDialog.prototype, "selectedItem", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Function)
     ], SelectGridDialog.prototype, "loadData", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
     ], SelectGridDialog.prototype, "defaultSortColumn", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["E" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
     ], SelectGridDialog.prototype, "defaultSortOrder", void 0);
     SelectGridDialog = __decorate([
@@ -58675,4 +58683,4 @@ module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.8b28107a0e5c27301c2c.bundle.map
+//# sourceMappingURL=app.93a2132524e23e234ad8.bundle.map

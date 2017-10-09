@@ -91,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"app","1":"vendor"}[chunkId]||chunkId) + "." + {"0":"8b28107a0e5c27301c2c","1":"ea3a1a847d47d6f05b08"}[chunkId] + ".chunk.js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"app","1":"vendor"}[chunkId]||chunkId) + "." + {"0":"93a2132524e23e234ad8","1":"ea3a1a847d47d6f05b08"}[chunkId] + ".chunk.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -141,7 +141,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "https://rawgit.com/RSuter/aurelia-bs/master/demo/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -371,7 +371,7 @@
  * 
  */
 /**
- * bluebird build version 3.5.1
+ * bluebird build version 3.5.0
  * Features enabled: core, race, call_get, generators, map, nodeify, promisify, props, reduce, settle, some, using, timers, filter, any, each
 */
 !function(e){if(true)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Promise=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof _dereq_=="function"&&_dereq_;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof _dereq_=="function"&&_dereq_;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -1054,10 +1054,7 @@ Promise.prototype.suppressUnhandledRejections = function() {
 Promise.prototype._ensurePossibleRejectionHandled = function () {
     if ((this._bitField & 524288) !== 0) return;
     this._setRejectionIsUnhandled();
-    var self = this;
-    setTimeout(function() {
-        self._notifyUnhandledRejection();
-    }, 1);
+    async.invokeLater(this._notifyUnhandledRejection, this, undefined);
 };
 
 Promise.prototype._notifyUnhandledRejectionIsHandled = function () {
@@ -3847,7 +3844,7 @@ _dereq_("./synchronous_inspection")(Promise);
 _dereq_("./join")(
     Promise, PromiseArray, tryConvertToPromise, INTERNAL, async, getDomain);
 Promise.Promise = Promise;
-Promise.version = "3.5.1";
+Promise.version = "3.5.0";
 _dereq_('./map.js')(Promise, PromiseArray, apiRejection, tryConvertToPromise, INTERNAL, debug);
 _dereq_('./call_get.js')(Promise);
 _dereq_('./using.js')(Promise, apiRejection, tryConvertToPromise, createContext, INTERNAL, debug);
@@ -5811,11 +5808,10 @@ function safeToString(obj) {
 }
 
 function isError(obj) {
-    return obj instanceof Error ||
-        (obj !== null &&
+    return obj !== null &&
            typeof obj === "object" &&
            typeof obj.message === "string" &&
-           typeof obj.name === "string");
+           typeof obj.name === "string";
 }
 
 function markAsOriginatingFromRejection(e) {
@@ -6261,4 +6257,4 @@ exports.clearImmediate = clearImmediate;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=common.32c9b2dc0c16e80f33ec.bundle.map
+//# sourceMappingURL=common.b0a04a83b25f2baeba50.bundle.map
