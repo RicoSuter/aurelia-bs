@@ -11,76 +11,76 @@ import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
 @inject(DialogService)
 @customElement('bs-select-grid')
 export class SelectGrid extends ValidationComponent {
-    id = createComponentId();
-    controlElement: HTMLDivElement;
+  id = createComponentId();
+  controlElement: HTMLDivElement;
 
-    @children('bs-column')
-    columns: Column[] = [];
+  @children('bs-column')
+  columns: Column[] = [];
 
-    @bindable
-    label = '';
+  @bindable
+  label = '';
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    value: any = null;
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  value: any = null;
 
-    @bindable
-    items: any[] | null = null;
+  @bindable
+  items: any[] | null = null;
 
-    @bindable
-    displayPath: string | null = null;
+  @bindable
+  displayPath: string | null = null;
 
-    @bindable
-    @convert(BooleanConverter)
-    enabled = true;
+  @bindable
+  @convert(BooleanConverter)
+  enabled = true;
 
-    @bindable
-    @convert(BooleanConverter)
-    required = false;
+  @bindable
+  @convert(BooleanConverter)
+  required = false;
 
-    @bindable
-    loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
+  @bindable
+  loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
 
-    @bindable
-    defaultSortColumn: string;
+  @bindable
+  defaultSortColumn: string;
 
-    @bindable
-    defaultSortOrder: 'asc' | 'desc' = 'asc';
+  @bindable
+  defaultSortOrder: 'asc' | 'desc' = 'asc';
 
-    @bindable
-    itemHeight = GridDefaults.itemHeight;
+  @bindable
+  itemHeight = GridDefaults.itemHeight;
 
-    constructor(private dialogService: DialogService) {
-        super();
+  constructor(private dialogService: DialogService) {
+    super();
+  }
+
+  async showPicker() {
+    if (this.enabled) {
+      let dialog = await this.dialogService.show<SelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
+      if (dialog.selectedItem !== undefined) {
+        this.value = dialog.selectedItem;
+      }
+      this.controlElement.focus();
     }
+  }
 
-    async showPicker() {
-        if (this.enabled) {
-            let dialog = await this.dialogService.show<SelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
-            if (dialog.selectedItem !== undefined) {
-                this.value = dialog.selectedItem;
-            }
-            this.controlElement.focus();
-        }
+  keyPressed(event: KeyboardEvent) {
+    if (this.enabled) {
+      if (event.which === 13) {
+        this.showPicker();
+      }
+      event.preventDefault();
     }
+  }
 
-    keyPressed(event: KeyboardEvent) {
-        if (this.enabled) {
-            if (event.which === 13) {
-                this.showPicker();
-            }
-            event.preventDefault();
-        }
+  protected getValue(item: any, path: string) {
+    if (item) {
+      let value = item;
+      let pathArray = path.split('.');
+      for (let prop of pathArray) {
+        value = value[prop];
+      }
+      return value;
     }
-
-    protected getValue(item: any, path: string) {
-        if (item) {
-            let value = item;
-            let pathArray = path.split('.');
-            for (let prop of pathArray) {
-                value = value[prop];
-            }
-            return value;
-        }
-        return null;
-    }
+    return null;
+  }
 }
