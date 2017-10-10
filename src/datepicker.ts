@@ -10,108 +10,108 @@ import { ValidationComponent } from './validation-component';
 import { BsSettings } from './settings';
 
 let translations = {
-    'de': {
-        'noValue': '<Kein Datum>',
-        'select': '<Bitte wählen>'
-    },
-    'en': {
-        'noValue': '<No date>',
-        'select': '<Please select>'
-    }
+  'de': {
+    'noValue': '<Kein Datum>',
+    'select': '<Bitte wählen>'
+  },
+  'en': {
+    'noValue': '<No date>',
+    'select': '<Please select>'
+  }
 };
 
 @containerless
 @customElement('bs-datepicker')
 export class Datepicker extends ValidationComponent {
-    translations = (<any>translations)[BsSettings.language];
+  translations = (<any>translations)[BsSettings.language];
 
-    private element: HTMLElement;
-    private updating = false;
+  private element: HTMLElement;
+  private updating = false;
 
-    @bindable
-    label = '';
+  @bindable
+  label = '';
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    value: moment.Moment | null;
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  value: moment.Moment | null;
 
-    @bindable
-    @convert(BooleanConverter)
-    enabled = true;
+  @bindable
+  @convert(BooleanConverter)
+  enabled = true;
 
-    @bindable
-    @convert(BooleanConverter)
-    readonly = false;
+  @bindable
+  @convert(BooleanConverter)
+  readonly = false;
 
-    @bindable
-    help: string | null = null;
+  @bindable
+  help: string | null = null;
 
-    @bindable
-    required = false;
+  @bindable
+  required = false;
 
-    focus() {
-        this.element.focus();
+  focus() {
+    this.element.focus();
+  }
+
+  bind() {
+    super.bind();
+
+    let element: any = $(this.element);
+    element.datepicker({
+      format: 'dd.mm.yyyy',
+      language: 'de',
+      clearBtn: true,
+      orientation: 'auto',
+      autoclose: true,
+      todayHighlight: true
+    });
+
+    element.on('change', () => {
+      if (!this.updating) {
+        let date = element.datepicker('getDate');
+        this.value = date ? this.getUtcMoment(date) : null;
+      }
+    });
+
+    element.on('clearDate', () => {
+      this.value = null;
+    });
+
+    if (this.value) {
+      this.value = moment.utc(Date.UTC(this.value.year(), this.value.month(), this.value.date()));
     }
 
-    bind() {
-        super.bind();
+    this.updateUiValue();
+  }
 
-        let element: any = $(this.element);
-        element.datepicker({
-            format: 'dd.mm.yyyy',
-            language: 'de',
-            clearBtn: true,
-            orientation: 'auto',
-            autoclose: true,
-            todayHighlight: true
-        });
-
-        element.on('change', () => {
-            if (!this.updating) {
-                let date = element.datepicker('getDate');
-                this.value = date ? this.getUtcMoment(date) : null;
-            }
-        });
-
-        element.on('clearDate', () => {
-            this.value = null;
-        });
-
-        if (this.value) {
-            this.value = moment.utc(Date.UTC(this.value.year(), this.value.month(), this.value.date()));
-        }
-
-        this.updateUiValue();
+  protected valueChanged() {
+    let newDate = arguments[0] ? arguments[0] as moment.Moment : undefined;
+    let oldDate = arguments[1] ? arguments[1] as moment.Moment : undefined;
+    if (newDate !== oldDate && (!newDate || !oldDate || oldDate.format('YYYY-MM-DD') !== newDate.format('YYYY-MM-DD'))) {
+      this.convertToUtc();
+      this.updateUiValue();
+      super.valueChanged();
     }
+  }
 
-    protected valueChanged() {
-        let newDate = arguments[0] ? arguments[0] as moment.Moment : undefined;
-        let oldDate = arguments[1] ? arguments[1] as moment.Moment : undefined;
-        if (newDate !== oldDate && (!newDate || !oldDate || oldDate.format('YYYY-MM-DD') !== newDate.format('YYYY-MM-DD'))) {
-            this.convertToUtc();
-            this.updateUiValue();
-            super.valueChanged();
-        }
-    }
+  private updateUiValue() {
+    let element = $(this.element);
+    this.updating = true;
+    element.datepicker('update', this.value ? this.value.format('DD.MM.YYYY') : '');
+    this.updating = false;
+  }
 
-    private updateUiValue() {
-        let element = $(this.element);
-        this.updating = true;
-        element.datepicker('update', this.value ? this.value.format('DD.MM.YYYY') : '');
-        this.updating = false;
+  private convertToUtc() {
+    if (this.value) {
+      let date = moment.utc(Date.UTC(this.value.year(), this.value.month(), this.value.date()));
+      if (!this.value.isUtc() || date.valueOf() !== this.value.valueOf()) {
+        setTimeout(() => this.value = date);
+      }
     }
+  }
 
-    private convertToUtc() {
-        if (this.value) {
-            let date = moment.utc(Date.UTC(this.value.year(), this.value.month(), this.value.date()));
-            if (!this.value.isUtc() || date.valueOf() !== this.value.valueOf()) {
-                setTimeout(() => this.value = date);
-            }
-        }
-    }
-
-    private getUtcMoment(date: any) {
-        return moment.utc(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-    }
+  private getUtcMoment(date: any) {
+    return moment.utc(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  }
 }
 
 /**
@@ -119,16 +119,16 @@ export class Datepicker extends ValidationComponent {
  * Sam Zurcher <sam@orelias.ch>
  */
 (function ($) {
-    (<any>$.fn.datepicker).dates['de'] = {
-        days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-        daysShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
-        daysMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-        months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-        monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-        today: 'Heute',
-        monthsTitle: 'Monate',
-        clear: 'Löschen',
-        weekStart: 1,
-        format: 'dd.mm.yyyy'
-    };
+  (<any>$.fn.datepicker).dates['de'] = {
+    days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+    daysShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+    daysMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+    months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+    today: 'Heute',
+    monthsTitle: 'Monate',
+    clear: 'Löschen',
+    weekStart: 1,
+    format: 'dd.mm.yyyy'
+  };
 }($));

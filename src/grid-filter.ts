@@ -6,24 +6,24 @@ import { Textbox } from './textbox';
 @containerless
 @customElement('bs-grid-filter')
 export class GridFilter {
-    filterBox: Textbox;
+  filterBox: Textbox;
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    filter = '';
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  filter = '';
 
-    @bindable
-    position: 'left' | 'right' = 'right';
+  @bindable
+  position: 'left' | 'right' = 'right';
 
-    @observable
-    showFilter = false;
+  @observable
+  showFilter = false;
 
-    toggleFilter() {
-        this.showFilter = !this.showFilter;
-        if (this.showFilter) {
-            setTimeout(() => {
-                this.filterBox.focus();
-                this.filterBox.selectAll();
-            });
-        }
+  toggleFilter() {
+    this.showFilter = !this.showFilter;
+    if (this.showFilter) {
+      setTimeout(() => {
+        this.filterBox.focus();
+        this.filterBox.selectAll();
+      });
     }
+  }
 }

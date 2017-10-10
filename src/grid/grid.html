@@ -1,72 +1,73 @@
 <template>
-	<!-- Header -->
-	<table border="0"
-	       class="table"
-	       style="margin-bottom: 0">
-		<thead ref="headerElement"></thead>
-	</table>
+  <!-- Header -->
+  <table border="0"
+         class="table"
+         style="margin-bottom: 0">
+    <thead ref="headerElement"></thead>
+  </table>
 
-	<!-- Rows -->
-	<div style="overflow-y: auto">
-		<table border="0"
-		       class="table"
-		       style.bind="filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'">
-			<tbody ref="bodyElement"></tbody>
-			<tfoot ref="footerElement"
-			       show.bind="toonFooter"></tfoot>
-		</table>
-		<template if.bind="filteredCount === -1 && refreshingGrid"
-		          part="loading"
-		          replaceable></template>
-		<template if.bind="filteredCount === 0 && !refreshingGrid"
-		          part="no-items"
-		          replaceable></template>
-	</div>
+  <!-- Rows -->
+  <div style="overflow-y: auto">
+    <table border="0"
+           class="table"
+           style.bind="filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'">
+      <tbody ref="bodyElement"></tbody>
+      <tfoot ref="footerElement"
+             show.bind="toonFooter"></tfoot>
+    </table>
+    <template if.bind="filteredCount === -1 && refreshingGrid"
+              part="loading"
+              replaceable></template>
+    <template if.bind="filteredCount === 0 && !refreshingGrid"
+              part="no-items"
+              replaceable></template>
+  </div>
 
-	<!-- Columns -->
-	<slot></slot>
+  <!-- Columns -->
+  <slot></slot>
 
-	<!-- Pagination -->
-	<ul class="pagination"
-	    style="margin: 0">
-		<li class.bind="currentPage === 0 ? 'disabled' : ''">
-			<a click.trigger="showPage(0)"
-			   href="#">1</a>
-		</li>
-		<li class.bind="currentPage === 0 ? 'disabled' : ''">
-			<a href="#"
-			   click.trigger="showPage(currentPage - 1)">◄</a>
-		</li>
-	</ul>
-	<ul class="pagination"
-	    style="margin: 0">
-		<li repeat.for="i of pages"
-		    class.bind="i === currentPage ? 'active' : ''">
-			<a href="#"
-			   click.trigger="showPage(i)">
-				${$first && i > 0 ? '... &nbsp;' : ''}
-				${i + 1}
-				${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}
-			</a>
-		</li>
-	</ul>
-	<span style="float: right">
-		<ul if.bind="totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)"
-			class="pagination"
-			style="margin: 0">
-			<li>
-				<a>
-					&nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;
-				</a>
-			</li>
-		</ul>
-		<ul class="pagination" style="margin: 0">
-			<li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
-				<a href="#" click.trigger="showPage(currentPage + 1)">►</a>
-			</li>
-			<li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
-				<a href="#" click.trigger="showPage(pageCount - 1)">${pageCount}</a>
-			</li>
-		</ul>
-	</span>
+  <!-- Pagination -->
+  <ul class="pagination"
+      style="margin: 0">
+    <li class.bind="currentPage === 0 ? 'disabled' : ''">
+      <a click.trigger="showPage(0)"
+         href="#">1</a>
+    </li>
+    <li class.bind="currentPage === 0 ? 'disabled' : ''">
+      <a href="#"
+         click.trigger="showPage(currentPage - 1)">◄</a>
+    </li>
+  </ul>
+  <ul class="pagination"
+      style="margin: 0">
+    <li repeat.for="i of pages"
+        class.bind="i === currentPage ? 'active' : ''">
+      <a href="#"
+         click.trigger="showPage(i)">
+        ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}
+      </a>
+    </li>
+  </ul>
+  <span style="float: right">
+    <ul if.bind="totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)"
+        class="pagination"
+        style="margin: 0">
+      <li>
+        <a>
+          &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;
+        </a>
+      </li>
+    </ul>
+    <ul class="pagination"
+        style="margin: 0">
+      <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
+        <a href="#"
+           click.trigger="showPage(currentPage + 1)">►</a>
+      </li>
+      <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
+        <a href="#"
+           click.trigger="showPage(pageCount - 1)">${pageCount}</a>
+      </li>
+    </ul>
+  </span>
 </template>

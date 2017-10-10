@@ -7,19 +7,19 @@ export { BsValidateBindingBehavior } from './validation-component';
 @containerless
 @customElement('bs-checkbox')
 export class Checkbox extends ValidationComponent {
-    id = createComponentId();
+  id = createComponentId();
 
-    @bindable
-    label = '';
+  @bindable
+  label = '';
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    value = false;
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  value = false;
 
-    @bindable
-    @convert(BooleanConverter)
-    enabled = true;
+  @bindable
+  @convert(BooleanConverter)
+  enabled = true;
 
-    @bindable
-    @convert(BooleanConverter)
-    readonly = false;
+  @bindable
+  @convert(BooleanConverter)
+  readonly = false;
 }

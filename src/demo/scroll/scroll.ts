@@ -1,9 +1,9 @@
 export class Scroll {
-    randomData: string[] = [];
+  randomData: string[] = [];
 
-    constructor() {
-        for (let i = 0; i < 100; i++) {
-            this.randomData.push('Item ' + (i + 1));
-        }
+  constructor() {
+    for (let i = 0; i < 100; i++) {
+      this.randomData.push('Item ' + (i + 1));
     }
+  }
 }

@@ -1,17 +1,17 @@
 ﻿<template>
-    <require from="../dialog"></require>
+  <require from="../dialog"></require>
 
-    <bs-dialog title.bind="title">
-        <div class="modal-body"
-             innerhtml.bind="message">
-        </div>
-        <div class="modal-footer">
-            <bs-button repeat.for="button of buttons"
-                       click.trigger="buttonClicked(button)"
-                       type="button"
-                       primary.bind="button.isDefault">
-                ${button.title}
-            </bs-button>
-        </div>
-    </bs-dialog>
+  <bs-dialog title.bind="title">
+    <div class="modal-body"
+         innerhtml.bind="message">
+    </div>
+    <div class="modal-footer">
+      <bs-button repeat.for="button of buttons"
+                 click.trigger="buttonClicked(button)"
+                 type="button"
+                 primary.bind="button.isDefault">
+        ${button.title}
+      </bs-button>
+    </div>
+  </bs-dialog>
 </template>

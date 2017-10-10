@@ -1,26 +1,26 @@
 ﻿import { customElement, bindable, observable } from 'aurelia-framework';
 
 export let TabDefaults = {
-    style: ''
+  style: ''
 };
 
 @customElement('bs-tab')
 export class Tab {
-    @bindable
-    id: string = '';
+  @bindable
+  id: string = '';
 
-    @observable
-    active = false;
+  @observable
+  active = false;
 
-    @bindable
-    style = TabDefaults.style;
+  @bindable
+  style = TabDefaults.style;
 
-    @bindable
-    header: any = '';
+  @bindable
+  header: any = '';
 
-    @bindable
-    panel: boolean = true;
+  @bindable
+  panel: boolean = true;
 
-    @bindable
-    visible: boolean = true;
+  @bindable
+  visible: boolean = true;
 }

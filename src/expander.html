@@ -1,26 +1,26 @@
 ﻿<template>
-    <div class="panel panel-default">
-        <div class="panel-heading"
-             click.delegate="toggle()"
-             style="cursor: pointer">
-            <div style="position: relative">
-                <template part="header-template"
-                          replaceable>
-                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 25px">${header}</div>
-                </template>
-                <span style="position: absolute; top: 0; bottom: 0; right: 0"
-                      if.bind="!expanded">
-                    &#9650;
-                </span>
-                <span style="position: absolute; top: 0; bottom: 0; right: 0"
-                      if.bind="expanded">
-                    &#9660;
-                </span>
-            </div>
-        </div>
-        <div show.bind="expanded"
-             class="panel-body">
-            <slot></slot>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"
+         click.delegate="toggle()"
+         style="cursor: pointer">
+      <div style="position: relative">
+        <template part="header-template"
+                  replaceable>
+          <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 25px">${header}</div>
+        </template>
+        <span style="position: absolute; top: 0; bottom: 0; right: 0"
+              if.bind="!expanded">
+          &#9650;
+        </span>
+        <span style="position: absolute; top: 0; bottom: 0; right: 0"
+              if.bind="expanded">
+          &#9660;
+        </span>
+      </div>
     </div>
+    <div show.bind="expanded"
+         class="panel-body">
+      <slot></slot>
+    </div>
+  </div>
 </template>

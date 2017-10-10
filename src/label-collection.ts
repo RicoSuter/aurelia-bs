@@ -2,44 +2,44 @@ import { customElement, bindable, containerless, bindingMode } from 'aurelia-fra
 import { BsSettings } from './settings';
 
 let translations = {
-    'de': {
-        'noItems': '<Keine Auswahl>'
-    },
-    'en': {
-        'noItems': '<No selection>'
-    }
+  'de': {
+    'noItems': '<Keine Auswahl>'
+  },
+  'en': {
+    'noItems': '<No selection>'
+  }
 };
 
 @containerless
 @customElement('bs-label-collection')
 export class LabelCollection {
-    translations = (<any>translations)[BsSettings.language];
+  translations = (<any>translations)[BsSettings.language];
 
-    @bindable
-    label = '';
+  @bindable
+  label = '';
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    items: any[];
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  items: any[];
 
-    @bindable
-    displayPath: string | null = null;
+  @bindable
+  displayPath: string | null = null;
 
-    @bindable
-    enabled = true;
+  @bindable
+  enabled = true;
 
-    removeItem(item: any) {
-        this.items = this.items.filter(i => i !== item);
+  removeItem(item: any) {
+    this.items = this.items.filter(i => i !== item);
+  }
+
+  protected getValue(item: any, path: string) {
+    if (item) {
+      let value = item;
+      let pathArray = path.split('.');
+      for (let prop of pathArray) {
+        value = value[prop];
+      }
+      return value;
     }
-
-    protected getValue(item: any, path: string) {
-        if (item) {
-            let value = item;
-            let pathArray = path.split('.');
-            for (let prop of pathArray) {
-                value = value[prop];
-            }
-            return value;
-        }
-        return null;
-    }
+    return null;
+  }
 }

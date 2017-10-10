@@ -1,3 +1,3 @@
 export class BsSettings {
-    static language = 'en';
+  static language = 'en';
 }

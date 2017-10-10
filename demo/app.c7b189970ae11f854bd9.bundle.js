@@ -54953,7 +54953,7 @@ var Button = /** @class */ (function () {
 /***/ "button.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <button class.bind=\"'btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class\"\r\n            disabled.bind=\"enabled ? null : 'disabled'\"\r\n            click.trigger=\"onClick()\">\r\n        <slot></slot>\r\n    </button>\r\n</template>";
+module.exports = "<template>\r\n  <button class.bind=\"'btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class\"\r\n          disabled.bind=\"enabled ? null : 'disabled'\"\r\n          click.trigger=\"onClick()\">\r\n    <slot></slot>\r\n  </button>\r\n</template>";
 
 /***/ }),
 
@@ -55033,7 +55033,7 @@ var Checkbox = /** @class */ (function (_super) {
 /***/ "checkbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <label class=\"checkbox\"\r\n           for.bind=\"id\">\r\n        <input type=\"checkbox\" \r\n               id.bind=\"id\"\r\n               class=\"custom-checkbox\"\r\n               checked.bind=\"value\"\r\n               disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n               readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n        <span class=\"icons\">\r\n            <span class=\"icon-checked\"></span>\r\n            <span class=\"icon-unchecked\"></span>\r\n        </span>\r\n        ${label}\r\n    </label>\r\n</template>";
+module.exports = "<template>\r\n  <label class=\"checkbox\"\r\n         for.bind=\"id\">\r\n    <input type=\"checkbox\"\r\n           id.bind=\"id\"\r\n           class=\"custom-checkbox\"\r\n           checked.bind=\"value\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n    <span class=\"icons\">\r\n      <span class=\"icon-checked\"></span>\r\n      <span class=\"icon-unchecked\"></span>\r\n    </span>\r\n    ${label}\r\n  </label>\r\n</template>";
 
 /***/ }),
 
@@ -55219,7 +55219,7 @@ var Datepicker = /** @class */ (function (_super) {
 /***/ "datepicker.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n        <label class=\"control-label\"\r\n               if.bind=\"label !== ''\">\r\n            ${label}\r\n        </label>\r\n\r\n        <div class=\"input-group date\"\r\n             ref=\"element\">\r\n            <input type=\"text\"\r\n                   class=\"form-control\"\r\n                   placeholder.bind=\"!value && !required ? translations.noValue : translations.select\"\r\n                   disabled.bind=\"enabled === false ? 'disabled' : undefined\">\r\n            <span class=\"input-group-addon\">\r\n                <i class=\"glyphicon glyphicon-th\"></i>\r\n            </span>\r\n        </div>\r\n\r\n        <p class=\"help-block\"\r\n           if.bind=\"help\">${help}</p>\r\n        <p class=\"help-block\"\r\n           repeat.for=\"error of errors\">\r\n            ${error.message}\r\n            <p>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n\r\n    <div class=\"input-group date\"\r\n         ref=\"element\">\r\n      <input type=\"text\"\r\n             class=\"form-control\"\r\n             placeholder.bind=\"!value && !required ? translations.noValue : translations.select\"\r\n             disabled.bind=\"enabled === false ? 'disabled' : undefined\">\r\n      <span class=\"input-group-addon\">\r\n        <i class=\"glyphicon glyphicon-th\"></i>\r\n      </span>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -55306,7 +55306,7 @@ exports.push([module.i, "@media (max-width: 767px) {\r\n    /* On small screens,
 /***/ "demo/app/app.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n    <require from=\"../navmenu/navmenu.html\"></require>\r\n    <require from=\"./app.css\"></require>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-3\">\r\n                <navmenu router.bind=\"router\"></navmenu>\r\n            </div>\r\n            <div class=\"col-sm-9 body-content\">\r\n                <router-view></router-view>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <require from=\"../navmenu/navmenu.html\"></require>\r\n  <require from=\"./app.css\"></require>\r\n  <div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-3\">\r\n        <navmenu router.bind=\"router\"></navmenu>\r\n      </div>\r\n      <div class=\"col-sm-9 body-content\">\r\n        <router-view></router-view>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -55329,7 +55329,7 @@ var Common = /** @class */ (function () {
 /***/ "demo/common/common.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <h1>Common Controls</h1>\r\n\r\n    <h2>bs-button</h2>\r\n\r\n    <bs-button>Button</bs-button>\r\n    <bs-button enabled.bind=\"false\">Disabled button</bs-button>\r\n\r\n    <p>\r\n        <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-button.md\">Docs</a>\r\n    </p>\r\n\r\n    <h2>bs-textbox</h2>\r\n\r\n    <bs-textbox label=\"My Textbox\"></bs-textbox>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md\">Docs</a>\r\n\r\n    <h2>bs-checkbox</h2>\r\n\r\n    <bs-checkbox label=\"My Checkbox\"></bs-checkbox>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md\">Docs</a>\r\n\r\n    <h2>bs-select</h2>\r\n\r\n    <bs-select label=\"My Select\"\r\n               items.bind=\"['foo', 'bar']\">\r\n    </bs-select>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md\">Docs</a>\r\n\r\n    <h2>bs-select-grid</h2>\r\n    <bs-select-grid label=\"My Select Grid\"\r\n                    display-path=\"name\"\r\n                    items.bind=\"[{name: 'foo', age: 45}, { name: 'bar', age: 34}]\">\r\n        <bs-column field=\"name\"\r\n                   header=\"Name\">\r\n            ${row.name}\r\n        </bs-column>\r\n        <bs-column field=\"age\"\r\n                   width=\"100\"\r\n                   header=\"Age\">\r\n            ${row.age}\r\n        </bs-column>\r\n    </bs-select-grid>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md\">Docs</a>\r\n\r\n    <h2>bs-fileupload</h2>\r\n    <bs-fileupload label=\"Image\">\r\n    </bs-fileupload>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md\">Docs</a>\r\n</template>";
+module.exports = "<template>\r\n  <h1>Common Controls</h1>\r\n\r\n  <h2>bs-button</h2>\r\n\r\n  <bs-button>Button</bs-button>\r\n  <bs-button enabled.bind=\"false\">Disabled button</bs-button>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-button.md\">Docs</a>\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n\r\n  <bs-textbox label=\"My Textbox\"></bs-textbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md\">Docs</a>\r\n\r\n  <h2>bs-checkbox</h2>\r\n\r\n  <bs-checkbox label=\"My Checkbox\"></bs-checkbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md\">Docs</a>\r\n\r\n  <h2>bs-select</h2>\r\n\r\n  <bs-select label=\"My Select\"\r\n             items.bind=\"['foo', 'bar']\">\r\n  </bs-select>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md\">Docs</a>\r\n\r\n  <h2>bs-select-grid</h2>\r\n  <bs-select-grid label=\"My Select Grid\"\r\n                  display-path=\"name\"\r\n                  items.bind=\"[{name: 'foo', age: 45}, { name: 'bar', age: 34}]\">\r\n    <bs-column field=\"name\"\r\n               header=\"Name\">\r\n      ${row.name}\r\n    </bs-column>\r\n    <bs-column field=\"age\"\r\n               width=\"100\"\r\n               header=\"Age\">\r\n      ${row.age}\r\n    </bs-column>\r\n  </bs-select-grid>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md\">Docs</a>\r\n\r\n  <h2>bs-fileupload</h2>\r\n  <bs-fileupload label=\"Image\">\r\n  </bs-fileupload>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md\">Docs</a>\r\n</template>";
 
 /***/ }),
 
@@ -55374,7 +55374,7 @@ var Content = /** @class */ (function () {
 /***/ "demo/content/content.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <h1>Content Controls</h1>\r\n\r\n    <h2>bs-tabs</h2>\r\n    <bs-tabs>\r\n        <bs-tab header=\"Foo\">\r\n            Foo\r\n        </bs-tab>\r\n        <bs-tab header=\"Bar\">\r\n            Bar\r\n        </bs-tab>\r\n    </bs-tabs>\r\n\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-tabs.md\">Docs</a>\r\n\r\n    <h2>bs-expander</h2>\r\n    <bs-expander header=\"Foo\"\r\n                 expanded.bind=\"true\">\r\n        Bar\r\n    </bs-expander>\r\n\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-expander.md\">Docs</a>\r\n</template>";
+module.exports = "<template>\r\n  <h1>Content Controls</h1>\r\n\r\n  <h2>bs-tabs</h2>\r\n  <bs-tabs>\r\n    <bs-tab header=\"Foo\">\r\n      Foo\r\n    </bs-tab>\r\n    <bs-tab header=\"Bar\">\r\n      Bar\r\n    </bs-tab>\r\n  </bs-tabs>\r\n\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-tabs.md\">Docs</a>\r\n\r\n  <h2>bs-expander</h2>\r\n  <bs-expander header=\"Foo\"\r\n               expanded.bind=\"true\">\r\n    Bar\r\n  </bs-expander>\r\n\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-expander.md\">Docs</a>\r\n</template>";
 
 /***/ }),
 
@@ -55488,7 +55488,7 @@ var CustomDialog = /** @class */ (function (_super) {
 /***/ "demo/dialog/custom-dialog.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <bs-dialog title.bind=\"title\">\r\n        <div class=\"modal-body\">\r\n            <h1>My custom dialog</h1>\r\n            <bs-button click.trigger=\"showAlert()\">Show Alert</bs-button>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n            <bs-button click.trigger=\"close()\">\r\n                Close\r\n            </bs-button>\r\n        </div>\r\n    </bs-dialog>\r\n</template>";
+module.exports = "<template>\r\n  <bs-dialog title.bind=\"title\">\r\n    <div class=\"modal-body\">\r\n      <h1>My custom dialog</h1>\r\n      <bs-button click.trigger=\"showAlert()\">Show Alert</bs-button>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <bs-button click.trigger=\"close()\">\r\n        Close\r\n      </bs-button>\r\n    </div>\r\n  </bs-dialog>\r\n</template>";
 
 /***/ }),
 
@@ -55604,7 +55604,7 @@ var Dialog = /** @class */ (function () {
 /***/ "demo/dialog/dialog.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <h1>Dialogs</h1>\r\n    <bs-button click.trigger=\"showAlert()\">Show alert dialog</bs-button>\r\n    <bs-button click.trigger=\"showConfirm()\">Show confirm dialog</bs-button>\r\n    <bs-button click.trigger=\"showCustom()\">Show custom dialog</bs-button>\r\n\r\n    <p>\r\n        <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/dialogs.md\">Docs</a>\r\n    </p>\r\n\r\n    <p style=\"padding-top: 200px\">\r\n        Opened dialogs: ${dialogService.openedDialogs.length}\r\n\r\n\r\n        <div repeat.for=\"dlg of dialogService.openedDialogs\">\r\n            ${dlg.viewModelUrl}\r\n        </div>\r\n    </p>\r\n</template>";
+module.exports = "<template>\r\n  <h1>Dialogs</h1>\r\n  <bs-button click.trigger=\"showAlert()\">Show alert dialog</bs-button>\r\n  <bs-button click.trigger=\"showConfirm()\">Show confirm dialog</bs-button>\r\n  <bs-button click.trigger=\"showCustom()\">Show custom dialog</bs-button>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/dialogs.md\">Docs</a>\r\n  </p>\r\n\r\n  <p style=\"padding-top: 200px\">\r\n    Opened dialogs: ${dialogService.openedDialogs.length}\r\n\r\n\r\n    <div repeat.for=\"dlg of dialogService.openedDialogs\">\r\n      ${dlg.viewModelUrl}\r\n    </div>\r\n  </p>\r\n</template>";
 
 /***/ }),
 
@@ -55659,7 +55659,7 @@ var Grid = /** @class */ (function () {
 /***/ "demo/grid/grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <h2>bs-label-collection</h2>\r\n    <bs-label-collection label=\"Selected Items\"\r\n                         items.bind=\"selectedItems\"\r\n                         display-path=\"string\">\r\n    </bs-label-collection>\r\n\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-label-collection.md\">Docs</a>\r\n\r\n    <h1>bs-grid</h1>\r\n    <bs-grid-filter filter.bind=\"filter\">\r\n        <bs-grid rows.bind=\"data\"\r\n                 selection-mode=\"multiple\"\r\n                 selected-items.bind=\"selectedItems\"\r\n                 filter.bind=\"filter\"\r\n                 offset.bind=\"100\"\r\n                 default-sort-column=\"string\"\r\n                 class=\"basic\"\r\n                 offset=\"100\"\r\n                 item-height.bind=\"40\">\r\n            <bs-column field=\"date\"\r\n                       header=\"Date field\"\r\n                       width=\"200\">\r\n                ${row.date.format('DD.MM.YYYY')}\r\n            </bs-column>\r\n            <bs-column field=\"string\"\r\n                       row-header=\"true\"\r\n                       width=\"200\">\r\n                <header>\r\n                    <em>Header with markup</em><br> These are row-headers.\r\n                </header>\r\n            </bs-column>\r\n            <bs-column header=\"No field specified\"\r\n                       width=\"150\">\r\n                ${parent.getRandomValue()}\r\n            </bs-column>\r\n            <bs-column header=\"Unsortable, unsearchable boolean field\"\r\n                       field=\"boolean\"\r\n                       sortable=\"false\"\r\n                       searchable=\"false\">\r\n                <span class.bind=\"row.boolean ? 'green' : 'red'\">\r\n                    ${row.boolean ? \"yes\" : \"no\"}\r\n                </span>\r\n            </bs-column>\r\n        </bs-grid>\r\n    </bs-grid-filter>\r\n\r\n    <p>\r\n        <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-grid.md\">Docs</a>\r\n    </p>\r\n</template>";
+module.exports = "<template>\r\n  <h2>bs-label-collection</h2>\r\n  <bs-label-collection label=\"Selected Items\"\r\n                       items.bind=\"selectedItems\"\r\n                       display-path=\"string\">\r\n  </bs-label-collection>\r\n\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-label-collection.md\">Docs</a>\r\n\r\n  <h1>bs-grid</h1>\r\n  <bs-grid-filter filter.bind=\"filter\">\r\n    <bs-grid rows.bind=\"data\"\r\n             selection-mode=\"multiple\"\r\n             selected-items.bind=\"selectedItems\"\r\n             filter.bind=\"filter\"\r\n             offset.bind=\"100\"\r\n             default-sort-column=\"string\"\r\n             class=\"basic\"\r\n             offset=\"100\"\r\n             item-height.bind=\"40\">\r\n      <bs-column field=\"date\"\r\n                 header=\"Date field\"\r\n                 width=\"200\">\r\n        ${row.date.format('DD.MM.YYYY')}\r\n      </bs-column>\r\n      <bs-column field=\"string\"\r\n                 row-header=\"true\"\r\n                 width=\"200\">\r\n        <header>\r\n          <em>Header with markup</em>\r\n          <br> These are row-headers.\r\n        </header>\r\n      </bs-column>\r\n      <bs-column header=\"No field specified\"\r\n                 width=\"150\">\r\n        ${parent.getRandomValue()}\r\n      </bs-column>\r\n      <bs-column header=\"Unsortable, unsearchable boolean field\"\r\n                 field=\"boolean\"\r\n                 sortable=\"false\"\r\n                 searchable=\"false\">\r\n        <span class.bind=\"row.boolean ? 'green' : 'red'\">\r\n          ${row.boolean ? \"yes\" : \"no\"}\r\n        </span>\r\n      </bs-column>\r\n    </bs-grid>\r\n  </bs-grid-filter>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-grid.md\">Docs</a>\r\n  </p>\r\n</template>";
 
 /***/ }),
 
@@ -55681,7 +55681,7 @@ exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n
 /***/ "demo/navmenu/navmenu.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template bindable=\"router\">\r\n    <require from=\"./navmenu.css\"></require>\r\n    <div class=\"main-nav\">\r\n        <div class=\"navbar navbar-inverse\">\r\n            <div class=\"navbar-header\">\r\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n                    <span class=\"sr-only\">Toggle navigation</span>\r\n                    <span class=\"icon-bar\"></span>\r\n                    <span class=\"icon-bar\"></span>\r\n                    <span class=\"icon-bar\"></span>\r\n                </button>\r\n                <a class=\"navbar-brand\" href=\"#/home\">Aurelia</a>\r\n            </div>\r\n            <div class=\"clearfix\"></div>\r\n            <div class=\"navbar-collapse collapse\">\r\n                <ul class=\"nav navbar-nav\">\r\n                    <li repeat.for=\"row of router.navigation\" class=\"${ row.isActive ? 'link-active' : '' }\">\r\n                        <a href=\"${row.href}\">\r\n                            <span class=\"glyphicon glyphicon-${ row.settings.icon }\"></span> ${ row.title }\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div>\r\n                <ul>\r\n                    <li><a href=\"?css=bs\">Bootstrap</a></li>\r\n                    <li><a href=\"?css=flatui\">Flat UI</a></li>\r\n                    <li><a href=\"?css=mdb\">MDB</a></li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template bindable=\"router\">\r\n  <require from=\"./navmenu.css\"></require>\r\n  <div class=\"main-nav\">\r\n    <div class=\"navbar navbar-inverse\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\"\r\n                class=\"navbar-toggle\"\r\n                data-toggle=\"collapse\"\r\n                data-target=\".navbar-collapse\">\r\n          <span class=\"sr-only\">Toggle navigation</span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\"\r\n           href=\"#/home\">aurelia-bs</a>\r\n      </div>\r\n      <div class=\"clearfix\"></div>\r\n      <div class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li repeat.for=\"row of router.navigation\"\r\n              class=\"${ row.isActive ? 'link-active' : '' }\">\r\n            <a href=\"${row.href}\">\r\n              <span class=\"glyphicon glyphicon-${ row.settings.icon }\"></span> ${ row.title }\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n      <div>\r\n        <ul>\r\n          <li>\r\n            <a href=\"?css=bs\">Bootstrap</a>\r\n          </li>\r\n          <li>\r\n            <a href=\"?css=flatui\">Flat UI</a>\r\n          </li>\r\n          <li>\r\n            <a href=\"?css=mdb\">MDB</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -55708,7 +55708,7 @@ var Scroll = /** @class */ (function () {
 /***/ "demo/scroll/scroll.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <h1>bs-scroll</h1>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-6\">\r\n            Scroll with full height of page:\r\n            <bs-scroll>\r\n                <div repeat.for=\"item of randomData\">\r\n                    ${item}\r\n                </div>\r\n            </bs-scroll>\r\n        </div>\r\n        <div class=\"col-sm-6\">\r\n            Fixed height set to 200px:\r\n            <bs-scroll height=\"200\">\r\n                <div repeat.for=\"item of randomData\">\r\n                    ${item}\r\n                </div>\r\n            </bs-scroll>\r\n\r\n            <br /> Scroll with full height of page:\r\n            <bs-scroll>\r\n                <div repeat.for=\"item of randomData\">\r\n                    ${item}\r\n                </div>\r\n            </bs-scroll>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <h1>bs-scroll</h1>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-6\">\r\n      Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n    <div class=\"col-sm-6\">\r\n      Fixed height set to 200px:\r\n      <bs-scroll height=\"200\">\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n\r\n      <br /> Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -55923,7 +55923,7 @@ var DialogBase = /** @class */ (function () {
 /***/ "dialog.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class=\"modal fade in\"\r\n         mouseup.delegate=\"checkDismissClick($event)\"\r\n         style=\"display: block\"\r\n         tabindex=\"-1\"\r\n         role=\"dialog\">\r\n        <div class=\"modal-dialog\"\r\n             role=\"document\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                    <button if.bind=\"showCloseButton\"\r\n                            type=\"button\"\r\n                            class=\"close\"\r\n                            click.trigger=\"dialog.close()\"\r\n                            data-dismiss=\"modal\"\r\n                            aria-label=\"Close\">\r\n                        <span aria-hidden=\"true\">&times;</span>\r\n                    </button>\r\n                    <h4 class=\"modal-title\">${title}</h4>\r\n                </div>\r\n                <slot></slot>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"modal fade in\"\r\n       mouseup.delegate=\"checkDismissClick($event)\"\r\n       style=\"display: block\"\r\n       tabindex=\"-1\"\r\n       role=\"dialog\">\r\n    <div class=\"modal-dialog\"\r\n         role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button if.bind=\"showCloseButton\"\r\n                  type=\"button\"\r\n                  class=\"close\"\r\n                  click.trigger=\"dialog.close()\"\r\n                  data-dismiss=\"modal\"\r\n                  aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n          <h4 class=\"modal-title\">${title}</h4>\r\n        </div>\r\n        <slot></slot>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -55985,7 +55985,7 @@ var AlertDialog = /** @class */ (function (_super) {
 /***/ "dialogs/alert-dialog.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n    <require from=\"../dialog\"></require>\r\n\r\n    <bs-dialog title.bind=\"title\">\r\n        <div class=\"modal-body\"\r\n             innerhtml.bind=\"message\">\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n            <bs-button repeat.for=\"button of buttons\"\r\n                       click.trigger=\"buttonClicked(button)\"\r\n                       type=\"button\"\r\n                       primary.bind=\"button.isDefault\">\r\n                ${button.title}\r\n            </bs-button>\r\n        </div>\r\n    </bs-dialog>\r\n</template>";
+module.exports = "<template>\r\n  <require from=\"../dialog\"></require>\r\n\r\n  <bs-dialog title.bind=\"title\">\r\n    <div class=\"modal-body\"\r\n         innerhtml.bind=\"message\">\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <bs-button repeat.for=\"button of buttons\"\r\n                 click.trigger=\"buttonClicked(button)\"\r\n                 type=\"button\"\r\n                 primary.bind=\"button.isDefault\">\r\n        ${button.title}\r\n      </bs-button>\r\n    </div>\r\n  </bs-dialog>\r\n</template>";
 
 /***/ }),
 
@@ -56039,7 +56039,7 @@ var Expander = /** @class */ (function () {
 /***/ "expander.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class=\"panel panel-default\">\r\n        <div class=\"panel-heading\"\r\n             click.delegate=\"toggle()\"\r\n             style=\"cursor: pointer\">\r\n            <div style=\"position: relative\">\r\n                <template part=\"header-template\"\r\n                          replaceable>\r\n                    <div style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 25px\">${header}</div>\r\n                </template>\r\n                <span style=\"position: absolute; top: 0; bottom: 0; right: 0\"\r\n                      if.bind=\"!expanded\">\r\n                    &#9650;\r\n                </span>\r\n                <span style=\"position: absolute; top: 0; bottom: 0; right: 0\"\r\n                      if.bind=\"expanded\">\r\n                    &#9660;\r\n                </span>\r\n            </div>\r\n        </div>\r\n        <div show.bind=\"expanded\"\r\n             class=\"panel-body\">\r\n            <slot></slot>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\"\r\n         click.delegate=\"toggle()\"\r\n         style=\"cursor: pointer\">\r\n      <div style=\"position: relative\">\r\n        <template part=\"header-template\"\r\n                  replaceable>\r\n          <div style=\"white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 25px\">${header}</div>\r\n        </template>\r\n        <span style=\"position: absolute; top: 0; bottom: 0; right: 0\"\r\n              if.bind=\"!expanded\">\r\n          &#9650;\r\n        </span>\r\n        <span style=\"position: absolute; top: 0; bottom: 0; right: 0\"\r\n              if.bind=\"expanded\">\r\n          &#9660;\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div show.bind=\"expanded\"\r\n         class=\"panel-body\">\r\n      <slot></slot>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -56174,7 +56174,7 @@ var FileUpload = /** @class */ (function (_super) {
 /***/ "fileupload.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n        <label class=\"control-label\"\r\n               if.bind=\"label !== ''\">\r\n            ${label}\r\n        </label>\r\n        <div class=\"input-group\"\r\n             disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n             readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n            <p>\r\n                ${description === null ? translations.noItemSelected : description.name}\r\n            </p>\r\n\r\n            <bs-button click.trigger=\"select()\">\r\n                Select\r\n            </bs-button>\r\n            &nbsp;\r\n            <bs-button if.bind=\"description !== null\"\r\n                       click.trigger=\"clear()\">\r\n                Clear\r\n            </bs-button>\r\n\r\n            <input ref=\"fileInput\"\r\n                   style=\"display: none\"\r\n                   type=\"file\"\r\n                   accept.bind=\"accept\"\r\n                   change.trigger=\"fileSelected($event.target.files[0])\" />\r\n        </div>\r\n        <p class=\"help-block\"\r\n           repeat.for=\"error of errors\">\r\n            ${error.message}\r\n            <p>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div class=\"input-group\"\r\n         disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n         readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <p>\r\n        ${description === null ? translations.noItemSelected : description.name}\r\n      </p>\r\n\r\n      <bs-button click.trigger=\"select()\">\r\n        Select\r\n      </bs-button>\r\n      &nbsp;\r\n      <bs-button if.bind=\"description !== null\"\r\n                 click.trigger=\"clear()\">\r\n        Clear\r\n      </bs-button>\r\n\r\n      <input ref=\"fileInput\"\r\n             style=\"display: none\"\r\n             type=\"file\"\r\n             accept.bind=\"accept\"\r\n             change.trigger=\"fileSelected($event.target.files[0])\" />\r\n    </div>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -56239,7 +56239,7 @@ var GridFilter = /** @class */ (function () {
 /***/ "grid-filter.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div style=\"position: relative\">\r\n        <div style.bind=\"'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'\">\r\n            <a click.trigger=\"toggleFilter()\"\r\n               style=\"cursor: pointer\">\r\n               <big>\r\n                    <i class=\"glyphicon glyphicon-filter\"\r\n                       style.bind=\"filter ? 'color: red' : 'color: black'\"></i>\r\n                </big>\r\n            </a>\r\n        </div>\r\n        <div show.bind=\"showFilter\"\r\n             style=\"position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px\">\r\n            <bs-textbox placeholder=\"Filter\"\r\n                        value.bind=\"filter\"\r\n                        enter-pressed.trigger=\"toggleFilter()\"\r\n                        view-model.ref=\"filterBox\"></bs-textbox>\r\n        </div>\r\n    </div>\r\n    <slot></slot>\r\n</template>";
+module.exports = "<template>\r\n  <div style=\"position: relative\">\r\n    <div style.bind=\"'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'\">\r\n      <a click.trigger=\"toggleFilter()\"\r\n         style=\"cursor: pointer\">\r\n        <big>\r\n          <i class=\"glyphicon glyphicon-filter\"\r\n             style.bind=\"filter ? 'color: red' : 'color: black'\"></i>\r\n        </big>\r\n      </a>\r\n    </div>\r\n    <div show.bind=\"showFilter\"\r\n         style=\"position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px\">\r\n      <bs-textbox placeholder=\"Filter\"\r\n                  value.bind=\"filter\"\r\n                  enter-pressed.trigger=\"toggleFilter()\"\r\n                  view-model.ref=\"filterBox\"></bs-textbox>\r\n    </div>\r\n  </div>\r\n  <slot></slot>\r\n</template>";
 
 /***/ }),
 
@@ -56266,13 +56266,13 @@ var Column = /** @class */ (function () {
     function Column(element) {
         this.element = element;
         /**
-         * Set to false to exclude data in this column from searches.
-         */
+       * Set to false to exclude data in this column from searches.
+       */
         this.searchable = true;
         this.defaultSortOrder = 'asc';
         /**
-         * Set to false to disable sorting for this column.
-         */
+       * Set to false to disable sorting for this column.
+       */
         this.sortable = true;
         this.width = 0;
         this.bound = new __WEBPACK_IMPORTED_MODULE_1__deferred__["a" /* Deferred */]();
@@ -56509,17 +56509,17 @@ var Grid = /** @class */ (function (_super) {
         _this.minHeight = GridDefaults.minHeight;
         _this.columns = [];
         /**
-         * Set to false to disable sorting in the entire datagrid. You can also
-         * disable sorting for individual columns: see Column.sortable.
-         */
+       * Set to false to disable sorting in the entire datagrid. You can also
+       * disable sorting for individual columns: see Column.sortable.
+       */
         _this.sortable = true;
         /**
-         * Order to sort in when the grid is first rendered.
-         */
+       * Order to sort in when the grid is first rendered.
+       */
         _this.defaultSortOrder = 'asc';
         /**
-         * Set to false to disable animation when first showing the datagrid.
-         */
+       * Set to false to disable animation when first showing the datagrid.
+       */
         _this.animate = true;
         _this.totalCount = -1;
         _this.filteredCount = -1;
@@ -57179,7 +57179,7 @@ function attachView(view, viewSlot) {
 /***/ "grid/grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n\t<!-- Header -->\r\n\t<table border=\"0\"\r\n\t       class=\"table\"\r\n\t       style=\"margin-bottom: 0\">\r\n\t\t<thead ref=\"headerElement\"></thead>\r\n\t</table>\r\n\r\n\t<!-- Rows -->\r\n\t<div style=\"overflow-y: auto\">\r\n\t\t<table border=\"0\"\r\n\t\t       class=\"table\"\r\n\t\t       style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n\t\t\t<tbody ref=\"bodyElement\"></tbody>\r\n\t\t\t<tfoot ref=\"footerElement\"\r\n\t\t\t       show.bind=\"toonFooter\"></tfoot>\r\n\t\t</table>\r\n\t\t<template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n\t\t          part=\"loading\"\r\n\t\t          replaceable></template>\r\n\t\t<template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n\t\t          part=\"no-items\"\r\n\t\t          replaceable></template>\r\n\t</div>\r\n\r\n\t<!-- Columns -->\r\n\t<slot></slot>\r\n\r\n\t<!-- Pagination -->\r\n\t<ul class=\"pagination\"\r\n\t    style=\"margin: 0\">\r\n\t\t<li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n\t\t\t<a click.trigger=\"showPage(0)\"\r\n\t\t\t   href=\"#\">1</a>\r\n\t\t</li>\r\n\t\t<li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n\t\t\t<a href=\"#\"\r\n\t\t\t   click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n\t\t</li>\r\n\t</ul>\r\n\t<ul class=\"pagination\"\r\n\t    style=\"margin: 0\">\r\n\t\t<li repeat.for=\"i of pages\"\r\n\t\t    class.bind=\"i === currentPage ? 'active' : ''\">\r\n\t\t\t<a href=\"#\"\r\n\t\t\t   click.trigger=\"showPage(i)\">\r\n\t\t\t\t${$first && i > 0 ? '... &nbsp;' : ''}\r\n\t\t\t\t${i + 1}\r\n\t\t\t\t${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n\t\t\t</a>\r\n\t\t</li>\r\n\t</ul>\r\n\t<span style=\"float: right\">\r\n\t\t<ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n\t\t\tclass=\"pagination\"\r\n\t\t\tstyle=\"margin: 0\">\r\n\t\t\t<li>\r\n\t\t\t\t<a>\r\n\t\t\t\t\t&nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n\t\t\t\t</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t\t<ul class=\"pagination\" style=\"margin: 0\">\r\n\t\t\t<li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n\t\t\t\t<a href=\"#\" click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n\t\t\t</li>\r\n\t\t\t<li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n\t\t\t\t<a href=\"#\" click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n\t\t\t</li>\r\n\t\t</ul>\r\n\t</span>\r\n</template>";
+module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n         class=\"table\"\r\n         style=\"margin-bottom: 0\">\r\n    <thead ref=\"headerElement\"></thead>\r\n  </table>\r\n\r\n  <!-- Rows -->\r\n  <div style=\"overflow-y: auto\">\r\n    <table border=\"0\"\r\n           class=\"table\"\r\n           style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n      <tbody ref=\"bodyElement\"></tbody>\r\n      <tfoot ref=\"footerElement\"\r\n             show.bind=\"toonFooter\"></tfoot>\r\n    </table>\r\n    <template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n              part=\"loading\"\r\n              replaceable></template>\r\n    <template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n              part=\"no-items\"\r\n              replaceable></template>\r\n  </div>\r\n\r\n  <!-- Columns -->\r\n  <slot></slot>\r\n\r\n  <!-- Pagination -->\r\n  <ul class=\"pagination\"\r\n      style=\"margin: 0\">\r\n    <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n      <a click.trigger=\"showPage(0)\"\r\n         href=\"#\">1</a>\r\n    </li>\r\n    <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n      <a href=\"#\"\r\n         click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n    </li>\r\n  </ul>\r\n  <ul class=\"pagination\"\r\n      style=\"margin: 0\">\r\n    <li repeat.for=\"i of pages\"\r\n        class.bind=\"i === currentPage ? 'active' : ''\">\r\n      <a href=\"#\"\r\n         click.trigger=\"showPage(i)\">\r\n        ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n      </a>\r\n    </li>\r\n  </ul>\r\n  <span style=\"float: right\">\r\n    <ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n        class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li>\r\n        <a>\r\n          &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n      </li>\r\n      <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n      </li>\r\n    </ul>\r\n  </span>\r\n</template>";
 
 /***/ }),
 
@@ -57262,7 +57262,7 @@ var LabelCollection = /** @class */ (function () {
 /***/ "label-collection.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n\t<div class=\"form-group has-feedback\">\r\n\t\t<label class=\"control-label\"\r\n\t\t       if.bind=\"label !== ''\">\r\n            ${label}\r\n\t\t</label>\r\n\t\t<div>\r\n\t\t\t${!items || items.length == 0 ? translations.noItems : ''}\r\n\t\t\t<span repeat.for=\"item of items\"\r\n\t\t\t      style=\"display: inline-block\">\r\n\t\t\t\t<span class=\"label label-default\" if.bind=\"enabled\">\r\n\t\t\t\t\t<a click.trigger=\"removeItem(item)\" style=\"color: white; cursor: pointer\">\r\n\t\t\t\t\t\t${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;\r\n\t\t\t\t\t\t<big aria-hidden=\"true\">&times;</big>\r\n\t\t\t\t\t</a>\r\n\t\t\t\t</span>\r\n\t\t\t<span class=\"label label-default\"\r\n\t\t\t      if.bind=\"!enabled\">\r\n\t\t\t\t\t${displayPath ? getValue(item, displayPath) : item}\r\n\t\t\t\t</span> &nbsp;&nbsp;\r\n\t\t\t</span>\r\n\t\t\t&nbsp;\r\n\t\t</div>\r\n\t</div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"form-group has-feedback\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div>\r\n      ${!items || items.length == 0 ? translations.noItems : ''}\r\n      <span repeat.for=\"item of items\"\r\n            style=\"display: inline-block\">\r\n        <span class=\"label label-default\"\r\n              if.bind=\"enabled\">\r\n          <a click.trigger=\"removeItem(item)\"\r\n             style=\"color: white; cursor: pointer\">\r\n            ${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;\r\n            <big aria-hidden=\"true\">&times;</big>\r\n          </a>\r\n        </span>\r\n        <span class=\"label label-default\"\r\n              if.bind=\"!enabled\">\r\n          ${displayPath ? getValue(item, displayPath) : item}\r\n        </span> &nbsp;&nbsp;\r\n      </span>\r\n      &nbsp;\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -57401,7 +57401,7 @@ var Loader = /** @class */ (function () {
 /***/ "loader.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <span class=\"bs-loader__inline\"\r\n          if.bind=\"isInline\">\r\n        <i class=\"fa fa-refresh fa-spin\" title.bind=\"displayText\" style.bind=\"inlineStyle\" aria-hidden=\"true\"></i>\r\n    </span>\r\n    <div class=\"bs-loader__overlay\"\r\n         style.bind=\"overlayStyle\">\r\n        <div style.bind=\"loading ? 'opacity: 0.5; pointer-events: none;' : ''\">\r\n            <slot></slot>\r\n        </div>\r\n        <div if.bind=\"loading\"\r\n             style.bind=\"loaderStyle\">\r\n            <div class=\"bs-loader__overlay-icon\"\r\n                 style=\"text-align: center\">\r\n                <i class=\"fa fa-refresh fa-spin\"\r\n                   title.bind=\"displayText\"\r\n                   aria-hidden=\"true\"></i>\r\n            </div>\r\n            <div class=\"bs-loader__overlay-text\"\r\n                 style=\"padding: .5em;\"\r\n                 if.bind=\"showText\">\r\n                ${displayText}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <span class=\"bs-loader__inline\"\r\n        if.bind=\"isInline\">\r\n    <i class=\"fa fa-refresh fa-spin\"\r\n       title.bind=\"displayText\"\r\n       style.bind=\"inlineStyle\"\r\n       aria-hidden=\"true\"></i>\r\n  </span>\r\n  <div class=\"bs-loader__overlay\"\r\n       style.bind=\"overlayStyle\">\r\n    <div style.bind=\"loading ? 'opacity: 0.5; pointer-events: none;' : ''\">\r\n      <slot></slot>\r\n    </div>\r\n    <div if.bind=\"loading\"\r\n         style.bind=\"loaderStyle\">\r\n      <div class=\"bs-loader__overlay-icon\"\r\n           style=\"text-align: center\">\r\n        <i class=\"fa fa-refresh fa-spin\"\r\n           title.bind=\"displayText\"\r\n           aria-hidden=\"true\"></i>\r\n      </div>\r\n      <div class=\"bs-loader__overlay-text\"\r\n           style=\"padding: .5em;\"\r\n           if.bind=\"showText\">\r\n        ${displayText}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -57527,7 +57527,7 @@ var NavbarHeader = /** @class */ (function () {
 /***/ "navbar-header.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\"\r\n                click.trigger=\"toggle()\"\r\n                class=\"navbar-toggle collapsed\"\r\n                aria-expanded=\"false\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <a if.bind=\"brand\"\r\n           class=\"navbar-brand\"\r\n           href=\"/\">${brand}</a>\r\n    </div>\r\n    <div class.bind=\"'collapse navbar-collapse' + (expanded ? ' in' : '')\">\r\n        <ul class=\"nav navbar-nav\"\r\n            ref=\"elm\">\r\n            <slot></slot>\r\n        </ul>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"navbar-header\">\r\n    <button type=\"button\"\r\n            click.trigger=\"toggle()\"\r\n            class=\"navbar-toggle collapsed\"\r\n            aria-expanded=\"false\">\r\n      <span class=\"sr-only\">Toggle navigation</span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n      <span class=\"icon-bar\"></span>\r\n    </button>\r\n    <a if.bind=\"brand\"\r\n       class=\"navbar-brand\"\r\n       href=\"/\">${brand}</a>\r\n  </div>\r\n  <div class.bind=\"'collapse navbar-collapse' + (expanded ? ' in' : '')\">\r\n    <ul class=\"nav navbar-nav\"\r\n        ref=\"elm\">\r\n      <slot></slot>\r\n    </ul>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -57653,7 +57653,7 @@ var ResizeContainer = /** @class */ (function () {
 /***/ "resize-container.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <slot></slot>\r\n</template>";
+module.exports = "<template>\r\n  <slot></slot>\r\n</template>";
 
 /***/ }),
 
@@ -57735,7 +57735,7 @@ var Scroll = /** @class */ (function (_super) {
 /***/ "scroll.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div style=\"overflow-y: auto;\"\r\n         class.bind=\"class\">\r\n        <div>\r\n            <slot></slot>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div style=\"overflow-y: auto;\"\r\n       class.bind=\"class\">\r\n    <div>\r\n      <slot></slot>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -57835,7 +57835,7 @@ var Searchbox = /** @class */ (function () {
 /***/ "searchbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class=\"input-group\">\r\n        <input ref=\"inputElement\"\r\n               type=\"text\"\r\n               class=\"form-control\"\r\n               value.bind=\"value\"\r\n               placeholder.bind=\"placeholder\"\r\n               disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n               readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n\r\n        <span class=\"input-group-btn\">\r\n            <button class=\"btn btn-secondary\" type=\"button\" click.trigger=\"onClick()\" \r\n                    disabled.bind=\"value || allowEmpty ? null : 'disabled'\">\r\n                ${button}\r\n            </button>\r\n        </span>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"input-group\">\r\n    <input ref=\"inputElement\"\r\n           type=\"text\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n\r\n    <span class=\"input-group-btn\">\r\n      <button class=\"btn btn-secondary\"\r\n              type=\"button\"\r\n              click.trigger=\"onClick()\"\r\n              disabled.bind=\"value || allowEmpty ? null : 'disabled'\">\r\n        ${button}\r\n      </button>\r\n    </span>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -58079,6 +58079,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__convert__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__grid_grid__ = __webpack_require__("grid/grid");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__settings__ = __webpack_require__(10);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -58138,11 +58139,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+var translations = {
+    'de': {
+        'select': '<Bitte wählen>'
+    },
+    'en': {
+        'select': '<Please select>'
+    }
+};
 var SelectGrid = /** @class */ (function (_super) {
     __extends(SelectGrid, _super);
     function SelectGrid(dialogService) {
         var _this = _super.call(this) || this;
         _this.dialogService = dialogService;
+        _this.translations = translations[__WEBPACK_IMPORTED_MODULE_5__settings__["a" /* BsSettings */].language];
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
         _this.columns = [];
         _this.label = '';
@@ -58395,14 +58406,14 @@ module.exports = "<template>\r\n  <bs-dialog title.bind=\"title\">\r\n    <div c
 /***/ "select-grid/select-grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <div click.trigger=\"showPicker()\"\r\n         style.bind=\"enabled ? 'cursor: pointer' : ''\">\r\n      <label class=\"control-label\"\r\n             if.bind=\"label !== ''\"\r\n             for.bind=\"id\">\r\n        ${label}\r\n      </label>\r\n      <div id.bind=\"id\"\r\n           tabindex=\"0\"\r\n           keypress.delegate=\"keyPressed($event)\"\r\n           ref=\"controlElement\">\r\n        ${value ? (displayPath ? getValue(value, displayPath) : value) : '&lt;Bitte wählen&gt;'}&nbsp;\r\n      </div>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n\r\n        <!-- Columns -->\r\n        <slot></slot>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <div click.trigger=\"showPicker()\"\r\n         style.bind=\"enabled ? 'cursor: pointer' : ''\">\r\n      <label class=\"control-label\"\r\n             if.bind=\"label !== ''\"\r\n             for.bind=\"id\">\r\n        ${label}\r\n      </label>\r\n      <div id.bind=\"id\"\r\n           tabindex=\"0\"\r\n           keypress.delegate=\"keyPressed($event)\"\r\n           ref=\"controlElement\">\r\n        ${value ? (displayPath ? getValue(value, displayPath) : value) : translations.select}&nbsp;\r\n      </div>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n\r\n        <!-- Columns -->\r\n        <slot></slot>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
 /***/ "select.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n        <label class=\"control-label\"\r\n               if.bind=\"label !== ''\">\r\n            ${label}\r\n        </label>\r\n        <select class=\"form-control\"\r\n                change.trigger=\"onChange($event)\"\r\n                ref=\"select\"\r\n                style=\"${height ? 'height: ' + height + 'px !important' : ''}\"\r\n                multiple.bind=\"multiple ? 'multiple' : null\"\r\n                disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n                readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n            <option if.bind=\"renderNullOption\" value=\"null\">${translations.select}</option>\r\n            <option repeat.for=\"item of items\" value.bind=\"$index\">\r\n                ${displayPath ? getValue(item, displayPath) : item}\r\n            </option>\r\n        </select>\r\n        <p class=\"help-block\"\r\n           if.bind=\"help\">${help}</p>\r\n        <p class=\"help-block\"\r\n           repeat.for=\"error of errors\">\r\n            ${error.message}\r\n            <p>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <select class=\"form-control\"\r\n            change.trigger=\"onChange($event)\"\r\n            ref=\"select\"\r\n            style=\"${height ? 'height: ' + height + 'px !important' : ''}\"\r\n            multiple.bind=\"multiple ? 'multiple' : null\"\r\n            disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n            readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <option if.bind=\"renderNullOption\"\r\n              value=\"null\">${translations.select}</option>\r\n      <option repeat.for=\"item of items\"\r\n              value.bind=\"$index\">\r\n        ${displayPath ? getValue(item, displayPath) : item}\r\n      </option>\r\n    </select>\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -58473,7 +58484,7 @@ var Tab = /** @class */ (function () {
 /***/ "tabs/tab.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class=\"${panel ? 'panel panel-default' : ''} ${active ? '' : 'hidden'} bs-tab-panel\">\r\n        <div class=\"${panel ? 'panel-body' : ''}\">\r\n            <slot></slot>\r\n        </div>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"${panel ? 'panel panel-default' : ''} ${active ? '' : 'hidden'} bs-tab-panel\">\r\n    <div class=\"${panel ? 'panel-body' : ''}\">\r\n      <slot></slot>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -58568,7 +58579,7 @@ var Tabs = /** @class */ (function () {
 /***/ "tabs/tabs.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <ul class=\"nav nav-tabs\"\r\n        css=\"display: ${tabs.length > 0 ? 'block' : 'none'}\">\r\n        <li repeat.for=\"tab of tabs\"\r\n            show.bind=\"tab.visible\"\r\n            style.bind=\"tab.style\"\r\n            class=\"${tab.active ? 'active' : ''}\">\r\n            <a click.trigger=\"selectTab(tab)\"\r\n               href=\"#\">\r\n                <template part=\"header-template\"\r\n                          replaceable>\r\n                    ${tab.header}\r\n                </template>\r\n            </a>\r\n        </li>\r\n    </ul>\r\n    <div class=\"tab-content\">\r\n        <slot></slot>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <ul class=\"nav nav-tabs\"\r\n      css=\"display: ${tabs.length > 0 ? 'block' : 'none'}\">\r\n    <li repeat.for=\"tab of tabs\"\r\n        show.bind=\"tab.visible\"\r\n        style.bind=\"tab.style\"\r\n        class=\"${tab.active ? 'active' : ''}\">\r\n      <a click.trigger=\"selectTab(tab)\"\r\n         href=\"#\">\r\n        <template part=\"header-template\"\r\n                  replaceable>\r\n          ${tab.header}\r\n        </template>\r\n      </a>\r\n    </li>\r\n  </ul>\r\n  <div class=\"tab-content\">\r\n    <slot></slot>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -58691,9 +58702,9 @@ var Textbox = /** @class */ (function (_super) {
 /***/ "textbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n        <label class=\"control-label\"\r\n               if.bind=\"label !== ''\"\r\n               for.bind=\"id\">\r\n            ${label}\r\n        </label>\r\n\r\n        <input if.bind=\"rows === 1\"\r\n               type=\"text\"\r\n               ref=\"element\"\r\n               class=\"form-control\"\r\n               value.bind=\"value\"\r\n               id.bind=\"id\"\r\n               style.bind=\"style\"\r\n               placeholder.bind=\"placeholder\"\r\n               disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n               readonly.bind=\"readonly ? 'readonly' : undefined\" />\r\n\r\n        <textarea if.bind=\"rows > 1\"\r\n                  class=\"form-control\"\r\n                  value.bind=\"value\"\r\n                  style.bind=\"'height: ' + (rows * 1.3) + 'em; resize: none;' + style\"\r\n                  placeholder.bind=\"placeholder\"\r\n                  disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n                  readonly.bind=\"readonly ? 'readonly' : undefined\"></textarea>\r\n\r\n        <p class=\"help-block\"\r\n           if.bind=\"help\">${help}</p>\r\n        <p class=\"help-block\"\r\n           repeat.for=\"error of errors\">\r\n            ${error.message}\r\n            <p>\r\n    </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\"\r\n           for.bind=\"id\">\r\n      ${label}\r\n    </label>\r\n\r\n    <input if.bind=\"rows === 1\"\r\n           type=\"text\"\r\n           ref=\"element\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           id.bind=\"id\"\r\n           style.bind=\"style\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\" />\r\n\r\n    <textarea if.bind=\"rows > 1\"\r\n              class=\"form-control\"\r\n              value.bind=\"value\"\r\n              style.bind=\"'height: ' + (rows * 1.3) + 'em; resize: none;' + style\"\r\n              placeholder.bind=\"placeholder\"\r\n              disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n              readonly.bind=\"readonly ? 'readonly' : undefined\"></textarea>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.bda603739e1d565bf914.bundle.map
+//# sourceMappingURL=app.c7b189970ae11f854bd9.bundle.map

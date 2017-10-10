@@ -4,22 +4,22 @@ import { convert, BooleanConverter } from './convert';
 @containerless
 @customElement('bs-navbar-header')
 export class NavbarHeader {
-    @bindable
-    @convert(BooleanConverter)
-    expanded = false;
+  @bindable
+  @convert(BooleanConverter)
+  expanded = false;
 
-    @bindable
-    brand = '';
+  @bindable
+  brand = '';
 
-    elm: Element;
+  elm: Element;
 
-    attached() {
-        this.elm.addEventListener('click', () => {
-            this.toggle();
-        }, true);
-    }
+  attached() {
+    this.elm.addEventListener('click', () => {
+      this.toggle();
+    }, true);
+  }
 
-    toggle() {
-        this.expanded = !this.expanded;
-    }
+  toggle() {
+    this.expanded = !this.expanded;
+  }
 }
