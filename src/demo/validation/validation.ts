@@ -2,21 +2,15 @@ import * as moment from 'moment';
 import { autoinject } from 'aurelia-framework';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 import { BsValidation } from '../../validation';
-import { BsFileDescription } from '../../fileupload';
+import { FileDescription } from '../../fileupload';
 
 @autoinject
 export class Validation {
   controller: ValidationController;
 
-<<<<<<< HEAD
-    firstName: string | null;
-    dateOfBirth: moment.Moment | null = null;
-    image: BsFileDescription | null;
-=======
   firstName: string | null;
   dateOfBirth: moment.Moment | null = null;
   image: FileDescription | null;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   selection: string | undefined = undefined;
   selections: string[];

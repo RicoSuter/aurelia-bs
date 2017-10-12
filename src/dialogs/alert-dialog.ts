@@ -8,17 +8,10 @@ export interface IDialogButton {
 }
 
 @inject(Element)
-<<<<<<< HEAD
-export class BsAlertDialog extends DialogBase {
-    title = '[no title]';
-    message = '[no message]';
-    buttons: IDialogButton[] = [];
-=======
 export class AlertDialog extends DialogBase {
   title = '[no title]';
   message = '[no message]';
   buttons: IDialogButton[] = [];
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   clickedButton: IDialogButton | null = null;
 

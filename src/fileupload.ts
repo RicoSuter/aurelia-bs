@@ -4,19 +4,11 @@ import { ValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 import { BsSettings } from './settings';
 
-<<<<<<< HEAD
-export interface BsFileDescription {
-    name: string;
-    data: string;
-    type: string;
-    size: number;
-=======
 export interface FileDescription {
   name: string;
   data: string;
   type: string;
   size: number;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 }
 
 let translations = {
@@ -30,13 +22,8 @@ let translations = {
 
 @containerless
 @customElement('bs-fileupload')
-<<<<<<< HEAD
-export class BsFileUpload extends ValidationComponent {
-    translations = (<any>translations)[BsSettings.language];
-=======
 export class FileUpload extends ValidationComponent {
   translations = (<any>translations)[BsSettings.language];
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   label = '';
@@ -44,13 +31,8 @@ export class FileUpload extends ValidationComponent {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) // TODO: Must be one-way-back
   value: string | null = '';
 
-<<<<<<< HEAD
-    @bindable({ defaultBindingMode: bindingMode.twoWay }) // TODO: Must be one-way-back
-    description: BsFileDescription | null = null;
-=======
   @bindable({ defaultBindingMode: bindingMode.twoWay }) // TODO: Must be one-way-back
   description: FileDescription | null = null;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   @convert(BooleanConverter)

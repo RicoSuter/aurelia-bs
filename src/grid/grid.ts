@@ -1,40 +1,24 @@
 import { customElement, inject, bindable, children, Container, View, ViewCompiler, ViewResources, ViewSlot } from 'aurelia-framework';
 import { computedFrom, bindingMode } from 'aurelia-binding';
 
-import { BsColumn } from './column';
+import { Column } from './column';
 import { Deferred } from './deferred';
-import { BsResizeContainer } from '../resize-container';
+import { ResizeContainer } from '../resize-container';
 
-<<<<<<< HEAD
-export interface BsGridDataRequest {
-    skip: number;
-    take: number;
-
-    sortColumn: BsColumn | undefined;
-    sortOrder: 'asc' | 'desc';
-=======
 export interface GridDataRequest {
   skip: number;
   take: number;
 
   sortColumn: Column | undefined;
   sortOrder: 'asc' | 'desc';
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   filter: string;
 }
 
-<<<<<<< HEAD
-export interface BsGridDataResponse {
-    items: any[] | undefined;
-    filteredCount: number;
-    totalCount: number;
-=======
 export interface GridDataResponse {
   items: any[] | undefined;
   filteredCount: number;
   totalCount: number;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 }
 
 export enum SelectionMode {
@@ -69,71 +53,11 @@ export let GridDefaults = {
  */
 @inject(Container, Element, ViewCompiler, ViewResources)
 @customElement('bs-grid')
-<<<<<<< HEAD
-export class BsGrid extends BsResizeContainer {
-    /**
-	 * Defines the locale to use for sorting strings, defaults to browser default.
-	 */
-    public static LOCALE: string;
-
-    @bindable
-    loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
-    @bindable
-    comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
-
-    @bindable
-    offset = GridDefaults.offset;
-
-    @bindable
-    limitToContentHeight = false;
-
-    @bindable
-    height: number | null = null;
-
-    @bindable
-    minHeight = GridDefaults.minHeight;
-
-    @children('bs-column')
-    columns: BsColumn[] = [];
-
-    /**
-	 * The data to display, given as rows of simple objects.
-	 */
-    @bindable
-    rows: any[];
-
-    /**
-	 * Set to false to disable sorting in the entire datagrid. You can also
-	 * disable sorting for individual columns: see Column.sortable.
-	 */
-    @bindable
-    sortable = true;
-
-    /**
-	 * Column to sort on when the grid is first rendered, identified by field.
-	 * If not set the first sortable column will be used to sort.
-	 */
-    @bindable
-    defaultSortColumn: string;
-
-    /**
-	 * Order to sort in when the grid is first rendered.
-	 */
-    @bindable
-    defaultSortOrder: 'asc' | 'desc' = 'asc';
-
-    /**
-	 * Set to false to disable animation when first showing the datagrid.
-	 */
-    @bindable
-    animate = true;
-=======
 export class Grid extends ResizeContainer {
   /**
  * Defines the locale to use for sorting strings, defaults to browser default.
  */
   public static LOCALE: string;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   loadData: ((request: GridDataRequest) => Promise<GridDataResponse>) | undefined = undefined;
@@ -203,28 +127,8 @@ export class Grid extends ResizeContainer {
   @bindable
   selectionMode = SelectionMode.none;
 
-<<<<<<< HEAD
-    private currentSortColumn: BsColumn | undefined;
-    private currentSortOrder: 'asc' | 'desc';
-
-    /**
-	 * You can use this in your cell templates to reference the binding context
-	 * in which the datagrid is used.
-	 */
-    parent: any;
-    actualRows: any[] | undefined;
-    displayedRows: any[] | undefined;
-
-    constructor(private container: Container,
-        element: Element,
-        private viewCompiler: ViewCompiler,
-        private viewResources: ViewResources) {
-        super(element);
-    }
-=======
   @bindable
   enabled = true;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   filter: string = '';
@@ -325,24 +229,9 @@ export class Grid extends ResizeContainer {
       this.body.viewSlot = null;
     }
 
-<<<<<<< HEAD
-    private dirty = false;
-    private isBound = false;
-    private refreshingGrid = false;
-
-    getCurrentGridDataRequest() {
-        return <BsGridDataRequest>{
-            skip: this.pageSize * this.currentPage,
-            take: this.pageSize,
-            sortColumn: this.currentSortColumn,
-            sortOrder: this.currentSortOrder,
-            filter: this.filter
-        };
-=======
     if (this.header.viewSlot) {
       this.header.viewSlot.removeAll();
       this.header.viewSlot = null;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
     }
 
     if (this.footer.viewSlot) {
@@ -350,38 +239,8 @@ export class Grid extends ResizeContainer {
       this.footer.viewSlot = null;
     }
 
-<<<<<<< HEAD
-    private loadDataFromItems(request: BsGridDataRequest): Promise<BsGridDataResponse> {
-        return Promise.resolve(<BsGridDataResponse>{
-            items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
-            filteredCount: this.actualRows ? this.actualRows.length : -1,
-            totalCount: this.rows ? this.rows.length : -1
-        });
-    }
-
-    private async refreshInternal() {
-        this.actualRows = this.rows ? this.sortItems(this.filterItems(this.rows)) : undefined;
-
-        if (!this.autoInit || (!this.loadData && !this.rows) || !this.isBound || this.pageSize === 0)
-            return;
-
-        if (!this.refreshingGrid) {
-            this.refreshingGrid = true;
-            let promise = this.rows ?
-                this.loadDataFromItems(this.getCurrentGridDataRequest()) :
-                this.loadData!(this.getCurrentGridDataRequest());
-            let result = (<any>promise.then) ? await promise : <any>promise;
-
-            this.totalCount = result.totalCount;
-            this.filteredCount = result.filteredCount;
-            this.displayedRows = result.items;
-
-            if (this.filteredCount !== -1 && this.currentIndex > this.filteredCount)
-                this.currentIndex = 0;
-=======
     super.detached();
   }
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   unbind() {
     this.isBound = false;
@@ -411,116 +270,13 @@ export class Grid extends ResizeContainer {
 
       // console.log('height: ' + this.containerHeight + ', pageSize: ' + this.pageSize);
 
-<<<<<<< HEAD
-    onColumnHeaderClick(column: BsColumn) {
-        if (!column.sortable || !this.rowsSortable)
-            return;
-=======
       let previousPageSize = this.pageSize;
       this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
       if (previousPageSize !== this.pageSize) {
         if (this.displayedRows && this.displayedRows.length > this.pageSize)
           this.displayedRows = this.displayedRows.slice(0, this.pageSize);
 
-<<<<<<< HEAD
-    // Local row filtering and sorting
-
-    private filterItems(items: any[]) {
-        let term = this.filter ? this.filter.toLowerCase().trim() : '';
-        let terms = term.split(' ');
-
-        return !term ? items : items.filter(row => {
-            return terms.every(t => {
-                return this.columns.some(column => {
-                    if (!column.searchable) {
-                        return false;
-                    }
-
-                    let values = column.field.map(veld => this.getObjectValueFromPath(veld, row));
-                    if (column.matcher) {
-                        return column.matcher.bind(this.parent)(t, values);
-                    }
-
-                    for (let i in values) {
-                        let value = String(values[i]);
-                        if (value.toLowerCase().indexOf(t) !== -1) {
-                            return true;
-                        }
-                    }
-
-                    return false;
-                });
-            });
-        });
-    }
-
-    private sortItems(items: any[]) {
-        let orderMultiplier = this.currentSortOrder === 'asc' ? 1 : -1;
-        if (this.currentSortColumn && this.currentSortColumn.sorter) {
-            return items.slice().sort((a: any, b: any) => {
-                return this.currentSortColumn!.sorter(a, b) * orderMultiplier;
-            });
-        } else if (this.currentSortColumn) {
-            let fields = this.currentSortColumn!.field;
-            return items.slice().sort((aRow: any, bRow: any) => {
-                let aValues = fields.map(field => this.getObjectValueFromPath(field, aRow));
-                let bValues = fields.map(field => this.getObjectValueFromPath(field, bRow));
-                return this.defaultCompare(aValues, bValues) * orderMultiplier;
-            });
-        } else
-            return items;
-    }
-
-    private defaultCompare(aValues: any[], bValues: any[]) {
-        for (let i in aValues) {
-            if (aValues[i] === undefined && bValues[i] !== undefined)
-                return -1;
-            else if (bValues[i] === undefined && aValues[i] !== undefined)
-                return 1;
-
-            if (typeof aValues[i] === 'string') {
-                let comp = aValues[i].localeCompare(bValues[i], BsGrid.LOCALE);
-                if (comp !== 0)
-                    return comp;
-            } else if (aValues[i] !== bValues[i])
-                return aValues[i] < bValues[i] ? -1 : 1;
-        }
-
-        return 0;
-    }
-
-    private getObjectValueFromPath(field: string, obj: any) {
-        let result: any = obj;
-        let parts = field.split('.');
-        for (let part of parts) {
-            result = result ? result[part] : undefined;
-        }
-        return result;
-    }
-
-    // Rendering the data grid
-
-    public rendered = false;
-
-    public bodyElement: HTMLElement;
-    private body = {
-        scrollListener: <any>null,
-        borderHeight: <any>null,
-        viewSlot: <ViewSlot | null>null,
-        viewAttached: new Deferred<void>()
-    };
-
-    public headerElement: HTMLElement;
-    private header = {
-        viewSlot: <ViewSlot | null>null,
-    };
-
-    public footerElement: HTMLElement;
-    private footer = {
-        viewSlot: <ViewSlot | null>null,
-=======
         this.timer = setTimeout(() => {
           this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
           if (this.body) {
@@ -542,7 +298,6 @@ export class Grid extends ResizeContainer {
       sortColumn: this.currentSortColumn,
       sortOrder: this.currentSortOrder,
       filter: this.filter
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
     };
   }
 
@@ -848,48 +603,6 @@ export class Grid extends ResizeContainer {
           selectedItem: this.selectedItem,
           selectedItems: this.selectedItems,
         }
-<<<<<<< HEAD
-    }
-
-    private dispatchSelectionChangedEvent() {
-        setTimeout(() => {
-            let event = new CustomEvent('selection-changed', {
-                detail: {
-                    selectedItem: this.selectedItem,
-                    selectedItems: this.selectedItems,
-                }
-            });
-            this.element.dispatchEvent(event);
-        });
-    }
-
-    protected isSelected(selectedItem: any, selectedItems: any[], item: any) {
-        return selectedItems && (this.comparer(selectedItem, item) || selectedItems.filter(a => this.comparer(a, item)).length > 0);
-    }
-
-    private compileRowTemplate(columns: BsColumn[]) {
-        if (this.body.viewSlot) {
-            let rowClass = this.element.getAttribute('row-class.bind');
-            if (!rowClass) rowClass = this.element.getAttribute('row-class.one-way');
-            if (!rowClass) rowClass = '\'rowClass\'';
-
-            let row = document.createElement('tr');
-            row.setAttribute('repeat.for', 'row of displayedRows');
-            row.setAttribute('click.trigger', 'selectRow(row)');
-            row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
-            row.setAttribute('class.bind', `isSelected(selectedItem, selectedItems, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);
-
-            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
-                const el = column.rowHeader ? 'th' : 'td';
-                return `<${el} class.bind="columns[${index}].cellClass" style.bind="(columns[${index}].width ? 'width: ' + columns[${index}].width + 'px;' : '')">${column.cellTemplate}</${el}>`;
-            }, row);
-
-            attachView(view, this.body.viewSlot).then(() => {
-                if (!this.body.viewAttached.isResolved()) {
-                    this.body.viewAttached.resolve();
-                }
-            });
-=======
       });
       this.element.dispatchEvent(event);
     });
@@ -919,23 +632,15 @@ export class Grid extends ResizeContainer {
       attachView(view, this.body.viewSlot).then(() => {
         if (!this.body.viewAttached.isResolved()) {
           this.body.viewAttached.resolve();
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
         }
       });
     }
   }
 
-<<<<<<< HEAD
-    private compileHeaderTemplate(columns: BsColumn[]) {
-        if (this.header.viewSlot) {
-            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
-                return `<th class="\${columns[${index}].headerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}"
-=======
   private compileHeaderTemplate(columns: Column[]) {
     if (this.header.viewSlot) {
       let view = this.columnsToView(columns, (column: Column, index: number) => {
         return `<th class="\${columns[${index}].headerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}"
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
                     style.bind="(columns[${index}].width ? 'width: ' + columns[${index}].width + 'px;' : '') + (columns[${index}].sortable && rowsSortable ? 'cursor: pointer' : '')"
                     click.trigger="onColumnHeaderClick(columns[${index}])">
                     ${column.header || ''}
@@ -948,17 +653,10 @@ export class Grid extends ResizeContainer {
     }
   }
 
-<<<<<<< HEAD
-    private compileFooterTemplate(columns: BsColumn[]) {
-        if (this.footer.viewSlot) {
-            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
-                return `<td class="\${columns[${index}].footerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}">
-=======
   private compileFooterTemplate(columns: Column[]) {
     if (this.footer.viewSlot) {
       let view = this.columnsToView(columns, (column: Column, index: number) => {
         return `<td class="\${columns[${index}].footerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}">
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
                     ${column.footer || ''}
                 </td>`;
       });
@@ -967,19 +665,11 @@ export class Grid extends ResizeContainer {
     }
   }
 
-<<<<<<< HEAD
-    private columnsToView(columns: BsColumn[], templateMapper: (column: BsColumn, index: number) => string, row?: HTMLElement): View {
-        if (!row) {
-            row = document.createElement('tr');
-        }
-        row.innerHTML = columns.map((column, index) => templateMapper(column, index)).join('\n');
-=======
   private columnsToView(columns: Column[], templateMapper: (column: Column, index: number) => string, row?: HTMLElement): View {
     if (!row) {
       row = document.createElement('tr');
     }
     row.innerHTML = columns.map((column, index) => templateMapper(column, index)).join('\n');
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
     let template = document.createDocumentFragment();
     template.appendChild(row);

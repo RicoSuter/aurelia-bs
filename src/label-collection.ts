@@ -12,13 +12,8 @@ let translations = {
 
 @containerless
 @customElement('bs-label-collection')
-<<<<<<< HEAD
-export class BsLabelCollection {
-    translations = (<any>translations)[BsSettings.language];
-=======
 export class LabelCollection {
   translations = (<any>translations)[BsSettings.language];
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   label = '';

@@ -6,13 +6,8 @@ export { BsValidateBindingBehavior } from './validation-component';
 
 @containerless
 @customElement('bs-checkbox')
-<<<<<<< HEAD
-export class BsCheckbox extends ValidationComponent {
-    id = createComponentId();
-=======
 export class Checkbox extends ValidationComponent {
   id = createComponentId();
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   label = '';

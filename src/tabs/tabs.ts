@@ -1,46 +1,13 @@
 ﻿import { customElement, children, bindable, bindingMode, observable } from 'aurelia-framework';
-import { BsTab } from './tab';
+import { Tab } from './tab';
 
 @customElement('bs-tabs')
-<<<<<<< HEAD
-export class BsTabs {
-    @children('bs-tab')
-    tabs: BsTab[] = [];
-
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    selectedTabId: string = '';
-
-    @observable
-    private internalTabs: BsTab[] = [];
-
-    bind() {
-        if (this.tabs.length > 0) {
-            this.updateSelectedTab();
-        } else {
-            // TODO: Hack for Edge: Remove when https://github.com/aurelia/templating/issues/403 is solved
-            setTimeout(() => {
-                this.updateSelectedTab();
-            });
-        }
-    }
-
-    selectTab(tab: BsTab) {
-        if (tab && this.internalTabs) {
-            if (this.internalTabs.find(t => t === tab)) {
-                this.internalTabs.forEach(t => t.active = t === tab);
-                this.selectedTabId = tab.id;
-            } else
-                throw Error('Tab could not be found.');
-        }
-    }
-=======
 export class Tabs {
   @children('bs-tab')
   tabs: Tab[] = [];
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   selectedTabId: string = '';
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @observable
   private internalTabs: Tab[] = [];

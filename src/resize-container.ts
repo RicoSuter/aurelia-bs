@@ -3,15 +3,9 @@ import { observable } from 'aurelia-binding';
 
 @inject(Element)
 @customElement('bs-resize-container')
-<<<<<<< HEAD
-export class BsResizeContainer {
-    @bindable
-    offset = 20;
-=======
 export class ResizeContainer {
   @bindable
   offset = 20;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   minHeight = 0;

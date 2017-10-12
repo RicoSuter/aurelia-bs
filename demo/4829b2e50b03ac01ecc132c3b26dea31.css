@@ -269,8 +269,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url(https://rawgit.com/RSuter/aurelia-bs/master/demo/f4769f9bdb7466be65088239c12046d1.eot);
-  src: url(https://rawgit.com/RSuter/aurelia-bs/master/demo/f4769f9bdb7466be65088239c12046d1.eot?#iefix) format('embedded-opentype'), url(https://rawgit.com/RSuter/aurelia-bs/master/demo/448c34a56d699c29117adc64c43affeb.woff2) format('woff2'), url(https://rawgit.com/RSuter/aurelia-bs/master/demo/fa2772327f55d8198301fdb8bcfc8158.woff) format('woff'), url(https://rawgit.com/RSuter/aurelia-bs/master/demo/e18bbf611f2a2e43afc071aa2f4e1512.ttf) format('truetype'), url(https://rawgit.com/RSuter/aurelia-bs/master/demo/89889688147bd7575d6327160d64e760.svg#glyphicons_halflingsregular) format('svg');
+  src: url(/f4769f9bdb7466be65088239c12046d1.eot);
+  src: url(/f4769f9bdb7466be65088239c12046d1.eot?#iefix) format('embedded-opentype'), url(/448c34a56d699c29117adc64c43affeb.woff2) format('woff2'), url(/fa2772327f55d8198301fdb8bcfc8158.woff) format('woff'), url(/e18bbf611f2a2e43afc071aa2f4e1512.ttf) format('truetype'), url(/89889688147bd7575d6327160d64e760.svg#glyphicons_halflingsregular) format('svg');
 }
 .glyphicon {
   position: relative;
@@ -6761,4 +6761,4 @@ button.close {
   }
 }
 
-/*# sourceMappingURL=app.207cfd7c62c899ca82b7.bundle.map*/
+/*# sourceMappingURL=app.08a403042d3fd2d53ed1.bundle.map*/

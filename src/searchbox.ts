@@ -6,13 +6,8 @@ export { BsValidateBindingBehavior } from './validation-component';
 @containerless
 @inject(Element)
 @customElement('bs-searchbox')
-<<<<<<< HEAD
-export class BsSearchbox {
-    private inputElement: HTMLInputElement;
-=======
 export class Searchbox {
   private inputElement: HTMLInputElement;
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @bindable
   label = '';

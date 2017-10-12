@@ -5,15 +5,9 @@ export let TabDefaults = {
 };
 
 @customElement('bs-tab')
-<<<<<<< HEAD
-export class BsTab {
-    @bindable
-    id: string = '';
-=======
 export class Tab {
   @bindable
   id: string = '';
->>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
   @observable
   active = false;
