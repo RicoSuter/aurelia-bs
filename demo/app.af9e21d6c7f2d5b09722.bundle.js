@@ -17575,7 +17575,8 @@ var BsDialogService = /** @class */ (function () {
         this.openedDialogs = [];
     }
     BsDialogService.prototype.alert = function (title, message, buttons) {
-        return this.show('dialogs/alert-dialog', {
+        var _this = this;
+        var options = {
             title: title,
             message: message,
             buttons: buttons ? buttons : [
@@ -17585,6 +17586,9 @@ var BsDialogService = /** @class */ (function () {
                     isDefault: true
                 }
             ]
+        };
+        return this.show('aurelia-bs/dialogs/alert-dialog', options).catch(function () {
+            return _this.show('dialogs/alert-dialog', options);
         }).then(function (dlg) {
             return dlg.clickedButton;
         });
@@ -17647,6 +17651,10 @@ var BsDialogService = /** @class */ (function () {
                     }
                 });
             });
+        }).catch(function (e) {
+            _this.removeElement(dialogDiv);
+            _this.removeElement(backdropDiv);
+            throw e;
         });
     };
     BsDialogService.prototype.removeElement = function (element) {
@@ -58168,18 +58176,21 @@ var BsSelectGrid = /** @class */ (function (_super) {
     }
     BsSelectGrid.prototype.showPicker = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var dialog;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!this.enabled) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.dialogService.show('select-grid/select-grid-dialog', this)];
+                        return [4 /*yield*/, this.dialogService.show('bs-aurelia/select-grid/select-grid-dialog', this).catch(function () {
+                                return _this.dialogService.show('select-grid/select-grid-dialog', _this);
+                            }).then(function (dialog) {
+                                if (dialog.selectedItem !== undefined) {
+                                    _this.value = dialog.selectedItem;
+                                }
+                                _this.controlElement.focus();
+                            })];
                     case 1:
-                        dialog = _a.sent();
-                        if (dialog.selectedItem !== undefined) {
-                            this.value = dialog.selectedItem;
-                        }
-                        this.controlElement.focus();
+                        _a.sent();
                         _a.label = 2;
                     case 2: return [2 /*return*/];
                 }
@@ -58707,4 +58718,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.effc2c66bbd13f576776.bundle.map
+//# sourceMappingURL=app.af9e21d6c7f2d5b09722.bundle.map

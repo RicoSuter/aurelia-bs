@@ -28,7 +28,7 @@ export class BsDialogService {
   openedDialogs: IDialogBase[] = [];
 
   alert(title: string, message: string, buttons?: IDialogButton[]) {
-    return this.show<BsAlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), {
+    let options = {
       title: title,
       message: message,
       buttons: buttons ? buttons : [
@@ -38,6 +38,10 @@ export class BsDialogService {
           isDefault: true
         }
       ]
+    };
+
+    return this.show<BsAlertDialog>('aurelia-bs/dialogs/alert-dialog', options).catch(() => {
+      return this.show<BsAlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), options);
     }).then(dlg => {
       return dlg.clickedButton;
     });
@@ -112,6 +116,10 @@ export class BsDialogService {
           }
         });
       });
+    }).catch((e) => {
+      this.removeElement(dialogDiv);
+      this.removeElement(backdropDiv);
+      throw e;
     });
   }
 

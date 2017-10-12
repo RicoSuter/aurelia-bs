@@ -67,11 +67,14 @@ export class BsSelectGrid extends BsValidationComponent {
 
   async showPicker() {
     if (this.enabled) {
-      let dialog = await this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
-      if (dialog.selectedItem !== undefined) {
-        this.value = dialog.selectedItem;
-      }
-      this.controlElement.focus();
+      await this.dialogService.show<BsSelectGridDialog>('bs-aurelia/select-grid/select-grid-dialog', this).catch(() => {
+        return this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
+      }).then((dialog) => {
+        if (dialog.selectedItem !== undefined) {
+          this.value = dialog.selectedItem;
+        }
+        this.controlElement.focus();
+      });
     }
   }
 
