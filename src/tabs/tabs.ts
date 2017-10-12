@@ -1,16 +1,16 @@
 ﻿import { customElement, children, bindable, bindingMode, observable } from 'aurelia-framework';
-import { Tab } from './tab';
+import { BsTab } from './tab';
 
 @customElement('bs-tabs')
-export class Tabs {
+export class BsTabs {
     @children('bs-tab')
-    tabs: Tab[] = [];
+    tabs: BsTab[] = [];
 
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     selectedTabId: string = '';
 
     @observable
-    private internalTabs: Tab[] = [];
+    private internalTabs: BsTab[] = [];
 
     bind() {
         if (this.tabs.length > 0) {
@@ -23,7 +23,7 @@ export class Tabs {
         }
     }
 
-    selectTab(tab: Tab) {
+    selectTab(tab: BsTab) {
         if (tab && this.internalTabs) {
             if (this.internalTabs.find(t => t === tab)) {
                 this.internalTabs.forEach(t => t.active = t === tab);

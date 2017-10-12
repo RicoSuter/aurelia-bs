@@ -5,7 +5,7 @@ export let TabDefaults = {
 };
 
 @customElement('bs-tab')
-export class Tab {
+export class BsTab {
     @bindable
     id: string = '';
 

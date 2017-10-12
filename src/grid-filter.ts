@@ -1,12 +1,12 @@
 import { observable, customElement, containerless, bindingMode } from 'aurelia-framework';
 import { bindable } from 'aurelia-templating';
 
-import { Textbox } from './textbox';
+import { BsTextbox } from './textbox';
 
 @containerless
 @customElement('bs-grid-filter')
-export class GridFilter {
-    filterBox: Textbox;
+export class BsGridFilter {
+    filterBox: BsTextbox;
 
     @bindable({ defaultBindingMode: bindingMode.twoWay })
     filter = '';

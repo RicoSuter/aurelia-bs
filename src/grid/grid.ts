@@ -1,21 +1,21 @@
 import { customElement, inject, bindable, children, Container, View, ViewCompiler, ViewResources, ViewSlot } from 'aurelia-framework';
 import { computedFrom, bindingMode } from 'aurelia-binding';
 
-import { Column } from './column';
+import { BsColumn } from './column';
 import { Deferred } from './deferred';
-import { ResizeContainer } from '../resize-container';
+import { BsResizeContainer } from '../resize-container';
 
-export interface GridDataRequest {
+export interface BsGridDataRequest {
     skip: number;
     take: number;
 
-    sortColumn: Column | undefined;
+    sortColumn: BsColumn | undefined;
     sortOrder: 'asc' | 'desc';
 
     filter: string;
 }
 
-export interface GridDataResponse {
+export interface BsGridDataResponse {
     items: any[] | undefined;
     filteredCount: number;
     totalCount: number;
@@ -53,14 +53,14 @@ export let GridDefaults = {
  */
 @inject(Container, Element, ViewCompiler, ViewResources)
 @customElement('bs-grid')
-export class Grid extends ResizeContainer {
+export class BsGrid extends BsResizeContainer {
     /**
 	 * Defines the locale to use for sorting strings, defaults to browser default.
 	 */
     public static LOCALE: string;
 
     @bindable
-    loadData: ((request: GridDataRequest) => Promise<GridDataResponse>) | undefined = undefined;
+    loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
     @bindable
     comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
@@ -77,7 +77,7 @@ export class Grid extends ResizeContainer {
     minHeight = GridDefaults.minHeight;
 
     @children('bs-column')
-    columns: Column[] = [];
+    columns: BsColumn[] = [];
 
     /**
 	 * The data to display, given as rows of simple objects.
@@ -175,7 +175,7 @@ export class Grid extends ResizeContainer {
         return pages;
     }
 
-    private currentSortColumn: Column | undefined;
+    private currentSortColumn: BsColumn | undefined;
     private currentSortOrder: 'asc' | 'desc';
 
     /**
@@ -292,7 +292,7 @@ export class Grid extends ResizeContainer {
     private refreshingGrid = false;
 
     getCurrentGridDataRequest() {
-        return <GridDataRequest>{
+        return <BsGridDataRequest>{
             skip: this.pageSize * this.currentPage,
             take: this.pageSize,
             sortColumn: this.currentSortColumn,
@@ -306,8 +306,8 @@ export class Grid extends ResizeContainer {
         await this.refreshInternal();
     }
 
-    private loadDataFromItems(request: GridDataRequest): Promise<GridDataResponse> {
-        return Promise.resolve(<GridDataResponse>{
+    private loadDataFromItems(request: BsGridDataRequest): Promise<BsGridDataResponse> {
+        return Promise.resolve(<BsGridDataResponse>{
             items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
             filteredCount: this.actualRows ? this.actualRows.length : -1,
             totalCount: this.rows ? this.rows.length : -1
@@ -377,7 +377,7 @@ export class Grid extends ResizeContainer {
         return false;
     }
 
-    onColumnHeaderClick(column: Column) {
+    onColumnHeaderClick(column: BsColumn) {
         if (!column.sortable || !this.rowsSortable)
             return;
 
@@ -447,7 +447,7 @@ export class Grid extends ResizeContainer {
                 return 1;
 
             if (typeof aValues[i] === 'string') {
-                let comp = aValues[i].localeCompare(bValues[i], Grid.LOCALE);
+                let comp = aValues[i].localeCompare(bValues[i], BsGrid.LOCALE);
                 if (comp !== 0)
                     return comp;
             } else if (aValues[i] !== bValues[i])
@@ -612,7 +612,7 @@ export class Grid extends ResizeContainer {
         return selectedItems && (this.comparer(selectedItem, item) || selectedItems.filter(a => this.comparer(a, item)).length > 0);
     }
 
-    private compileRowTemplate(columns: Column[]) {
+    private compileRowTemplate(columns: BsColumn[]) {
         if (this.body.viewSlot) {
             let rowClass = this.element.getAttribute('row-class.bind');
             if (!rowClass) rowClass = this.element.getAttribute('row-class.one-way');
@@ -624,7 +624,7 @@ export class Grid extends ResizeContainer {
             row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
             row.setAttribute('class.bind', `isSelected(selectedItem, selectedItems, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);
 
-            let view = this.columnsToView(columns, (column: Column, index: number) => {
+            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
                 const el = column.rowHeader ? 'th' : 'td';
                 return `<${el} class.bind="columns[${index}].cellClass" style.bind="(columns[${index}].width ? 'width: ' + columns[${index}].width + 'px;' : '')">${column.cellTemplate}</${el}>`;
             }, row);
@@ -637,9 +637,9 @@ export class Grid extends ResizeContainer {
         }
     }
 
-    private compileHeaderTemplate(columns: Column[]) {
+    private compileHeaderTemplate(columns: BsColumn[]) {
         if (this.header.viewSlot) {
-            let view = this.columnsToView(columns, (column: Column, index: number) => {
+            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
                 return `<th class="\${columns[${index}].headerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}"
                     style.bind="(columns[${index}].width ? 'width: ' + columns[${index}].width + 'px;' : '') + (columns[${index}].sortable && rowsSortable ? 'cursor: pointer' : '')"
                     click.trigger="onColumnHeaderClick(columns[${index}])">
@@ -653,9 +653,9 @@ export class Grid extends ResizeContainer {
         }
     }
 
-    private compileFooterTemplate(columns: Column[]) {
+    private compileFooterTemplate(columns: BsColumn[]) {
         if (this.footer.viewSlot) {
-            let view = this.columnsToView(columns, (column: Column, index: number) => {
+            let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
                 return `<td class="\${columns[${index}].footerClass} \${columns[${index}].sortable && rowsSortable ? 'sortable' : ''} \${columns[${index}].sortedOrder && rowsSortable ? 'sorted ' + columns[${index}].sortedOrder : ''}">
                     ${column.footer || ''}
                 </td>`;
@@ -665,7 +665,7 @@ export class Grid extends ResizeContainer {
         }
     }
 
-    private columnsToView(columns: Column[], templateMapper: (column: Column, index: number) => string, row?: HTMLElement): View {
+    private columnsToView(columns: BsColumn[], templateMapper: (column: BsColumn, index: number) => string, row?: HTMLElement): View {
         if (!row) {
             row = document.createElement('tr');
         }

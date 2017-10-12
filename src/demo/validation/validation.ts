@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import { autoinject } from 'aurelia-framework';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 import { BsValidation } from '../../validation';
-import { FileDescription } from '../../fileupload';
+import { BsFileDescription } from '../../fileupload';
 
 @autoinject
 export class Validation {
@@ -10,7 +10,7 @@ export class Validation {
 
     firstName: string | null;
     dateOfBirth: moment.Moment | null = null;
-    image: FileDescription | null;
+    image: BsFileDescription | null;
 
     selection: string | undefined = undefined;
     selections: string[];

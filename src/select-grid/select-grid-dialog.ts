@@ -2,10 +2,10 @@
 import { observable } from 'aurelia-binding';
 
 import { DialogBase } from '../dialog';
-import { Column } from '../grid/column';
-import { Grid, GridDataRequest, GridDataResponse } from '../grid/grid';
-import { Textbox } from '../textbox';
-import { SelectGrid } from './select-grid';
+import { BsColumn } from '../grid/column';
+import { BsGrid, BsGridDataRequest, BsGridDataResponse } from '../grid/grid';
+import { BsTextbox } from '../textbox';
+import { BsSelectGrid } from './select-grid';
 
 export interface IDialogButton {
     name?: string;
@@ -14,7 +14,7 @@ export interface IDialogButton {
 }
 
 @inject(Element)
-export class SelectGridDialog extends DialogBase {
+export class BsSelectGridDialog extends DialogBase {
     @observable
     title: string;
 
@@ -30,13 +30,13 @@ export class SelectGridDialog extends DialogBase {
     @observable
     selectedItem: any | null | undefined = undefined;
 
-    grid: Grid;
-    filterBox: Textbox;
-    columns: Column[];
+    grid: BsGrid;
+    filterBox: BsTextbox;
+    columns: BsColumn[];
     itemHeight: number;
 
     @observable
-    loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
+    loadData: (request: BsGridDataRequest) => Promise<BsGridDataResponse>;
 
     @observable
     defaultSortColumn: string;
@@ -44,7 +44,7 @@ export class SelectGridDialog extends DialogBase {
     @observable
     defaultSortOrder: 'asc' | 'desc' = 'asc';
 
-    activate(selectGrid: SelectGrid) {
+    activate(selectGrid: BsSelectGrid) {
         this.title = selectGrid.label;
         this.items = selectGrid.items;
         this.itemHeight = selectGrid.itemHeight;

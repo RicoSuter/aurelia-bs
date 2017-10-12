@@ -17,7 +17,7 @@ let translations = {
 
 @containerless
 @customElement('bs-select')
-export class Select extends ValidationComponent {
+export class BsSelect extends ValidationComponent {
     translations = (<any>translations)[BsSettings.language];
 
     @bindable

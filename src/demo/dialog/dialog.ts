@@ -1,12 +1,12 @@
 import { autoinject } from 'aurelia-framework';
-import { DialogService } from '../../dialog-service';
+import { BsDialogService } from '../../dialog-service';
 import { CustomDialog } from './custom-dialog';
 
 @autoinject
 export class Dialog {
     dialogCounter = 1;
 
-    constructor(private dialogService: DialogService) {
+    constructor(private dialogService: BsDialogService) {
     }
 
     async showAlert() {

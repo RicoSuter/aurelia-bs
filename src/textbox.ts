@@ -6,7 +6,7 @@ export { BsValidateBindingBehavior } from './validation-component';
 
 @containerless
 @customElement('bs-textbox')
-export class Textbox extends ValidationComponent {
+export class BsTextbox extends ValidationComponent {
     id = createComponentId();
 
     constructor(private root: Element) {

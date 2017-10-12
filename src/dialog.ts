@@ -1,10 +1,10 @@
 ﻿import { bindable, inject, customElement, View } from 'aurelia-framework';
 import { convert, BooleanConverter, StringConverter } from './convert';
-import { DialogService } from './dialog-service';
+import { BsDialogService } from './dialog-service';
 
-@inject(DialogService)
+@inject(BsDialogService)
 @customElement('bs-dialog')
-export class Dialog {
+export class BsDialog {
     @bindable
     @convert(StringConverter)
     title = '';
@@ -23,7 +23,7 @@ export class Dialog {
 
     dialog: IDialogBase;
 
-    constructor(private dialogService: DialogService) {
+    constructor(private dialogService: BsDialogService) {
     }
 
     bind(_view: any, myView: View) {

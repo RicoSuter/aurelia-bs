@@ -1,21 +1,21 @@
 import { inject, children, customElement, bindable, bindingMode, PLATFORM } from 'aurelia-framework';
 
 import { ValidationComponent, createComponentId } from './../validation-component';
-import { DialogService } from '../dialog-service';
+import { BsDialogService } from '../dialog-service';
 
-import { SelectGridDialog } from './select-grid-dialog';
-import { Column } from '../grid/column';
+import { BsSelectGridDialog } from './select-grid-dialog';
+import { BsColumn } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
-import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
+import { BsGridDataRequest, BsGridDataResponse, GridDefaults } from '../grid/grid';
 
-@inject(DialogService)
+@inject(BsDialogService)
 @customElement('bs-select-grid')
-export class SelectGrid extends ValidationComponent {
+export class BsSelectGrid extends ValidationComponent {
     id = createComponentId();
     controlElement: HTMLDivElement;
 
     @children('bs-column')
-    columns: Column[] = [];
+    columns: BsColumn[] = [];
 
     @bindable
     label = '';
@@ -38,7 +38,7 @@ export class SelectGrid extends ValidationComponent {
     required = false;
 
     @bindable
-    loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
+    loadData: (request: BsGridDataRequest) => Promise<BsGridDataResponse>;
 
     @bindable
     defaultSortColumn: string;
@@ -49,13 +49,13 @@ export class SelectGrid extends ValidationComponent {
     @bindable
     itemHeight = GridDefaults.itemHeight;
 
-    constructor(private dialogService: DialogService) {
+    constructor(private dialogService: BsDialogService) {
         super();
     }
 
     async showPicker() {
         if (this.enabled) {
-            let dialog = await this.dialogService.show<SelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
+            let dialog = await this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
             if (dialog.selectedItem !== undefined) {
                 this.value = dialog.selectedItem;
             }

@@ -8,7 +8,7 @@ export interface IDialogButton {
 }
 
 @inject(Element)
-export class AlertDialog extends DialogBase {
+export class BsAlertDialog extends DialogBase {
     title = '[no title]';
     message = '[no message]';
     buttons: IDialogButton[] = [];

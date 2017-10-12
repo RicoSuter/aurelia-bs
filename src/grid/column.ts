@@ -5,7 +5,7 @@ import { Deferred } from './deferred';
 @noView
 @processContent(false)
 @customElement('bs-column')
-export class Column {
+export class BsColumn {
     /**
 	 * The header to display above this column. This can be set by binding or by
 	 * placing a <header> tag in the <column> content. If both are defined, the

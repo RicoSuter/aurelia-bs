@@ -22,7 +22,7 @@ let translations = {
 
 @containerless
 @customElement('bs-datepicker')
-export class Datepicker extends ValidationComponent {
+export class BsDatepicker extends ValidationComponent {
     translations = (<any>translations)[BsSettings.language];
 
     private element: HTMLElement;

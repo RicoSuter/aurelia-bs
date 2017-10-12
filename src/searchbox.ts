@@ -6,7 +6,7 @@ export { BsValidateBindingBehavior } from './validation-component';
 @containerless
 @inject(Element)
 @customElement('bs-searchbox')
-export class Searchbox {
+export class BsSearchbox {
     private inputElement: HTMLInputElement;
 
     @bindable
