@@ -3,23 +3,30 @@ import { convert, BooleanConverter } from './convert';
 
 @containerless
 @customElement('bs-navbar-header')
+<<<<<<< HEAD
 export class BsNavbarHeader {
     @bindable
     @convert(BooleanConverter)
     expanded = false;
+=======
+export class NavbarHeader {
+  @bindable
+  @convert(BooleanConverter)
+  expanded = false;
+>>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
-    @bindable
-    brand = '';
+  @bindable
+  brand = '';
 
-    elm: Element;
+  elm: Element;
 
-    attached() {
-        this.elm.addEventListener('click', () => {
-            this.toggle();
-        }, true);
-    }
+  attached() {
+    this.elm.addEventListener('click', () => {
+      this.toggle();
+    }, true);
+  }
 
-    toggle() {
-        this.expanded = !this.expanded;
-    }
+  toggle() {
+    this.expanded = !this.expanded;
+  }
 }

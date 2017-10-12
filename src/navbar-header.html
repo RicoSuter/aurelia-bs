@@ -1,22 +1,22 @@
 ﻿<template>
-    <div class="navbar-header">
-        <button type="button"
-                click.trigger="toggle()"
-                class="navbar-toggle collapsed"
-                aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a if.bind="brand"
-           class="navbar-brand"
-           href="/">${brand}</a>
-    </div>
-    <div class.bind="'collapse navbar-collapse' + (expanded ? ' in' : '')">
-        <ul class="nav navbar-nav"
-            ref="elm">
-            <slot></slot>
-        </ul>
-    </div>
+  <div class="navbar-header">
+    <button type="button"
+            click.trigger="toggle()"
+            class="navbar-toggle collapsed"
+            aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a if.bind="brand"
+       class="navbar-brand"
+       href="/">${brand}</a>
+  </div>
+  <div class.bind="'collapse navbar-collapse' + (expanded ? ' in' : '')">
+    <ul class="nav navbar-nav"
+        ref="elm">
+      <slot></slot>
+    </ul>
+  </div>
 </template>

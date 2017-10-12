@@ -1,35 +1,35 @@
 ﻿<template>
-    <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
-        <label class="control-label"
-               if.bind="label !== ''"
-               for.bind="id">
-            ${label}
-        </label>
+  <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
+    <label class="control-label"
+           if.bind="label !== ''"
+           for.bind="id">
+      ${label}
+    </label>
 
-        <input if.bind="rows === 1"
-               type="text"
-               ref="element"
-               class="form-control"
-               value.bind="value"
-               id.bind="id"
-               style.bind="style"
-               placeholder.bind="placeholder"
-               disabled.bind="enabled === false ? 'disabled' : undefined"
-               readonly.bind="readonly ? 'readonly' : undefined" />
+    <input if.bind="rows === 1"
+           type="text"
+           ref="element"
+           class="form-control"
+           value.bind="value"
+           id.bind="id"
+           style.bind="style"
+           placeholder.bind="placeholder"
+           disabled.bind="enabled === false ? 'disabled' : undefined"
+           readonly.bind="readonly ? 'readonly' : undefined" />
 
-        <textarea if.bind="rows > 1"
-                  class="form-control"
-                  value.bind="value"
-                  style.bind="'height: ' + (rows * 1.3) + 'em; resize: none;' + style"
-                  placeholder.bind="placeholder"
-                  disabled.bind="enabled === false ? 'disabled' : undefined"
-                  readonly.bind="readonly ? 'readonly' : undefined"></textarea>
+    <textarea if.bind="rows > 1"
+              class="form-control"
+              value.bind="value"
+              style.bind="'height: ' + (rows * 1.3) + 'em; resize: none;' + style"
+              placeholder.bind="placeholder"
+              disabled.bind="enabled === false ? 'disabled' : undefined"
+              readonly.bind="readonly ? 'readonly' : undefined"></textarea>
 
-        <p class="help-block"
-           if.bind="help">${help}</p>
-        <p class="help-block"
-           repeat.for="error of errors">
-            ${error.message}
-            <p>
-    </div>
+    <p class="help-block"
+       if.bind="help">${help}</p>
+    <p class="help-block"
+       repeat.for="error of errors">
+      ${error.message}
+      <p>
+  </div>
 </template>

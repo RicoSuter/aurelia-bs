@@ -6,49 +6,77 @@ import { BsDialogService } from '../dialog-service';
 import { BsSelectGridDialog } from './select-grid-dialog';
 import { BsColumn } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
+<<<<<<< HEAD
 import { BsGridDataRequest, BsGridDataResponse, GridDefaults } from '../grid/grid';
+=======
+import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
+import { BsSettings } from '../settings';
+
+let translations = {
+  'de': {
+    'select': '<Bitte wählen>'
+  },
+  'en': {
+    'select': '<Please select>'
+  }
+};
+>>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
 @inject(BsDialogService)
 @customElement('bs-select-grid')
+<<<<<<< HEAD
 export class BsSelectGrid extends ValidationComponent {
     id = createComponentId();
     controlElement: HTMLDivElement;
 
     @children('bs-column')
     columns: BsColumn[] = [];
+=======
+export class SelectGrid extends ValidationComponent {
+  translations = (<any>translations)[BsSettings.language];
 
-    @bindable
-    label = '';
+  id = createComponentId();
+  controlElement: HTMLDivElement;
+>>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
-    @bindable({ defaultBindingMode: bindingMode.twoWay })
-    value: any = null;
+  @children('bs-column')
+  columns: Column[] = [];
 
-    @bindable
-    items: any[] | null = null;
+  @bindable
+  label = '';
 
-    @bindable
-    displayPath: string | null = null;
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  value: any = null;
 
-    @bindable
-    @convert(BooleanConverter)
-    enabled = true;
+  @bindable
+  items: any[] | null = null;
 
-    @bindable
-    @convert(BooleanConverter)
-    required = false;
+  @bindable
+  displayPath: string | null = null;
 
+  @bindable
+  @convert(BooleanConverter)
+  enabled = true;
+
+<<<<<<< HEAD
     @bindable
     loadData: (request: BsGridDataRequest) => Promise<BsGridDataResponse>;
+=======
+  @bindable
+  @convert(BooleanConverter)
+  required = false;
+>>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
-    @bindable
-    defaultSortColumn: string;
+  @bindable
+  loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
 
-    @bindable
-    defaultSortOrder: 'asc' | 'desc' = 'asc';
+  @bindable
+  defaultSortColumn: string;
 
-    @bindable
-    itemHeight = GridDefaults.itemHeight;
+  @bindable
+  defaultSortOrder: 'asc' | 'desc' = 'asc';
 
+<<<<<<< HEAD
     constructor(private dialogService: BsDialogService) {
         super();
     }
@@ -62,25 +90,43 @@ export class BsSelectGrid extends ValidationComponent {
             this.controlElement.focus();
         }
     }
+=======
+  @bindable
+  itemHeight = GridDefaults.itemHeight;
 
-    keyPressed(event: KeyboardEvent) {
-        if (this.enabled) {
-            if (event.which === 13) {
-                this.showPicker();
-            }
-            event.preventDefault();
-        }
-    }
+  constructor(private dialogService: DialogService) {
+    super();
+  }
+>>>>>>> 63959ed584db0b2387158b968b0f18b6e1876a38
 
-    protected getValue(item: any, path: string) {
-        if (item) {
-            let value = item;
-            let pathArray = path.split('.');
-            for (let prop of pathArray) {
-                value = value[prop];
-            }
-            return value;
-        }
-        return null;
+  async showPicker() {
+    if (this.enabled) {
+      let dialog = await this.dialogService.show<SelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
+      if (dialog.selectedItem !== undefined) {
+        this.value = dialog.selectedItem;
+      }
+      this.controlElement.focus();
     }
+  }
+
+  keyPressed(event: KeyboardEvent) {
+    if (this.enabled) {
+      if (event.which === 13) {
+        this.showPicker();
+      }
+      event.preventDefault();
+    }
+  }
+
+  protected getValue(item: any, path: string) {
+    if (item) {
+      let value = item;
+      let pathArray = path.split('.');
+      for (let prop of pathArray) {
+        value = value[prop];
+      }
+      return value;
+    }
+    return null;
+  }
 }

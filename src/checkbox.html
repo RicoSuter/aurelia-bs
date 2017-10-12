@@ -1,16 +1,16 @@
 <template>
-    <label class="checkbox"
-           for.bind="id">
-        <input type="checkbox" 
-               id.bind="id"
-               class="custom-checkbox"
-               checked.bind="value"
-               disabled.bind="enabled === false ? 'disabled' : undefined"
-               readonly.bind="readonly ? 'readonly' : undefined">
-        <span class="icons">
-            <span class="icon-checked"></span>
-            <span class="icon-unchecked"></span>
-        </span>
-        ${label}
-    </label>
+  <label class="checkbox"
+         for.bind="id">
+    <input type="checkbox"
+           id.bind="id"
+           class="custom-checkbox"
+           checked.bind="value"
+           disabled.bind="enabled === false ? 'disabled' : undefined"
+           readonly.bind="readonly ? 'readonly' : undefined">
+    <span class="icons">
+      <span class="icon-checked"></span>
+      <span class="icon-unchecked"></span>
+    </span>
+    ${label}
+  </label>
 </template>

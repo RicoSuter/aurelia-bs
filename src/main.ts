@@ -15,6 +15,14 @@ Promise.config({
 });
 (<any>window).Promise = Promise;
 
+import * as binding from 'aurelia-binding';
+
+let subscribe = (<any>binding).DirtyCheckProperty.prototype.subscribe;
+(<any>binding).DirtyCheckProperty.prototype.subscribe = (context: any, callable: any) => {
+  subscribe(context, callable);
+  console.warn(`'${this.obj.constructor.name}.${this.propertyName}' is being dirty checked!`, this.obj);
+};
+
 // Change aurelia-bs settings
 BsSettings.language = window.location.search.indexOf('lang=de') !== -1 ? 'de' : 'en';
 

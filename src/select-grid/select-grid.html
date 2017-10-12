@@ -1,28 +1,28 @@
 <template>
-    <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
-        <div click.trigger="showPicker()"
-             style.bind="enabled ? 'cursor: pointer' : ''">
-            <label class="control-label"
-                   if.bind="label !== ''"
-                   for.bind="id">
-                ${label}
-            </label>
-            <div id.bind="id"
-                 tabindex="0"
-                 keypress.delegate="keyPressed($event)"
-                 ref="controlElement">
-                ${value ? (displayPath ? getValue(value, displayPath) : value) : '&lt;Bitte wählen&gt;'}&nbsp;
-            </div>
-        </div>
-
-        <p class="help-block"
-           if.bind="help">${help}</p>
-        <p class="help-block"
-           repeat.for="error of errors">
-            ${error.message}
-            <p>
-
-                <!-- Columns -->
-                <slot></slot>
+  <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
+    <div click.trigger="showPicker()"
+         style.bind="enabled ? 'cursor: pointer' : ''">
+      <label class="control-label"
+             if.bind="label !== ''"
+             for.bind="id">
+        ${label}
+      </label>
+      <div id.bind="id"
+           tabindex="0"
+           keypress.delegate="keyPressed($event)"
+           ref="controlElement">
+        ${value ? (displayPath ? getValue(value, displayPath) : value) : translations.select}&nbsp;
+      </div>
     </div>
+
+    <p class="help-block"
+       if.bind="help">${help}</p>
+    <p class="help-block"
+       repeat.for="error of errors">
+      ${error.message}
+      <p>
+
+        <!-- Columns -->
+        <slot></slot>
+  </div>
 </template>

@@ -1,25 +1,27 @@
 <template>
-	<div class="form-group has-feedback">
-		<label class="control-label"
-		       if.bind="label !== ''">
-            ${label}
-		</label>
-		<div>
-			${!items || items.length == 0 ? translations.noItems : ''}
-			<span repeat.for="item of items"
-			      style="display: inline-block">
-				<span class="label label-default" if.bind="enabled">
-					<a click.trigger="removeItem(item)" style="color: white; cursor: pointer">
-						${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;
-						<big aria-hidden="true">&times;</big>
-					</a>
-				</span>
-			<span class="label label-default"
-			      if.bind="!enabled">
-					${displayPath ? getValue(item, displayPath) : item}
-				</span> &nbsp;&nbsp;
-			</span>
-			&nbsp;
-		</div>
-	</div>
+  <div class="form-group has-feedback">
+    <label class="control-label"
+           if.bind="label !== ''">
+      ${label}
+    </label>
+    <div>
+      ${!items || items.length == 0 ? translations.noItems : ''}
+      <span repeat.for="item of items"
+            style="display: inline-block">
+        <span class="label label-default"
+              if.bind="enabled">
+          <a click.trigger="removeItem(item)"
+             style="color: white; cursor: pointer">
+            ${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;
+            <big aria-hidden="true">&times;</big>
+          </a>
+        </span>
+        <span class="label label-default"
+              if.bind="!enabled">
+          ${displayPath ? getValue(item, displayPath) : item}
+        </span> &nbsp;&nbsp;
+      </span>
+      &nbsp;
+    </div>
+  </div>
 </template>
