@@ -6,7 +6,7 @@ import { BsDialogService } from '../dialog-service';
 import { BsSelectGridDialog } from './select-grid-dialog';
 import { BsColumn } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
-import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
+import { BsGridDataRequest, BsGridDataResponse, BsGridDefaults } from '../grid/grid';
 import { BsSettings } from '../settings';
 
 let translations = {
@@ -50,7 +50,7 @@ export class BsSelectGrid extends BsValidationComponent {
   required = false;
 
   @bindable
-  loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
+  loadData: (request: BsGridDataRequest) => Promise<BsGridDataResponse>;
 
   @bindable
   defaultSortColumn: string;
@@ -59,7 +59,7 @@ export class BsSelectGrid extends BsValidationComponent {
   defaultSortOrder: 'asc' | 'desc' = 'asc';
 
   @bindable
-  itemHeight = GridDefaults.itemHeight;
+  itemHeight = BsGridDefaults.itemHeight;
 
   constructor(private dialogService: BsDialogService) {
     super();

@@ -3,7 +3,7 @@ import { observable } from 'aurelia-binding';
 
 import { DialogBase } from '../dialog';
 import { BsColumn } from '../grid/column';
-import { BsGrid, GridDataRequest, GridDataResponse } from '../grid/grid';
+import { BsGrid, BsGridDataRequest, BsGridDataResponse } from '../grid/grid';
 import { BsTextbox } from '../textbox';
 import { BsSelectGrid } from './select-grid';
 import { BsSettings } from '../settings';
@@ -50,7 +50,7 @@ export class BsSelectGridDialog extends DialogBase {
   itemHeight: number;
 
   @observable
-  loadData: (request: GridDataRequest) => Promise<GridDataResponse>;
+  loadData: (request: BsGridDataRequest) => Promise<BsGridDataResponse>;
 
   @observable
   defaultSortColumn: string;

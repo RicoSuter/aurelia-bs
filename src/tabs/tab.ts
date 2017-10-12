@@ -1,6 +1,6 @@
 ﻿import { customElement, bindable, observable } from 'aurelia-framework';
 
-export let TabDefaults = {
+export let BsTabDefaults = {
   style: ''
 };
 
@@ -13,7 +13,7 @@ export class BsTab {
   active = false;
 
   @bindable
-  style = TabDefaults.style;
+  style = BsTabDefaults.style;
 
   @bindable
   header: any = '';

@@ -5,7 +5,7 @@ import { BsColumn } from './column';
 import { Deferred } from './deferred';
 import { BsResizeContainer } from '../resize-container';
 
-export interface GridDataRequest {
+export interface BsGridDataRequest {
   skip: number;
   take: number;
 
@@ -15,7 +15,7 @@ export interface GridDataRequest {
   filter: string;
 }
 
-export interface GridDataResponse {
+export interface BsGridDataResponse {
   items: any[] | undefined;
   filteredCount: number;
   totalCount: number;
@@ -27,7 +27,7 @@ export enum SelectionMode {
   multiple = <any>'multiple'
 }
 
-export let GridDefaults = {
+export let BsGridDefaults = {
   offset: 75,
   itemHeight: 36,
   minHeight: 100,
@@ -60,12 +60,12 @@ export class BsGrid extends BsResizeContainer {
   public static LOCALE: string;
 
   @bindable
-  loadData: ((request: GridDataRequest) => Promise<GridDataResponse>) | undefined = undefined;
+  loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
   @bindable
   comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
   @bindable
-  offset = GridDefaults.offset;
+  offset = BsGridDefaults.offset;
 
   @bindable
   limitToContentHeight = false;
@@ -74,7 +74,7 @@ export class BsGrid extends BsResizeContainer {
   height: number | null = null;
 
   @bindable
-  minHeight = GridDefaults.minHeight;
+  minHeight = BsGridDefaults.minHeight;
 
   @children('bs-column')
   columns: BsColumn[] = [];
@@ -134,7 +134,7 @@ export class BsGrid extends BsResizeContainer {
   filter: string = '';
 
   @bindable
-  itemHeight = GridDefaults.itemHeight;
+  itemHeight = BsGridDefaults.itemHeight;
 
   /** Sets the additional row CSS classes ('row' is available in the binding). */
   @bindable
@@ -145,7 +145,7 @@ export class BsGrid extends BsResizeContainer {
   autoInit = true;
 
   @bindable
-  hideUnfilteredCounter = GridDefaults.hideUnfilteredCounter;
+  hideUnfilteredCounter = BsGridDefaults.hideUnfilteredCounter;
 
   @bindable
   showFooter = false;
@@ -292,7 +292,7 @@ export class BsGrid extends BsResizeContainer {
   private refreshingGrid = false;
 
   getCurrentGridDataRequest() {
-    return <GridDataRequest>{
+    return <BsGridDataRequest>{
       skip: this.pageSize * this.currentPage,
       take: this.pageSize,
       sortColumn: this.currentSortColumn,
@@ -306,8 +306,8 @@ export class BsGrid extends BsResizeContainer {
     await this.refreshInternal();
   }
 
-  private loadDataFromItems(request: GridDataRequest): Promise<GridDataResponse> {
-    return Promise.resolve(<GridDataResponse>{
+  private loadDataFromItems(request: BsGridDataRequest): Promise<BsGridDataResponse> {
+    return Promise.resolve(<BsGridDataResponse>{
       items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
       filteredCount: this.actualRows ? this.actualRows.length : -1,
       totalCount: this.rows ? this.rows.length : -1

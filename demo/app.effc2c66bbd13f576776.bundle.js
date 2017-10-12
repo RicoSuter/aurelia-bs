@@ -56400,7 +56400,7 @@ var BsColumn = /** @class */ (function () {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectionMode", function() { return SelectionMode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridDefaults", function() { return GridDefaults; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsGridDefaults", function() { return BsGridDefaults; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsGrid", function() { return BsGrid; });
 /* harmony export (immutable) */ __webpack_exports__["attachView"] = attachView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
@@ -56471,7 +56471,7 @@ var SelectionMode;
     SelectionMode[SelectionMode["single"] = 'single'] = "single";
     SelectionMode[SelectionMode["multiple"] = 'multiple'] = "multiple";
 })(SelectionMode = SelectionMode || (SelectionMode = {}));
-var GridDefaults = {
+var BsGridDefaults = {
     offset: 75,
     itemHeight: 36,
     minHeight: 100,
@@ -56503,10 +56503,10 @@ var BsGrid = /** @class */ (function (_super) {
         _this.viewResources = viewResources;
         _this.loadData = undefined;
         _this.comparer = function (a, b) { return a && a.id && b && b.id ? a.id === b.id : a === b; };
-        _this.offset = GridDefaults.offset;
+        _this.offset = BsGridDefaults.offset;
         _this.limitToContentHeight = false;
         _this.height = null;
-        _this.minHeight = GridDefaults.minHeight;
+        _this.minHeight = BsGridDefaults.minHeight;
         _this.columns = [];
         /**
        * Set to false to disable sorting in the entire datagrid. You can also
@@ -56530,12 +56530,12 @@ var BsGrid = /** @class */ (function (_super) {
         _this.selectionMode = SelectionMode.none;
         _this.enabled = true;
         _this.filter = '';
-        _this.itemHeight = GridDefaults.itemHeight;
+        _this.itemHeight = BsGridDefaults.itemHeight;
         /** Sets the additional row CSS classes ('row' is available in the binding). */
         _this.rowClass = '';
         /** Set to false to not automatically initialize data, a manual call to refresh() is required to initialize the data. */
         _this.autoInit = true;
-        _this.hideUnfilteredCounter = GridDefaults.hideUnfilteredCounter;
+        _this.hideUnfilteredCounter = BsGridDefaults.hideUnfilteredCounter;
         _this.showFooter = false;
         _this.dirty = false;
         _this.isBound = false;
@@ -58163,7 +58163,7 @@ var BsSelectGrid = /** @class */ (function (_super) {
         _this.enabled = true;
         _this.required = false;
         _this.defaultSortOrder = 'asc';
-        _this.itemHeight = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["GridDefaults"].itemHeight;
+        _this.itemHeight = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["BsGridDefaults"].itemHeight;
         return _this;
     }
     BsSelectGrid.prototype.showPicker = function () {
@@ -58422,7 +58422,7 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabDefaults", function() { return TabDefaults; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsTabDefaults", function() { return BsTabDefaults; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsTab", function() { return BsTab; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58435,14 +58435,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var TabDefaults = {
+var BsTabDefaults = {
     style: ''
 };
 var BsTab = /** @class */ (function () {
     function BsTab() {
         this.id = '';
         this.active = false;
-        this.style = TabDefaults.style;
+        this.style = BsTabDefaults.style;
         this.header = '';
         this.panel = true;
         this.visible = true;
@@ -58707,4 +58707,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.c0e484e85e03bbb94bfe.bundle.map
+//# sourceMappingURL=app.effc2c66bbd13f576776.bundle.map
