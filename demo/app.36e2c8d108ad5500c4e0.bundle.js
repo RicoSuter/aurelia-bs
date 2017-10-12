@@ -20932,57 +20932,55 @@ webpackContext.id = 180;
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__resize_container__ = __webpack_require__("resize-container");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialogs_alert_dialog__ = __webpack_require__("dialogs/alert-dialog");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialog_service__ = __webpack_require__(17);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__dialog_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dialog__ = __webpack_require__("dialog");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__dialog__["DialogBase"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__grid_column__ = __webpack_require__("grid/column");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dialog_service__ = __webpack_require__(17);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__dialog_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dialog__ = __webpack_require__("dialog");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_5__dialog__["DialogBase"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__grid_column__ = __webpack_require__("grid/column");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__grid_grid__ = __webpack_require__("grid/grid");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__grid_grid__ = __webpack_require__("grid/grid");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__select_grid_select_grid__ = __webpack_require__("select-grid/select-grid");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__select_grid_select_grid__ = __webpack_require__("select-grid/select-grid");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__tabs_tab__ = __webpack_require__("tabs/tab");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__tabs_tab__ = __webpack_require__("tabs/tab");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__tabs_tabs__ = __webpack_require__("tabs/tabs");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__tabs_tabs__ = __webpack_require__("tabs/tabs");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__button__ = __webpack_require__("button");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__button__ = __webpack_require__("button");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__checkbox__ = __webpack_require__("checkbox");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__checkbox__ = __webpack_require__("checkbox");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__datepicker__ = __webpack_require__("datepicker");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__datepicker__ = __webpack_require__("datepicker");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__expander__ = __webpack_require__("expander");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__expander__ = __webpack_require__("expander");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__fileupload__ = __webpack_require__("fileupload");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__fileupload__ = __webpack_require__("fileupload");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__grid_filter__ = __webpack_require__("grid-filter");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__grid_filter__ = __webpack_require__("grid-filter");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__label_collection__ = __webpack_require__("label-collection");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__label_collection__ = __webpack_require__("label-collection");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__loader__ = __webpack_require__("loader");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__loader__ = __webpack_require__("loader");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__navbar_header__ = __webpack_require__("navbar-header");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__scroll__ = __webpack_require__("scroll");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__scroll__ = __webpack_require__("scroll");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__searchbox__ = __webpack_require__("searchbox");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__searchbox__ = __webpack_require__("searchbox");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__select__ = __webpack_require__("select");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__select__ = __webpack_require__("select");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__textbox__ = __webpack_require__("textbox");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__textbox__ = __webpack_require__("textbox");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__events__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__events__ = __webpack_require__(183);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__convert__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__convert__ = __webpack_require__(6);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__validation_component__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__validation_component__ = __webpack_require__(7);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__validation__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__validation__ = __webpack_require__(164);
 /* unused harmony namespace reexport */
-/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__navbar_header__ = __webpack_require__("navbar-header");
 
 function configure(config) {
     config.globalResources([
@@ -21009,7 +21007,6 @@ function configure(config) {
         './tabs/tab'
     ]);
 }
-
 
 
 
@@ -55932,7 +55929,7 @@ module.exports = "<template>\r\n  <div class=\"modal fade in\"\r\n       mouseup
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsAlertDialog", function() { return BsAlertDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertDialog", function() { return AlertDialog; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dialog__ = __webpack_require__("dialog");
 var __extends = (this && this.__extends) || (function () {
@@ -55953,9 +55950,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-var BsAlertDialog = /** @class */ (function (_super) {
-    __extends(BsAlertDialog, _super);
-    function BsAlertDialog() {
+var AlertDialog = /** @class */ (function (_super) {
+    __extends(AlertDialog, _super);
+    function AlertDialog() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.title = '[no title]';
         _this.message = '[no message]';
@@ -55963,19 +55960,19 @@ var BsAlertDialog = /** @class */ (function (_super) {
         _this.clickedButton = null;
         return _this;
     }
-    BsAlertDialog.prototype.activate = function (model) {
+    AlertDialog.prototype.activate = function (model) {
         this.title = model.title;
         this.message = model.message;
         this.buttons = model.buttons;
     };
-    BsAlertDialog.prototype.buttonClicked = function (button) {
+    AlertDialog.prototype.buttonClicked = function (button) {
         this.clickedButton = button;
         this.close();
     };
-    BsAlertDialog = __decorate([
+    AlertDialog = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element)
-    ], BsAlertDialog);
-    return BsAlertDialog;
+    ], AlertDialog);
+    return AlertDialog;
 }(__WEBPACK_IMPORTED_MODULE_1__dialog__["DialogBase"]));
 
 
@@ -58707,4 +58704,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.effc2c66bbd13f576776.bundle.map
+//# sourceMappingURL=app.36e2c8d108ad5500c4e0.bundle.map

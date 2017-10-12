@@ -30,7 +30,6 @@ export * from './settings';
 
 export * from './resize-container';
 
-export * from './dialogs/alert-dialog';
 export * from './dialog-service';
 export * from './dialog';
 
