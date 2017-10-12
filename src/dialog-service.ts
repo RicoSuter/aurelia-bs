@@ -86,7 +86,7 @@ export class BsDialogService {
 
             let view = controller.view;
             let dialog = view.bindingContext as TDialog;
-            dialog.viewModelUrl = viewModelUrl;
+            (<any>dialog).viewModelUrl = viewModelUrl;
             this.openedDialogs = this.openedDialogs.concat([dialog]);
 
             if (created)

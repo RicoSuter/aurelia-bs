@@ -66,7 +66,6 @@ export class DialogBase implements IDialogBase {
 }
 
 export interface IDialogBase {
-    viewModelUrl: string;
     element: Element;
     close(): void;
     cancel(): void;
