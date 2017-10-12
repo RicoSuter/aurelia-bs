@@ -3,7 +3,7 @@ import { convert, BooleanConverter } from './convert';
 
 @containerless
 @customElement('bs-navbar-header')
-export class NavbarHeader {
+export class BsNavbarHeader {
   @bindable
   @convert(BooleanConverter)
   expanded = false;

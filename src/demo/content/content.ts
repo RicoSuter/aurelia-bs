@@ -1,14 +1,14 @@
 import { autoinject } from 'aurelia-framework';
-import { DialogService } from '../../dialog-service';
+import { BsDialogService } from '../../dialog-service';
 
 @autoinject
 export class Content {
-  dialogCounter = 0;
+    dialogCounter = 0;
 
-  constructor(private dialogService: DialogService) {
-  }
+    constructor(private dialogService: BsDialogService) {
+    }
 
-  showAlert() {
-    this.dialogService.alert('Hello', 'World!' + this.dialogCounter++);
-  }
+    showAlert() {
+        this.dialogService.alert('Hello', 'World!' + this.dialogCounter++);
+    }
 }

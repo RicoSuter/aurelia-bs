@@ -6,7 +6,7 @@ import * as $ from 'jquery';
 import * as moment from 'moment';
 
 import { BooleanConverter, convert } from './convert';
-import { ValidationComponent } from './validation-component';
+import { BsValidationComponent } from './validation-component';
 import { BsSettings } from './settings';
 
 let translations = {
@@ -22,7 +22,7 @@ let translations = {
 
 @containerless
 @customElement('bs-datepicker')
-export class Datepicker extends ValidationComponent {
+export class BsDatepicker extends BsValidationComponent {
   translations = (<any>translations)[BsSettings.language];
 
   private element: HTMLElement;

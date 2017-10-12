@@ -1,7 +1,7 @@
 ﻿import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
 import { computedFrom } from 'aurelia-binding';
 
-import { ValidationComponent } from './validation-component';
+import { BsValidationComponent } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 export { BsValidateBindingBehavior } from './validation-component';
 import { BsSettings } from './settings';
@@ -17,7 +17,7 @@ let translations = {
 
 @containerless
 @customElement('bs-select')
-export class Select extends ValidationComponent {
+export class BsSelect extends BsValidationComponent {
   translations = (<any>translations)[BsSettings.language];
 
   @bindable

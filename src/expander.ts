@@ -3,7 +3,7 @@ import { convert, BooleanConverter } from './convert';
 
 @containerless
 @customElement('bs-expander')
-export class Expander {
+export class BsExpander {
   @bindable
   header = '[no header]';
 

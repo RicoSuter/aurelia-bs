@@ -4,7 +4,7 @@ import { convert, BooleanConverter } from './convert';
 @containerless
 @customElement('bs-button')
 @inject(Element)
-export class Button {
+export class BsButton {
   @bindable
   placeholder = '';
 

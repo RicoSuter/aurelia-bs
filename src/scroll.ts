@@ -1,9 +1,9 @@
 import { customElement, inject, bindable } from 'aurelia-framework';
-import { ResizeContainer } from './resize-container';
+import { BsResizeContainer } from './resize-container';
 
 @inject(Element)
 @customElement('bs-scroll')
-export class Scroll extends ResizeContainer {
+export class BsScroll extends BsResizeContainer {
   @bindable
   offset = 20;
 

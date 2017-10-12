@@ -2,10 +2,10 @@
 import { observable } from 'aurelia-binding';
 
 import { DialogBase } from '../dialog';
-import { Column } from '../grid/column';
-import { Grid, GridDataRequest, GridDataResponse } from '../grid/grid';
-import { Textbox } from '../textbox';
-import { SelectGrid } from './select-grid';
+import { BsColumn } from '../grid/column';
+import { BsGrid, GridDataRequest, GridDataResponse } from '../grid/grid';
+import { BsTextbox } from '../textbox';
+import { BsSelectGrid } from './select-grid';
 import { BsSettings } from '../settings';
 
 export interface IDialogButton {
@@ -26,7 +26,7 @@ let translations = {
 };
 
 @inject(Element)
-export class SelectGridDialog extends DialogBase {
+export class BsSelectGridDialog extends DialogBase {
   translations = (<any>translations)[BsSettings.language];
 
   @observable
@@ -44,9 +44,9 @@ export class SelectGridDialog extends DialogBase {
   @observable
   selectedItem: any | null | undefined = undefined;
 
-  grid: Grid;
-  filterBox: Textbox;
-  columns: Column[];
+  grid: BsGrid;
+  filterBox: BsTextbox;
+  columns: BsColumn[];
   itemHeight: number;
 
   @observable
@@ -58,7 +58,7 @@ export class SelectGridDialog extends DialogBase {
   @observable
   defaultSortOrder: 'asc' | 'desc' = 'asc';
 
-  activate(selectGrid: SelectGrid) {
+  activate(selectGrid: BsSelectGrid) {
     this.title = selectGrid.label;
     this.items = selectGrid.items;
     this.itemHeight = selectGrid.itemHeight;

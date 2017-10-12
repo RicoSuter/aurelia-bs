@@ -1,12 +1,12 @@
 ﻿import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
-import { ValidationComponent, createComponentId } from './validation-component';
+import { BsValidationComponent, createComponentId } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 
 export { BsValidateBindingBehavior } from './validation-component';
 
 @containerless
 @customElement('bs-checkbox')
-export class Checkbox extends ValidationComponent {
+export class BsCheckbox extends BsValidationComponent {
   id = createComponentId();
 
   @bindable

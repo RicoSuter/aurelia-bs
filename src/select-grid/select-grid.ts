@@ -1,10 +1,10 @@
 import { inject, children, customElement, bindable, bindingMode, PLATFORM } from 'aurelia-framework';
 
-import { ValidationComponent, createComponentId } from './../validation-component';
-import { DialogService } from '../dialog-service';
+import { BsValidationComponent, createComponentId } from './../validation-component';
+import { BsDialogService } from '../dialog-service';
 
-import { SelectGridDialog } from './select-grid-dialog';
-import { Column } from '../grid/column';
+import { BsSelectGridDialog } from './select-grid-dialog';
+import { BsColumn } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
 import { GridDataRequest, GridDataResponse, GridDefaults } from '../grid/grid';
 import { BsSettings } from '../settings';
@@ -18,16 +18,16 @@ let translations = {
   }
 };
 
-@inject(DialogService)
+@inject(BsDialogService)
 @customElement('bs-select-grid')
-export class SelectGrid extends ValidationComponent {
+export class BsSelectGrid extends BsValidationComponent {
   translations = (<any>translations)[BsSettings.language];
 
   id = createComponentId();
   controlElement: HTMLDivElement;
 
   @children('bs-column')
-  columns: Column[] = [];
+  columns: BsColumn[] = [];
 
   @bindable
   label = '';
@@ -61,13 +61,13 @@ export class SelectGrid extends ValidationComponent {
   @bindable
   itemHeight = GridDefaults.itemHeight;
 
-  constructor(private dialogService: DialogService) {
+  constructor(private dialogService: BsDialogService) {
     super();
   }
 
   async showPicker() {
     if (this.enabled) {
-      let dialog = await this.dialogService.show<SelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
+      let dialog = await this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
       if (dialog.selectedItem !== undefined) {
         this.value = dialog.selectedItem;
       }

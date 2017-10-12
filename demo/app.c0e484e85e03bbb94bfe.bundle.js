@@ -17541,7 +17541,7 @@ function _createCSSResource(address) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogService; });
+/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsDialogService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__ = __webpack_require__(1);
@@ -17567,14 +17567,14 @@ var translations = {
         'buttonNo': 'No'
     }
 };
-var DialogService = /** @class */ (function () {
-    function DialogService(compositionEngine, container) {
+var BsDialogService = /** @class */ (function () {
+    function BsDialogService(compositionEngine, container) {
         this.compositionEngine = compositionEngine;
         this.container = container;
         this.translations = translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language];
         this.openedDialogs = [];
     }
-    DialogService.prototype.alert = function (title, message, buttons) {
+    BsDialogService.prototype.alert = function (title, message, buttons) {
         return this.show('dialogs/alert-dialog', {
             title: title,
             message: message,
@@ -17589,7 +17589,7 @@ var DialogService = /** @class */ (function () {
             return dlg.clickedButton;
         });
     };
-    DialogService.prototype.confirm = function (title, message) {
+    BsDialogService.prototype.confirm = function (title, message) {
         return this.alert(title, message, [
             {
                 name: 'no',
@@ -17605,7 +17605,7 @@ var DialogService = /** @class */ (function () {
             return button && button.name === 'yes';
         });
     };
-    DialogService.prototype.show = function (viewModelUrl, model, created) {
+    BsDialogService.prototype.show = function (viewModelUrl, model, created) {
         var _this = this;
         if (document.activeElement.blur)
             document.activeElement.blur();
@@ -17649,7 +17649,7 @@ var DialogService = /** @class */ (function () {
             });
         });
     };
-    DialogService.prototype.removeElement = function (element) {
+    BsDialogService.prototype.removeElement = function (element) {
         if (element.remove) {
             element.remove();
         }
@@ -17660,13 +17660,13 @@ var DialogService = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Array)
-    ], DialogService.prototype, "openedDialogs", void 0);
-    DialogService = __decorate([
+    ], BsDialogService.prototype, "openedDialogs", void 0);
+    BsDialogService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["b" /* CompositionEngine */], __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */]),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["b" /* CompositionEngine */],
             __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */]])
-    ], DialogService);
-    return DialogService;
+    ], BsDialogService);
+    return BsDialogService;
 }());
 
 
@@ -20935,9 +20935,9 @@ webpackContext.id = 180;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialogs_alert_dialog__ = __webpack_require__("dialogs/alert-dialog");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dialog_service__ = __webpack_require__(17);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__dialog_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__dialog_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dialog__ = __webpack_require__("dialog");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__dialog__["DialogBase"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_5__dialog__["DialogBase"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__grid_column__ = __webpack_require__("grid/column");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__grid_grid__ = __webpack_require__("grid/grid");
@@ -47223,7 +47223,7 @@ return deAt;
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["c"] = createComponentId;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BsValidateBindingBehavior; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ValidationComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return BsValidationComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_validation__ = __webpack_require__("aurelia-validation");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -47272,18 +47272,18 @@ var BsValidateBindingBehavior = /** @class */ (function () {
     return BsValidateBindingBehavior;
 }());
 
-var ValidationComponent = /** @class */ (function () {
-    function ValidationComponent() {
+var BsValidationComponent = /** @class */ (function () {
+    function BsValidationComponent() {
         this.isBound = false;
     }
     // isInitialized = false;
     // isTouched = false;
     // validateEventRegistered = false;
-    ValidationComponent.prototype.bind = function () {
+    BsValidationComponent.prototype.bind = function () {
         this.isBound = true;
         // setTimeout(() => this.isInitialized = true);
     };
-    ValidationComponent.prototype.valueChanged = function () {
+    BsValidationComponent.prototype.valueChanged = function () {
         if (this.isBound && this.controller) {
             if (!this.propertyName || !this.validatedObject)
                 throw new Error('The ValidationComponent is not initialized properly: The property name or validated object could not be retrieved.');
@@ -47299,7 +47299,7 @@ var ValidationComponent = /** @class */ (function () {
             // }
         }
     };
-    Object.defineProperty(ValidationComponent.prototype, "errors", {
+    Object.defineProperty(BsValidationComponent.prototype, "errors", {
         get: function () {
             var _this = this;
             return this.controller ? this.controller.errors.filter(function (e) { return e.propertyName === _this.propertyName; }) : [];
@@ -47312,8 +47312,8 @@ var ValidationComponent = /** @class */ (function () {
         ,
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
-    ], ValidationComponent.prototype, "errors", null);
-    return ValidationComponent;
+    ], BsValidationComponent.prototype, "errors", null);
+    return BsValidationComponent;
 }());
 
 
@@ -54890,7 +54890,7 @@ var ValidationRendererCustomAttribute = (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsButton", function() { return BsButton; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -54904,8 +54904,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Button = /** @class */ (function () {
-    function Button(element) {
+var BsButton = /** @class */ (function () {
+    function BsButton(element) {
         this.element = element;
         this.placeholder = '';
         this.enabled = true;
@@ -54913,7 +54913,7 @@ var Button = /** @class */ (function () {
         this.class = '';
         // convert()(this, 'enabled');
     }
-    Button.prototype.onClick = function () {
+    BsButton.prototype.onClick = function () {
         if (this.enabled) {
             var event_1 = new CustomEvent('click');
             this.element.dispatchEvent(event_1);
@@ -54922,28 +54922,28 @@ var Button = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Button.prototype, "placeholder", void 0);
+    ], BsButton.prototype, "placeholder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Button.prototype, "enabled", void 0);
+    ], BsButton.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Button.prototype, "primary", void 0);
+    ], BsButton.prototype, "primary", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Button.prototype, "class", void 0);
-    Button = __decorate([
+    ], BsButton.prototype, "class", void 0);
+    BsButton = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-button'),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         __metadata("design:paramtypes", [Element])
-    ], Button);
-    return Button;
+    ], BsButton);
+    return BsButton;
 }());
 
 
@@ -54962,7 +54962,7 @@ module.exports = "<template>\r\n  <button class.bind=\"'btn ' + (enabled ? '' : 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return Checkbox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsCheckbox", function() { return BsCheckbox; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_component__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__convert__ = __webpack_require__(6);
@@ -54990,9 +54990,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Checkbox = /** @class */ (function (_super) {
-    __extends(Checkbox, _super);
-    function Checkbox() {
+var BsCheckbox = /** @class */ (function (_super) {
+    __extends(BsCheckbox, _super);
+    function BsCheckbox() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
         _this.label = '';
@@ -55004,27 +55004,27 @@ var Checkbox = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Checkbox.prototype, "label", void 0);
+    ], BsCheckbox.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Checkbox.prototype, "value", void 0);
+    ], BsCheckbox.prototype, "value", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Checkbox.prototype, "enabled", void 0);
+    ], BsCheckbox.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Checkbox.prototype, "readonly", void 0);
-    Checkbox = __decorate([
+    ], BsCheckbox.prototype, "readonly", void 0);
+    BsCheckbox = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-checkbox')
-    ], Checkbox);
-    return Checkbox;
-}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* ValidationComponent */]));
+    ], BsCheckbox);
+    return BsCheckbox;
+}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* BsValidationComponent */]));
 
 
 
@@ -55042,7 +55042,7 @@ module.exports = "<template>\r\n  <label class=\"checkbox\"\r\n         for.bind
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Datepicker", function() { return Datepicker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsDatepicker", function() { return BsDatepicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap_datepicker_dist_css_bootstrap_datepicker_min_css__ = __webpack_require__(178);
@@ -55092,9 +55092,9 @@ var translations = {
         'select': '<Please select>'
     }
 };
-var Datepicker = /** @class */ (function (_super) {
-    __extends(Datepicker, _super);
-    function Datepicker() {
+var BsDatepicker = /** @class */ (function (_super) {
+    __extends(BsDatepicker, _super);
+    function BsDatepicker() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_7__settings__["a" /* BsSettings */].language];
         _this.updating = false;
@@ -55105,10 +55105,10 @@ var Datepicker = /** @class */ (function (_super) {
         _this.required = false;
         return _this;
     }
-    Datepicker.prototype.focus = function () {
+    BsDatepicker.prototype.focus = function () {
         this.element.focus();
     };
-    Datepicker.prototype.bind = function () {
+    BsDatepicker.prototype.bind = function () {
         var _this = this;
         _super.prototype.bind.call(this);
         var element = __WEBPACK_IMPORTED_MODULE_3_jquery__(this.element);
@@ -55134,7 +55134,7 @@ var Datepicker = /** @class */ (function (_super) {
         }
         this.updateUiValue();
     };
-    Datepicker.prototype.valueChanged = function () {
+    BsDatepicker.prototype.valueChanged = function () {
         var newDate = arguments[0] ? arguments[0] : undefined;
         var oldDate = arguments[1] ? arguments[1] : undefined;
         if (newDate !== oldDate && (!newDate || !oldDate || oldDate.format('YYYY-MM-DD') !== newDate.format('YYYY-MM-DD'))) {
@@ -55143,13 +55143,13 @@ var Datepicker = /** @class */ (function (_super) {
             _super.prototype.valueChanged.call(this);
         }
     };
-    Datepicker.prototype.updateUiValue = function () {
+    BsDatepicker.prototype.updateUiValue = function () {
         var element = __WEBPACK_IMPORTED_MODULE_3_jquery__(this.element);
         this.updating = true;
         element.datepicker('update', this.value ? this.value.format('DD.MM.YYYY') : '');
         this.updating = false;
     };
-    Datepicker.prototype.convertToUtc = function () {
+    BsDatepicker.prototype.convertToUtc = function () {
         var _this = this;
         if (this.value) {
             var date_1 = __WEBPACK_IMPORTED_MODULE_4_moment__["utc"](Date.UTC(this.value.year(), this.value.month(), this.value.date()));
@@ -55158,41 +55158,41 @@ var Datepicker = /** @class */ (function (_super) {
             }
         }
     };
-    Datepicker.prototype.getUtcMoment = function (date) {
+    BsDatepicker.prototype.getUtcMoment = function (date) {
         return __WEBPACK_IMPORTED_MODULE_4_moment__["utc"](Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "label", void 0);
+    ], BsDatepicker.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "value", void 0);
+    ], BsDatepicker.prototype, "value", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_5__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_5__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "enabled", void 0);
+    ], BsDatepicker.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_5__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_5__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "readonly", void 0);
+    ], BsDatepicker.prototype, "readonly", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "help", void 0);
+    ], BsDatepicker.prototype, "help", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Datepicker.prototype, "required", void 0);
-    Datepicker = __decorate([
+    ], BsDatepicker.prototype, "required", void 0);
+    BsDatepicker = __decorate([
         __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_2_aurelia_framework__["m" /* customElement */])('bs-datepicker')
-    ], Datepicker);
-    return Datepicker;
-}(__WEBPACK_IMPORTED_MODULE_6__validation_component__["b" /* ValidationComponent */]));
+    ], BsDatepicker);
+    return BsDatepicker;
+}(__WEBPACK_IMPORTED_MODULE_6__validation_component__["b" /* BsValidationComponent */]));
 
 /**
  * German translation for bootstrap-datepicker
@@ -55362,7 +55362,7 @@ var Content = /** @class */ (function () {
     };
     Content = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["g" /* autoinject */],
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dialog_service__["a" /* DialogService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dialog_service__["a" /* BsDialogService */]])
     ], Content);
     return Content;
 }());
@@ -55474,11 +55474,11 @@ var CustomDialog = /** @class */ (function (_super) {
         });
     };
     CustomDialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["n" /* inject */])(Element, __WEBPACK_IMPORTED_MODULE_0__index__["b" /* DialogService */]),
-        __metadata("design:paramtypes", [Element, __WEBPACK_IMPORTED_MODULE_0__index__["b" /* DialogService */]])
+        Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["n" /* inject */])(Element, __WEBPACK_IMPORTED_MODULE_0__index__["a" /* BsDialogService */]),
+        __metadata("design:paramtypes", [Element, __WEBPACK_IMPORTED_MODULE_0__index__["a" /* BsDialogService */]])
     ], CustomDialog);
     return CustomDialog;
-}(__WEBPACK_IMPORTED_MODULE_0__index__["a" /* DialogBase */]));
+}(__WEBPACK_IMPORTED_MODULE_0__index__["b" /* DialogBase */]));
 
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
@@ -55591,7 +55591,7 @@ var Dialog = /** @class */ (function () {
     };
     Dialog = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["g" /* autoinject */],
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dialog_service__["a" /* DialogService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__dialog_service__["a" /* BsDialogService */]])
     ], Dialog);
     return Dialog;
 }());
@@ -55826,7 +55826,7 @@ module.exports = "<template>\r\n  <h2>bs-textbox</h2>\r\n  <bs-textbox label=\"F
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dialog", function() { return Dialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsDialog", function() { return BsDialog; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogBase", function() { return DialogBase; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
@@ -55843,18 +55843,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Dialog = /** @class */ (function () {
-    function Dialog(dialogService) {
+var BsDialog = /** @class */ (function () {
+    function BsDialog(dialogService) {
         this.dialogService = dialogService;
         this.title = '';
         this.closeOnEscape = true; // TODO: Implement this
         this.showCloseButton = true;
         this.closeOnBackdrop = true;
     }
-    Dialog.prototype.bind = function (_view, myView) {
+    BsDialog.prototype.bind = function (_view, myView) {
         this.dialog = myView.bindingContext;
     };
-    Dialog.prototype.checkDismissClick = function (event) {
+    BsDialog.prototype.checkDismissClick = function (event) {
         var classAttribute = event.srcElement.getAttribute('class');
         if (this.closeOnBackdrop &&
             this.dialogService.openedDialogs[this.dialogService.openedDialogs.length - 1] === this.dialog &&
@@ -55868,28 +55868,28 @@ var Dialog = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["b" /* StringConverter */]),
         __metadata("design:type", Object)
-    ], Dialog.prototype, "title", void 0);
+    ], BsDialog.prototype, "title", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Dialog.prototype, "closeOnEscape", void 0);
+    ], BsDialog.prototype, "closeOnEscape", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Dialog.prototype, "showCloseButton", void 0);
+    ], BsDialog.prototype, "showCloseButton", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Dialog.prototype, "closeOnBackdrop", void 0);
-    Dialog = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* DialogService */]),
+    ], BsDialog.prototype, "closeOnBackdrop", void 0);
+    BsDialog = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* BsDialogService */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-dialog'),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* DialogService */]])
-    ], Dialog);
-    return Dialog;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* BsDialogService */]])
+    ], BsDialog);
+    return BsDialog;
 }());
 
 var DialogBase = /** @class */ (function () {
@@ -55932,7 +55932,7 @@ module.exports = "<template>\r\n  <div class=\"modal fade in\"\r\n       mouseup
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertDialog", function() { return AlertDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsAlertDialog", function() { return BsAlertDialog; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dialog__ = __webpack_require__("dialog");
 var __extends = (this && this.__extends) || (function () {
@@ -55953,9 +55953,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-var AlertDialog = /** @class */ (function (_super) {
-    __extends(AlertDialog, _super);
-    function AlertDialog() {
+var BsAlertDialog = /** @class */ (function (_super) {
+    __extends(BsAlertDialog, _super);
+    function BsAlertDialog() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.title = '[no title]';
         _this.message = '[no message]';
@@ -55963,19 +55963,19 @@ var AlertDialog = /** @class */ (function (_super) {
         _this.clickedButton = null;
         return _this;
     }
-    AlertDialog.prototype.activate = function (model) {
+    BsAlertDialog.prototype.activate = function (model) {
         this.title = model.title;
         this.message = model.message;
         this.buttons = model.buttons;
     };
-    AlertDialog.prototype.buttonClicked = function (button) {
+    BsAlertDialog.prototype.buttonClicked = function (button) {
         this.clickedButton = button;
         this.close();
     };
-    AlertDialog = __decorate([
+    BsAlertDialog = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element)
-    ], AlertDialog);
-    return AlertDialog;
+    ], BsAlertDialog);
+    return BsAlertDialog;
 }(__WEBPACK_IMPORTED_MODULE_1__dialog__["DialogBase"]));
 
 
@@ -55994,7 +55994,7 @@ module.exports = "<template>\r\n  <require from=\"../dialog\"></require>\r\n\r\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Expander", function() { return Expander; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsExpander", function() { return BsExpander; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56008,28 +56008,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Expander = /** @class */ (function () {
-    function Expander() {
+var BsExpander = /** @class */ (function () {
+    function BsExpander() {
         this.header = '[no header]';
         this.expanded = false;
     }
-    Expander.prototype.toggle = function () {
+    BsExpander.prototype.toggle = function () {
         this.expanded = !this.expanded;
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Expander.prototype, "header", void 0);
+    ], BsExpander.prototype, "header", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Expander.prototype, "expanded", void 0);
-    Expander = __decorate([
+    ], BsExpander.prototype, "expanded", void 0);
+    BsExpander = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-expander')
-    ], Expander);
-    return Expander;
+    ], BsExpander);
+    return BsExpander;
 }());
 
 
@@ -56048,7 +56048,7 @@ module.exports = "<template>\r\n  <div class=\"panel panel-default\">\r\n    <di
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUpload", function() { return FileUpload; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsFileUpload", function() { return BsFileUpload; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_component__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__convert__ = __webpack_require__(6);
@@ -56084,9 +56084,9 @@ var translations = {
         noItemSelected: 'No File.'
     }
 };
-var FileUpload = /** @class */ (function (_super) {
-    __extends(FileUpload, _super);
-    function FileUpload() {
+var BsFileUpload = /** @class */ (function (_super) {
+    __extends(BsFileUpload, _super);
+    function BsFileUpload() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_3__settings__["a" /* BsSettings */].language];
         _this.label = '';
@@ -56097,17 +56097,17 @@ var FileUpload = /** @class */ (function (_super) {
         _this.accept = null;
         return _this;
     }
-    FileUpload.prototype.clear = function () {
+    BsFileUpload.prototype.clear = function () {
         var self = this;
         self.fileInput.type = 'text';
         self.fileInput.type = 'file';
         this.fileSelected(null);
     };
-    FileUpload.prototype.select = function () {
+    BsFileUpload.prototype.select = function () {
         var self = this;
         self.fileInput.click();
     };
-    FileUpload.prototype.fileSelected = function (file) {
+    BsFileUpload.prototype.fileSelected = function (file) {
         var _this = this;
         if (file !== undefined && file !== null) {
             // TODO: Add is loading check
@@ -56135,37 +56135,37 @@ var FileUpload = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "label", void 0);
+    ], BsFileUpload.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }) // TODO: Must be one-way-back
         ,
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "value", void 0);
+    ], BsFileUpload.prototype, "value", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }) // TODO: Must be one-way-back
         ,
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "description", void 0);
+    ], BsFileUpload.prototype, "description", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "enabled", void 0);
+    ], BsFileUpload.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "readonly", void 0);
+    ], BsFileUpload.prototype, "readonly", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], FileUpload.prototype, "accept", void 0);
-    FileUpload = __decorate([
+    ], BsFileUpload.prototype, "accept", void 0);
+    BsFileUpload = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-fileupload')
-    ], FileUpload);
-    return FileUpload;
-}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* ValidationComponent */]));
+    ], BsFileUpload);
+    return BsFileUpload;
+}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* BsValidationComponent */]));
 
 
 
@@ -56183,7 +56183,7 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridFilter", function() { return GridFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsGridFilter", function() { return BsGridFilter; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__ = __webpack_require__(4);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56197,13 +56197,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var GridFilter = /** @class */ (function () {
-    function GridFilter() {
+var BsGridFilter = /** @class */ (function () {
+    function BsGridFilter() {
         this.filter = '';
         this.position = 'right';
         this.showFilter = false;
     }
-    GridFilter.prototype.toggleFilter = function () {
+    BsGridFilter.prototype.toggleFilter = function () {
         var _this = this;
         this.showFilter = !this.showFilter;
         if (this.showFilter) {
@@ -56216,20 +56216,20 @@ var GridFilter = /** @class */ (function () {
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["p" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], GridFilter.prototype, "filter", void 0);
+    ], BsGridFilter.prototype, "filter", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["p" /* bindable */],
         __metadata("design:type", String)
-    ], GridFilter.prototype, "position", void 0);
+    ], BsGridFilter.prototype, "position", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", Object)
-    ], GridFilter.prototype, "showFilter", void 0);
-    GridFilter = __decorate([
+    ], BsGridFilter.prototype, "showFilter", void 0);
+    BsGridFilter = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-grid-filter')
-    ], GridFilter);
-    return GridFilter;
+    ], BsGridFilter);
+    return BsGridFilter;
 }());
 
 
@@ -56248,7 +56248,7 @@ module.exports = "<template>\r\n  <div style=\"position: relative\">\r\n    <div
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return Column; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsColumn", function() { return BsColumn; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__deferred__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56262,8 +56262,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Column = /** @class */ (function () {
-    function Column(element) {
+var BsColumn = /** @class */ (function () {
+    function BsColumn(element) {
         this.element = element;
         /**
        * Set to false to exclude data in this column from searches.
@@ -56291,7 +56291,7 @@ var Column = /** @class */ (function () {
         this.cellTemplate = this.element.innerHTML;
         this.element.innerHTML = '';
     }
-    Column.prototype.bind = function () {
+    BsColumn.prototype.bind = function () {
         var _this = this;
         /* TODO: Workaround until aurelia/binding issue #347 is resolved. */
         if (typeof this.field === 'string') {
@@ -56320,74 +56320,74 @@ var Column = /** @class */ (function () {
             this.bound.resolve();
         }
     };
-    Column.prototype.propertyChanged = function () {
+    BsColumn.prototype.propertyChanged = function () {
         if (this.bound.isResolved()) {
             this.element.dispatchEvent(new CustomEvent('update'));
         }
     };
-    Column.prototype.waitForBinding = function () {
+    BsColumn.prototype.waitForBinding = function () {
         return this.bound.promise;
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "header", void 0);
+    ], BsColumn.prototype, "header", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "headerClass", void 0);
+    ], BsColumn.prototype, "headerClass", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "footer", void 0);
+    ], BsColumn.prototype, "footer", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "footerClass", void 0);
+    ], BsColumn.prototype, "footerClass", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "cellClass", void 0);
+    ], BsColumn.prototype, "cellClass", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Array)
-    ], Column.prototype, "field", void 0);
+    ], BsColumn.prototype, "field", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Column.prototype, "rowHeader", void 0);
+    ], BsColumn.prototype, "rowHeader", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Column.prototype, "searchable", void 0);
+    ], BsColumn.prototype, "searchable", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Function)
-    ], Column.prototype, "matcher", void 0);
+    ], BsColumn.prototype, "matcher", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Column.prototype, "defaultSortOrder", void 0);
+    ], BsColumn.prototype, "defaultSortOrder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Column.prototype, "sortable", void 0);
+    ], BsColumn.prototype, "sortable", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Column.prototype, "width", void 0);
+    ], BsColumn.prototype, "width", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Function)
-    ], Column.prototype, "sorter", void 0);
-    Column = __decorate([
+    ], BsColumn.prototype, "sorter", void 0);
+    BsColumn = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["o" /* noView */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["q" /* processContent */])(false),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-column'),
         __metadata("design:paramtypes", [Element])
-    ], Column);
-    return Column;
+    ], BsColumn);
+    return BsColumn;
 }());
 
 
@@ -56401,7 +56401,7 @@ var Column = /** @class */ (function () {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectionMode", function() { return SelectionMode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridDefaults", function() { return GridDefaults; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Grid", function() { return Grid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsGrid", function() { return BsGrid; });
 /* harmony export (immutable) */ __webpack_exports__["attachView"] = attachView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
@@ -56494,9 +56494,9 @@ var GridDefaults = {
  * See the @bindable properties on the Datagrid and Column classes for all
  * available configuration options.
  */
-var Grid = /** @class */ (function (_super) {
-    __extends(Grid, _super);
-    function Grid(container, element, viewCompiler, viewResources) {
+var BsGrid = /** @class */ (function (_super) {
+    __extends(BsGrid, _super);
+    function BsGrid(container, element, viewCompiler, viewResources) {
         var _this = _super.call(this, element) || this;
         _this.container = container;
         _this.viewCompiler = viewCompiler;
@@ -56557,29 +56557,29 @@ var Grid = /** @class */ (function (_super) {
         _this.processColumnsCallback = function () { return _this.processColumns(); };
         return _this;
     }
-    Grid_1 = Grid;
-    Object.defineProperty(Grid.prototype, "pageCount", {
+    BsGrid_1 = BsGrid;
+    Object.defineProperty(BsGrid.prototype, "pageCount", {
         get: function () {
             return Math.ceil((this.filteredCount > 0 ? this.filteredCount : 1) / this.pageSize);
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Grid.prototype, "currentPage", {
+    Object.defineProperty(BsGrid.prototype, "currentPage", {
         get: function () {
             return this.getPageNumberForIndex(this.currentIndex);
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Grid.prototype, "rowsSortable", {
+    Object.defineProperty(BsGrid.prototype, "rowsSortable", {
         get: function () {
             return this.sortable;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Grid.prototype, "pages", {
+    Object.defineProperty(BsGrid.prototype, "pages", {
         get: function () {
             var pages = [];
             for (var i = this.currentPage - 3; i < this.currentPage + 3 + 1; i++) {
@@ -56591,11 +56591,11 @@ var Grid = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Grid.prototype.bind = function (bindingContext) {
+    BsGrid.prototype.bind = function (bindingContext) {
         this.isBound = true;
         this.parent = bindingContext;
     };
-    Grid.prototype.attached = function () {
+    BsGrid.prototype.attached = function () {
         var _this = this;
         /* TODO: Workaround until aurelia-binding issue #347 is resolved. */
         if (typeof this.animate === 'string')
@@ -56616,7 +56616,7 @@ var Grid = /** @class */ (function (_super) {
             _this.refreshInternal();
         });
     };
-    Grid.prototype.detached = function () {
+    BsGrid.prototype.detached = function () {
         if (this.body.viewSlot) {
             this.body.viewSlot.removeAll();
             this.body.viewSlot = null;
@@ -56631,23 +56631,23 @@ var Grid = /** @class */ (function (_super) {
         }
         _super.prototype.detached.call(this);
     };
-    Grid.prototype.unbind = function () {
+    BsGrid.prototype.unbind = function () {
         this.isBound = false;
     };
-    Grid.prototype.loadDataChanged = function () {
+    BsGrid.prototype.loadDataChanged = function () {
         this.refreshInternal();
     };
-    Grid.prototype.columnsChanged = function () {
+    BsGrid.prototype.columnsChanged = function () {
         var _this = this;
         Promise.all(this.columns.map(function (c) { return c.waitForBinding(); })).then(function () { return _this.processColumns(); });
     };
-    Grid.prototype.rowsChanged = function () {
+    BsGrid.prototype.rowsChanged = function () {
         this.refreshInternal();
     };
-    Grid.prototype.filterChanged = function () {
+    BsGrid.prototype.filterChanged = function () {
         this.refreshInternal();
     };
-    Grid.prototype.containerHeightChanged = function () {
+    BsGrid.prototype.containerHeightChanged = function () {
         var _this = this;
         if (this.isBound && this.containerHeight > 0) {
             if (this.timer)
@@ -56667,7 +56667,7 @@ var Grid = /** @class */ (function (_super) {
             }
         }
     };
-    Grid.prototype.getCurrentGridDataRequest = function () {
+    BsGrid.prototype.getCurrentGridDataRequest = function () {
         return {
             skip: this.pageSize * this.currentPage,
             take: this.pageSize,
@@ -56676,7 +56676,7 @@ var Grid = /** @class */ (function (_super) {
             filter: this.filter
         };
     };
-    Grid.prototype.refresh = function () {
+    BsGrid.prototype.refresh = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -56690,14 +56690,14 @@ var Grid = /** @class */ (function (_super) {
             });
         });
     };
-    Grid.prototype.loadDataFromItems = function (request) {
+    BsGrid.prototype.loadDataFromItems = function (request) {
         return Promise.resolve({
             items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
             filteredCount: this.actualRows ? this.actualRows.length : -1,
             totalCount: this.rows ? this.rows.length : -1
         });
     };
-    Grid.prototype.refreshInternal = function () {
+    BsGrid.prototype.refreshInternal = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             var promise, result, _a;
@@ -56752,10 +56752,10 @@ var Grid = /** @class */ (function (_super) {
             });
         });
     };
-    Grid.prototype.getPageNumberForIndex = function (index) {
+    BsGrid.prototype.getPageNumberForIndex = function (index) {
         return Math.floor(index / this.pageSize);
     };
-    Grid.prototype.showItemAtIndex = function (index) {
+    BsGrid.prototype.showItemAtIndex = function (index) {
         return __awaiter(this, void 0, void 0, function () {
             var previousCurrentPage, currentPage;
             return __generator(this, function (_a) {
@@ -56774,7 +56774,7 @@ var Grid = /** @class */ (function (_super) {
             });
         });
     };
-    Grid.prototype.showPage = function (pageNumber) {
+    BsGrid.prototype.showPage = function (pageNumber) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -56790,7 +56790,7 @@ var Grid = /** @class */ (function (_super) {
             });
         });
     };
-    Grid.prototype.onColumnHeaderClick = function (column) {
+    BsGrid.prototype.onColumnHeaderClick = function (column) {
         if (!column.sortable || !this.rowsSortable)
             return;
         if (column === this.currentSortColumn)
@@ -56802,7 +56802,7 @@ var Grid = /** @class */ (function (_super) {
         return this.refreshInternal();
     };
     // Local row filtering and sorting
-    Grid.prototype.filterItems = function (items) {
+    BsGrid.prototype.filterItems = function (items) {
         var _this = this;
         var term = this.filter ? this.filter.toLowerCase().trim() : '';
         var terms = term.split(' ');
@@ -56827,7 +56827,7 @@ var Grid = /** @class */ (function (_super) {
             });
         });
     };
-    Grid.prototype.sortItems = function (items) {
+    BsGrid.prototype.sortItems = function (items) {
         var _this = this;
         var orderMultiplier = this.currentSortOrder === 'asc' ? 1 : -1;
         if (this.currentSortColumn && this.currentSortColumn.sorter) {
@@ -56846,14 +56846,14 @@ var Grid = /** @class */ (function (_super) {
         else
             return items;
     };
-    Grid.prototype.defaultCompare = function (aValues, bValues) {
+    BsGrid.prototype.defaultCompare = function (aValues, bValues) {
         for (var i in aValues) {
             if (aValues[i] === undefined && bValues[i] !== undefined)
                 return -1;
             else if (bValues[i] === undefined && aValues[i] !== undefined)
                 return 1;
             if (typeof aValues[i] === 'string') {
-                var comp = aValues[i].localeCompare(bValues[i], Grid_1.LOCALE);
+                var comp = aValues[i].localeCompare(bValues[i], BsGrid_1.LOCALE);
                 if (comp !== 0)
                     return comp;
             }
@@ -56862,7 +56862,7 @@ var Grid = /** @class */ (function (_super) {
         }
         return 0;
     };
-    Grid.prototype.getObjectValueFromPath = function (field, obj) {
+    BsGrid.prototype.getObjectValueFromPath = function (field, obj) {
         var result = obj;
         var parts = field.split('.');
         for (var _i = 0, parts_1 = parts; _i < parts_1.length; _i++) {
@@ -56871,15 +56871,15 @@ var Grid = /** @class */ (function (_super) {
         }
         return result;
     };
-    Grid.prototype.getResizedChild = function () {
+    BsGrid.prototype.getResizedChild = function () {
         return this.element.children[1];
     };
-    Grid.prototype.getContainerHeight = function (child) {
+    BsGrid.prototype.getContainerHeight = function (child) {
         return this.height ? parseInt(this.height) : _super.prototype.getContainerHeight.call(this, child);
     };
     // TODO
     // @throttle(100)
-    Grid.prototype.onBodyScroll = function () {
+    BsGrid.prototype.onBodyScroll = function () {
         if (this.body.borderHeight === null) {
             this.body.borderHeight = 0;
             var styles = getComputedStyle(this.bodyElement);
@@ -56905,7 +56905,7 @@ var Grid = /** @class */ (function (_super) {
             this.bodyElement.classList.add('scrollable-bottom');
         }
     };
-    Grid.prototype.processColumns = function () {
+    BsGrid.prototype.processColumns = function () {
         var _this = this;
         var columns = this.columns;
         if (!columns || columns.length === 0) {
@@ -56937,7 +56937,7 @@ var Grid = /** @class */ (function (_super) {
                 this.initializeDefaultSortOrder();
         }
     };
-    Grid.prototype.initializeDefaultSortOrder = function () {
+    BsGrid.prototype.initializeDefaultSortOrder = function () {
         var _this = this;
         if (!this.currentSortColumn) {
             if (this.defaultSortColumn)
@@ -56949,7 +56949,7 @@ var Grid = /** @class */ (function (_super) {
             }
         }
     };
-    Grid.prototype.selectRow = function (row) {
+    BsGrid.prototype.selectRow = function (row) {
         var _this = this;
         if (this.enabled) {
             if (this.selectionMode === SelectionMode.single) {
@@ -56967,7 +56967,7 @@ var Grid = /** @class */ (function (_super) {
             }
         }
     };
-    Grid.prototype.dispatchSelectionChangedEvent = function () {
+    BsGrid.prototype.dispatchSelectionChangedEvent = function () {
         var _this = this;
         setTimeout(function () {
             var event = new CustomEvent('selection-changed', {
@@ -56979,11 +56979,11 @@ var Grid = /** @class */ (function (_super) {
             _this.element.dispatchEvent(event);
         });
     };
-    Grid.prototype.isSelected = function (selectedItem, selectedItems, item) {
+    BsGrid.prototype.isSelected = function (selectedItem, selectedItems, item) {
         var _this = this;
         return selectedItems && (this.comparer(selectedItem, item) || selectedItems.filter(function (a) { return _this.comparer(a, item); }).length > 0);
     };
-    Grid.prototype.compileRowTemplate = function (columns) {
+    BsGrid.prototype.compileRowTemplate = function (columns) {
         var _this = this;
         if (this.body.viewSlot) {
             var rowClass = this.element.getAttribute('row-class.bind');
@@ -57007,7 +57007,7 @@ var Grid = /** @class */ (function (_super) {
             });
         }
     };
-    Grid.prototype.compileHeaderTemplate = function (columns) {
+    BsGrid.prototype.compileHeaderTemplate = function (columns) {
         if (this.header.viewSlot) {
             var view = this.columnsToView(columns, function (column, index) {
                 return "<th class=\"${columns[" + index + "].headerClass} ${columns[" + index + "].sortable && rowsSortable ? 'sortable' : ''} ${columns[" + index + "].sortedOrder && rowsSortable ? 'sorted ' + columns[" + index + "].sortedOrder : ''}\"\n                    style.bind=\"(columns[" + index + "].width ? 'width: ' + columns[" + index + "].width + 'px;' : '') + (columns[" + index + "].sortable && rowsSortable ? 'cursor: pointer' : '')\"\n                    click.trigger=\"onColumnHeaderClick(columns[" + index + "])\">\n                    " + (column.header || '') + "\n                    <span if.bind=\"columns[" + index + "].sortable && rowsSortable && currentSortColumn === columns[" + index + "] && currentSortOrder === 'asc'\" aria-hidden=\"true\">&#9650;</span>\n                    <span if.bind=\"columns[" + index + "].sortable && rowsSortable && currentSortColumn === columns[" + index + "] && currentSortOrder === 'desc'\" aria-hidden=\"true\">&#9660;</span>\n                </th>";
@@ -57015,7 +57015,7 @@ var Grid = /** @class */ (function (_super) {
             attachView(view, this.header.viewSlot);
         }
     };
-    Grid.prototype.compileFooterTemplate = function (columns) {
+    BsGrid.prototype.compileFooterTemplate = function (columns) {
         if (this.footer.viewSlot) {
             var view = this.columnsToView(columns, function (column, index) {
                 return "<td class=\"${columns[" + index + "].footerClass} ${columns[" + index + "].sortable && rowsSortable ? 'sortable' : ''} ${columns[" + index + "].sortedOrder && rowsSortable ? 'sorted ' + columns[" + index + "].sortedOrder : ''}\">\n                    " + (column.footer || '') + "\n                </td>";
@@ -57023,7 +57023,7 @@ var Grid = /** @class */ (function (_super) {
             attachView(view, this.footer.viewSlot);
         }
     };
-    Grid.prototype.columnsToView = function (columns, templateMapper, row) {
+    BsGrid.prototype.columnsToView = function (columns, templateMapper, row) {
         if (!row) {
             row = document.createElement('tr');
         }
@@ -57037,126 +57037,126 @@ var Grid = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "loadData", void 0);
+    ], BsGrid.prototype, "loadData", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "comparer", void 0);
+    ], BsGrid.prototype, "comparer", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "offset", void 0);
+    ], BsGrid.prototype, "offset", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "limitToContentHeight", void 0);
+    ], BsGrid.prototype, "limitToContentHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "height", void 0);
+    ], BsGrid.prototype, "height", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "minHeight", void 0);
+    ], BsGrid.prototype, "minHeight", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["j" /* children */])('bs-column'),
         __metadata("design:type", Array)
-    ], Grid.prototype, "columns", void 0);
+    ], BsGrid.prototype, "columns", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Array)
-    ], Grid.prototype, "rows", void 0);
+    ], BsGrid.prototype, "rows", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "sortable", void 0);
+    ], BsGrid.prototype, "sortable", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Grid.prototype, "defaultSortColumn", void 0);
+    ], BsGrid.prototype, "defaultSortColumn", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Grid.prototype, "defaultSortOrder", void 0);
+    ], BsGrid.prototype, "defaultSortOrder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "animate", void 0);
+    ], BsGrid.prototype, "animate", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "totalCount", void 0);
+    ], BsGrid.prototype, "totalCount", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Grid.prototype, "selectedItem", void 0);
+    ], BsGrid.prototype, "selectedItem", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["w" /* bindingMode */].twoWay }),
         __metadata("design:type", Array)
-    ], Grid.prototype, "selectedItems", void 0);
+    ], BsGrid.prototype, "selectedItems", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "selectionMode", void 0);
+    ], BsGrid.prototype, "selectionMode", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "enabled", void 0);
+    ], BsGrid.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Grid.prototype, "filter", void 0);
+    ], BsGrid.prototype, "filter", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "itemHeight", void 0);
+    ], BsGrid.prototype, "itemHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "rowClass", void 0);
+    ], BsGrid.prototype, "rowClass", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "autoInit", void 0);
+    ], BsGrid.prototype, "autoInit", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "hideUnfilteredCounter", void 0);
+    ], BsGrid.prototype, "hideUnfilteredCounter", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Grid.prototype, "showFooter", void 0);
+    ], BsGrid.prototype, "showFooter", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('filteredCount', 'pageSize'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
-    ], Grid.prototype, "pageCount", null);
+    ], BsGrid.prototype, "pageCount", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('currentIndex', 'pageSize'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
-    ], Grid.prototype, "currentPage", null);
+    ], BsGrid.prototype, "currentPage", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('sortable', 'rows'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
-    ], Grid.prototype, "rowsSortable", null);
+    ], BsGrid.prototype, "rowsSortable", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('currentPage', 'pageCount'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
-    ], Grid.prototype, "pages", null);
-    Grid = Grid_1 = __decorate([
+    ], BsGrid.prototype, "pages", null);
+    BsGrid = BsGrid_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */], Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["d" /* ViewCompiler */], __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["e" /* ViewResources */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-grid'),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */],
             Element,
             __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["d" /* ViewCompiler */],
             __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["e" /* ViewResources */]])
-    ], Grid);
-    return Grid;
-    var Grid_1;
-}(__WEBPACK_IMPORTED_MODULE_3__resize_container__["ResizeContainer"]));
+    ], BsGrid);
+    return BsGrid;
+    var BsGrid_1;
+}(__WEBPACK_IMPORTED_MODULE_3__resize_container__["BsResizeContainer"]));
 
 function attachView(view, viewSlot) {
     var attachView = function () {
@@ -57188,7 +57188,7 @@ module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LabelCollection", function() { return LabelCollection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsLabelCollection", function() { return BsLabelCollection; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57210,17 +57210,17 @@ var translations = {
         'noItems': '<No selection>'
     }
 };
-var LabelCollection = /** @class */ (function () {
-    function LabelCollection() {
+var BsLabelCollection = /** @class */ (function () {
+    function BsLabelCollection() {
         this.translations = translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language];
         this.label = '';
         this.displayPath = null;
         this.enabled = true;
     }
-    LabelCollection.prototype.removeItem = function (item) {
+    BsLabelCollection.prototype.removeItem = function (item) {
         this.items = this.items.filter(function (i) { return i !== item; });
     };
-    LabelCollection.prototype.getValue = function (item, path) {
+    BsLabelCollection.prototype.getValue = function (item, path) {
         if (item) {
             var value = item;
             var pathArray = path.split('.');
@@ -57235,24 +57235,24 @@ var LabelCollection = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], LabelCollection.prototype, "label", void 0);
+    ], BsLabelCollection.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Array)
-    ], LabelCollection.prototype, "items", void 0);
+    ], BsLabelCollection.prototype, "items", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], LabelCollection.prototype, "displayPath", void 0);
+    ], BsLabelCollection.prototype, "displayPath", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], LabelCollection.prototype, "enabled", void 0);
-    LabelCollection = __decorate([
+    ], BsLabelCollection.prototype, "enabled", void 0);
+    BsLabelCollection = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-label-collection')
-    ], LabelCollection);
-    return LabelCollection;
+    ], BsLabelCollection);
+    return BsLabelCollection;
 }());
 
 
@@ -57271,7 +57271,7 @@ module.exports = "<template>\r\n  <div class=\"form-group has-feedback\">\r\n   
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Loader", function() { return Loader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsLoader", function() { return BsLoader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57285,8 +57285,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Loader = /** @class */ (function () {
-    function Loader() {
+var BsLoader = /** @class */ (function () {
+    function BsLoader() {
         this.loading = false;
         this.isInline = false;
         this.showText = true;
@@ -57296,14 +57296,14 @@ var Loader = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */])(this, 'showText');
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */])(this, 'isInline');
     }
-    Object.defineProperty(Loader.prototype, "displayText", {
+    Object.defineProperty(BsLoader.prototype, "displayText", {
         get: function () {
             return this.text || 'Loading...';
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Loader.prototype, "inlineStyle", {
+    Object.defineProperty(BsLoader.prototype, "inlineStyle", {
         get: function () {
             if (this.loading) {
                 return this.collapse ? 'display: inline-block;' : 'visibility: visible;';
@@ -57313,14 +57313,14 @@ var Loader = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Loader.prototype, "overlayStyle", {
+    Object.defineProperty(BsLoader.prototype, "overlayStyle", {
         get: function () {
             return this.isInline ? 'position: relative; display: none;' : 'position: relative; display: block;';
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Loader.prototype, "loaderStyle", {
+    Object.defineProperty(BsLoader.prototype, "loaderStyle", {
         get: function () {
             var pos = this.position || 'middle';
             if (/[0-9]+/.test(pos)) {
@@ -57345,53 +57345,53 @@ var Loader = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Boolean)
-    ], Loader.prototype, "loading", void 0);
+    ], BsLoader.prototype, "loading", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Loader.prototype, "isInline", void 0);
+    ], BsLoader.prototype, "isInline", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Loader.prototype, "text", void 0);
+    ], BsLoader.prototype, "text", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Loader.prototype, "showText", void 0);
+    ], BsLoader.prototype, "showText", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Loader.prototype, "collapse", void 0);
+    ], BsLoader.prototype, "collapse", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Loader.prototype, "position", void 0);
+    ], BsLoader.prototype, "position", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["k" /* computedFrom */])('text'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [])
-    ], Loader.prototype, "displayText", null);
+    ], BsLoader.prototype, "displayText", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["k" /* computedFrom */])('loading', 'collapse'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [])
-    ], Loader.prototype, "inlineStyle", null);
+    ], BsLoader.prototype, "inlineStyle", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["k" /* computedFrom */])('isInline'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [])
-    ], Loader.prototype, "overlayStyle", null);
+    ], BsLoader.prototype, "overlayStyle", null);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["k" /* computedFrom */])('position'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [])
-    ], Loader.prototype, "loaderStyle", null);
-    Loader = __decorate([
+    ], BsLoader.prototype, "loaderStyle", null);
+    BsLoader = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-loader'),
         __metadata("design:paramtypes", [])
-    ], Loader);
-    return Loader;
+    ], BsLoader);
+    return BsLoader;
 }());
 
 
@@ -57476,7 +57476,7 @@ function configure(aurelia) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarHeader", function() { return NavbarHeader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsNavbarHeader", function() { return BsNavbarHeader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57490,34 +57490,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var NavbarHeader = /** @class */ (function () {
-    function NavbarHeader() {
+var BsNavbarHeader = /** @class */ (function () {
+    function BsNavbarHeader() {
         this.expanded = false;
         this.brand = '';
     }
-    NavbarHeader.prototype.attached = function () {
+    BsNavbarHeader.prototype.attached = function () {
         var _this = this;
         this.elm.addEventListener('click', function () {
             _this.toggle();
         }, true);
     };
-    NavbarHeader.prototype.toggle = function () {
+    BsNavbarHeader.prototype.toggle = function () {
         this.expanded = !this.expanded;
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], NavbarHeader.prototype, "expanded", void 0);
+    ], BsNavbarHeader.prototype, "expanded", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], NavbarHeader.prototype, "brand", void 0);
-    NavbarHeader = __decorate([
+    ], BsNavbarHeader.prototype, "brand", void 0);
+    BsNavbarHeader = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-navbar-header')
-    ], NavbarHeader);
-    return NavbarHeader;
+    ], BsNavbarHeader);
+    return BsNavbarHeader;
 }());
 
 
@@ -57536,7 +57536,7 @@ module.exports = "<template>\r\n  <div class=\"navbar-header\">\r\n    <button t
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResizeContainer", function() { return ResizeContainer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsResizeContainer", function() { return BsResizeContainer; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57550,8 +57550,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var ResizeContainer = /** @class */ (function () {
-    function ResizeContainer(element) {
+var BsResizeContainer = /** @class */ (function () {
+    function BsResizeContainer(element) {
         var _this = this;
         this.element = element;
         this.offset = 20;
@@ -57561,20 +57561,20 @@ var ResizeContainer = /** @class */ (function () {
         this.onResizeCallback = function () { _this.updateContainerHeight(true); };
         this.currentStyleHeight = '';
     }
-    ResizeContainer.prototype.attached = function () {
+    BsResizeContainer.prototype.attached = function () {
         var _this = this;
         window.addEventListener('resize', this.onResizeCallback);
         this.registerObserver();
         this.updateContainerHeight(false);
         setTimeout(function () { return _this.updateContainerHeight(true); });
     };
-    ResizeContainer.prototype.detached = function () {
+    BsResizeContainer.prototype.detached = function () {
         window.removeEventListener('resize', this.onResizeCallback);
         if (this.containerObserver) {
             this.containerObserver.disconnect();
         }
     };
-    ResizeContainer.prototype.registerObserver = function () {
+    BsResizeContainer.prototype.registerObserver = function () {
         var _this = this;
         var config = { attributes: true, childList: true, characterData: true, subtree: true };
         this.containerObserver = new MutationObserver(function () {
@@ -57582,10 +57582,10 @@ var ResizeContainer = /** @class */ (function () {
         });
         this.containerObserver.observe(document, config);
     };
-    ResizeContainer.prototype.getResizedChild = function () {
+    BsResizeContainer.prototype.getResizedChild = function () {
         return this.element.children[0];
     };
-    ResizeContainer.prototype.getContainerHeight = function (child) {
+    BsResizeContainer.prototype.getContainerHeight = function (child) {
         var box = child.getBoundingClientRect();
         var maxHeight = window.innerHeight - box.top - this.offset;
         var innerChild = child.children[0];
@@ -57598,14 +57598,14 @@ var ResizeContainer = /** @class */ (function () {
         }
         return maxHeight;
     };
-    ResizeContainer.prototype.getAbsoluteHeight = function (el) {
+    BsResizeContainer.prototype.getAbsoluteHeight = function (el) {
         el = (typeof el === 'string') ? document.querySelector(el) : el;
         var styles = window.getComputedStyle(el);
         var margin = parseFloat(styles['marginTop']) +
             parseFloat(styles['marginBottom']);
         return Math.ceil(el.clientHeight + margin);
     };
-    ResizeContainer.prototype.updateContainerHeight = function (retrigger) {
+    BsResizeContainer.prototype.updateContainerHeight = function (retrigger) {
         var _this = this;
         var child = this.getResizedChild();
         if (child) {
@@ -57625,25 +57625,25 @@ var ResizeContainer = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], ResizeContainer.prototype, "offset", void 0);
+    ], BsResizeContainer.prototype, "offset", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], ResizeContainer.prototype, "minHeight", void 0);
+    ], BsResizeContainer.prototype, "minHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], ResizeContainer.prototype, "limitToContentHeight", void 0);
+    ], BsResizeContainer.prototype, "limitToContentHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], ResizeContainer.prototype, "containerHeight", void 0);
-    ResizeContainer = __decorate([
+    ], BsResizeContainer.prototype, "containerHeight", void 0);
+    BsResizeContainer = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-resize-container'),
         __metadata("design:paramtypes", [Element])
-    ], ResizeContainer);
-    return ResizeContainer;
+    ], BsResizeContainer);
+    return BsResizeContainer;
 }());
 
 
@@ -57662,7 +57662,7 @@ module.exports = "<template>\r\n  <slot></slot>\r\n</template>";
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Scroll", function() { return Scroll; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsScroll", function() { return BsScroll; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__resize_container__ = __webpack_require__("resize-container");
 var __extends = (this && this.__extends) || (function () {
@@ -57686,9 +57686,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var Scroll = /** @class */ (function (_super) {
-    __extends(Scroll, _super);
-    function Scroll(element) {
+var BsScroll = /** @class */ (function (_super) {
+    __extends(BsScroll, _super);
+    function BsScroll(element) {
         var _this = _super.call(this, element) || this;
         _this.offset = 20;
         _this.limitToContentHeight = false;
@@ -57697,36 +57697,36 @@ var Scroll = /** @class */ (function (_super) {
         _this.minHeight = 0;
         return _this;
     }
-    Scroll.prototype.getContainerHeight = function (child) {
+    BsScroll.prototype.getContainerHeight = function (child) {
         return this.height ? parseInt(this.height) : _super.prototype.getContainerHeight.call(this, child);
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Scroll.prototype, "offset", void 0);
+    ], BsScroll.prototype, "offset", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Scroll.prototype, "limitToContentHeight", void 0);
+    ], BsScroll.prototype, "limitToContentHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Scroll.prototype, "class", void 0);
+    ], BsScroll.prototype, "class", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Scroll.prototype, "height", void 0);
+    ], BsScroll.prototype, "height", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Scroll.prototype, "minHeight", void 0);
-    Scroll = __decorate([
+    ], BsScroll.prototype, "minHeight", void 0);
+    BsScroll = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-scroll'),
         __metadata("design:paramtypes", [Element])
-    ], Scroll);
-    return Scroll;
-}(__WEBPACK_IMPORTED_MODULE_1__resize_container__["ResizeContainer"]));
+    ], BsScroll);
+    return BsScroll;
+}(__WEBPACK_IMPORTED_MODULE_1__resize_container__["BsResizeContainer"]));
 
 
 
@@ -57744,7 +57744,7 @@ module.exports = "<template>\r\n  <div style=\"overflow-y: auto;\"\r\n       cla
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Searchbox", function() { return Searchbox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsSearchbox", function() { return BsSearchbox; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__convert__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__validation_component__ = __webpack_require__(7);
@@ -57761,8 +57761,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Searchbox = /** @class */ (function () {
-    function Searchbox(element) {
+var BsSearchbox = /** @class */ (function () {
+    function BsSearchbox(element) {
         this.element = element;
         this.label = '';
         this.value = '';
@@ -57772,7 +57772,7 @@ var Searchbox = /** @class */ (function () {
         this.button = 'Search';
         this.allowEmpty = false;
     }
-    Searchbox.prototype.attached = function () {
+    BsSearchbox.prototype.attached = function () {
         var _this = this;
         this.inputElement.addEventListener('keyup', function (event) {
             if (event.keyCode === 13) {
@@ -57780,10 +57780,10 @@ var Searchbox = /** @class */ (function () {
             }
         });
     };
-    Searchbox.prototype.focus = function () {
+    BsSearchbox.prototype.focus = function () {
         this.inputElement.focus();
     };
-    Searchbox.prototype.onClick = function () {
+    BsSearchbox.prototype.onClick = function () {
         if (this.enabled && (this.value || this.allowEmpty)) {
             var event_1 = new CustomEvent('click');
             this.element.dispatchEvent(event_1);
@@ -57792,40 +57792,40 @@ var Searchbox = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "label", void 0);
+    ], BsSearchbox.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "value", void 0);
+    ], BsSearchbox.prototype, "value", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "placeholder", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
-        __metadata("design:type", Object)
-    ], Searchbox.prototype, "enabled", void 0);
+    ], BsSearchbox.prototype, "placeholder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "readonly", void 0);
+    ], BsSearchbox.prototype, "enabled", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
+        __metadata("design:type", Object)
+    ], BsSearchbox.prototype, "readonly", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "button", void 0);
+    ], BsSearchbox.prototype, "button", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Searchbox.prototype, "allowEmpty", void 0);
-    Searchbox = __decorate([
+    ], BsSearchbox.prototype, "allowEmpty", void 0);
+    BsSearchbox = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-searchbox'),
         __metadata("design:paramtypes", [Element])
-    ], Searchbox);
-    return Searchbox;
+    ], BsSearchbox);
+    return BsSearchbox;
 }());
 
 
@@ -57844,7 +57844,7 @@ module.exports = "<template>\r\n  <div class=\"input-group\">\r\n    <input ref=
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Select", function() { return Select; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsSelect", function() { return BsSelect; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__validation_component__ = __webpack_require__(7);
@@ -57884,9 +57884,9 @@ var translations = {
         'select': '<Please select>'
     }
 };
-var Select = /** @class */ (function (_super) {
-    __extends(Select, _super);
-    function Select() {
+var BsSelect = /** @class */ (function (_super) {
+    __extends(BsSelect, _super);
+    function BsSelect() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_4__settings__["a" /* BsSettings */].language];
         _this.label = '';
@@ -57904,10 +57904,10 @@ var Select = /** @class */ (function (_super) {
         _this.changing = false;
         return _this;
     }
-    Select.prototype.attached = function () {
+    BsSelect.prototype.attached = function () {
         this.updateSelection(false);
     };
-    Object.defineProperty(Select.prototype, "renderNullOption", {
+    Object.defineProperty(BsSelect.prototype, "renderNullOption", {
         get: function () {
             var _this = this;
             if (this.multiple)
@@ -57920,25 +57920,25 @@ var Select = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Select.prototype.itemsChanged = function () {
+    BsSelect.prototype.itemsChanged = function () {
         var _this = this;
         setTimeout(function () { return _this.updateSelection(false); });
     };
-    Select.prototype.valueChanged = function () {
+    BsSelect.prototype.valueChanged = function () {
         if (!this.changing) {
             this.values = this.value ? [this.value] : null;
         }
         _super.prototype.valueChanged.call(this);
         this.updateSelection(true);
     };
-    Select.prototype.valuesChanged = function () {
+    BsSelect.prototype.valuesChanged = function () {
         if (!this.changing) {
             this.value = this.values && this.values.length > 0 ? this.values[0] : null;
         }
         _super.prototype.valueChanged.call(this);
         this.updateSelection(true);
     };
-    Select.prototype.updateSelection = function (repeat) {
+    BsSelect.prototype.updateSelection = function (repeat) {
         var _this = this;
         if (this.items && this.select) {
             this.changing = true;
@@ -57962,7 +57962,7 @@ var Select = /** @class */ (function (_super) {
             this.changing = false;
         }
     };
-    Select.prototype.onChange = function () {
+    BsSelect.prototype.onChange = function () {
         if (!this.changing) {
             var selectedItems = [];
             for (var _i = 0, _a = this.select.options; _i < _a.length; _i++) {
@@ -57988,7 +57988,7 @@ var Select = /** @class */ (function (_super) {
             this.changing = false;
         }
     };
-    Select.prototype.getValue = function (item, path) {
+    BsSelect.prototype.getValue = function (item, path) {
         if (item) {
             var value = item;
             var pathArray = path.split('.');
@@ -58003,66 +58003,66 @@ var Select = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Select.prototype, "label", void 0);
+    ], BsSelect.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Select.prototype, "value", void 0);
+    ], BsSelect.prototype, "value", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Select.prototype, "values", void 0);
+    ], BsSelect.prototype, "values", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Select.prototype, "items", void 0);
+    ], BsSelect.prototype, "items", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Select.prototype, "valuePath", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
-        __metadata("design:type", Object)
-    ], Select.prototype, "enabled", void 0);
+    ], BsSelect.prototype, "valuePath", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Select.prototype, "readonly", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        __metadata("design:type", Object)
-    ], Select.prototype, "help", void 0);
+    ], BsSelect.prototype, "enabled", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Select.prototype, "required", void 0);
+    ], BsSelect.prototype, "readonly", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Select.prototype, "displayPath", void 0);
+    ], BsSelect.prototype, "help", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Select.prototype, "multiple", void 0);
+    ], BsSelect.prototype, "required", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Select.prototype, "height", void 0);
+    ], BsSelect.prototype, "displayPath", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
+        __metadata("design:type", Object)
+    ], BsSelect.prototype, "multiple", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
+    ], BsSelect.prototype, "height", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('multiple', 'required', 'value', 'items'),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [])
-    ], Select.prototype, "renderNullOption", null);
-    Select = __decorate([
+    ], BsSelect.prototype, "renderNullOption", null);
+    BsSelect = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-select')
-    ], Select);
-    return Select;
-}(__WEBPACK_IMPORTED_MODULE_2__validation_component__["b" /* ValidationComponent */]));
+    ], BsSelect);
+    return BsSelect;
+}(__WEBPACK_IMPORTED_MODULE_2__validation_component__["b" /* BsValidationComponent */]));
 
 
 
@@ -58073,7 +58073,7 @@ var Select = /** @class */ (function (_super) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectGrid", function() { return SelectGrid; });
+/* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsSelectGrid", function() { return BsSelectGrid; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_component__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog_service__ = __webpack_require__(17);
@@ -58148,9 +58148,9 @@ var translations = {
         'select': '<Please select>'
     }
 };
-var SelectGrid = /** @class */ (function (_super) {
-    __extends(SelectGrid, _super);
-    function SelectGrid(dialogService) {
+var BsSelectGrid = /** @class */ (function (_super) {
+    __extends(BsSelectGrid, _super);
+    function BsSelectGrid(dialogService) {
         var _this = _super.call(this) || this;
         _this.dialogService = dialogService;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_5__settings__["a" /* BsSettings */].language];
@@ -58166,7 +58166,7 @@ var SelectGrid = /** @class */ (function (_super) {
         _this.itemHeight = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["GridDefaults"].itemHeight;
         return _this;
     }
-    SelectGrid.prototype.showPicker = function () {
+    BsSelectGrid.prototype.showPicker = function () {
         return __awaiter(this, void 0, void 0, function () {
             var dialog;
             return __generator(this, function (_a) {
@@ -58186,7 +58186,7 @@ var SelectGrid = /** @class */ (function (_super) {
             });
         });
     };
-    SelectGrid.prototype.keyPressed = function (event) {
+    BsSelectGrid.prototype.keyPressed = function (event) {
         if (this.enabled) {
             if (event.which === 13) {
                 this.showPicker();
@@ -58194,7 +58194,7 @@ var SelectGrid = /** @class */ (function (_super) {
             event.preventDefault();
         }
     };
-    SelectGrid.prototype.getValue = function (item, path) {
+    BsSelectGrid.prototype.getValue = function (item, path) {
         if (item) {
             var value = item;
             var pathArray = path.split('.');
@@ -58209,56 +58209,56 @@ var SelectGrid = /** @class */ (function (_super) {
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["j" /* children */])('bs-column'),
         __metadata("design:type", Array)
-    ], SelectGrid.prototype, "columns", void 0);
+    ], BsSelectGrid.prototype, "columns", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "label", void 0);
+    ], BsSelectGrid.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "value", void 0);
+    ], BsSelectGrid.prototype, "value", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "items", void 0);
+    ], BsSelectGrid.prototype, "items", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "displayPath", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
-        __metadata("design:type", Object)
-    ], SelectGrid.prototype, "enabled", void 0);
+    ], BsSelectGrid.prototype, "displayPath", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "required", void 0);
+    ], BsSelectGrid.prototype, "enabled", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        Object(__WEBPACK_IMPORTED_MODULE_3__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_3__convert__["a" /* BooleanConverter */]),
+        __metadata("design:type", Object)
+    ], BsSelectGrid.prototype, "required", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Function)
-    ], SelectGrid.prototype, "loadData", void 0);
+    ], BsSelectGrid.prototype, "loadData", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], SelectGrid.prototype, "defaultSortColumn", void 0);
+    ], BsSelectGrid.prototype, "defaultSortColumn", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], SelectGrid.prototype, "defaultSortOrder", void 0);
+    ], BsSelectGrid.prototype, "defaultSortOrder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], SelectGrid.prototype, "itemHeight", void 0);
-    SelectGrid = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* DialogService */]),
+    ], BsSelectGrid.prototype, "itemHeight", void 0);
+    BsSelectGrid = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* BsDialogService */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-select-grid'),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* DialogService */]])
-    ], SelectGrid);
-    return SelectGrid;
-}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* ValidationComponent */]));
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* BsDialogService */]])
+    ], BsSelectGrid);
+    return BsSelectGrid;
+}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* BsValidationComponent */]));
 
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
@@ -58270,7 +58270,7 @@ var SelectGrid = /** @class */ (function (_super) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectGridDialog", function() { return SelectGridDialog; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsSelectGridDialog", function() { return BsSelectGridDialog; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialog__ = __webpack_require__("dialog");
@@ -58308,9 +58308,9 @@ var translations = {
         'buttonNoSelection': 'No Selection'
     }
 };
-var SelectGridDialog = /** @class */ (function (_super) {
-    __extends(SelectGridDialog, _super);
-    function SelectGridDialog() {
+var BsSelectGridDialog = /** @class */ (function (_super) {
+    __extends(BsSelectGridDialog, _super);
+    function BsSelectGridDialog() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_3__settings__["a" /* BsSettings */].language];
         _this.filter = '';
@@ -58319,7 +58319,7 @@ var SelectGridDialog = /** @class */ (function (_super) {
         _this.defaultSortOrder = 'asc';
         return _this;
     }
-    SelectGridDialog.prototype.activate = function (selectGrid) {
+    BsSelectGridDialog.prototype.activate = function (selectGrid) {
         this.title = selectGrid.label;
         this.items = selectGrid.items;
         this.itemHeight = selectGrid.itemHeight;
@@ -58329,67 +58329,67 @@ var SelectGridDialog = /** @class */ (function (_super) {
         this.defaultSortColumn = selectGrid.defaultSortColumn;
         this.defaultSortOrder = selectGrid.defaultSortOrder;
     };
-    SelectGridDialog.prototype.attached = function () {
+    BsSelectGridDialog.prototype.attached = function () {
         this.grid.columns = this.columns;
         this.grid.itemHeight = this.itemHeight;
         this.grid.columnsChanged();
         this.filterBox.focus();
     };
-    SelectGridDialog.prototype.enterPressed = function () {
+    BsSelectGridDialog.prototype.enterPressed = function () {
         if (this.grid.displayedRows && this.grid.displayedRows.length === 1) {
             this.selectedItem = this.grid.displayedRows[0];
             this.close();
         }
     };
-    SelectGridDialog.prototype.selectedItemChanged = function () {
+    BsSelectGridDialog.prototype.selectedItemChanged = function () {
         if (this.selectedItem) {
             this.close();
         }
     };
-    SelectGridDialog.prototype.none = function () {
+    BsSelectGridDialog.prototype.none = function () {
         this.selectedItem = null;
         this.close();
     };
-    SelectGridDialog.prototype.cancel = function () {
+    BsSelectGridDialog.prototype.cancel = function () {
         this.selectedItem = undefined;
         this.close();
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
-    ], SelectGridDialog.prototype, "title", void 0);
+    ], BsSelectGridDialog.prototype, "title", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], SelectGridDialog.prototype, "filter", void 0);
+    ], BsSelectGridDialog.prototype, "filter", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], SelectGridDialog.prototype, "items", void 0);
+    ], BsSelectGridDialog.prototype, "items", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Boolean)
-    ], SelectGridDialog.prototype, "required", void 0);
+    ], BsSelectGridDialog.prototype, "required", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], SelectGridDialog.prototype, "selectedItem", void 0);
+    ], BsSelectGridDialog.prototype, "selectedItem", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Function)
-    ], SelectGridDialog.prototype, "loadData", void 0);
+    ], BsSelectGridDialog.prototype, "loadData", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
-    ], SelectGridDialog.prototype, "defaultSortColumn", void 0);
+    ], BsSelectGridDialog.prototype, "defaultSortColumn", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", String)
-    ], SelectGridDialog.prototype, "defaultSortOrder", void 0);
-    SelectGridDialog = __decorate([
+    ], BsSelectGridDialog.prototype, "defaultSortOrder", void 0);
+    BsSelectGridDialog = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element)
-    ], SelectGridDialog);
-    return SelectGridDialog;
+    ], BsSelectGridDialog);
+    return BsSelectGridDialog;
 }(__WEBPACK_IMPORTED_MODULE_2__dialog__["DialogBase"]));
 
 
@@ -58423,7 +58423,7 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabDefaults", function() { return TabDefaults; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab", function() { return Tab; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsTab", function() { return BsTab; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58438,8 +58438,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var TabDefaults = {
     style: ''
 };
-var Tab = /** @class */ (function () {
-    function Tab() {
+var BsTab = /** @class */ (function () {
+    function BsTab() {
         this.id = '';
         this.active = false;
         this.style = TabDefaults.style;
@@ -58450,31 +58450,31 @@ var Tab = /** @class */ (function () {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
-    ], Tab.prototype, "id", void 0);
+    ], BsTab.prototype, "id", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", Object)
-    ], Tab.prototype, "active", void 0);
+    ], BsTab.prototype, "active", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Tab.prototype, "style", void 0);
+    ], BsTab.prototype, "style", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Tab.prototype, "header", void 0);
+    ], BsTab.prototype, "header", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Tab.prototype, "panel", void 0);
+    ], BsTab.prototype, "panel", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Boolean)
-    ], Tab.prototype, "visible", void 0);
-    Tab = __decorate([
+    ], BsTab.prototype, "visible", void 0);
+    BsTab = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-tab')
-    ], Tab);
-    return Tab;
+    ], BsTab);
+    return BsTab;
 }());
 
 
@@ -58493,7 +58493,7 @@ module.exports = "<template>\r\n  <div class=\"${panel ? 'panel panel-default' :
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return Tabs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsTabs", function() { return BsTabs; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58505,13 +58505,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var Tabs = /** @class */ (function () {
-    function Tabs() {
+var BsTabs = /** @class */ (function () {
+    function BsTabs() {
         this.tabs = [];
         this.selectedTabId = '';
         this.internalTabs = [];
     }
-    Tabs.prototype.bind = function () {
+    BsTabs.prototype.bind = function () {
         var _this = this;
         if (this.tabs.length > 0) {
             this.updateSelectedTab();
@@ -58523,7 +58523,7 @@ var Tabs = /** @class */ (function () {
             });
         }
     };
-    Tabs.prototype.selectTab = function (tab) {
+    BsTabs.prototype.selectTab = function (tab) {
         if (tab && this.internalTabs) {
             if (this.internalTabs.find(function (t) { return t === tab; })) {
                 this.internalTabs.forEach(function (t) { return t.active = t === tab; });
@@ -58533,14 +58533,14 @@ var Tabs = /** @class */ (function () {
                 throw Error('Tab could not be found.');
         }
     };
-    Tabs.prototype.tabsChanged = function () {
+    BsTabs.prototype.tabsChanged = function () {
         this.internalTabs = this.tabs ? this.tabs : [];
         this.updateSelectedTab();
     };
-    Tabs.prototype.selectedTabIdChanged = function () {
+    BsTabs.prototype.selectedTabIdChanged = function () {
         this.updateSelectedTab();
     };
-    Tabs.prototype.updateSelectedTab = function () {
+    BsTabs.prototype.updateSelectedTab = function () {
         var _this = this;
         if (this.selectedTabId) {
             var tabs = this.internalTabs.filter(function (t) { return t.id === _this.selectedTabId; });
@@ -58557,19 +58557,19 @@ var Tabs = /** @class */ (function () {
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["j" /* children */])('bs-tab'),
         __metadata("design:type", Array)
-    ], Tabs.prototype, "tabs", void 0);
+    ], BsTabs.prototype, "tabs", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", String)
-    ], Tabs.prototype, "selectedTabId", void 0);
+    ], BsTabs.prototype, "selectedTabId", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", Array)
-    ], Tabs.prototype, "internalTabs", void 0);
-    Tabs = __decorate([
+    ], BsTabs.prototype, "internalTabs", void 0);
+    BsTabs = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-tabs')
-    ], Tabs);
-    return Tabs;
+    ], BsTabs);
+    return BsTabs;
 }());
 
 
@@ -58588,7 +58588,7 @@ module.exports = "<template>\r\n  <ul class=\"nav nav-tabs\"\r\n      css=\"disp
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Textbox", function() { return Textbox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsTextbox", function() { return BsTextbox; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__validation_component__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__convert__ = __webpack_require__(6);
@@ -58616,9 +58616,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Textbox = /** @class */ (function (_super) {
-    __extends(Textbox, _super);
-    function Textbox(root) {
+var BsTextbox = /** @class */ (function (_super) {
+    __extends(BsTextbox, _super);
+    function BsTextbox(root) {
         var _this = _super.call(this) || this;
         _this.root = root;
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
@@ -58632,7 +58632,7 @@ var Textbox = /** @class */ (function (_super) {
         _this.style = '';
         return _this;
     }
-    Textbox.prototype.elementChanged = function () {
+    BsTextbox.prototype.elementChanged = function () {
         var _this = this;
         if (this.element) {
             this.element.addEventListener('keyup', function (event) {
@@ -58643,57 +58643,57 @@ var Textbox = /** @class */ (function (_super) {
             });
         }
     };
-    Textbox.prototype.focus = function () {
+    BsTextbox.prototype.focus = function () {
         this.element.focus();
     };
-    Textbox.prototype.selectAll = function () {
+    BsTextbox.prototype.selectAll = function () {
         this.element.setSelectionRange(0, this.element.value.length);
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", HTMLInputElement)
-    ], Textbox.prototype, "element", void 0);
+    ], BsTextbox.prototype, "element", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Textbox.prototype, "label", void 0);
+    ], BsTextbox.prototype, "label", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */])({ defaultBindingMode: __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["i" /* bindingMode */].twoWay }),
         __metadata("design:type", Object)
-    ], Textbox.prototype, "value", void 0);
+    ], BsTextbox.prototype, "value", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Textbox.prototype, "placeholder", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
-        __metadata("design:type", Object)
-    ], Textbox.prototype, "enabled", void 0);
+    ], BsTextbox.prototype, "placeholder", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
         __metadata("design:type", Object)
-    ], Textbox.prototype, "readonly", void 0);
+    ], BsTextbox.prototype, "enabled", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        Object(__WEBPACK_IMPORTED_MODULE_2__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_2__convert__["a" /* BooleanConverter */]),
+        __metadata("design:type", Object)
+    ], BsTextbox.prototype, "readonly", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Textbox.prototype, "help", void 0);
+    ], BsTextbox.prototype, "help", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Textbox.prototype, "rows", void 0);
+    ], BsTextbox.prototype, "rows", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
-    ], Textbox.prototype, "style", void 0);
-    Textbox = __decorate([
+    ], BsTextbox.prototype, "style", void 0);
+    BsTextbox = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-textbox'),
         __metadata("design:paramtypes", [Element])
-    ], Textbox);
-    return Textbox;
-}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* ValidationComponent */]));
+    ], BsTextbox);
+    return BsTextbox;
+}(__WEBPACK_IMPORTED_MODULE_1__validation_component__["b" /* BsValidationComponent */]));
 
 
 
@@ -58707,4 +58707,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.207cfd7c62c899ca82b7.bundle.map
+//# sourceMappingURL=app.c0e484e85e03bbb94bfe.bundle.map

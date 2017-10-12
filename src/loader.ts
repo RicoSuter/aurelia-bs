@@ -3,7 +3,7 @@ import { convert, BooleanConverter } from './convert';
 
 @containerless
 @customElement('bs-loader')
-export class Loader {
+export class BsLoader {
   @bindable
   @convert(BooleanConverter)
   loading: boolean = false;

@@ -1,6 +1,6 @@
 ﻿import { inject, Container, CompositionEngine, Controller, ViewSlot, PLATFORM } from 'aurelia-framework';
 import { IDialogBase } from './dialog';
-import { AlertDialog, IDialogButton } from './dialogs/alert-dialog';
+import { BsAlertDialog, IDialogButton } from './dialogs/alert-dialog';
 import { BsSettings } from './settings';
 import { observable } from 'aurelia-binding';
 
@@ -16,7 +16,7 @@ let translations = {
 };
 
 @inject(CompositionEngine, Container)
-export class DialogService {
+export class BsDialogService {
   translations = (<any>translations)[BsSettings.language];
 
   constructor(
@@ -28,7 +28,7 @@ export class DialogService {
   openedDialogs: IDialogBase[] = [];
 
   alert(title: string, message: string, buttons?: IDialogButton[]) {
-    return this.show<AlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), {
+    return this.show<BsAlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), {
       title: title,
       message: message,
       buttons: buttons ? buttons : [
@@ -86,7 +86,7 @@ export class DialogService {
 
       let view = controller.view;
       let dialog = view.bindingContext as TDialog;
-      dialog.viewModelUrl = viewModelUrl;
+      (<any>dialog).viewModelUrl = viewModelUrl;
       this.openedDialogs = this.openedDialogs.concat([dialog]);
 
       if (created)

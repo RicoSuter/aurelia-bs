@@ -14,7 +14,7 @@ export function createComponentId() {
 
 export class BsValidateBindingBehavior {
   bind(binding: any) {
-    let component = binding.target as ValidationComponent;
+    let component = binding.target as BsValidationComponent;
     let parent = binding.source.bindingContext;
 
     if (binding.sourceExpression.expression.object) {
@@ -38,7 +38,7 @@ export class BsValidateBindingBehavior {
   }
 }
 
-export class ValidationComponent {
+export class BsValidationComponent {
   controller: ValidationController;
   propertyName: string;
   validatedObject: any;
