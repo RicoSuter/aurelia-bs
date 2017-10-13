@@ -9,9 +9,9 @@
          class="basic"
          item-height.bind="40">
     <bs-column field="name" 
-               header="The Name" 
+               header="Name" 
                width="200">
-        ${row.date.format('DD.MM.YYYY')}
+        ${row.name}
     </bs-column>
     <bs-column field="dateOfBirth" 
                header="Date of Birth" 
