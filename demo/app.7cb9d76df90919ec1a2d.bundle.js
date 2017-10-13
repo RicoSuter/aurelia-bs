@@ -17571,7 +17571,6 @@ var BsDialogService = /** @class */ (function () {
     function BsDialogService(compositionEngine, container) {
         this.compositionEngine = compositionEngine;
         this.container = container;
-        this.translations = translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language];
         this.openedDialogs = [];
     }
     BsDialogService.prototype.alert = function (title, message, buttons) {
@@ -17597,12 +17596,12 @@ var BsDialogService = /** @class */ (function () {
         return this.alert(title, message, [
             {
                 name: 'no',
-                title: this.translations.buttonNo,
+                title: translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language].buttonNo,
                 isDefault: false
             },
             {
                 name: 'yes',
-                title: this.translations.buttonYes,
+                title: translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language].buttonYes,
                 isDefault: true
             }
         ]).then(function (button) {
@@ -58181,7 +58180,7 @@ var BsSelectGrid = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         if (!this.enabled) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.dialogService.show('bs-aurelia/select-grid/select-grid-dialog', this).catch(function () {
+                        return [4 /*yield*/, this.dialogService.show('aurelia-bs/select-grid/select-grid-dialog', this).catch(function () {
                                 return _this.dialogService.show('select-grid/select-grid-dialog', _this);
                             }).then(function (dialog) {
                                 if (dialog.selectedItem !== undefined) {
@@ -58424,7 +58423,7 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ "select.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <select class=\"form-control\"\r\n            change.trigger=\"onChange($event)\"\r\n            ref=\"select\"\r\n            style=\"${height ? 'height: ' + height + 'px !important' : ''}\"\r\n            multiple.bind=\"multiple ? 'multiple' : null\"\r\n            disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n            readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <option if.bind=\"renderNullOption\"\r\n              value=\"null\">${translations.select}</option>\r\n      <option repeat.for=\"item of items\"\r\n              value.bind=\"$index\">\r\n        ${displayPath ? getValue(item, displayPath) : item}\r\n      </option>\r\n    </select>\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <select class=\"form-control\"\r\n            change.trigger=\"onChange($event)\"\r\n            ref=\"select\"\r\n            style.bind=\"height ? 'height: ' + height + 'px !important' : ''\"\r\n            multiple.bind=\"multiple ? 'multiple' : null\"\r\n            disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n            readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <option if.bind=\"renderNullOption\"\r\n              value=\"null\">${translations.select}</option>\r\n      <option repeat.for=\"item of items\"\r\n              value.bind=\"$index\">\r\n        ${displayPath ? getValue(item, displayPath) : item}\r\n      </option>\r\n    </select>\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -58718,4 +58717,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.af9e21d6c7f2d5b09722.bundle.map
+//# sourceMappingURL=app.7cb9d76df90919ec1a2d.bundle.map

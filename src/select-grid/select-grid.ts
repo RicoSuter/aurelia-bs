@@ -67,7 +67,7 @@ export class BsSelectGrid extends BsValidationComponent {
 
   async showPicker() {
     if (this.enabled) {
-      await this.dialogService.show<BsSelectGridDialog>('bs-aurelia/select-grid/select-grid-dialog', this).catch(() => {
+      await this.dialogService.show<BsSelectGridDialog>('aurelia-bs/select-grid/select-grid-dialog', this).catch(() => {
         return this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('select-grid/select-grid-dialog'), this);
       }).then((dialog) => {
         if (dialog.selectedItem !== undefined) {
