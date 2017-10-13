@@ -17,8 +17,6 @@ let translations = {
 
 @inject(CompositionEngine, Container)
 export class BsDialogService {
-  translations = (<any>translations)[BsSettings.language];
-
   constructor(
     private compositionEngine: CompositionEngine,
     private container: Container) {
@@ -51,12 +49,12 @@ export class BsDialogService {
     return this.alert(title, message, [
       {
         name: 'no',
-        title: this.translations.buttonNo,
+        title: translations[BsSettings.language].buttonNo,
         isDefault: false
       },
       {
         name: 'yes',
-        title: this.translations.buttonYes,
+        title: translations[BsSettings.language].buttonYes,
         isDefault: true
       }
     ]).then(button => {

@@ -13,7 +13,7 @@ let translations = {
 @containerless
 @customElement('bs-label-collection')
 export class BsLabelCollection {
-  translations = (<any>translations)[BsSettings.language];
+  translations = translations[BsSettings.language];
 
   @bindable
   label = '';

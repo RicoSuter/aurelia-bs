@@ -18,7 +18,7 @@ let translations = {
 @containerless
 @customElement('bs-select')
 export class BsSelect extends BsValidationComponent {
-  translations = (<any>translations)[BsSettings.language];
+  translations = translations[BsSettings.language];
 
   @bindable
   label = '';

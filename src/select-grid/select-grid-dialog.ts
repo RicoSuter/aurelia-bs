@@ -27,7 +27,7 @@ let translations = {
 
 @inject(Element)
 export class BsSelectGridDialog extends DialogBase {
-  translations = (<any>translations)[BsSettings.language];
+  translations = translations[BsSettings.language];
 
   @observable
   title: string;

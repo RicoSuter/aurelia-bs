@@ -21,7 +21,7 @@ let translations = {
 @inject(BsDialogService)
 @customElement('bs-select-grid')
 export class BsSelectGrid extends BsValidationComponent {
-  translations = (<any>translations)[BsSettings.language];
+  translations = translations[BsSettings.language];
 
   id = createComponentId();
   controlElement: HTMLDivElement;

@@ -23,7 +23,7 @@ let translations = {
 @containerless
 @customElement('bs-fileupload')
 export class BsFileUpload extends BsValidationComponent {
-  translations = (<any>translations)[BsSettings.language];
+  translations = translations[BsSettings.language];
 
   @bindable
   label = '';
