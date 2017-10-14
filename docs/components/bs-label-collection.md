@@ -3,7 +3,7 @@
 ```
 <bs-label-collection label="My Label"
                      items.bind="myItems"
-                     displayPath="title">
+                     display-path="title">
 </bs-label-collection>
 ```
 
