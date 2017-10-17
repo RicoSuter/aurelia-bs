@@ -1,4 +1,4 @@
-﻿import { inject, Container, CompositionEngine, Controller, ViewSlot, PLATFORM } from 'aurelia-framework';
+﻿import { inject, Container, CompositionEngine, Controller, ViewSlot } from 'aurelia-framework';
 import { IDialogBase } from './dialog';
 import { BsAlertDialog, IDialogButton } from './dialogs/alert-dialog';
 import { BsSettings } from './settings';
@@ -39,7 +39,7 @@ export class BsDialogService {
     };
 
     return this.show<BsAlertDialog>('aurelia-bs/dialogs/alert-dialog', options).catch(() => {
-      return this.show<BsAlertDialog>(PLATFORM.moduleName('dialogs/alert-dialog'), options);
+      return this.show<BsAlertDialog>('dialogs/alert-dialog', options);
     }).then(dlg => {
       return dlg.clickedButton;
     });

@@ -30,7 +30,13 @@ module.exports = ({ production, server, extractCss, coverage } = {}) => {
       modules: [srcDir, 'node_modules'],
     },
     entry: {
-      app: ['aurelia-bootstrapper'],
+      app: [
+        'aurelia-bootstrapper',
+
+        // Add dialogs here so that they work in the demo
+        'dialogs/alert-dialog',
+        'select-grid/select-grid-dialog'
+      ],
       vendor: ['bluebird'],
     },
     output: {
