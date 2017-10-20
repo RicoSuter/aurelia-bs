@@ -1,7 +1,7 @@
 # bs-button
 
 ```html
-<bs-button>
+<bs-button click.trigger="myMethod()">
     Button Text
 </bs-button>
 ```
