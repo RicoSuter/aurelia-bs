@@ -5,15 +5,15 @@
                   value.bind="filter"
                   view-model.ref="filterBox"
                   enter-pressed.trigger="enterPressed()"></bs-textbox>
-      <bs-grid rows.bind="items"
+      <bs-grid items.bind="items"
+               value.bind="selectedItem"
                load-data.bind="loadData"
+               selection-mode="single"
                default-sort-column.bind="defaultSortColumn"
                default-sort-order.bind="defaultSortOrder"
                filter.bind="filter"
                height.bind="400"
                class="basic"
-               selection-mode="single"
-               selected-item.bind="selectedItem"
                view-model.ref="grid">
       </bs-grid>
     </div>

@@ -55,8 +55,8 @@ export let BsGridDefaults = {
 @customElement('bs-grid')
 export class BsGrid extends BsResizeContainer {
   /**
- * Defines the locale to use for sorting strings, defaults to browser default.
- */
+   * Defines the locale to use for sorting strings, defaults to browser default.
+   */
   public static LOCALE: string;
 
   @bindable
@@ -80,34 +80,34 @@ export class BsGrid extends BsResizeContainer {
   columns: BsColumn[] = [];
 
   /**
- * The data to display, given as rows of simple objects.
- */
+   * The data to display, given as rows of simple objects.
+   */
   @bindable
-  rows: any[];
+  items: any[];
 
   /**
- * Set to false to disable sorting in the entire datagrid. You can also
- * disable sorting for individual columns: see Column.sortable.
- */
+   * Set to false to disable sorting in the entire datagrid. You can also
+   * disable sorting for individual columns: see Column.sortable.
+   */
   @bindable
   sortable = true;
 
   /**
- * Column to sort on when the grid is first rendered, identified by field.
- * If not set the first sortable column will be used to sort.
- */
+   * Column to sort on when the grid is first rendered, identified by field.
+   * If not set the first sortable column will be used to sort.
+   */
   @bindable
   defaultSortColumn: string;
 
   /**
- * Order to sort in when the grid is first rendered.
- */
+   * Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn).
+   */
   @bindable
-  defaultSortOrder: 'asc' | 'desc' = 'asc';
+  defaultSortOrder: 'asc' | 'desc' | undefined = undefined;
 
   /**
- * Set to false to disable animation when first showing the datagrid.
- */
+   * Set to false to disable animation when first showing the datagrid.
+   */
   @bindable
   animate = true;
 
@@ -119,10 +119,10 @@ export class BsGrid extends BsResizeContainer {
   pageSize = 0;
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
-  selectedItem: any = undefined;
+  value: any = undefined;
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
-  selectedItems: any[] = [];
+  values: any[] = [];
 
   @bindable
   selectionMode = SelectionMode.none;
@@ -179,9 +179,9 @@ export class BsGrid extends BsResizeContainer {
   private currentSortOrder: 'asc' | 'desc';
 
   /**
- * You can use this in your cell templates to reference the binding context
- * in which the datagrid is used.
- */
+   * You can use this in your cell templates to reference the binding context
+   * in which the datagrid is used.
+   */
   parent: any;
   actualRows: any[] | undefined;
   displayedRows: any[] | undefined;
@@ -310,19 +310,19 @@ export class BsGrid extends BsResizeContainer {
     return Promise.resolve(<BsGridDataResponse>{
       items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
       filteredCount: this.actualRows ? this.actualRows.length : -1,
-      totalCount: this.rows ? this.rows.length : -1
+      totalCount: this.items ? this.items.length : -1
     });
   }
 
   private async refreshInternal() {
-    this.actualRows = this.rows ? this.sortItems(this.filterItems(this.rows)) : undefined;
+    this.actualRows = this.items ? this.sortItems(this.filterItems(this.items)) : undefined;
 
-    if (!this.autoInit || (!this.loadData && !this.rows) || !this.isBound || this.pageSize === 0)
+    if (!this.autoInit || (!this.loadData && !this.items) || !this.isBound || this.pageSize === 0)
       return;
 
     if (!this.refreshingGrid) {
       this.refreshingGrid = true;
-      let promise = this.rows ?
+      let promise = this.items ?
         this.loadDataFromItems(this.getCurrentGridDataRequest()) :
         this.loadData!(this.getCurrentGridDataRequest());
       let result = (<any>promise.then) ? await promise : <any>promise;
@@ -572,7 +572,9 @@ export class BsGrid extends BsResizeContainer {
         this.currentSortColumn = this.columns.find(column => column.sortable);
 
       if (this.currentSortColumn) {
-        this.currentSortOrder = this.defaultSortOrder;
+        this.currentSortOrder = this.defaultSortOrder ?
+          this.defaultSortOrder :
+          this.currentSortColumn.defaultSortOrder;
       }
     }
   }
@@ -580,15 +582,15 @@ export class BsGrid extends BsResizeContainer {
   protected selectRow(row: any) {
     if (this.enabled) {
       if (this.selectionMode === SelectionMode.single) {
-        this.selectedItem = this.comparer(this.selectedItem, row) ? undefined : row;
+        this.value = this.comparer(this.value, row) ? undefined : row;
         this.dispatchSelectionChangedEvent();
       } else if (this.selectionMode === SelectionMode.multiple) {
-        this.selectedItems = this.selectedItems && this.selectedItems.filter(a => this.comparer(a, row)).length > 0 ?
-          this.selectedItems.filter(i => !this.comparer(i, row)) :
-          (this.selectedItems ? this.selectedItems.slice().concat([row]) : [row]);
+        this.values = this.values && this.values.filter(a => this.comparer(a, row)).length > 0 ?
+          this.values.filter(i => !this.comparer(i, row)) :
+          (this.values ? this.values.slice().concat([row]) : [row]);
 
-        this.selectedItem = this.selectedItems && this.selectedItems.length <= 1 ?
-          this.selectedItems[0] :
+        this.value = this.values && this.values.length <= 1 ?
+          this.values[0] :
           undefined;
 
         this.dispatchSelectionChangedEvent();
@@ -600,8 +602,8 @@ export class BsGrid extends BsResizeContainer {
     setTimeout(() => {
       let event = new CustomEvent('selection-changed', {
         detail: {
-          selectedItem: this.selectedItem,
-          selectedItems: this.selectedItems,
+          selectedItem: this.value,
+          selectedItems: this.values,
         }
       });
       this.element.dispatchEvent(event);
@@ -622,7 +624,7 @@ export class BsGrid extends BsResizeContainer {
       row.setAttribute('repeat.for', 'row of displayedRows');
       row.setAttribute('click.trigger', 'selectRow(row)');
       row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
-      row.setAttribute('class.bind', `isSelected(selectedItem, selectedItems, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);
+      row.setAttribute('class.bind', `isSelected(value, values, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);
 
       let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
         const el = column.rowHeader ? 'th' : 'td';

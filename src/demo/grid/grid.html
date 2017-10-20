@@ -9,9 +9,9 @@
 
   <h1>bs-grid</h1>
   <bs-grid-filter filter.bind="filter">
-    <bs-grid rows.bind="data"
+    <bs-grid items.bind="data"
              selection-mode="multiple"
-             selected-items.bind="selectedItems"
+             values.bind="selectedItems"
              filter.bind="filter"
              offset.bind="100"
              default-sort-column="string"
@@ -25,6 +25,7 @@
       </bs-column>
       <bs-column field="string"
                  row-header="true"
+                 default-sort-order="desc"
                  width="200">
         <header>
           <em>Header with markup</em>

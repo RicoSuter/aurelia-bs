@@ -56,7 +56,7 @@ export class BsSelectGridDialog extends DialogBase {
   defaultSortColumn: string;
 
   @observable
-  defaultSortOrder: 'asc' | 'desc' = 'asc';
+  defaultSortOrder: 'asc' | 'desc' | undefined = undefined;
 
   activate(selectGrid: BsSelectGrid) {
     this.title = selectGrid.label;
