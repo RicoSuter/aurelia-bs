@@ -1,5 +1,7 @@
 # bs-scroll
 
+Inherits from [bs-resize-container](bs-resize-container.md)
+
 ```
 <bs-scroll>
     My Content
