@@ -18,9 +18,9 @@ export class DialogDemo {
 
 Methods of DialogService:
 
-- alert(title, text): Shows a message box. 
-- confirm(title, text): Shows a yes/no dialog.
-- show(): Shows a custom dialog
+- **alert(title, text):** Shows a message box. 
+- **confirm(title, text):** Shows a yes/no dialog.
+- **show():** Shows a custom dialog
 
 ## Implement a custom dialog
 
