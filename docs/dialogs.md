@@ -31,7 +31,7 @@ Sample:
 
 ## Development
 
-### Add a new dialog implementation in aurelia-bs
+### Add a new dialog implementation to aurelia-bs
 
 In order to make dialogs in aurelia-bs work in the NPM module and in the demo, you need to: 
 
