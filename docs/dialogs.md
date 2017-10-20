@@ -29,9 +29,9 @@ Sample:
 - [custom-dialog.ts](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.ts)
 - [custom-dialog.html](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.html)
 
-### aurelia-bs development
+## Development
 
-#### Add a new dialog implementation in aurelia-bs
+### Add a new dialog implementation in aurelia-bs
 
 In order to make dialogs in aurelia-bs work in the NPM module and in the demo, you need to: 
 
