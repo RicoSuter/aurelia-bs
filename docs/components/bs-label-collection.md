@@ -1,8 +1,8 @@
 # bs-label-collection
 
-```
+```html
 <bs-label-collection label="My Label"
-                     items.bind="myItems"
+                     values.bind="myValues"
                      display-path="title">
 </bs-label-collection>
 ```
@@ -10,10 +10,10 @@
 Bindable properties:
 
 - label
-- items
+- values
 - displayPath
 - enabled
 
 Methods:
 
-- removeItem(item)
+- removeValue(value)

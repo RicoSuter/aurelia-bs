@@ -1,6 +1,6 @@
 # bs-grid-filter
 
-```
+```html
 <bs-grid-filter>
     <bs-grid>
         ...

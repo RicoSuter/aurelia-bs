@@ -1,6 +1,6 @@
 # bs-button
 
-```
+```html
 <bs-button>
     Button Text
 </bs-button>

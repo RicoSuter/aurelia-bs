@@ -1,6 +1,6 @@
 # bs-select-grid
 
-```
+```html
 <bs-select-grid label="My Label"
                 value.bind="myValue">
     <bs-column>

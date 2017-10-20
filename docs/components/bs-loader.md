@@ -1,6 +1,6 @@
 # bs-loader
 
-```
+```html
 <bs-loader loading.bind="loading">
     My Content
 </bs-loader>

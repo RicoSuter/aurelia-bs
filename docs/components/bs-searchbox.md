@@ -1,6 +1,6 @@
 # bs-searchbox
 
-```
+```html
 <bs-searchbox label="My Label"
               value.bind="mySearch">
 </bs-searchbox>

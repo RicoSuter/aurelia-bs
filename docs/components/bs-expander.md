@@ -1,6 +1,6 @@
 # bs-expander
 
-```
+```html
 <bs-expander header="My Header">
     My Content
 </bs-expander>
