@@ -1,4 +1,4 @@
-﻿import { customElement, bindable, containerless, bindingMode, observable } from 'aurelia-framework';
+﻿import { customElement, bindable, containerless, bindingMode, observable, inject } from 'aurelia-framework';
 import { BsValidationComponent, createComponentId } from './validation-component';
 import { convert, BooleanConverter } from './convert';
 
@@ -6,6 +6,7 @@ export { BsValidateBindingBehavior } from './validation-component';
 
 @containerless
 @customElement('bs-textbox')
+@inject(Element)
 export class BsTextbox extends BsValidationComponent {
   id = createComponentId();
 

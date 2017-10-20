@@ -59152,6 +59152,7 @@ var BsTextbox = /** @class */ (function (_super) {
     BsTextbox = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-textbox'),
+        Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element),
         __metadata("design:paramtypes", [Element])
     ], BsTextbox);
     return BsTextbox;
@@ -59169,4 +59170,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[168]);
-//# sourceMappingURL=app.6abc60537eaa57818f95.bundle.map
+//# sourceMappingURL=app.b464dee2610c975fb687.bundle.map
