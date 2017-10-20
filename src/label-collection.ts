@@ -3,10 +3,10 @@ import { BsSettings } from './settings';
 
 let translations = {
   'de': {
-    'noItems': '<Keine Auswahl>'
+    'noValue': '<Keine Auswahl>'
   },
   'en': {
-    'noItems': '<No selection>'
+    'noValue': '<No selection>'
   }
 };
 
@@ -19,7 +19,7 @@ export class BsLabelCollection {
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
-  items: any[];
+  values: any[];
 
   @bindable
   displayPath: string | null = null;
@@ -27,13 +27,12 @@ export class BsLabelCollection {
   @bindable
   enabled = true;
 
-  removeItem(item: any) {
-    this.items = this.items.filter(i => i !== item);
+  removeValue(value: any) {
+    this.values = this.values.filter(i => i !== value);
   }
 
-  protected getValue(item: any, path: string) {
-    if (item) {
-      let value = item;
+  protected getValue(value: any, path: string) {
+    if (value) {
       let pathArray = path.split('.');
       for (let prop of pathArray) {
         value = value[prop];
