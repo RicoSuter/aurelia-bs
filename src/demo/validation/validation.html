@@ -1,4 +1,9 @@
 <template>
+  <h2>Validation</h2>
+  <p>
+    <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/validation.md">Docs</a>
+  </p>
+
   <h2>bs-textbox</h2>
   <bs-textbox label="Firstname 1"
               value.bind="firstName & bsValidate"></bs-textbox>
@@ -27,25 +32,27 @@
   <h2>bs-select</h2>
   <bs-select label="Choose"
              items.bind="['Foo', 'Bar', 'Baz']"
-             value.bind="selection"></bs-select>
+             value.bind="selection & bsValidate"></bs-select>
   <bs-select label="Choose (Required)"
              items.bind="['Foo', 'Bar', 'Baz']"
-             value.bind="selection"
+             value.bind="selection & bsValidate"
              required.bind="true"></bs-select>
 
   <p>
     Selected item: ${selection}
   </p>
 
+  <h3>bs-select with multi-select</h3>
+
   <bs-select label="Choose"
              items.bind="['Foo', 'Bar', 'Baz']"
-             values.bind="selections"
+             values.bind="selections & bsValidate"
              height.bind="100"
              multiple.bind="true">
   </bs-select>
   <bs-select label="Choose (Required)"
              items.bind="['Foo', 'Bar', 'Baz']"
-             values.bind="selections"
+             values.bind="selections & bsValidate"
              height.bind="100"
              multiple.bind="true"
              required.bind="true">
@@ -53,7 +60,7 @@
 
   <h2>bs-label-collection</h2>
   <bs-label-collection label="Selected Items"
-                       items.bind="selections">
+                       items.bind="selections & bsValidate">
   </bs-label-collection>
 
   <bs-button click.trigger="submit()"

@@ -29,7 +29,13 @@ export class Validation {
       .withMessage('Please pick a first name.')
       .ensure((v: Validation) => v.image)
       .required()
-      .withMessage('Please pick an image.');
+      .withMessage('Please pick an image.')
+      .ensure((v: Validation) => v.selection)
+      .required()
+      .withMessage('Please select.')
+      .ensure((v: Validation) => v.selections)
+      .required()
+      .withMessage('Please select.');
 
     this.validation.registerObjectRules(this, rules);
     this.controller = validation.controller;

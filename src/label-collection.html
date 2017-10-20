@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group has-feedback">
+  <div class.bind="'form-group has-feedback' + (errors.length ? ' has-error' : '')">
     <label class="control-label"
            if.bind="label !== ''">
       ${label}
@@ -23,5 +23,9 @@
       </span>
       &nbsp;
     </div>
+    <p class="help-block"
+       repeat.for="error of errors">
+      ${error.message}
+      <p>
   </div>
 </template>
