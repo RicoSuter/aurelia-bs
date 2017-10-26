@@ -106,7 +106,7 @@ export class BsGrid extends BsResizeContainer {
    * Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn).
    */
   @bindable
-  defaultSortOrder: 'asc' | 'desc' | undefined = undefined;
+  defaultSortOrder: undefined | 'asc' | 'desc' = undefined;
 
   /**
    * Set to false to disable animation when first showing the datagrid.
