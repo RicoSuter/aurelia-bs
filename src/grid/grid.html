@@ -27,47 +27,49 @@
   <slot></slot>
 
   <!-- Pagination -->
-  <ul class="pagination"
-      style="margin: 0">
-    <li class.bind="currentPage === 0 ? 'disabled' : ''">
-      <a click.trigger="showPage(0)"
-         href="#">1</a>
-    </li>
-    <li class.bind="currentPage === 0 ? 'disabled' : ''">
-      <a href="#"
-         click.trigger="showPage(currentPage - 1)">◄</a>
-    </li>
-  </ul>
-  <ul class="pagination"
-      style="margin: 0">
-    <li repeat.for="i of pages"
-        class.bind="i === currentPage ? 'active' : ''">
-      <a href="#"
-         click.trigger="showPage(i)">
-        ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}
-      </a>
-    </li>
-  </ul>
-  <span style="float: right">
-    <ul if.bind="totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)"
-        class="pagination"
+  <template if.bind="!hideSinglePaging || pageCount > 1">
+    <ul class="pagination"
         style="margin: 0">
-      <li>
-        <a>
-          &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;
-        </a>
+      <li class.bind="currentPage === 0 ? 'disabled' : ''">
+        <a click.trigger="showPage(0)"
+           href="#">1</a>
+      </li>
+      <li class.bind="currentPage === 0 ? 'disabled' : ''">
+        <a href="#"
+           click.trigger="showPage(currentPage - 1)">◄</a>
       </li>
     </ul>
     <ul class="pagination"
         style="margin: 0">
-      <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
+      <li repeat.for="i of pages"
+          class.bind="i === currentPage ? 'active' : ''">
         <a href="#"
-           click.trigger="showPage(currentPage + 1)">►</a>
-      </li>
-      <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
-        <a href="#"
-           click.trigger="showPage(pageCount - 1)">${pageCount}</a>
+           click.trigger="showPage(i)">
+          ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}
+        </a>
       </li>
     </ul>
-  </span>
+    <span style="float: right">
+      <ul if.bind="totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)"
+          class="pagination"
+          style="margin: 0">
+        <li>
+          <a>
+            &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;
+          </a>
+        </li>
+      </ul>
+      <ul class="pagination"
+          style="margin: 0">
+        <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
+          <a href="#"
+             click.trigger="showPage(currentPage + 1)">►</a>
+        </li>
+        <li class.bind="currentPage === pageCount - 1 ? 'disabled' : ''">
+          <a href="#"
+             click.trigger="showPage(pageCount - 1)">${pageCount}</a>
+        </li>
+      </ul>
+    </span>
+  </template>
 </template>
