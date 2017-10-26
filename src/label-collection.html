@@ -5,20 +5,20 @@
       ${label}
     </label>
     <div>
-      ${!items || items.length == 0 ? translations.noItems : ''}
-      <span repeat.for="item of items"
+      ${!values || values.length == 0 ? translations.noValues : ''}
+      <span repeat.for="value of values"
             style="display: inline-block">
         <span class="label label-default"
               if.bind="enabled">
-          <a click.trigger="removeItem(item)"
+          <a click.trigger="removeValue(value)"
              style="color: white; cursor: pointer">
-            ${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;
+            ${displayPath ? getValue(value, displayPath) : value}&nbsp;&nbsp;
             <big aria-hidden="true">&times;</big>
           </a>
         </span>
         <span class="label label-default"
               if.bind="!enabled">
-          ${displayPath ? getValue(item, displayPath) : item}
+          ${displayPath ? getValue(value, displayPath) : value}
         </span> &nbsp;&nbsp;
       </span>
       &nbsp;
