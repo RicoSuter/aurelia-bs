@@ -38,6 +38,10 @@ export function configure(aurelia: Aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-bs'));
 ```
 
+4. Use bs-aurelia components and start application
+
+    dotnet run
+
 ## Usage
 
 - [Dialogs](docs/dialogs.md)
