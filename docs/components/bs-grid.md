@@ -5,7 +5,7 @@
 ```html
 <bs-grid rows.bind="data"
          filter.bind="filter"
-         default-sort-column="string"
+         default-sort-column="name"
          class="basic"
          item-height.bind="40">
     <bs-column field="name" 
@@ -28,29 +28,33 @@
 - showItemAtIndex(index)
 - showPage(pageNumber)
 
+## Events
+
+- selection-changed
+
 ## Bindable properties:
 
 **Initialization**
 
-- defaultSortColumn
-- defaultSortOrder (asc|desc) (TODO: should be removed)
-- sortable
+- defaultSortColumn: The initially sorted column
+- defaultSortOrder (asc|desc): Defines the sort order of the initially sorted column (when undefined uses BsColumn.defaultSortOrder of the defaultSortColumn)
+- sortable: Specifies whether the sorting in the grid can be changed by the user
 - autoInit (default: true)
 
 **Data retrieval**
 
-Data can be loaded either with 'rows' (in-memory data) or with 'loadData' (paged, filtered and sorted from server), choose wisely: 
+Data can be loaded either with 'items' (in-memory data) or with 'loadData' (paged, filtered and sorted from server), choose wisely: 
 
-- rows: any[] (TODO: rename to 'items' to be consistent with select)
+- items (any[]): The items/rows of the data grid
 - loadData: Function which returns data via promise (e.g. from HTTP call) or directly
-- filter
+- filter: The current filter
 - comparer
 - totalCount
 
 **Response**
 
-- selectedItem: any (TODO: rename to 'value' to be consistent with select)
-- selectedItems: any[] (TODO: rename to 'values' to be consistent with select)
+- value: any: The currently selected item
+- values: any[]: The currently selected items
 - selectionMode (none|single|multiple)
 
 **Appearance**

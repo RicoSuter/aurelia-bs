@@ -4,10 +4,10 @@ import { BsValidationComponent } from './validation-component';
 
 let translations = {
   'de': {
-    'noItems': '<Keine Auswahl>'
+    'noValue': '<Keine Auswahl>'
   },
   'en': {
-    'noItems': '<No selection>'
+    'noValue': '<No selection>'
   }
 };
 
@@ -20,7 +20,7 @@ export class BsLabelCollection extends BsValidationComponent {
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
-  items: any[];
+  values: any[];
 
   @bindable
   displayPath: string | null = null;
@@ -28,17 +28,16 @@ export class BsLabelCollection extends BsValidationComponent {
   @bindable
   enabled = true;
 
-  removeItem(item: any) {
-    this.items = this.items.filter(i => i !== item);
+  removeValue(value: any) {
+    this.values = this.values.filter(i => i !== value);
   }
 
   itemsChanged() {
     super.valueChanged();
   }
 
-  protected getValue(item: any, path: string) {
-    if (item) {
-      let value = item;
+  protected getValue(value: any, path: string) {
+    if (value) {
       let pathArray = path.split('.');
       for (let prop of pathArray) {
         value = value[prop];
