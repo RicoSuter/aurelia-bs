@@ -1,6 +1,6 @@
 # bs-select
 
-```
+```html
 <bs-select label="My Label"
            value.bind="myValue & bsValidate"
            items.bind="myItems">

@@ -1,6 +1,6 @@
 # bs-checkbox
 
-```
+```html
 <bs-checkbox label="My Label"
              value.bind="myValue">
 </bs-checkbox>

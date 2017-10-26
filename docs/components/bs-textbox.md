@@ -1,6 +1,6 @@
 # bs-textbox
 
-```
+```html
 <bs-textbox label="My Label"
             value.bind="myText & bsValidate">
 </bs-textbox>

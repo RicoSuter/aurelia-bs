@@ -31,7 +31,10 @@ export let BsGridDefaults = {
   offset: 75,
   itemHeight: 36,
   minHeight: 100,
+  /** Hides the filtered count if no filter is set. */
   hideUnfilteredCounter: false,
+  /** Hides the paging when there is only a single page. */
+  hideSinglePaging: false
 };
 
 /**
@@ -144,8 +147,13 @@ export class BsGrid extends BsResizeContainer {
   @bindable
   autoInit = true;
 
+  /** Hides the filtered count if no filter is set. */
   @bindable
   hideUnfilteredCounter = BsGridDefaults.hideUnfilteredCounter;
+
+  /** Hides the paging when there is only a single page. */
+  @bindable
+  hideSinglePaging = BsGridDefaults.hideSinglePaging;
 
   @bindable
   showFooter = false;

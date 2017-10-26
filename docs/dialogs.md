@@ -1,8 +1,8 @@
 # Dialogs
 
-TBD.
+An aurelia-bs predefined dialog can be shown with this code:
 
-```
+```typescript
 import { DialogService } from 'aurelia-bs';
 
 @autoinject
@@ -16,18 +16,22 @@ export class DialogDemo {
 }
 ```
 
-Methods of DialogService: 
+Methods of DialogService:
 
-- alert(title, text): Shows a message box. 
-- confirm(title, text): Shows a yes/no dialog.
-- show(): Shows a custom dialog
-  
+- **alert(title, text):** Shows a message box. 
+- **confirm(title, text):** Shows a yes/no dialog.
+- **show():** Shows a custom dialog
 
 ## Implement a custom dialog
 
-TBD.
+Sample:
 
-## Implement a dialog in aurelia-bs
+- [custom-dialog.ts](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.ts)
+- [custom-dialog.html](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.html)
+
+## Development
+
+### Add a new dialog implementation to aurelia-bs
 
 In order to make dialogs in aurelia-bs work in the NPM module and in the demo, you need to: 
 

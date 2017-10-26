@@ -6,14 +6,25 @@
 
 This project provides Bootstrap UI (CSS framework) components for Aurelia JS. 
 
-[Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
+## [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
 
 ## Installation
 
-- Install `aurelia-bs` and `aurelia-validation` via NPM: 
-    - `npm install aurelia-bs --save`
-    - `npm install aurelia-validation --save`
-- Register both plugins in `boot.ts`
+1. Create Aurelia project (webpack based, here sample with ASP.NET Core): 
+
+```
+dotnet new --install "Microsoft.AspNetCore.SpaTemplates::*"
+dotnet new aurelia
+```
+
+2. Install required NPM packages: 
+
+```
+npm install aurelia-bs --save
+npm install aurelia-validation --save
+```
+
+3. Register both plugins in `boot.ts`: 
 
 ```
 import { Aurelia, PLATFORM } from 'aurelia-framework';
@@ -26,6 +37,10 @@ export function configure(aurelia: Aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-validation'))
     .plugin(PLATFORM.moduleName('aurelia-bs'));
 ```
+
+4. Use bs-aurelia components and start application
+
+    dotnet run
 
 ## Usage
 

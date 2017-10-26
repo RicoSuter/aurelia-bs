@@ -1,5 +1,5 @@
 ﻿import 'bootstrap-datepicker';
-import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
+import './datepicker.min.css';
 
 import { bindable, bindingMode, containerless, customElement } from 'aurelia-framework';
 import * as $ from 'jquery';

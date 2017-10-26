@@ -1,6 +1,6 @@
 # bs-tabs
 
-```
+```html
 <bs-tabs>
     <bs-tab header="Tab 1">
         My Content

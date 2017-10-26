@@ -1,5 +1,6 @@
 import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
 import { BsSettings } from './settings';
+import { BsValidationComponent } from './validation-component';
 
 let translations = {
   'de': {
@@ -12,7 +13,7 @@ let translations = {
 
 @containerless
 @customElement('bs-label-collection')
-export class BsLabelCollection {
+export class BsLabelCollection extends BsValidationComponent {
   translations = translations[BsSettings.language];
 
   @bindable
@@ -29,6 +30,10 @@ export class BsLabelCollection {
 
   removeValue(value: any) {
     this.values = this.values.filter(i => i !== value);
+  }
+
+  itemsChanged() {
+    super.valueChanged();
   }
 
   protected getValue(value: any, path: string) {

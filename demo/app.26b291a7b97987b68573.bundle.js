@@ -55504,8 +55504,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsDatepicker", function() { return BsDatepicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bootstrap_datepicker__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap_datepicker_dist_css_bootstrap_datepicker_min_css__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bootstrap_datepicker_dist_css_bootstrap_datepicker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bootstrap_datepicker_dist_css_bootstrap_datepicker_min_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datepicker_min_css__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datepicker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__datepicker_min_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
@@ -55788,7 +55788,7 @@ var Common = /** @class */ (function () {
 /***/ "demo/common/common.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <h1>Common Controls</h1>\r\n\r\n  <h2>bs-button</h2>\r\n\r\n  <bs-button>Button</bs-button>\r\n  <bs-button enabled.bind=\"false\">Disabled button</bs-button>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-button.md\">Docs</a>\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n\r\n  <bs-textbox label=\"My Textbox\"></bs-textbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md\">Docs</a>\r\n\r\n  <h2>bs-checkbox</h2>\r\n\r\n  <bs-checkbox label=\"My Checkbox\"></bs-checkbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md\">Docs</a>\r\n\r\n  <h2>bs-select</h2>\r\n\r\n  <bs-select label=\"My Select\"\r\n             items.bind=\"['foo', 'bar']\">\r\n  </bs-select>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md\">Docs</a>\r\n\r\n  <h2>bs-select-grid</h2>\r\n  <bs-select-grid label=\"My Select Grid\"\r\n                  display-path=\"name\"\r\n                  items.bind=\"[{name: 'foo', age: 45}, { name: 'bar', age: 34}]\">\r\n    <bs-column field=\"name\"\r\n               header=\"Name\">\r\n      ${row.name}\r\n    </bs-column>\r\n    <bs-column field=\"age\"\r\n               width=\"100\"\r\n               header=\"Age\">\r\n      ${row.age}\r\n    </bs-column>\r\n  </bs-select-grid>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md\">Docs</a>\r\n\r\n  <h2>bs-fileupload</h2>\r\n  <bs-fileupload label=\"Image\">\r\n  </bs-fileupload>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md\">Docs</a>\r\n</template>";
+module.exports = "<template>\r\n  <h1>Common Controls</h1>\r\n\r\n  <h2>bs-button</h2>\r\n\r\n  <bs-button>Button</bs-button>\r\n  <bs-button enabled.bind=\"false\">Disabled button</bs-button>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-button.md\">Docs</a>\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n\r\n  <bs-textbox label=\"My Textbox\"></bs-textbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md\">Docs</a>\r\n\r\n  <bs-textbox label=\"My Textarea\"\r\n              rows.bind=\"5\">\r\n  </bs-textbox>\r\n\r\n  <h2>bs-checkbox</h2>\r\n\r\n  <bs-checkbox label=\"My Checkbox\"></bs-checkbox>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-checkbox.md\">Docs</a>\r\n\r\n  <h2>bs-select</h2>\r\n\r\n  <bs-select label=\"My Select\"\r\n             items.bind=\"['foo', 'bar']\">\r\n  </bs-select>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md\">Docs</a>\r\n\r\n  <h2>bs-select-grid</h2>\r\n  <bs-select-grid label=\"My Select Grid\"\r\n                  display-path=\"name\"\r\n                  items.bind=\"[{name: 'foo', age: 45}, { name: 'bar', age: 34}]\">\r\n    <bs-column field=\"name\"\r\n               header=\"Name\">\r\n      ${row.name}\r\n    </bs-column>\r\n    <bs-column field=\"age\"\r\n               width=\"100\"\r\n               header=\"Age\">\r\n      ${row.age}\r\n    </bs-column>\r\n  </bs-select-grid>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md\">Docs</a>\r\n\r\n  <h2>bs-fileupload</h2>\r\n  <bs-fileupload label=\"Image\">\r\n  </bs-fileupload>\r\n  <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md\">Docs</a>\r\n</template>";
 
 /***/ }),
 
@@ -56167,7 +56167,7 @@ var Scroll = /** @class */ (function () {
 /***/ "demo/scroll/scroll.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <h1>bs-scroll</h1>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-6\">\r\n      Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n    <div class=\"col-sm-6\">\r\n      Fixed height set to 200px:\r\n      <bs-scroll height=\"200\">\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n\r\n      <br /> Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <h1>bs-scroll</h1>\r\n\r\n  <p>\r\n    bs-scroll uses the BsResizeContainer (also used in BsGrid) which automatically maximizes the view height depending on the\r\n    window size.\r\n  </p>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-scroll.md\">Docs</a>\r\n  </p>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-6\">\r\n      Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n    <div class=\"col-sm-6\">\r\n      Fixed height set to 200px:\r\n      <bs-scroll height=\"200\">\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n\r\n      <br /> Scroll with full height of page:\r\n      <bs-scroll>\r\n        <div repeat.for=\"item of randomData\">\r\n          ${item}\r\n        </div>\r\n      </bs-scroll>\r\n    </div>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -56177,9 +56177,11 @@ module.exports = "<template>\r\n  <h1>bs-scroll</h1>\r\n\r\n  <div class=\"row\"
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(Promise) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Validation", function() { return Validation; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_validation__ = __webpack_require__("aurelia-validation");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__validation__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_aurelia_validation__ = __webpack_require__("aurelia-validation");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__validation__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56227,21 +56229,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var Validation = /** @class */ (function () {
     function Validation(validation) {
         this.validation = validation;
         this.dateOfBirth = null;
         this.selection = undefined;
-        var rules = __WEBPACK_IMPORTED_MODULE_1_aurelia_validation__["ValidationRules"]
+        var rules = __WEBPACK_IMPORTED_MODULE_2_aurelia_validation__["ValidationRules"]
             .ensure(function (v) { return v.dateOfBirth; })
             .required()
             .withMessage('Please pick a date of birth.')
+            .then()
+            .ensure(function (v) { return v.dateOfBirth; })
+            .satisfies(function (m) { return __WEBPACK_IMPORTED_MODULE_0_moment__().isAfter(m); })
+            .withMessage('Please pick a date of birth in the past.')
             .ensure(function (v) { return v.firstName; })
             .required()
             .withMessage('Please pick a first name.')
             .ensure(function (v) { return v.image; })
             .required()
-            .withMessage('Please pick an image.');
+            .withMessage('Please pick an image.')
+            .ensure(function (v) { return v.selection; })
+            .required()
+            .withMessage('Please select.')
+            .ensure(function (v) { return v.selections; })
+            .required()
+            .withMessage('Please select.');
         this.validation.registerObjectRules(this, rules);
         this.controller = validation.controller;
     }
@@ -56262,8 +56275,8 @@ var Validation = /** @class */ (function () {
         });
     };
     Validation = __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["g" /* autoinject */],
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__validation__["a" /* BsValidation */]])
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["g" /* autoinject */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__validation__["a" /* BsValidation */]])
     ], Validation);
     return Validation;
 }());
@@ -56276,7 +56289,7 @@ var Validation = /** @class */ (function () {
 /***/ "demo/validation/validation.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <h2>bs-textbox</h2>\r\n  <bs-textbox label=\"Firstname 1\"\r\n              value.bind=\"firstName & bsValidate\"></bs-textbox>\r\n  <bs-textbox label=\"Firstname 2\"\r\n              value.bind=\"firstName & bsValidate\"></bs-textbox>\r\n\r\n  <h2>bs-datepicker</h2>\r\n  <bs-datepicker label=\"Date of birth 1\"\r\n                 value.bind=\"dateOfBirth & bsValidate\"></bs-datepicker>\r\n  <bs-datepicker label=\"Date of birth 2\"\r\n                 value.bind=\"dateOfBirth & bsValidate\"></bs-datepicker>\r\n  <p>\r\n    Selected date of birth: ${dateOfBirth}\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n  <bs-checkbox label=\"Checkbox 1\"\r\n               value.bind=\"checked\"></bs-checkbox>\r\n  <bs-checkbox label=\"Checkbox 2\"\r\n               value.bind=\"checked\"></bs-checkbox>\r\n\r\n  <h2>bs-fileupload</h2>\r\n  <bs-fileupload label=\"Image\"\r\n                 value.bind=\"image & bsValidate\"></bs-fileupload>\r\n\r\n  <h2>bs-select</h2>\r\n  <bs-select label=\"Choose\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             value.bind=\"selection\"></bs-select>\r\n  <bs-select label=\"Choose (Required)\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             value.bind=\"selection\"\r\n             required.bind=\"true\"></bs-select>\r\n\r\n  <p>\r\n    Selected item: ${selection}\r\n  </p>\r\n\r\n  <bs-select label=\"Choose\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             values.bind=\"selections\"\r\n             height.bind=\"100\"\r\n             multiple.bind=\"true\">\r\n  </bs-select>\r\n  <bs-select label=\"Choose (Required)\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             values.bind=\"selections\"\r\n             height.bind=\"100\"\r\n             multiple.bind=\"true\"\r\n             required.bind=\"true\">\r\n  </bs-select>\r\n\r\n  <h2>bs-label-collection</h2>\r\n  <bs-label-collection label=\"Selected Items\"\r\n                       items.bind=\"selections\">\r\n  </bs-label-collection>\r\n\r\n  <bs-button click.trigger=\"submit()\"\r\n             enabled.bind=\"validation.canSubmit\">\r\n    Submit\r\n  </bs-button>\r\n\r\n  <br />\r\n  <br />\r\n</template>";
+module.exports = "<template>\r\n  <h2>Validation</h2>\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/validation.md\">Docs</a>\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n  <bs-textbox label=\"Firstname 1\"\r\n              value.bind=\"firstName & bsValidate\"></bs-textbox>\r\n  <bs-textbox label=\"Firstname 2\"\r\n              value.bind=\"firstName & bsValidate\"></bs-textbox>\r\n\r\n  <h2>bs-datepicker</h2>\r\n  <bs-datepicker label=\"Date of birth 1\"\r\n                 value.bind=\"dateOfBirth & bsValidate\"></bs-datepicker>\r\n  <bs-datepicker label=\"Date of birth 2\"\r\n                 value.bind=\"dateOfBirth & bsValidate\"></bs-datepicker>\r\n  <p>\r\n    Selected date of birth: ${dateOfBirth}\r\n  </p>\r\n\r\n  <h2>bs-textbox</h2>\r\n  <bs-checkbox label=\"Checkbox 1\"\r\n               value.bind=\"checked\"></bs-checkbox>\r\n  <bs-checkbox label=\"Checkbox 2\"\r\n               value.bind=\"checked\"></bs-checkbox>\r\n\r\n  <h2>bs-fileupload</h2>\r\n  <bs-fileupload label=\"Image\"\r\n                 value.bind=\"image & bsValidate\"></bs-fileupload>\r\n\r\n  <h2>bs-select</h2>\r\n  <bs-select label=\"Choose\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             value.bind=\"selection & bsValidate\"></bs-select>\r\n  <bs-select label=\"Choose (Required)\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             value.bind=\"selection & bsValidate\"\r\n             required.bind=\"true\"></bs-select>\r\n\r\n  <p>\r\n    Selected item: ${selection}\r\n  </p>\r\n\r\n  <h3>bs-select with multi-select</h3>\r\n\r\n  <bs-select label=\"Choose\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             values.bind=\"selections & bsValidate\"\r\n             height.bind=\"100\"\r\n             multiple.bind=\"true\">\r\n  </bs-select>\r\n  <bs-select label=\"Choose (Required)\"\r\n             items.bind=\"['Foo', 'Bar', 'Baz']\"\r\n             values.bind=\"selections & bsValidate\"\r\n             height.bind=\"100\"\r\n             multiple.bind=\"true\"\r\n             required.bind=\"true\">\r\n  </bs-select>\r\n\r\n  <h2>bs-label-collection</h2>\r\n  <bs-label-collection label=\"Selected Items\"\r\n                       items.bind=\"selections & bsValidate\">\r\n  </bs-label-collection>\r\n\r\n  <bs-button click.trigger=\"submit()\"\r\n             enabled.bind=\"validation.canSubmit\">\r\n    Submit\r\n  </bs-button>\r\n\r\n  <br />\r\n  <br />\r\n</template>";
 
 /***/ }),
 
@@ -56934,7 +56947,10 @@ var BsGridDefaults = {
     offset: 75,
     itemHeight: 36,
     minHeight: 100,
+    /** Hides the filtered count if no filter is set. */
     hideUnfilteredCounter: false,
+    /** Hides the paging when there is only a single page. */
+    hideSinglePaging: false
 };
 /**
  * The datagrid component can be used to display complex datasets. Specify the
@@ -56994,7 +57010,10 @@ var BsGrid = /** @class */ (function (_super) {
         _this.rowClass = '';
         /** Set to false to not automatically initialize data, a manual call to refresh() is required to initialize the data. */
         _this.autoInit = true;
+        /** Hides the filtered count if no filter is set. */
         _this.hideUnfilteredCounter = BsGridDefaults.hideUnfilteredCounter;
+        /** Hides the paging when there is only a single page. */
+        _this.hideSinglePaging = BsGridDefaults.hideSinglePaging;
         _this.showFooter = false;
         _this.dirty = false;
         _this.isBound = false;
@@ -57584,6 +57603,10 @@ var BsGrid = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
+    ], BsGrid.prototype, "hideSinglePaging", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
     ], BsGrid.prototype, "showFooter", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["y" /* computedFrom */])('filteredCount', 'pageSize'),
@@ -57638,7 +57661,7 @@ function attachView(view, viewSlot) {
 /***/ "grid/grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n         class=\"table\"\r\n         style=\"margin-bottom: 0\">\r\n    <thead ref=\"headerElement\"></thead>\r\n  </table>\r\n\r\n  <!-- Rows -->\r\n  <div style=\"overflow-y: auto\">\r\n    <table border=\"0\"\r\n           class=\"table\"\r\n           style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n      <tbody ref=\"bodyElement\"></tbody>\r\n      <tfoot ref=\"footerElement\"\r\n             show.bind=\"toonFooter\"></tfoot>\r\n    </table>\r\n    <template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n              part=\"loading\"\r\n              replaceable></template>\r\n    <template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n              part=\"no-items\"\r\n              replaceable></template>\r\n  </div>\r\n\r\n  <!-- Columns -->\r\n  <slot></slot>\r\n\r\n  <!-- Pagination -->\r\n  <ul class=\"pagination\"\r\n      style=\"margin: 0\">\r\n    <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n      <a click.trigger=\"showPage(0)\"\r\n         href=\"#\">1</a>\r\n    </li>\r\n    <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n      <a href=\"#\"\r\n         click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n    </li>\r\n  </ul>\r\n  <ul class=\"pagination\"\r\n      style=\"margin: 0\">\r\n    <li repeat.for=\"i of pages\"\r\n        class.bind=\"i === currentPage ? 'active' : ''\">\r\n      <a href=\"#\"\r\n         click.trigger=\"showPage(i)\">\r\n        ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n      </a>\r\n    </li>\r\n  </ul>\r\n  <span style=\"float: right\">\r\n    <ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n        class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li>\r\n        <a>\r\n          &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n      </li>\r\n      <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n      </li>\r\n    </ul>\r\n  </span>\r\n</template>";
+module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n         class=\"table\"\r\n         style=\"margin-bottom: 0\">\r\n    <thead ref=\"headerElement\"></thead>\r\n  </table>\r\n\r\n  <!-- Rows -->\r\n  <div style=\"overflow-y: auto\">\r\n    <table border=\"0\"\r\n           class=\"table\"\r\n           style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n      <tbody ref=\"bodyElement\"></tbody>\r\n      <tfoot ref=\"footerElement\"\r\n             show.bind=\"toonFooter\"></tfoot>\r\n    </table>\r\n    <template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n              part=\"loading\"\r\n              replaceable></template>\r\n    <template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n              part=\"no-items\"\r\n              replaceable></template>\r\n  </div>\r\n\r\n  <!-- Columns -->\r\n  <slot></slot>\r\n\r\n  <!-- Pagination -->\r\n  <template if.bind=\"!hideSinglePaging || pageCount > 1\">\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a click.trigger=\"showPage(0)\"\r\n           href=\"#\">1</a>\r\n      </li>\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li repeat.for=\"i of pages\"\r\n          class.bind=\"i === currentPage ? 'active' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(i)\">\r\n          ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <span style=\"float: right\">\r\n      <ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n          class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li>\r\n          <a>\r\n            &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n          </a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n        </li>\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n  </template>\r\n</template>";
 
 /***/ }),
 
@@ -57650,6 +57673,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsLabelCollection", function() { return BsLabelCollection; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__validation_component__ = __webpack_require__(7);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57661,6 +57695,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var translations = {
     'de': {
         'noItems': '<Keine Auswahl>'
@@ -57669,15 +57704,21 @@ var translations = {
         'noItems': '<No selection>'
     }
 };
-var BsLabelCollection = /** @class */ (function () {
+var BsLabelCollection = /** @class */ (function (_super) {
+    __extends(BsLabelCollection, _super);
     function BsLabelCollection() {
-        this.translations = translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language];
-        this.label = '';
-        this.displayPath = null;
-        this.enabled = true;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.translations = translations[__WEBPACK_IMPORTED_MODULE_1__settings__["a" /* BsSettings */].language];
+        _this.label = '';
+        _this.displayPath = null;
+        _this.enabled = true;
+        return _this;
     }
     BsLabelCollection.prototype.removeItem = function (item) {
         this.items = this.items.filter(function (i) { return i !== item; });
+    };
+    BsLabelCollection.prototype.itemsChanged = function () {
+        _super.prototype.valueChanged.call(this);
     };
     BsLabelCollection.prototype.getValue = function (item, path) {
         if (item) {
@@ -57712,7 +57753,7 @@ var BsLabelCollection = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-label-collection')
     ], BsLabelCollection);
     return BsLabelCollection;
-}());
+}(__WEBPACK_IMPORTED_MODULE_2__validation_component__["b" /* BsValidationComponent */]));
 
 
 
@@ -57721,7 +57762,7 @@ var BsLabelCollection = /** @class */ (function () {
 /***/ "label-collection.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class=\"form-group has-feedback\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div>\r\n      ${!items || items.length == 0 ? translations.noItems : ''}\r\n      <span repeat.for=\"item of items\"\r\n            style=\"display: inline-block\">\r\n        <span class=\"label label-default\"\r\n              if.bind=\"enabled\">\r\n          <a click.trigger=\"removeItem(item)\"\r\n             style=\"color: white; cursor: pointer\">\r\n            ${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;\r\n            <big aria-hidden=\"true\">&times;</big>\r\n          </a>\r\n        </span>\r\n        <span class=\"label label-default\"\r\n              if.bind=\"!enabled\">\r\n          ${displayPath ? getValue(item, displayPath) : item}\r\n        </span> &nbsp;&nbsp;\r\n      </span>\r\n      &nbsp;\r\n    </div>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div>\r\n      ${!items || items.length == 0 ? translations.noItems : ''}\r\n      <span repeat.for=\"item of items\"\r\n            style=\"display: inline-block\">\r\n        <span class=\"label label-default\"\r\n              if.bind=\"enabled\">\r\n          <a click.trigger=\"removeItem(item)\"\r\n             style=\"color: white; cursor: pointer\">\r\n            ${displayPath ? getValue(item, displayPath) : item}&nbsp;&nbsp;\r\n            <big aria-hidden=\"true\">&times;</big>\r\n          </a>\r\n        </span>\r\n        <span class=\"label label-default\"\r\n              if.bind=\"!enabled\">\r\n          ${displayPath ? getValue(item, displayPath) : item}\r\n        </span> &nbsp;&nbsp;\r\n      </span>\r\n      &nbsp;\r\n    </div>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -59170,4 +59211,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[168]);
-//# sourceMappingURL=app.b464dee2610c975fb687.bundle.map
+//# sourceMappingURL=app.26b291a7b97987b68573.bundle.map

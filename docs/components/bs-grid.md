@@ -2,7 +2,7 @@
 
 [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html#/grid)
 
-```
+```html
 <bs-grid rows.bind="data"
          filter.bind="filter"
          default-sort-column="name"
