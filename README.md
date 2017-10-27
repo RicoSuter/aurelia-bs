@@ -40,7 +40,9 @@ export function configure(aurelia: Aurelia) {
 
 4. Use bs-aurelia components and start application
 
-    dotnet run
+```
+dotnet run
+```
 
 ## Usage
 
