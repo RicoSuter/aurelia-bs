@@ -1,4 +1,4 @@
-import { inject, children, customElement, bindable, bindingMode } from 'aurelia-framework';
+import { inject, children, customElement, bindable, bindingMode, PLATFORM } from 'aurelia-framework';
 
 import { BsValidationComponent, createComponentId } from './../validation-component';
 import { BsDialogService } from '../dialog-service';
@@ -67,7 +67,7 @@ export class BsSelectGrid extends BsValidationComponent {
 
   async showPicker() {
     if (this.enabled) {
-      await this.dialogService.show<BsSelectGridDialog>('aurelia-bs/select-grid/select-grid-dialog', this).catch(() => {
+      await this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('aurelia-bs/select-grid/select-grid-dialog'), this).catch(() => {
         return this.dialogService.show<BsSelectGridDialog>('select-grid/select-grid-dialog', this);
       }).then((dialog) => {
         if (dialog.selectedItem !== undefined) {

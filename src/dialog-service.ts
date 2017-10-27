@@ -3,6 +3,7 @@ import { IDialogBase } from './dialog';
 import { BsAlertDialog, IDialogButton } from './dialogs/alert-dialog';
 import { BsSettings } from './settings';
 import { observable } from 'aurelia-binding';
+import { PLATFORM } from 'aurelia-pal';
 
 let translations = {
   'de': {
@@ -38,7 +39,7 @@ export class BsDialogService {
       ]
     };
 
-    return this.show<BsAlertDialog>('aurelia-bs/dialogs/alert-dialog', options).catch(() => {
+    return this.show<BsAlertDialog>(PLATFORM.moduleName('aurelia-bs/dialogs/alert-dialog'), options).catch(() => {
       return this.show<BsAlertDialog>('dialogs/alert-dialog', options);
     }).then(dlg => {
       return dlg.clickedButton;
