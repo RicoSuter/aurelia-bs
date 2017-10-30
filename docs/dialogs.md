@@ -28,7 +28,7 @@ Methods of DialogService:
 
 **custom-dialog.ts**
 
-```
+```typescript
 import { inject, PLATFORM } from 'aurelia-framework';
 import { BsDialogService, DialogBase } from 'aurelia-bs';
 
@@ -46,7 +46,7 @@ export class CustomDialog extends DialogBase {
 
 **custom-dialog.html**
 
-```
+```html
 <template>
   <bs-dialog title.bind="title">
     <div class="modal-body">
@@ -66,7 +66,7 @@ export class CustomDialog extends DialogBase {
 
 2. Show dialog in another view model:
 
-```
+```typescript
 import { inject } from 'aurelia-framework';
 import { BsDialogService } from 'aurelia-bs';
 import { CustomDialog } from './custom-dialog'
