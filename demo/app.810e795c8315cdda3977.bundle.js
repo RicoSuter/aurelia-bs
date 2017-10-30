@@ -17932,8 +17932,9 @@ var BsDialogService = /** @class */ (function () {
     };
     BsDialogService.prototype.show = function (viewModelUrl, model, created) {
         var _this = this;
-        if (document.activeElement.blur)
+        if (document.activeElement && document.activeElement.blur) {
             document.activeElement.blur();
+        }
         var dialogDiv = document.createElement('div');
         var backdropDiv = document.createElement('div');
         backdropDiv.setAttribute('class', 'modal-backdrop fade in');
@@ -17948,8 +17949,9 @@ var BsDialogService = /** @class */ (function () {
             viewSlot: new __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["f" /* ViewSlot */](dialogDiv, true)
         };
         return this.compositionEngine.compose(instruction).then(function (controller) {
-            if (_this.openedDialogs.length === 0)
+            if (_this.openedDialogs.length === 0) {
                 document.body.classList.toggle('modal-open');
+            }
             var view = controller.view;
             var dialog = view.bindingContext;
             dialog.viewModelUrl = viewModelUrl;
@@ -59219,4 +59221,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[168]);
-//# sourceMappingURL=app.ae296e4ccfe4ce6656eb.bundle.map
+//# sourceMappingURL=app.810e795c8315cdda3977.bundle.map

@@ -64,8 +64,9 @@ export class BsDialogService {
   }
 
   show<TDialog extends IDialogBase>(viewModelUrl: string, model?: any, created?: (dialog: TDialog) => void): Promise<TDialog> {
-    if ((<any>document.activeElement).blur)
+    if (document.activeElement && (<any>document.activeElement).blur) {
       (<any>document.activeElement).blur();
+    }
 
     let dialogDiv = document.createElement('div');
     let backdropDiv = document.createElement('div');
@@ -84,8 +85,9 @@ export class BsDialogService {
     };
 
     return this.compositionEngine.compose(<any>instruction).then((controller: Controller) => {
-      if (this.openedDialogs.length === 0)
+      if (this.openedDialogs.length === 0) {
         document.body.classList.toggle('modal-open');
+      }
 
       let view = controller.view;
       let dialog = view.bindingContext as TDialog;
