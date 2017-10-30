@@ -24,7 +24,65 @@ Methods of DialogService:
 
 ## Implement a custom dialog
 
-Sample:
+1. Implement the view model and view for the custom dialog:
+
+**custom-dialog.ts**
+
+```
+import { inject, PLATFORM } from 'aurelia-framework';
+import { BsDialogService, DialogBase } from 'aurelia-bs';
+
+@inject(Element, BsDialogService)
+export class CustomDialog extends DialogBase {
+    static async show(dialogService: BsDialogService) {
+        await dialogService.show(PLATFORM.moduleName('demo/dialog/custom-dialog'));
+    }
+
+    constructor(element: Element, private dialogService: BsDialogService) {
+        super(element);
+    }
+}
+```
+
+**custom-dialog.html**
+
+```
+<template>
+  <bs-dialog title.bind="title">
+    <div class="modal-body">
+      <h1>My custom dialog</h1>
+      <p>
+          This is a custom dialog.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <bs-button click.trigger="close()">
+        Close
+      </bs-button>
+    </div>
+  </bs-dialog>
+</template>
+```
+
+2. Show dialog in another view model:
+
+```
+import { inject } from 'aurelia-framework';
+import { BsDialogService } from 'aurelia-bs';
+import { CustomDialog } from './custom-dialog'
+
+@inject(BsDialogService)
+export class MyViewModel {
+    constructor(private dialogService: BsDialogService) {
+    }
+    
+    showCustomDialog() {
+        CustomDialog.show(this.dialogService);
+    }
+}
+```
+
+Sample in the demo application:
 
 - [custom-dialog.ts](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.ts)
 - [custom-dialog.html](https://github.com/RSuter/aurelia-bs/blob/master/src/demo/dialog/custom-dialog.html)
