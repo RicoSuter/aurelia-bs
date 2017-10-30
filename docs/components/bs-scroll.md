@@ -10,8 +10,9 @@ Inherits from [bs-resize-container](bs-resize-container.md)
 
 Bindable properties:
 
+- class
+
 - offset
 - limitToContentHeight
-- class
 - height
 - minHeight
