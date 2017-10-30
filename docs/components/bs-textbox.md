@@ -9,7 +9,7 @@
 ## Bindable properties
 
 - label
-- value
+- value (two-way)
 - placeholder
 - enabled
 - readonly

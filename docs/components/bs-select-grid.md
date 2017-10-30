@@ -12,7 +12,7 @@
 ## Bindable properties
 
 - label
-- value
+- value (two-way)
 - displayPath
 - enabled
 - required

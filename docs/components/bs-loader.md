@@ -9,7 +9,7 @@
 ## Bindable properties
 
 - loading
-- isInline
+- isInline (TODO: Rename to `inline`)
 - text
 - showText
 - collapse

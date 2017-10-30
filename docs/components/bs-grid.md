@@ -53,9 +53,9 @@ Data can be loaded either with 'items' (in-memory data) or with 'loadData' (page
 
 **Response**
 
-- value: any: The currently selected item
-- values: any[]: The currently selected items
-- selectionMode (none|single|multiple)
+- **value: any (two-way)** The currently selected item
+- **values: any[] (two-way)** The currently selected items
+- **selectionMode (none|single|multiple)** Specifies the selection mode (default: none)
 
 **Appearance**
 

@@ -10,6 +10,8 @@ Inherits from [bs-resize-container](bs-resize-container.md)
 
 ## Bindable properties
 
+**Appearance**
+
 - **class:** The additional CSS class to apply to the component
 
 **Inherited from [bs-resize-container](./bs-resize-container.md)**

@@ -8,7 +8,7 @@
 
 ## Bindable properties
 
-- expanded
+- **expanded: boolean** Specifies whether the expander is currently expanded
 
 ## Methods
 

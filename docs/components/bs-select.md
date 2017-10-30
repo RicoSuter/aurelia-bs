@@ -11,8 +11,8 @@
 
 - label
 - items
-- value
-- values
+- value (two-way)
+- values (two-way)
 - displayPath
 - valuePath
 - required

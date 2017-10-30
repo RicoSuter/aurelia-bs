@@ -10,7 +10,7 @@
 ## Bindable properties
 
 - label
-- values
+- **values: any (two-way)** The currently selected values
 - displayPath
 - enabled
 

@@ -10,7 +10,7 @@
 
 ## Bindable properties
 
-- filter
+- filter (two-way)
 - showFilter
 
 ## Methods
