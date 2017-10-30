@@ -36,20 +36,20 @@
 
 **Initialization**
 
-- defaultSortColumn: The initially sorted column
-- defaultSortOrder (asc|desc): Defines the sort order of the initially sorted column (when undefined uses BsColumn.defaultSortOrder of the defaultSortColumn)
-- sortable: Specifies whether the sorting in the grid can be changed by the user
-- autoInit (default: true)
+- **defaultSortColumn** The initially sorted column
+- **defaultSortOrder (undefined|asc|desc)** Defines the sort order of the initially sorted column (when undefined uses BsColumn.defaultSortOrder of the defaultSortColumn)
+- **sortable** Specifies whether the sorting in the grid can be changed by the user
+- **autoInit (default: true)**
 
 **Data retrieval**
 
 Data can be loaded either with 'items' (in-memory data) or with 'loadData' (paged, filtered and sorted from server), choose wisely: 
 
-- items (any[]): The items/rows of the data grid
-- loadData: Function which returns data via promise (e.g. from HTTP call) or directly
-- filter: The current filter
-- comparer
-- totalCount
+- **items: any[]** The items/rows of the data grid
+- **loadData** Function which returns data via promise (e.g. from HTTP call) or directly
+- **filter** The current filter
+- **comparer**
+- **totalCount**
 
 **Response**
 
@@ -59,12 +59,12 @@ Data can be loaded either with 'items' (in-memory data) or with 'loadData' (page
 
 **Appearance**
 
-- itemHeight
-- rowClass
-- hideUnfilteredCounter
-- animate (untested)
-- enabled
-- showFooter
+- **itemHeight**
+- **rowClass**
+- **hideUnfilteredCounter**
+- **animate (untested)**
+- **enabled**
+- **showFooter**
 
 **Inherited from [bs-resize-container](./bs-resize-container.md)**
 
@@ -75,22 +75,22 @@ Data can be loaded either with 'items' (in-memory data) or with 'loadData' (page
 
 ## Bindable properties of bs-column:
 
-- header
-- width
-- field
+- **header**
+- **width**
+- **field**
 
 **Manipulation**
 
-- searchable
-- matcher
-- defaultSortOrder (asc|desc)
-- sortable (default: true)
-- sorter
+- **searchable**
+- **matcher**
+- **defaultSortOrder (asc|desc)**
+- **sortable (default: true)**
+- **sorter**
 
 **Appearance**
 
-- footer
-- rowHeader
-- headerClass
-- footerClass
-- cellClass
+- **footer**
+- **rowHeader**
+- **headerClass**
+- **footerClass**
+- **cellClass**
