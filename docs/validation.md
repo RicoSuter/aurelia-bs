@@ -1,6 +1,6 @@
 # Validation
 
-To enable validation, inject `BsValidation` and register some Aurelia rules:
+To enable validation, inject `BsValidation`, register some Aurelia rules and assign the created controller to a `controller` property:
 
 ```typescript
 import * as moment from 'moment';
