@@ -66,7 +66,7 @@ Data can be loaded either with 'items' (in-memory data) or with 'loadData' (page
 - enabled
 - showFooter
 
-**Inherited from [bs-resize-container](./resize-container.md)
+**Inherited from [bs-resize-container](./resize-container.md)**
 
 - **height (optional): number** When set, then the height is not automatically changed but fixed to the given height
 - **minHeight: number** Sets the minimal height of the component
