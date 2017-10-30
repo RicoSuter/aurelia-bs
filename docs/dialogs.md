@@ -34,12 +34,18 @@ import { BsDialogService, DialogBase } from 'aurelia-bs';
 
 @inject(Element, BsDialogService)
 export class CustomDialog extends DialogBase {
-    static async show(dialogService: BsDialogService) {
-        await dialogService.show(PLATFORM.moduleName('demo/dialog/custom-dialog'));
+    message: string;
+
+    static async show(dialogService: BsDialogService, options: { message: string }) {
+        await dialogService.show(PLATFORM.moduleName('demo/dialog/custom-dialog'), options);
     }
 
     constructor(element: Element, private dialogService: BsDialogService) {
         super(element);
+    }
+    
+    activate(options: { message: string }) {
+        this.message = options.message;
     }
 }
 ```
@@ -51,9 +57,7 @@ export class CustomDialog extends DialogBase {
   <bs-dialog title.bind="title">
     <div class="modal-body">
       <h1>My custom dialog</h1>
-      <p>
-          This is a custom dialog.
-      </p>
+      <p>${message}</p>
     </div>
     <div class="modal-footer">
       <bs-button click.trigger="close()">
@@ -77,7 +81,7 @@ export class MyViewModel {
     }
     
     showCustomDialog() {
-        CustomDialog.show(this.dialogService);
+        CustomDialog.show(this.dialogService, { message: 'This is a custom dialog.' });
     }
 }
 ```
