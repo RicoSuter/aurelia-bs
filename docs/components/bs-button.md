@@ -6,13 +6,13 @@
 </bs-button>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - placeholder
 - enabled
 - primary
 - class
 
-Events:
+## Events
 
 - click

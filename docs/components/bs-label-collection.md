@@ -7,13 +7,13 @@
 </bs-label-collection>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - values
 - displayPath
 - enabled
 
-Methods:
+## Methods
 
 - removeValue(value)

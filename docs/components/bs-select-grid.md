@@ -9,7 +9,7 @@
 </bs-select-grid>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value
@@ -18,6 +18,6 @@ Bindable properties:
 - required
 - Plus the same properties as [bs-grid](bs-grid.md)
 
-Methods:
+## Methods
 
 - showPicker()

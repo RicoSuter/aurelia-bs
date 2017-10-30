@@ -6,7 +6,7 @@
 </bs-searchbox>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value
@@ -16,10 +16,10 @@ Bindable properties:
 - button
 - allowEmpty
 
-Events:
+## Events
 
 - click
 
-Methods:
+## Methods
 
 - focus()

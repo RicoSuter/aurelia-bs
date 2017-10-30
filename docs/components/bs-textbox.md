@@ -6,7 +6,7 @@
 </bs-textbox>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value

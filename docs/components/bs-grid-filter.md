@@ -8,11 +8,11 @@
 </bs-grid-filter>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - filter
 - showFilter
 
-Methods:
+## Methods
 
 - toggleFilter()

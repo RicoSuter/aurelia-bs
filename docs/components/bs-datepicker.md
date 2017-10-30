@@ -6,7 +6,7 @@
 </bs-datepicker>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value
@@ -15,6 +15,6 @@ Bindable properties:
 - help
 - required
 
-Methods:
+## Methods
 
 - focus()

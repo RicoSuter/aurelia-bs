@@ -6,7 +6,7 @@
 </bs-fileupload>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value
@@ -15,7 +15,7 @@ Bindable properties:
 - readonly
 - accept
 
-Methods:
+## Methods
 
 - clear()
 - select()

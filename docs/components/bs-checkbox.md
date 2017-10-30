@@ -6,7 +6,7 @@
 </bs-checkbox>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - value

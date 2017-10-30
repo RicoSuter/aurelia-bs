@@ -7,7 +7,7 @@
 </bs-select>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - label
 - items

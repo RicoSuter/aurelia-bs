@@ -6,7 +6,7 @@
 </bs-loader>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - loading
 - isInline

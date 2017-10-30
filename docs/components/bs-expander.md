@@ -6,10 +6,10 @@
 </bs-expander>
 ```
 
-Bindable properties:
+## Bindable properties
 
 - expanded
 
-Methods:
+## Methods
 
 - toggle()
