@@ -10,8 +10,7 @@ Inherits from [bs-resize-container](bs-resize-container.md)
 
 Bindable properties:
 
-- class
-
+- class: The additional CSS class to apply to the component
 - offset
 - limitToContentHeight
 - height
