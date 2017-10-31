@@ -1,0 +1,10 @@
+.bs-grid-filter {
+    position: absolute; 
+    background: #EEEEEE; 
+    padding: 0; 
+    margin: 0; 
+    top: -5px; 
+    right: 30px;
+    bottom: -10px; 
+    width: 298px
+}
