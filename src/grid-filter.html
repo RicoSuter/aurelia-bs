@@ -1,4 +1,6 @@
 <template>
+  <require from="./grid-filter.css"></require>
+
   <div style="position: relative">
     <div style.bind="'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'">
       <a click.trigger="toggleFilter()"
@@ -10,7 +12,7 @@
       </a>
     </div>
     <div show.bind="showFilter"
-         style="position: absolute; background: #EEEEEE; padding: 0; margin: 0; top: -5px; right: 30px; bottom: -10px; width: 298px">
+         class="bs-grid-filter">
       <bs-textbox placeholder="Filter"
                   value.bind="filter"
                   enter-pressed.trigger="toggleFilter()"
