@@ -1,0 +1,27 @@
+﻿<template>
+  <div class="panel panel-default"
+       id.bind="id">
+    <div class="panel-heading"
+         style="cursor: pointer"
+         click.delegate="toggle()">
+      <div style="position: relative">
+        <template part="header-template"
+                  replaceable>
+          <bs-accordion-item-header>${header}</bs-accordion-item-header>
+        </template>
+        <span style="position: absolute; top: 0; bottom: 0; right: 0"
+              if.bind="!selected">
+          &#9650;
+        </span>
+        <span style="position: absolute; top: 0; bottom: 0; right: 0"
+              if.bind="selected">
+          &#9660;
+        </span>
+      </div>
+    </div>
+    <div show.bind="selected"
+         class="panel-body">
+      <slot></slot>
+    </div>
+  </div>
+</template>
