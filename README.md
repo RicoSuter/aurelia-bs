@@ -21,7 +21,6 @@ dotnet new aurelia
 
 ```
 npm install aurelia-bs --save
-
 npm install aurelia-validation --save
 ```
 
@@ -73,6 +72,6 @@ dotnet run
 ### How to add a component
 
 - Implement component
-- Register component in "main.ts" in the "configure" function
+- Register component in "main.ts" as `globalResources()`
 - Add component name to package.json in the path "aurelia.build.resources"
 - Export view model class from "index.ts"
