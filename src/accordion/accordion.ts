@@ -1,6 +1,5 @@
 ﻿import { BsAccordionItem } from './accordion-item';
 import { customElement, children, bindable, bindingMode } from 'aurelia-framework';
-import { BooleanConverter, convert } from '../convert';
 
 @customElement('bs-accordion')
 export class BsAccordion {
@@ -9,10 +8,6 @@ export class BsAccordion {
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   selectedItemId: string = '';
-
-  @bindable
-  @convert(BooleanConverter)
-  allowMultiselect: boolean = false;
 
   bind() {
     if (this.items.length > 0) {
@@ -29,16 +24,12 @@ export class BsAccordion {
     if (this.items) {
       if (item) {
         if (this.items.find(t => t === item)) {
-          if (!this.allowMultiselect) {
-            this.items.forEach(t => t.selected = t === item);
-          }
+          this.items.forEach(t => t.selected = t === item);
           this.selectedItemId = item.id;
         } else
           throw Error('Item could not be found.');
       } else {
-        if (!this.allowMultiselect) {
-          this.items.forEach(t => t.selected = false);
-        }
+        this.items.forEach(t => t.selected = false);
       }
     }
   }

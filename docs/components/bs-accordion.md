@@ -17,7 +17,6 @@
 ## Bindable properties
 
 - **selectedItemId: string** Id of the selected item
-- **allowMultiselect: boolean** Other items will not be closed if one is selected
 
 ## Bindable properties of bs-accordion-item
 
@@ -48,7 +47,7 @@ Instead of just binding a header text, the header of an accordion item can be re
 ```html
 <bs-accordion-item id="item1">
     <template replace-part="header-template">
-        <p>Just some whatever you feel like and looks good to you HTML code without the look of the standard accordion item header!</p>
+        <p>Just some "whatever you feel like and looks good to you" HTML code without the look of the standard accordion item header!</p>
     </template>
     My Content 1
 </bs-accordion-item>
