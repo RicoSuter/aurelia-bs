@@ -47,6 +47,7 @@ export * from './tabs/tabs';
 
 export * from './accordion/accordion';
 export * from './accordion/accordion-item';
+export * from './accordion/accordion-item-header';
 
 export * from './button';
 export * from './checkbox';
