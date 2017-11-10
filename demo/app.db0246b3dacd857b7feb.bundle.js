@@ -57367,8 +57367,8 @@ var BsGrid = /** @class */ (function (_super) {
             var previousPageSize = this.pageSize;
             this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
             if (previousPageSize !== this.pageSize) {
-                if (this.displayedRows && this.displayedRows.length > this.pageSize)
-                    this.displayedRows = this.displayedRows.slice(0, this.pageSize);
+                if (this.displayedItems && this.displayedItems.length > this.pageSize)
+                    this.displayedItems = this.displayedItems.slice(0, this.pageSize);
                 this.timer = setTimeout(function () {
                     _this.pageSize = Math.floor((_this.containerHeight - _this.itemHeight) / _this.itemHeight);
                     if (_this.body) {
@@ -57403,8 +57403,8 @@ var BsGrid = /** @class */ (function (_super) {
     };
     BsGrid.prototype.loadDataFromItems = function (request) {
         return Promise.resolve({
-            items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
-            filteredCount: this.actualRows ? this.actualRows.length : -1,
+            items: this.actualItems ? this.actualItems.slice(request.skip, request.skip + request.take) : undefined,
+            filteredCount: this.actualItems ? this.actualItems.length : -1,
             totalCount: this.items ? this.items.length : -1
         });
     };
@@ -57415,7 +57415,7 @@ var BsGrid = /** @class */ (function (_super) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        this.actualRows = this.items ? this.sortItems(this.filterItems(this.items)) : undefined;
+                        this.actualItems = this.items ? this.sortItems(this.filterItems(this.items)) : undefined;
                         if (!this.autoInit || (!this.loadData && !this.items) || !this.isBound || this.pageSize === 0)
                             return [2 /*return*/];
                         if (!!this.refreshingGrid) return [3 /*break*/, 6];
@@ -57435,7 +57435,7 @@ var BsGrid = /** @class */ (function (_super) {
                         result = _a;
                         this.totalCount = result.totalCount;
                         this.filteredCount = result.filteredCount;
-                        this.displayedRows = result.items;
+                        this.displayedItems = result.items;
                         if (this.filteredCount !== -1 && this.currentIndex > this.filteredCount)
                             this.currentIndex = 0;
                         if (this.bodyElement) {
@@ -57705,7 +57705,7 @@ var BsGrid = /** @class */ (function (_super) {
             if (!rowClass)
                 rowClass = '\'rowClass\'';
             var row = document.createElement('tr');
-            row.setAttribute('repeat.for', 'row of displayedRows');
+            row.setAttribute('repeat.for', 'row of displayedItems');
             row.setAttribute('click.trigger', 'selectRow(row)');
             row.setAttribute('style.bind', "selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''");
             row.setAttribute('class.bind', "isSelected(value, values, row) ? ('selected ' + (" + rowClass + ")) : (" + rowClass + ")");
@@ -57878,11 +57878,11 @@ var BsGrid = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], BsGrid.prototype, "actualRows", void 0);
+    ], BsGrid.prototype, "actualItems", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
-    ], BsGrid.prototype, "displayedRows", void 0);
+    ], BsGrid.prototype, "displayedItems", void 0);
     BsGrid = BsGrid_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */], Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["d" /* ViewCompiler */], __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["e" /* ViewResources */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-grid'),
@@ -59096,8 +59096,8 @@ var BsSelectGridDialog = /** @class */ (function (_super) {
         this.filterBox.focus();
     };
     BsSelectGridDialog.prototype.enterPressed = function () {
-        if (this.grid.displayedRows && this.grid.displayedRows.length === 1) {
-            this.selectedItem = this.grid.displayedRows[0];
+        if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
+            this.selectedItem = this.grid.displayedItems[0];
             this.close();
         }
     };
@@ -59468,4 +59468,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[168]);
-//# sourceMappingURL=app.57f8e572cf80795282ff.bundle.map
+//# sourceMappingURL=app.db0246b3dacd857b7feb.bundle.map

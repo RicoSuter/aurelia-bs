@@ -198,10 +198,10 @@ export class BsGrid extends BsResizeContainer {
   private parent: any;
 
   @observable
-  private actualRows: any[] | undefined;
+  actualItems: any[] | undefined;
 
   @observable
-  displayedRows: any[] | undefined;
+  displayedItems: any[] | undefined;
 
   constructor(private container: Container,
     element: Element,
@@ -291,8 +291,8 @@ export class BsGrid extends BsResizeContainer {
       this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
 
       if (previousPageSize !== this.pageSize) {
-        if (this.displayedRows && this.displayedRows.length > this.pageSize)
-          this.displayedRows = this.displayedRows.slice(0, this.pageSize);
+        if (this.displayedItems && this.displayedItems.length > this.pageSize)
+          this.displayedItems = this.displayedItems.slice(0, this.pageSize);
 
         this.timer = setTimeout(() => {
           this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
@@ -325,14 +325,14 @@ export class BsGrid extends BsResizeContainer {
 
   private loadDataFromItems(request: BsGridDataRequest): Promise<BsGridDataResponse> {
     return Promise.resolve(<BsGridDataResponse>{
-      items: this.actualRows ? this.actualRows.slice(request.skip, request.skip + request.take) : undefined,
-      filteredCount: this.actualRows ? this.actualRows.length : -1,
+      items: this.actualItems ? this.actualItems.slice(request.skip, request.skip + request.take) : undefined,
+      filteredCount: this.actualItems ? this.actualItems.length : -1,
       totalCount: this.items ? this.items.length : -1
     });
   }
 
   private async refreshInternal() {
-    this.actualRows = this.items ? this.sortItems(this.filterItems(this.items)) : undefined;
+    this.actualItems = this.items ? this.sortItems(this.filterItems(this.items)) : undefined;
 
     if (!this.autoInit || (!this.loadData && !this.items) || !this.isBound || this.pageSize === 0)
       return;
@@ -346,7 +346,7 @@ export class BsGrid extends BsResizeContainer {
 
       this.totalCount = result.totalCount;
       this.filteredCount = result.filteredCount;
-      this.displayedRows = result.items;
+      this.displayedItems = result.items;
 
       if (this.filteredCount !== -1 && this.currentIndex > this.filteredCount)
         this.currentIndex = 0;
@@ -638,7 +638,7 @@ export class BsGrid extends BsResizeContainer {
       if (!rowClass) rowClass = '\'rowClass\'';
 
       let row = document.createElement('tr');
-      row.setAttribute('repeat.for', 'row of displayedRows');
+      row.setAttribute('repeat.for', 'row of displayedItems');
       row.setAttribute('click.trigger', 'selectRow(row)');
       row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
       row.setAttribute('class.bind', `isSelected(value, values, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);

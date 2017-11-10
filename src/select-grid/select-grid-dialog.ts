@@ -77,8 +77,8 @@ export class BsSelectGridDialog extends DialogBase {
   }
 
   enterPressed() {
-    if (this.grid.displayedRows && this.grid.displayedRows.length === 1) {
-      this.selectedItem = this.grid.displayedRows[0];
+    if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
+      this.selectedItem = this.grid.displayedItems[0];
       this.close();
     }
   }
