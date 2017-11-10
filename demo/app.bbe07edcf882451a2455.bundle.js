@@ -57352,7 +57352,7 @@ var BsGrid = /** @class */ (function (_super) {
         var _this = this;
         Promise.all(this.columns.map(function (c) { return c.waitForBinding(); })).then(function () { return _this.processColumns(); });
     };
-    BsGrid.prototype.rowsChanged = function () {
+    BsGrid.prototype.itemsChanged = function () {
         this.refreshInternal();
     };
     BsGrid.prototype.filterChanged = function () {
@@ -59468,4 +59468,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[168]);
-//# sourceMappingURL=app.db0246b3dacd857b7feb.bundle.map
+//# sourceMappingURL=app.bbe07edcf882451a2455.bundle.map
