@@ -16,7 +16,7 @@
 
 ## Bindable properties
 
-- **selectedItemId: string** Id of the selected item
+- **selectedItemId: string** ID of the selected item
 
 ## Bindable properties of bs-accordion-item
 
@@ -33,7 +33,7 @@ Instead of just binding a header text, the header of an accordion item can be re
     <template replace-part="header-template">
         <bs-accordion-item-header>
             <div style="float: left;"> <strong>Important</strong> Title</div>
-            <div style="float:right;">
+            <div style="float: right;">
                 <bs-button click.trigger="myEditTrigger()">
                     <i class="fa fa-pencil" aria-hidden="true"></i>  Edit
                 </bs-button>

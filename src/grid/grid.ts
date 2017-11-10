@@ -4,6 +4,7 @@ import { computedFrom, bindingMode } from 'aurelia-binding';
 import { BsColumn } from './column';
 import { Deferred } from './deferred';
 import { BsResizeContainer } from '../resize-container';
+import { observable } from 'aurelia-binding';
 
 export interface BsGridDataRequest {
   skip: number;
@@ -183,15 +184,23 @@ export class BsGrid extends BsResizeContainer {
     return pages;
   }
 
+  @observable
   private currentSortColumn: BsColumn | undefined;
+
+  @observable
   private currentSortOrder: 'asc' | 'desc';
 
   /**
    * You can use this in your cell templates to reference the binding context
    * in which the datagrid is used.
    */
-  parent: any;
-  actualRows: any[] | undefined;
+  @observable
+  private parent: any;
+
+  @observable
+  private actualRows: any[] | undefined;
+
+  @observable
   displayedRows: any[] | undefined;
 
   constructor(private container: Container,

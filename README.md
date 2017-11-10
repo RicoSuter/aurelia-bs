@@ -65,6 +65,7 @@ dotnet run
 - [bs-select-grid](docs/components/bs-select-grid.md)
 - [bs-select](docs/components/bs-select.md)
 - [bs-tabs](docs/components/bs-tabs.md)
+- [bs-accordion](docs/components/bs-accordion.md)
 - [bs-textbox](docs/components/bs-textbox.md)
 
 ## Development
