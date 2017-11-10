@@ -14,6 +14,9 @@ export function configure(config: FrameworkConfiguration): void {
     PLATFORM.moduleName('./textbox'),
     PLATFORM.moduleName('./searchbox'),
     PLATFORM.moduleName('./select'),
+    PLATFORM.moduleName('./accordion/accordion'),
+    PLATFORM.moduleName('./accordion/accordion-item'),
+    PLATFORM.moduleName('./accordion/accordion-item-header'),
     PLATFORM.moduleName('./expander'),
     PLATFORM.moduleName('./fileupload'),
     PLATFORM.moduleName('./loader'),
@@ -41,6 +44,10 @@ export * from './select-grid/select-grid';
 
 export * from './tabs/tab';
 export * from './tabs/tabs';
+
+export * from './accordion/accordion';
+export * from './accordion/accordion-item';
+export * from './accordion/accordion-item-header';
 
 export * from './button';
 export * from './checkbox';
