@@ -65,6 +65,7 @@ export class BsGrid extends BsResizeContainer {
 
   @bindable
   loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
+
   @bindable
   comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
@@ -271,7 +272,7 @@ export class BsGrid extends BsResizeContainer {
     Promise.all(this.columns.map(c => c.waitForBinding())).then(() => this.processColumns());
   }
 
-  rowsChanged() {
+  itemsChanged() {
     this.refreshInternal();
   }
 
