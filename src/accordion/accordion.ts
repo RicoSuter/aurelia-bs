@@ -56,7 +56,11 @@ export class BsAccordion {
       if (item.length > 0) {
         this.selectItem(item[0]);
         return;
+      } else {
+        this.items.forEach(t => t.selected = false);
       }
+    } else {
+      this.items.forEach(t => t.selected = false);
     }
   }
 }
