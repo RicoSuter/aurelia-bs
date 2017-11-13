@@ -51,6 +51,7 @@ dotnet run
 
 ### Components
 
+- [bs-accordion](docs/components/bs-accordion.md)
 - [bs-button](docs/components/bs-button.md)
 - [bs-checkbox](docs/components/bs-checkbox.md)
 - [bs-datepicker](docs/components/bs-datepicker.md)
@@ -59,13 +60,13 @@ dotnet run
 - [bs-grid](docs/components/bs-grid.md)
 - [bs-label-collection](docs/components/bs-label-collection.md)
 - [bs-loader](docs/components/bs-loader.md)
+- [bs-navbar-header](docs/components/bs-navbar-header.md)
 - [bs-resize-container](docs/components/bs-resize-container.md)
 - [bs-scroll](docs/components/bs-scroll.md)
 - [bs-searchbox](docs/components/bs-searchbox.md)
 - [bs-select-grid](docs/components/bs-select-grid.md)
 - [bs-select](docs/components/bs-select.md)
 - [bs-tabs](docs/components/bs-tabs.md)
-- [bs-accordion](docs/components/bs-accordion.md)
 - [bs-textbox](docs/components/bs-textbox.md)
 
 ## Development
