@@ -16,3 +16,8 @@
 - help
 - rows
 - style
+
+## Methods
+
+- **focus():** Focuses the textbox
+- **selectAll():** Selects all texts in the textbox
