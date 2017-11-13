@@ -9,6 +9,12 @@ export class BsAccordion {
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   selectedItemId: string = '';
 
+  @bindable
+  id: string = 'accordion';
+
+  @bindable
+  class: string = 'panel-group';
+
   bind() {
     if (this.items.length > 0) {
       this.updateSelectedItem();

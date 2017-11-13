@@ -10,6 +10,12 @@ export class BsAccordionItem {
   header = '[no header]';
 
   @bindable
+  headerClass = 'panel-heading';
+
+  @bindable
+  class = 'panel panel-default';
+
+  @bindable
   @convert(BooleanConverter)
   selected = false;
 
