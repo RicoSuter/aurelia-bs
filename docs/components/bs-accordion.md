@@ -24,7 +24,7 @@
 - header
 - selected
 
-## Replacing the heather template of an accordion item
+## Replacing the header template of an accordion item
 
 Instead of just binding a header text, the header of an accordion item can be replaced like in the following examples: 
 
