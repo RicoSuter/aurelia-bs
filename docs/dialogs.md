@@ -3,11 +3,11 @@
 An aurelia-bs predefined dialog can be shown with this code:
 
 ```typescript
-import { DialogService } from 'aurelia-bs';
+import { BsDialogService } from 'aurelia-bs';
 
 @autoinject
 export class DialogDemo {
-    constructor(private dialogService: DialogService) {
+    constructor(private dialogService: BsDialogService) {
     }
 
     async showAlert() {
@@ -16,7 +16,7 @@ export class DialogDemo {
 }
 ```
 
-Methods of `DialogService`:
+Methods of `BsDialogService`:
 
 - **alert(title, text):** Shows a message box. 
 - **confirm(title, text):** Shows a yes/no dialog.
@@ -102,8 +102,8 @@ In order to make dialogs in aurelia-bs work in the NPM module and in the demo, y
 - Open a dialog in the following way (required for the demo app): 
 
 ```typescript
-return this.show<BsAlertDialog>('aurelia-bs/dialogs/alert-dialog', options).catch(() => {
-  return this.show<BsAlertDialog>('dialogs/alert-dialog', options);
+return this.dialogService.show<BsAlertDialog>('aurelia-bs/dialogs/alert-dialog', options).catch(() => {
+  return this.dialogService.show<BsAlertDialog>('dialogs/alert-dialog', options);
 }).then(dlg => {
   return dlg.clickedButton;
 });
