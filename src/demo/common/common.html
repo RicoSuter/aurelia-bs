@@ -12,12 +12,17 @@
 
   <h2>bs-textbox</h2>
 
-  <bs-textbox label="My Textbox"></bs-textbox>
+  <bs-textbox label="My Textbox"
+              view-model.ref="textbox"></bs-textbox>
   <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-textbox.md">Docs</a>
 
   <bs-textbox label="My Textarea"
+              view-model.ref="textarea"
               rows.bind="5">
   </bs-textbox>
+
+  <bs-button click.trigger="focusTextbox()">Focus textbox</bs-button>
+  <bs-button click.trigger="focusTextarea()">Focus textarea</bs-button>
 
   <h2>bs-checkbox</h2>
 
@@ -51,4 +56,15 @@
   <bs-fileupload label="Image">
   </bs-fileupload>
   <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-fileupload.md">Docs</a>
+
+  <h2>bs-searchbox</h2>
+
+  <bs-searchbox label="My Searchbox"
+                view-model.ref="searchbox"></bs-searchbox>
+  <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-searchbox.md">Docs</a>
+
+  <br />
+  <bs-button click.trigger="focusSearchbox()">Focus searchbox</bs-button>
+  <br />
+  <br />
 </template>
