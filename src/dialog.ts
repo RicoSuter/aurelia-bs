@@ -31,14 +31,16 @@ export class BsDialog {
   }
 
   checkDismissClick(event: MouseEvent) {
-    let classAttribute = event.srcElement!.getAttribute('class');
-    if (this.closeOnBackdrop &&
-      this.dialogService.openedDialogs[this.dialogService.openedDialogs.length - 1] === this.dialog &&
-      classAttribute && classAttribute.indexOf('modal fade in') !== -1) {
+    if (event.srcElement) {
+      let classAttribute = event.srcElement.getAttribute('class');
+      if (this.closeOnBackdrop &&
+        this.dialogService.openedDialogs[this.dialogService.openedDialogs.length - 1] === this.dialog &&
+        classAttribute && classAttribute.indexOf('modal fade in') !== -1) {
 
-      event.stopPropagation();
-      event.preventDefault();
-      this.dialog.cancel();
+        event.stopPropagation();
+        event.preventDefault();
+        this.dialog.cancel();
+      }
     }
   }
 }
