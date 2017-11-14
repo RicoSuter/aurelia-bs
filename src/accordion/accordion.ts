@@ -13,7 +13,7 @@ export class BsAccordion {
   id: string = 'accordion';
 
   @bindable
-  class: string = 'panel-group';
+  class: string = '';
 
   bind() {
     if (this.items.length > 0) {

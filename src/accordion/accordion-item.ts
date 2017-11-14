@@ -10,10 +10,10 @@ export class BsAccordionItem {
   header = '[no header]';
 
   @bindable
-  headerClass = 'panel-heading';
+  headerClass = '';
 
   @bindable
-  class = 'panel panel-default';
+  class = '';
 
   @bindable
   @convert(BooleanConverter)
