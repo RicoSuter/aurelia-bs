@@ -4,6 +4,10 @@ import { observable } from 'aurelia-binding';
 @inject(Element)
 @customElement('bs-resize-container')
 export class BsResizeContainer {
+  /** Enables the resize container. */
+  @bindable
+  useScroll = true;
+
   @bindable
   offset = 20;
 
@@ -39,12 +43,26 @@ export class BsResizeContainer {
     }
   }
 
-  registerObserver() {
-    let config = { attributes: true, childList: true, characterData: true, subtree: true };
-    this.containerObserver = new MutationObserver(() => {
-      this.updateContainerHeight(true);
-    });
-    this.containerObserver.observe(document, config);
+  protected updateContainerHeight(retrigger: boolean) {
+    if (this.useScroll) {
+      let child = this.getResizedChild();
+      if (child) {
+        this.containerHeight = this.getContainerHeight(child);
+        let styleHeight = this.containerHeight + 'px';
+
+        if (styleHeight !== this.currentStyleHeight) {
+          this.currentStyleHeight = styleHeight;
+          child.style.height = styleHeight;
+
+          let event = new CustomEvent('changed');
+          this.element.dispatchEvent(event);
+        }
+      }
+
+      if (retrigger) {
+        setTimeout(() => this.updateContainerHeight(false), 0);
+      }
+    }
   }
 
   protected getResizedChild() {
@@ -69,7 +87,15 @@ export class BsResizeContainer {
     return maxHeight;
   }
 
-  getAbsoluteHeight(el: HTMLElement) {
+  private registerObserver() {
+    let config = { attributes: true, childList: true, characterData: true, subtree: true };
+    this.containerObserver = new MutationObserver(() => {
+      this.updateContainerHeight(true);
+    });
+    this.containerObserver.observe(document, config);
+  }
+
+  private getAbsoluteHeight(el: HTMLElement) {
     el = (typeof el === 'string') ? document.querySelector(el) : el;
 
     let styles = window.getComputedStyle(el);
@@ -77,25 +103,5 @@ export class BsResizeContainer {
       parseFloat(styles['marginBottom']!);
 
     return Math.ceil(el.clientHeight + margin);
-  }
-
-  protected updateContainerHeight(retrigger: boolean) {
-    let child = this.getResizedChild();
-    if (child) {
-      this.containerHeight = this.getContainerHeight(child);
-      let styleHeight = this.containerHeight + 'px';
-
-      if (styleHeight !== this.currentStyleHeight) {
-        this.currentStyleHeight = styleHeight;
-        child.style.height = styleHeight;
-
-        let event = new CustomEvent('changed');
-        this.element.dispatchEvent(event);
-      }
-    }
-
-    if (retrigger) {
-      setTimeout(() => this.updateContainerHeight(false), 0);
-    }
   }
 }

@@ -70,16 +70,31 @@ export class BsGrid extends BsResizeContainer {
   comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
   @bindable
+  useScroll = true;
+
+  /** Only usable when useScroll is set. */
+  @bindable
   offset = BsGridDefaults.offset;
 
+  /** Only usable when useScroll is set. */
   @bindable
   limitToContentHeight = false;
 
+  /** Only usable when useScroll is set. */
   @bindable
   height: number | null = null;
 
+  /** Only usable when useScroll is set. */
   @bindable
   minHeight = BsGridDefaults.minHeight;
+
+  /** Either use itemHeight or itemsPerPage. */
+  @bindable
+  itemHeight = BsGridDefaults.itemHeight;
+
+  /** Either use itemHeight or itemsPerPage. */
+  @bindable
+  itemsPerPage = 0;
 
   @children('bs-column')
   columns: BsColumn[] = [];
@@ -137,9 +152,6 @@ export class BsGrid extends BsResizeContainer {
 
   @bindable
   filter: string = '';
-
-  @bindable
-  itemHeight = BsGridDefaults.itemHeight;
 
   /** Sets the additional row CSS classes ('row' is available in the binding). */
   @bindable
@@ -280,28 +292,33 @@ export class BsGrid extends BsResizeContainer {
     this.refreshInternal();
   }
 
+  itemsPerPageChanged() {
+    this.containerHeightChanged();
+  }
+
   private timer: any;
   containerHeightChanged() {
     if (this.isBound && this.containerHeight > 0) {
-      if (this.timer)
+      if (this.timer) {
         clearTimeout(this.timer);
-
-      // console.log('height: ' + this.containerHeight + ', pageSize: ' + this.pageSize);
+      }
 
       let previousPageSize = this.pageSize;
-      this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
+      this.pageSize = this.itemsPerPage ? this.itemsPerPage : Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
 
       if (previousPageSize !== this.pageSize) {
         if (this.displayedItems && this.displayedItems.length > this.pageSize)
           this.displayedItems = this.displayedItems.slice(0, this.pageSize);
 
         this.timer = setTimeout(() => {
-          this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
+          this.pageSize = this.itemsPerPage ? this.itemsPerPage : Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
           if (this.body) {
             this.refreshInternal();
           }
         }, 100);
       }
+    } else {
+      this.pageSize = this.itemsPerPage;
     }
   }
 
