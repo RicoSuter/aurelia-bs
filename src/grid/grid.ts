@@ -29,11 +29,18 @@ export enum SelectionMode {
 }
 
 export let BsGridDefaults = {
+  /** The offset to the bottom of the window used when autoResize is enabled. */
   offset: 75,
+
+  /** The height of a row. */
   itemHeight: 36,
+
+  /** The minimum height of the grid. */
   minHeight: 100,
+
   /** Hides the filtered count if no filter is set. */
   hideUnfilteredCounter: false,
+
   /** Hides the paging when there is only a single page. */
   hideSinglePaging: false
 };
@@ -69,68 +76,58 @@ export class BsGrid extends BsResizeContainer {
   @bindable
   comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
 
+  /** Enables the auto resizing of the grid and shows a scroll when needed. */
   @bindable
-  useScroll = true;
+  autoResize = true;
 
-  /** Only usable when useScroll is set. */
+  /** The offset to the bottom of the window used when autoResize is enabled. */
   @bindable
   offset = BsGridDefaults.offset;
 
-  /** Only usable when useScroll is set. */
+  /** Resizes the grid not bigger than the rows height, only used when autoResize is enabled. */
   @bindable
   limitToContentHeight = false;
 
-  /** Only usable when useScroll is set. */
+  /** The fixed height of the grid, only when autoResize is set. */
   @bindable
   height: number | null = null;
 
-  /** Only usable when useScroll is set. */
+  /** The minimum height of the grid, only usable when autoResize is set. */
   @bindable
   minHeight = BsGridDefaults.minHeight;
 
-  /** Either use itemHeight or itemsPerPage. */
+  /** The height of a row; either use itemHeight or itemsPerPage. */
   @bindable
   itemHeight = BsGridDefaults.itemHeight;
 
-  /** Either use itemHeight or itemsPerPage. */
+  /** The number of items per page; either use itemHeight or itemsPerPage. */
   @bindable
   itemsPerPage = 0;
 
   @children('bs-column')
   columns: BsColumn[] = [];
 
-  /**
-   * The data to display, given as rows of simple objects.
-   */
+  /** The data to display, given as rows of simple objects. */
   @bindable
   items: any[];
 
-  /**
-   * Set to false to disable sorting in the entire datagrid. You can also
-   * disable sorting for individual columns: see Column.sortable.
-   */
+  /** Set to false to disable sorting in the entire datagrid. You can also disable sorting for individual columns: see Column.sortable. */
   @bindable
   sortable = true;
 
-  /**
-   * Column to sort on when the grid is first rendered, identified by field.
-   * If not set the first sortable column will be used to sort.
-   */
+  /** Column to sort on when the grid is first rendered, identified by field. If not set the first sortable column will be used to sort. */
   @bindable
   defaultSortColumn: string;
 
-  /**
-   * Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn).
-   */
+  /** Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn). */
   @bindable
   defaultSortOrder: undefined | 'asc' | 'desc' = undefined;
 
-  /**
-   * Set to false to disable animation when first showing the datagrid.
-   */
+  /** Set to false to disable animation when first showing the datagrid. */
   @bindable
   animate = true;
 
+  /** The total count of items. */
   @bindable
   totalCount = -1;
 
