@@ -56764,8 +56764,11 @@ var SelectionMode;
     SelectionMode[SelectionMode["multiple"] = 'multiple'] = "multiple";
 })(SelectionMode = SelectionMode || (SelectionMode = {}));
 var BsGridDefaults = {
+    /** The offset to the bottom of the window used when autoResize is enabled. */
     offset: 75,
+    /** The height of a row. */
     itemHeight: 36,
+    /** The minimum height of the grid. */
     minHeight: 100,
     /** Hides the filtered count if no filter is set. */
     hideUnfilteredCounter: false,
@@ -56798,24 +56801,28 @@ var BsGrid = /** @class */ (function (_super) {
         _this.viewResources = viewResources;
         _this.loadData = undefined;
         _this.comparer = function (a, b) { return a && a.id && b && b.id ? a.id === b.id : a === b; };
+        /** Enables the auto resizing of the grid and shows a scroll when needed. */
+        _this.autoResize = true;
+        /** The offset to the bottom of the window used when autoResize is enabled. */
         _this.offset = BsGridDefaults.offset;
+        /** Resizes the grid not bigger than the rows height, only used when autoResize is enabled. */
         _this.limitToContentHeight = false;
+        /** The fixed height of the grid, only when autoResize is set. */
         _this.height = null;
+        /** The minimum height of the grid, only usable when autoResize is set. */
         _this.minHeight = BsGridDefaults.minHeight;
+        /** The height of a row; either use itemHeight or itemsPerPage. */
+        _this.itemHeight = BsGridDefaults.itemHeight;
+        /** The number of items per page; either use itemHeight or itemsPerPage. */
+        _this.itemsPerPage = 0;
         _this.columns = [];
-        /**
-         * Set to false to disable sorting in the entire datagrid. You can also
-         * disable sorting for individual columns: see Column.sortable.
-         */
+        /** Set to false to disable sorting in the entire datagrid. You can also disable sorting for individual columns: see Column.sortable. */
         _this.sortable = true;
-        /**
-         * Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn).
-         */
+        /** Order to sort in when the grid is first rendered (undefined uses the defaultSortOrder of the defaultSortColumn). */
         _this.defaultSortOrder = undefined;
-        /**
-         * Set to false to disable animation when first showing the datagrid.
-         */
+        /** Set to false to disable animation when first showing the datagrid. */
         _this.animate = true;
+        /** The total count of items. */
         _this.totalCount = -1;
         _this.filteredCount = -1;
         _this.currentIndex = 0;
@@ -56825,7 +56832,6 @@ var BsGrid = /** @class */ (function (_super) {
         _this.selectionMode = SelectionMode.none;
         _this.enabled = true;
         _this.filter = '';
-        _this.itemHeight = BsGridDefaults.itemHeight;
         /** Sets the additional row CSS classes ('row' is available in the binding). */
         _this.rowClass = '';
         /** Set to false to not automatically initialize data, a manual call to refresh() is required to initialize the data. */
@@ -56945,24 +56951,30 @@ var BsGrid = /** @class */ (function (_super) {
     BsGrid.prototype.filterChanged = function () {
         this.refreshInternal();
     };
+    BsGrid.prototype.itemsPerPageChanged = function () {
+        this.containerHeightChanged();
+    };
     BsGrid.prototype.containerHeightChanged = function () {
         var _this = this;
         if (this.isBound && this.containerHeight > 0) {
-            if (this.timer)
+            if (this.timer) {
                 clearTimeout(this.timer);
-            // console.log('height: ' + this.containerHeight + ', pageSize: ' + this.pageSize);
+            }
             var previousPageSize = this.pageSize;
-            this.pageSize = Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
+            this.pageSize = this.itemsPerPage ? this.itemsPerPage : Math.floor((this.containerHeight - this.itemHeight) / this.itemHeight);
             if (previousPageSize !== this.pageSize) {
                 if (this.displayedItems && this.displayedItems.length > this.pageSize)
                     this.displayedItems = this.displayedItems.slice(0, this.pageSize);
                 this.timer = setTimeout(function () {
-                    _this.pageSize = Math.floor((_this.containerHeight - _this.itemHeight) / _this.itemHeight);
+                    _this.pageSize = _this.itemsPerPage ? _this.itemsPerPage : Math.floor((_this.containerHeight - _this.itemHeight) / _this.itemHeight);
                     if (_this.body) {
                         _this.refreshInternal();
                     }
                 }, 100);
             }
+        }
+        else {
+            this.pageSize = this.itemsPerPage;
         }
     };
     BsGrid.prototype.getCurrentGridDataRequest = function () {
@@ -57345,6 +57357,10 @@ var BsGrid = /** @class */ (function (_super) {
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
+    ], BsGrid.prototype, "autoResize", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
     ], BsGrid.prototype, "offset", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
@@ -57358,6 +57374,14 @@ var BsGrid = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
     ], BsGrid.prototype, "minHeight", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
+    ], BsGrid.prototype, "itemHeight", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
+    ], BsGrid.prototype, "itemsPerPage", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["j" /* children */])('bs-column'),
         __metadata("design:type", Array)
@@ -57406,10 +57430,6 @@ var BsGrid = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", String)
     ], BsGrid.prototype, "filter", void 0);
-    __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
-        __metadata("design:type", Object)
-    ], BsGrid.prototype, "itemHeight", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -57503,7 +57523,7 @@ function attachView(view, viewSlot) {
 /***/ "grid/grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n         class=\"table\"\r\n         style=\"margin-bottom: 0\">\r\n    <thead ref=\"headerElement\"></thead>\r\n  </table>\r\n\r\n  <!-- Rows -->\r\n  <div style=\"overflow-y: auto\">\r\n    <table border=\"0\"\r\n           class=\"table\"\r\n           style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n      <tbody ref=\"bodyElement\"></tbody>\r\n      <tfoot ref=\"footerElement\"\r\n             show.bind=\"toonFooter\"></tfoot>\r\n    </table>\r\n    <template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n              part=\"loading\"\r\n              replaceable></template>\r\n    <template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n              part=\"no-items\"\r\n              replaceable></template>\r\n  </div>\r\n\r\n  <!-- Columns -->\r\n  <slot></slot>\r\n\r\n  <!-- Pagination -->\r\n  <template if.bind=\"!hideSinglePaging || pageCount > 1\">\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a click.trigger=\"showPage(0)\"\r\n           href=\"#\">1</a>\r\n      </li>\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li repeat.for=\"i of pages\"\r\n          class.bind=\"i === currentPage ? 'active' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(i)\">\r\n          ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <span style=\"float: right\">\r\n      <ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n          class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li>\r\n          <a>\r\n            &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n          </a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n        </li>\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n  </template>\r\n</template>";
+module.exports = "<template>\r\n  <!-- Header -->\r\n  <table border=\"0\"\r\n         class=\"table\"\r\n         style=\"margin-bottom: 0\">\r\n    <thead ref=\"headerElement\"></thead>\r\n  </table>\r\n\r\n  <!-- Rows -->\r\n  <div style.bind=\"autoResize ? 'overflow-y: auto' : ''\">\r\n    <table border=\"0\"\r\n           class=\"table\"\r\n           style.bind=\"filteredCount > 0 ? 'margin-bottom: 0' : 'margin-bottom: 10px'\">\r\n      <tbody ref=\"bodyElement\"></tbody>\r\n      <tfoot ref=\"footerElement\"\r\n             show.bind=\"toonFooter\"></tfoot>\r\n    </table>\r\n    <template if.bind=\"filteredCount === -1 && refreshingGrid\"\r\n              part=\"loading\"\r\n              replaceable></template>\r\n    <template if.bind=\"filteredCount === 0 && !refreshingGrid\"\r\n              part=\"no-items\"\r\n              replaceable></template>\r\n  </div>\r\n\r\n  <!-- Columns -->\r\n  <slot></slot>\r\n\r\n  <!-- Pagination -->\r\n  <template if.bind=\"!hideSinglePaging || pageCount > 1\">\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a click.trigger=\"showPage(0)\"\r\n           href=\"#\">1</a>\r\n      </li>\r\n      <li class.bind=\"currentPage === 0 ? 'disabled' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(currentPage - 1)\">◄</a>\r\n      </li>\r\n    </ul>\r\n    <ul class=\"pagination\"\r\n        style=\"margin: 0\">\r\n      <li repeat.for=\"i of pages\"\r\n          class.bind=\"i === currentPage ? 'active' : ''\">\r\n        <a href=\"#\"\r\n           click.trigger=\"showPage(i)\">\r\n          ${$first && i > 0 ? '... &nbsp;' : ''} ${i + 1} ${$last && pageCount - 1 > i ? '&nbsp; ...' : ''}\r\n        </a>\r\n      </li>\r\n    </ul>\r\n    <span style=\"float: right\">\r\n      <ul if.bind=\"totalCount >= 0 && (!hideUnfilteredCounter || filteredCount < totalCount)\"\r\n          class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li>\r\n          <a>\r\n            &nbsp;&nbsp;${filteredCount} / ${totalCount}&nbsp;&nbsp;\r\n          </a>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"pagination\"\r\n          style=\"margin: 0\">\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(currentPage + 1)\">►</a>\r\n        </li>\r\n        <li class.bind=\"currentPage === pageCount - 1 ? 'disabled' : ''\">\r\n          <a href=\"#\"\r\n             click.trigger=\"showPage(pageCount - 1)\">${pageCount}</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n  </template>\r\n</template>";
 
 /***/ }),
 
@@ -57898,6 +57918,8 @@ var BsResizeContainer = /** @class */ (function () {
     function BsResizeContainer(element) {
         var _this = this;
         this.element = element;
+        /** Enables the resize container. */
+        this.autoResize = true;
         this.offset = 20;
         this.minHeight = 0;
         this.limitToContentHeight = false;
@@ -57918,13 +57940,24 @@ var BsResizeContainer = /** @class */ (function () {
             this.containerObserver.disconnect();
         }
     };
-    BsResizeContainer.prototype.registerObserver = function () {
+    BsResizeContainer.prototype.updateContainerHeight = function (retrigger) {
         var _this = this;
-        var config = { attributes: true, childList: true, characterData: true, subtree: true };
-        this.containerObserver = new MutationObserver(function () {
-            _this.updateContainerHeight(true);
-        });
-        this.containerObserver.observe(document, config);
+        if (this.autoResize) {
+            var child = this.getResizedChild();
+            if (child) {
+                this.containerHeight = this.getContainerHeight(child);
+                var styleHeight = this.containerHeight + 'px';
+                if (styleHeight !== this.currentStyleHeight) {
+                    this.currentStyleHeight = styleHeight;
+                    child.style.height = styleHeight;
+                    var event_1 = new CustomEvent('changed');
+                    this.element.dispatchEvent(event_1);
+                }
+            }
+            if (retrigger) {
+                setTimeout(function () { return _this.updateContainerHeight(false); }, 0);
+            }
+        }
     };
     BsResizeContainer.prototype.getResizedChild = function () {
         return this.element.children[0];
@@ -57942,6 +57975,14 @@ var BsResizeContainer = /** @class */ (function () {
         }
         return maxHeight;
     };
+    BsResizeContainer.prototype.registerObserver = function () {
+        var _this = this;
+        var config = { attributes: true, childList: true, characterData: true, subtree: true };
+        this.containerObserver = new MutationObserver(function () {
+            _this.updateContainerHeight(true);
+        });
+        this.containerObserver.observe(document, config);
+    };
     BsResizeContainer.prototype.getAbsoluteHeight = function (el) {
         el = (typeof el === 'string') ? document.querySelector(el) : el;
         var styles = window.getComputedStyle(el);
@@ -57949,23 +57990,10 @@ var BsResizeContainer = /** @class */ (function () {
             parseFloat(styles['marginBottom']);
         return Math.ceil(el.clientHeight + margin);
     };
-    BsResizeContainer.prototype.updateContainerHeight = function (retrigger) {
-        var _this = this;
-        var child = this.getResizedChild();
-        if (child) {
-            this.containerHeight = this.getContainerHeight(child);
-            var styleHeight = this.containerHeight + 'px';
-            if (styleHeight !== this.currentStyleHeight) {
-                this.currentStyleHeight = styleHeight;
-                child.style.height = styleHeight;
-                var event_1 = new CustomEvent('changed');
-                this.element.dispatchEvent(event_1);
-            }
-        }
-        if (retrigger) {
-            setTimeout(function () { return _this.updateContainerHeight(false); }, 0);
-        }
-    };
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
+    ], BsResizeContainer.prototype, "autoResize", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -59055,4 +59083,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.437d9e20ccd1d72c54bd.bundle.map
+//# sourceMappingURL=app.12055bf639895b66eff3.bundle.map
