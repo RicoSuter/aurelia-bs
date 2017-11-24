@@ -48,6 +48,13 @@ export class App {
       moduleId: PLATFORM.moduleName('../grid/grid'),
       nav: true,
       title: 'bs-grid'
+    }, {
+      route: 'grid-with-id',
+      name: 'grid-with-id',
+      settings: { icon: 'education' },
+      moduleId: PLATFORM.moduleName('../grid-with-id/grid-with-id'),
+      nav: true,
+      title: 'bs-grid (with value-path)'
     }]);
 
     this.router = router;
