@@ -55530,6 +55530,13 @@ var App = /** @class */ (function () {
                 moduleId: '../grid/grid',
                 nav: true,
                 title: 'bs-grid'
+            }, {
+                route: 'grid-with-id',
+                name: 'grid-with-id',
+                settings: { icon: 'education' },
+                moduleId: '../grid-with-id/grid-with-id',
+                nav: true,
+                title: 'bs-grid (with value-path)'
             }]);
         this.router = router;
     };
@@ -55866,6 +55873,66 @@ var Dialog = /** @class */ (function () {
 /***/ (function(module, exports) {
 
 module.exports = "<template>\r\n  <h1>Dialogs</h1>\r\n  <bs-button click.trigger=\"showAlert()\">Show alert dialog</bs-button>\r\n  <bs-button click.trigger=\"showConfirm()\">Show confirm dialog</bs-button>\r\n  <bs-button click.trigger=\"showCustom()\">Show custom dialog</bs-button>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/dialogs.md\">Docs</a>\r\n  </p>\r\n\r\n  <p style=\"padding-top: 200px\">\r\n    Opened dialogs: ${dialogService.openedDialogs.length}\r\n\r\n\r\n    <div repeat.for=\"dlg of dialogService.openedDialogs\">\r\n      ${dlg.viewModelUrl}\r\n    </div>\r\n  </p>\r\n</template>";
+
+/***/ }),
+
+/***/ "demo/grid-with-id/grid-with-id":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GridWithId", function() { return GridWithId; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__ = __webpack_require__("aurelia-framework");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var GridWithId = /** @class */ (function () {
+    function GridWithId() {
+        this.filter = '';
+        this.currentCount = 0;
+        this.data = [];
+        this.selectedItemId = undefined;
+        for (var index = 0; index < 500; index++) {
+            this.data.push({
+                itemId: index + 1,
+                date: __WEBPACK_IMPORTED_MODULE_0_moment__('2016-08-01').add(this.getRandomValue(), 'days'),
+                string: 'Lorem ' + this.getRandomValue(),
+                boolean: this.getRandomValue() > 50,
+            });
+        }
+    }
+    GridWithId.prototype.getRandomValue = function () {
+        return Math.round(Math.random() * 100);
+    };
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["p" /* observable */],
+        __metadata("design:type", Array)
+    ], GridWithId.prototype, "data", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["p" /* observable */],
+        __metadata("design:type", Object)
+    ], GridWithId.prototype, "selectedItemId", void 0);
+    return GridWithId;
+}());
+
+
+
+/***/ }),
+
+/***/ "demo/grid-with-id/grid-with-id.html":
+/***/ (function(module, exports) {
+
+module.exports = "<template>\r\n  <h1>bs-grid (example wit value-path)</h1>\r\n\r\n  <p>\r\n    Selected item ID: ${selectedItemId}\r\n  </p>\r\n\r\n  <bs-grid-filter filter.bind=\"filter\">\r\n    <bs-grid items.bind=\"data\"\r\n             value.bind=\"selectedItemId\"\r\n             filter.bind=\"filter\"\r\n             offset.bind=\"100\"\r\n             default-sort-column=\"string\"\r\n             class=\"basic\"\r\n             offset=\"100\"\r\n             selection-mode=\"single\"\r\n             value-path=\"itemId\"\r\n             item-height.bind=\"40\">\r\n      <bs-column field=\"id\"\r\n                 header=\"Id\"\r\n                 width=\"100\">\r\n        ${row.itemId}\r\n      </bs-column>\r\n      <bs-column field=\"date\"\r\n                 header=\"Date field\"\r\n                 width=\"200\">\r\n        ${row.date.format('DD.MM.YYYY')}\r\n      </bs-column>\r\n      <bs-column field=\"string\"\r\n                 row-header=\"true\"\r\n                 default-sort-order=\"desc\"\r\n                 width=\"200\">\r\n        <header>\r\n          <em>Header with markup</em>\r\n          <br> These are row-headers.\r\n        </header>\r\n      </bs-column>\r\n      <bs-column header=\"Unsortable, unsearchable boolean field\"\r\n                 field=\"boolean\"\r\n                 sortable=\"false\"\r\n                 searchable=\"false\">\r\n        <span class.bind=\"row.boolean ? 'green' : 'red'\">\r\n          ${row.boolean ? \"yes\" : \"no\"}\r\n        </span>\r\n      </bs-column>\r\n    </bs-grid>\r\n  </bs-grid-filter>\r\n\r\n  <p>\r\n    <a href=\"https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-grid.md\">Docs</a>\r\n  </p>\r\n</template>";
 
 /***/ }),
 
@@ -56800,7 +56867,14 @@ var BsGrid = /** @class */ (function (_super) {
         _this.viewCompiler = viewCompiler;
         _this.viewResources = viewResources;
         _this.loadData = undefined;
-        _this.comparer = function (a, b) { return a && a.id && b && b.id ? a.id === b.id : a === b; };
+        _this.comparer = function (selectionValue, item) {
+            if (_this.valuePath) {
+                return selectionValue && item ?
+                    selectionValue === _this.getValue(item, _this.valuePath) : false;
+            }
+            return selectionValue && selectionValue.id && item && item.id ?
+                selectionValue.id === item.id : selectionValue === item;
+        };
         /** Enables the auto resizing of the grid and shows a scroll when needed. */
         _this.autoResize = true;
         /** The offset to the bottom of the window used when autoResize is enabled. */
@@ -56841,6 +56915,7 @@ var BsGrid = /** @class */ (function (_super) {
         /** Hides the paging when there is only a single page. */
         _this.hideSinglePaging = BsGridDefaults.hideSinglePaging;
         _this.showFooter = false;
+        _this.valuePath = null;
         _this.dirty = false;
         _this.isBound = false;
         _this.refreshingGrid = false;
@@ -57265,16 +57340,16 @@ var BsGrid = /** @class */ (function (_super) {
         var _this = this;
         if (this.enabled) {
             if (this.selectionMode === SelectionMode.single) {
-                this.value = this.comparer(this.value, row) ? undefined : row;
+                var value = this.comparer(this.value, row) ? undefined : row;
+                this.value = this.valuePath ? this.getValue(value, this.valuePath) : value;
                 this.dispatchSelectionChangedEvent();
             }
             else if (this.selectionMode === SelectionMode.multiple) {
-                this.values = this.values && this.values.filter(function (a) { return _this.comparer(a, row); }).length > 0 ?
+                var values = this.values && this.values.filter(function (a) { return _this.comparer(a, row); }).length > 0 ?
                     this.values.filter(function (i) { return !_this.comparer(i, row); }) :
                     (this.values ? this.values.slice().concat([row]) : [row]);
-                this.value = this.values && this.values.length <= 1 ?
-                    this.values[0] :
-                    undefined;
+                this.values = this.valuePath ? values.map(function (v) { return _this.getValue(v, _this.valuePath); }) : values;
+                this.value = this.values && this.values.length === 1 ? this.values[0] : undefined;
                 this.dispatchSelectionChangedEvent();
             }
         }
@@ -57345,6 +57420,18 @@ var BsGrid = /** @class */ (function (_super) {
         var view = this.viewCompiler.compile(template, this.viewResources).create(this.container);
         view.bind(this);
         return view;
+    };
+    BsGrid.prototype.getValue = function (item, path) {
+        if (item) {
+            var value = item;
+            var pathArray = path.split('.');
+            for (var _i = 0, pathArray_1 = pathArray; _i < pathArray_1.length; _i++) {
+                var prop = pathArray_1[_i];
+                value = value[prop];
+            }
+            return value;
+        }
+        return null;
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
@@ -57490,6 +57577,10 @@ var BsGrid = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], BsGrid.prototype, "displayedItems", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Object)
+    ], BsGrid.prototype, "valuePath", void 0);
     BsGrid = BsGrid_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["c" /* Container */], Element, __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["d" /* ViewCompiler */], __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["e" /* ViewResources */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-grid'),
@@ -59083,4 +59174,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'form-group has-feedback' + 
 /***/ })
 
 },[165]);
-//# sourceMappingURL=app.12055bf639895b66eff3.bundle.map
+//# sourceMappingURL=app.23c31a79ad6c70c5f8e0.bundle.map
