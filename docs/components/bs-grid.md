@@ -55,7 +55,8 @@ Data can be loaded either with 'items' (in-memory data) or with 'loadData' (page
 
 - **value: any (two-way)** The currently selected item
 - **values: any[] (two-way)** The currently selected items
-- **selectionMode (none|single|multiple)** Specifies the selection mode (default: none)
+- **selectionMode (none|single|multiple) (default: none)** Specifies the selection mode 
+- **valuePath: string  (default: undefined)** Specifies the property name of the ID of the entity representing a row. This makes it possible to only bind id(s) to the value property for the selected row(s).
 
 **Appearance**
 
