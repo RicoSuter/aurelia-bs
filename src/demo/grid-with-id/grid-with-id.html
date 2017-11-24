@@ -1,8 +1,5 @@
 <template>
-  <h2>bs-label-collection</h2>
-  <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-label-collection.md">Docs</a>
-
-  <h1>bs-grid</h1>
+  <h1>bs-grid (example wit value-path)</h1>
   <bs-grid-filter filter.bind="filter">
     <bs-grid items.bind="data"
              value.bind="selectedItemId"
@@ -14,6 +11,11 @@
              selection-mode="single"
              value-path="itemId"
              item-height.bind="40">
+      <bs-column field="id"
+                 header="Id"
+                 width="100">
+        ${row.itemId}
+      </bs-column>
       <bs-column field="date"
                  header="Date field"
                  width="200">
