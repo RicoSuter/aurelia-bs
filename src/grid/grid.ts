@@ -67,7 +67,18 @@ export class BsGrid extends BsResizeContainer {
   loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
 
   @bindable
-  comparer = (a: any, b: any) => a && a.id && b && b.id ? a.id === b.id : a === b
+  comparer = (a: any, b: any) => {
+    if (this.valuePath) {
+      if (a && a[this.valuePath]) {
+        return b && b[this.valuePath] ? a[this.valuePath] === b[this.valuePath] : a[this.valuePath] === b;
+      } else if (b && b[this.valuePath]) {
+        return a === b[this.valuePath];
+      } else {
+        return a === b;
+      }
+    }
+    return a && a.id && b && b.id ? a.id === b.id : a === b;
+  }
 
   @bindable
   useScroll = true;
@@ -215,6 +226,9 @@ export class BsGrid extends BsResizeContainer {
 
   @observable
   displayedItems: any[] | undefined;
+
+  @bindable
+  valuePath: string | null = null;
 
   constructor(private container: Container,
     element: Element,
@@ -617,12 +631,24 @@ export class BsGrid extends BsResizeContainer {
   protected selectRow(row: any) {
     if (this.enabled) {
       if (this.selectionMode === SelectionMode.single) {
-        this.value = this.comparer(this.value, row) ? undefined : row;
+        let value = this.comparer(this.value, row) ? undefined : row;
+        if (this.valuePath) {
+          this.value = value ? value[this.valuePath] : undefined;
+        } else {
+          this.value = value;
+        }
         this.dispatchSelectionChangedEvent();
       } else if (this.selectionMode === SelectionMode.multiple) {
-        this.values = this.values && this.values.filter(a => this.comparer(a, row)).length > 0 ?
+        let values = this.values && this.values.filter(a => this.comparer(a, row)).length > 0 ?
           this.values.filter(i => !this.comparer(i, row)) :
           (this.values ? this.values.slice().concat([row]) : [row]);
+
+        if (this.valuePath) {
+          let path = this.valuePath;
+          this.values = values.map(v => v[path]);
+        } else {
+          this.values = values;
+        }
 
         this.value = this.values && this.values.length <= 1 ?
           this.values[0] :
