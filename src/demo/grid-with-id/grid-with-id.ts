@@ -1,6 +1,5 @@
 import * as moment from 'moment';
 import { observable } from 'aurelia-framework';
-import { BsGridDataRequest, BsGridDataResponse } from '../../index';
 
 export class GridWithId {
   filter = '';
@@ -20,12 +19,6 @@ export class GridWithId {
         string: 'Lorem ' + this.getRandomValue(),
         boolean: this.getRandomValue() > 50,
       });
-    }
-  }
-
-  selectedItemIdChanged() {
-    if (this.selectedItemId) {
-      alert('selected id changed to ' + this.selectedItemId);
     }
   }
 
