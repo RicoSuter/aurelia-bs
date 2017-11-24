@@ -6,7 +6,7 @@ import { observable } from 'aurelia-binding';
 export class BsResizeContainer {
   /** Enables the resize container. */
   @bindable
-  useScroll = true;
+  autoResize = true;
 
   @bindable
   offset = 20;
@@ -44,7 +44,7 @@ export class BsResizeContainer {
   }
 
   protected updateContainerHeight(retrigger: boolean) {
-    if (this.useScroll) {
+    if (this.autoResize) {
       let child = this.getResizedChild();
       if (child) {
         this.containerHeight = this.getContainerHeight(child);
