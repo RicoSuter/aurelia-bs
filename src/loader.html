@@ -1,12 +1,12 @@
 ﻿<template>
-  <span class="bs-loader__inline"
+  <span class="bs-loader bs-loader__inline"
         if.bind="isInline">
     <i class="fa fa-refresh fa-spin"
        title.bind="displayText"
        style.bind="inlineStyle"
        aria-hidden="true"></i>
   </span>
-  <div class="bs-loader__overlay"
+  <div class="bs-loader bs-loader__overlay"
        style.bind="overlayStyle">
     <div style.bind="loading ? 'opacity: 0.5; pointer-events: none;' : ''">
       <slot></slot>

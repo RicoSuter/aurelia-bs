@@ -1,7 +1,8 @@
 ﻿<template>
   <require from="../dialog"></require>
 
-  <bs-dialog title.bind="title">
+  <bs-dialog title.bind="title"
+             dialog-class="bs-alert-dialog">
     <div class="modal-body"
          innerhtml.bind="message">
     </div>
