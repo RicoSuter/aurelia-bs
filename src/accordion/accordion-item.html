@@ -1,7 +1,7 @@
 ﻿<template>
-  <div class.bind="'panel panel-default ' + class"
+  <div class.bind="'bs-accordion-item panel panel-default ' + class"
        id.bind="id">
-    <div class.bind="'panel-heading ' + headerClass"
+    <div class.bind="'panel-heading ' + headerClass + (selected ? ' open' : ' closed')"
          style="cursor: pointer"
          click.delegate="toggle()">
       <div style="position: relative">
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div show.bind="selected"
-         class="panel-body">
+         class.bind="'panel-body ' + (selected ? 'open' : 'closed')">
       <slot></slot>
     </div>
   </div>

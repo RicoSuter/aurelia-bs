@@ -532,7 +532,10 @@ export class BsGrid extends BsResizeContainer {
   };
 
   protected getResizedChild() {
-    return this.element.children[1] as HTMLElement;
+    if (this.element && this.element.children[0]) {
+      return this.element.children[0].children[1] as HTMLElement;
+    }
+    return undefined;
   }
 
   protected getContainerHeight(child: HTMLElement) {
