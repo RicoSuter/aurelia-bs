@@ -74,17 +74,14 @@ export class BsGrid extends BsResizeContainer {
   loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
 
   @bindable
-  comparer = (a: any, b: any) => {
+  comparer = (selectionValue: any, item: any) => {
     if (this.valuePath) {
-      if (a && a[this.valuePath]) {
-        return b && b[this.valuePath] ? a[this.valuePath] === b[this.valuePath] : a[this.valuePath] === b;
-      } else if (b && b[this.valuePath]) {
-        return a === b[this.valuePath];
-      } else {
-        return a === b;
-      }
+      return selectionValue && item ?
+        selectionValue === this.getValue(item, this.valuePath) : false;
     }
-    return a && a.id && b && b.id ? a.id === b.id : a === b;
+
+    return selectionValue && selectionValue.id && item && item.id ?
+      selectionValue.id === item.id : selectionValue === item;
   }
 
   /** Enables the auto resizing of the grid and shows a scroll when needed. */
@@ -535,10 +532,7 @@ export class BsGrid extends BsResizeContainer {
   };
 
   protected getResizedChild() {
-    if (this.element && this.element.children[0]) {
-      return this.element.children[0].children[1] as HTMLElement;
-    }
-    return undefined;
+    return this.element.children[0].children[1] as HTMLElement;
   }
 
   protected getContainerHeight(child: HTMLElement) {
@@ -632,27 +626,15 @@ export class BsGrid extends BsResizeContainer {
     if (this.enabled) {
       if (this.selectionMode === SelectionMode.single) {
         let value = this.comparer(this.value, row) ? undefined : row;
-        if (this.valuePath) {
-          this.value = value ? value[this.valuePath] : undefined;
-        } else {
-          this.value = value;
-        }
+        this.value = this.valuePath ? this.getValue(value, this.valuePath) : value;
         this.dispatchSelectionChangedEvent();
       } else if (this.selectionMode === SelectionMode.multiple) {
         let values = this.values && this.values.filter(a => this.comparer(a, row)).length > 0 ?
           this.values.filter(i => !this.comparer(i, row)) :
           (this.values ? this.values.slice().concat([row]) : [row]);
 
-        if (this.valuePath) {
-          let path = this.valuePath;
-          this.values = values.map(v => v[path]);
-        } else {
-          this.values = values;
-        }
-
-        this.value = this.values && this.values.length <= 1 ?
-          this.values[0] :
-          undefined;
+        this.values = this.valuePath ? values.map(v => this.getValue(v, this.valuePath!)) : values;
+        this.value = this.values && this.values.length === 1 ? this.values[0] : undefined;
 
         this.dispatchSelectionChangedEvent();
       }
@@ -741,6 +723,18 @@ export class BsGrid extends BsResizeContainer {
     view.bind(this);
 
     return view;
+  }
+
+  private getValue(item: any, path: string) {
+    if (item) {
+      let value = item;
+      let pathArray = path.split('.');
+      for (let prop of pathArray) {
+        value = value[prop];
+      }
+      return value;
+    }
+    return null;
   }
 }
 

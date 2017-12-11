@@ -1,5 +1,10 @@
 <template>
   <h1>bs-grid (example wit value-path)</h1>
+
+  <p>
+    Selected item ID: ${selectedItemId}
+  </p>
+
   <bs-grid-filter filter.bind="filter">
     <bs-grid items.bind="data"
              value.bind="selectedItemId"
