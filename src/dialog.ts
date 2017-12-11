@@ -24,7 +24,7 @@ export class BsDialog {
   dialog: IDialogBase;
 
   @bindable
-  dialogClass = '';
+  class = '';
 
   constructor(private dialogService: BsDialogService) {
   }
