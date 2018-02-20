@@ -6,10 +6,15 @@
                   value.bind="filter"
                   view-model.ref="filterBox"
                   enter-pressed.trigger="enterPressed()"></bs-textbox>
+      <bs-label-collection if.bind="selectionMode == 'multiple'"
+                           display-path="displayPath"
+                           values.bind="values">
+      </bs-label-collection>
       <bs-grid items.bind="items"
                value.bind="selectedItem"
+               values.bind="values"
                load-data.bind="loadData"
-               selection-mode="single"
+               selection-mode="selectionMode"
                default-sort-column.bind="defaultSortColumn"
                default-sort-order.bind="defaultSortOrder"
                filter.bind="filter"
@@ -18,13 +23,29 @@
                view-model.ref="grid">
       </bs-grid>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer"
+         if.bind="selectionMode == 'single'">
       <bs-button click.trigger="cancel()">
         ${translations.buttonCancel}
       </bs-button>
       <bs-button click.trigger="none()"
                  if.bind="!required">
         ${translations.buttonNoSelection}
+      </bs-button>
+    </div>
+    <div class="modal-footer"
+         if.bind="selectionMode == 'multiple'">
+      <bs-button click.trigger="cancel()">
+        ${translations.buttonCancel}
+      </bs-button>
+      <bs-button click.trigger="selectAll()">
+        ${translations.buttonSelectAll}
+      </bs-button>
+      <bs-button click.trigger="none()">
+        ${translations.buttonUnselectAll}
+      </bs-button>
+      <bs-button click.trigger="ok()">
+        ${translations.buttonOk}
       </bs-button>
     </div>
   </bs-dialog>

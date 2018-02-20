@@ -1,6 +1,7 @@
 <template>
-  <div class.bind="'bs-select-grid form-group has-feedback' + (errors.length ? ' has-error' : '')">
-    <div click.trigger="showPicker()"
+  <div class.bind="'bs-select-grid'  + (selectionMode == 'multiple' ? ' bs-select-grid-multiple' : '') + ' form-group has-feedback' + (errors.length ? ' has-error' : '')">
+    <div if.bind="selectionMode == 'single'"
+         click.trigger="showPicker()"
          style.bind="enabled ? 'cursor: pointer' : ''">
       <label class="control-label"
              if.bind="label !== ''"
@@ -12,6 +13,17 @@
            keypress.delegate="keyPressed($event)"
            ref="controlElement">
         ${value ? (displayPath ? getValue(value, displayPath) : value) : translations.select}&nbsp;
+      </div>
+      <div if.bind="selectionMode == 'multiple'"
+           id.bind="id"
+           tabindex="0"
+           keypress.delegate="keyPressed($event)">
+        <bs-label-collection display-path="displayPath"
+                             values.bind="values">
+        </bs-label-collection>
+        <bs-button>
+
+        </bs-button>
       </div>
     </div>
 
