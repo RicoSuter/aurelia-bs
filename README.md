@@ -6,6 +6,8 @@ This project provides Bootstrap UI v3 (CSS framework) components for Aurelia JS.
 
 ## [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
 
+** We open-sourced our internally implemented Aurelia JS components so that everyone can use and improve them. We would be very glad if you contribute your own components, improvements and bug fixes.**
+
 ## Installation
 
 1. Create Aurelia project (webpack based, here sample with ASP.NET Core): 
