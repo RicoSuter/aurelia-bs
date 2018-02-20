@@ -35,7 +35,7 @@ export class BsLabelCollection extends BsValidationComponent {
   @bindable
   sortOrder: undefined | 'asc' | 'desc' = undefined;
 
-  @computedFrom('values')
+  @computedFrom('values', 'sortOrder', 'orderBy')
   get sortedValues() {
     if (this.orderBy) {
       return [...this.values].sort((a, b) => this.sort(a, b));
