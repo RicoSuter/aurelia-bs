@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    Aurelia Navigation Skeleton
+  </title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <base href="https://rawgit.com/RSuter/aurelia-bs/master/demo/">
+<link href="https://rawgit.com/RSuter/aurelia-bs/master/demo/e719f719e40829220f80d873ff9a6767.css" rel="stylesheet"></head>
+
+<body>
+  <div aurelia-app="main"></div>
+  
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+      <script>
+        if (window.location.search.indexOf('css=mdb') !== -1) {
+          var tag = document.createElement('link');
+          tag.setAttribute('rel', 'stylesheet');
+          tag.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css');
+          document.body.appendChild(tag);
+
+          var tag = document.createElement('script');
+          tag.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js');
+          document.body.appendChild(tag);
+        } else if (window.location.search.indexOf('css=flatui') !== -1 || !window.location.search) {
+          var tag = document.createElement('link');
+          tag.setAttribute('rel', 'stylesheet');
+          tag.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css');
+          document.body.appendChild(tag);
+        }
+      </script>
+
+      <style type="text/css">
+        html {
+          font-size: 100%;
+          overflow-y: scroll;
+        }
+
+        .bs-tab-panel {
+          margin-top: -3px
+        }
+
+        select {
+          height: 40px !important;
+        }
+
+        .checkbox {
+          margin-left: 0px;
+          padding-left: 30px;
+        }
+
+        .custom-checkbox {
+          margin-left: -30px !important;
+        }
+
+        .checkbox input {
+          margin-left: 30px;
+        }
+
+        button {
+          margin-left: 0px !important;
+        }
+
+        .selected {
+          background: lightgray;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+
+        h3 {
+          font-size: 16px;
+        }
+
+        h4 {
+          font-size: 12px;
+        }
+      </style>
+<script type="text/javascript" src="https://rawgit.com/RSuter/aurelia-bs/master/demo/common.e920a2e5b438a29849df.bundle.js"></script><script type="text/javascript" src="https://rawgit.com/RSuter/aurelia-bs/master/demo/app.35629ffcbf4fb42b3e5a.bundle.js"></script><script type="text/javascript" src="https://rawgit.com/RSuter/aurelia-bs/master/demo/vendor.5a331f45a9fec822acd5.bundle.js"></script></body>
+
+</html>

@@ -68,7 +68,7 @@ export class BsSelect extends BsValidationComponent {
   }
 
   @computedFrom('multiple', 'required', 'value', 'items')
-  private get renderNullOption() {
+  get renderNullOption() {
     if (this.multiple)
       return false;
 
