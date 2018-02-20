@@ -38,7 +38,7 @@ export class BsLabelCollection extends BsValidationComponent {
   @computedFrom('values')
   get sortedValues() {
     if (this.orderBy) {
-      return this.values.sort((a, b) => this.sort(a, b));
+      return [...this.values].sort((a, b) => this.sort(a, b));
     }
     return this.values;
   }
@@ -63,7 +63,8 @@ export class BsLabelCollection extends BsValidationComponent {
   }
 
   private sort(objA: any, objB: any) {
-    let asc = this.sortOrder == 'asc';
+    let asc = this.sortOrder != 'desc';
+    console.log(asc);
     let a = this.getValue(objA, this.orderBy);
     let b = this.getValue(objB, this.orderBy);
     if (!a && !b)
