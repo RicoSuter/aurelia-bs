@@ -64,9 +64,9 @@ export class BsLabelCollection extends BsValidationComponent {
 
   private sort(objA: any, objB: any) {
     let asc = this.sortOrder != 'desc';
-    console.log(asc);
     let a = this.getValue(objA, this.orderBy);
     let b = this.getValue(objB, this.orderBy);
+
     if (!a && !b)
       return 0;
     if (!a)
