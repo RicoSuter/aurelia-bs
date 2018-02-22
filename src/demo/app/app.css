@@ -7,7 +7,7 @@
     
 }
 
-.bs-grid tr.marked {
+.bs-grid tr.focus {
     border: 2px solid red;
     margin: -2px;
 }
