@@ -70,8 +70,6 @@ export class BsGrid extends BsResizeContainer {
    */
   public static LOCALE: string;
 
-  private static activeGrid: BsGrid | undefined = undefined;
-
   @bindable
   loadData: ((request: BsGridDataRequest) => Promise<BsGridDataResponse>) | undefined = undefined;
 
