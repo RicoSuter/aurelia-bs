@@ -42,7 +42,10 @@ export let BsGridDefaults = {
   hideUnfilteredCounter: false,
 
   /** Hides the paging when there is only a single page. */
-  hideSinglePaging: false
+  hideSinglePaging: false,
+
+  /** Activates Keyboard events of grid.**/
+  useKeyEvents: false,
 };
 
 /**
@@ -229,9 +232,9 @@ export class BsGrid extends BsResizeContainer {
   valuePath: string | null = null;
 
   @bindable
-  useKeyEvents: boolean = false;
+  useKeyEvents: boolean = BsGridDefaults.useKeyEvents;
 
-  keydownCallback: any;
+  private keydownCallback: any;
 
   private keyboardTimeout: any;
 
