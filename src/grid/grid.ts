@@ -330,7 +330,7 @@ export class BsGrid extends BsResizeContainer {
           await this.goToLastItem();
           event.preventDefault();
           return;
-        case 13:
+        case 32:
           this.selectMarkedItem();
           event.preventDefault();
           return;
@@ -843,6 +843,26 @@ export class BsGrid extends BsResizeContainer {
     return false;
   }
 
+  protected getRowClasses(selectedItem: any, selectedItems: any[], item: any) {
+    let rowClasses = '';
+    if (this.isSelected(selectedItem, selectedItems, item)) {
+      rowClasses += 'selected';
+    }
+    if (this.isMarked(item)) {
+      if (rowClasses) {
+        rowClasses += ' ';
+      }
+      rowClasses += 'marked';
+    }
+    if (this.rowClass) {
+      if (rowClasses) {
+        rowClasses += ' ';
+      }
+      rowClasses += this.rowClass;
+    }
+    return rowClasses;
+  }
+
   private compileRowTemplate(columns: BsColumn[]) {
     if (this.body.viewSlot) {
       let rowClass = this.element.getAttribute('row-class.bind');
@@ -853,7 +873,7 @@ export class BsGrid extends BsResizeContainer {
       row.setAttribute('repeat.for', 'row of displayedItems');
       row.setAttribute('click.trigger', 'selectRow(row)');
       row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
-      row.setAttribute('class.bind', `isSelected(value, values, row) ? (isMarked(row) ? ('selected marked ' + (` + rowClass + `)) : ('selected ' + (` + rowClass + `))) : (isMarked(row) ? ('marked ' + (` + rowClass + `)) : (` + rowClass + `))`);
+      row.setAttribute('class.bind', `getRowClasses(value, values, row)`);
 
       let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
         const el = column.rowHeader ? 'th' : 'td';
