@@ -65,6 +65,7 @@ export let BsGridDefaults = {
 @inject(Container, Element, ViewCompiler, ViewResources)
 @customElement('bs-grid')
 export class BsGrid extends BsResizeContainer {
+
   /**
    * Defines the locale to use for sorting strings, defaults to browser default.
    */
@@ -232,10 +233,14 @@ export class BsGrid extends BsResizeContainer {
 
   keydownCallback: any;
 
+  private keyboardTimeout: any;
+
   @observable
   private keyboardRowIndex: number | undefined = undefined;
 
   private justSelectedIndex: number | undefined = undefined;
+
+  private hideKeyboardRowMark: boolean = false;
 
   constructor(private container: Container,
     element: Element,
@@ -277,8 +282,12 @@ export class BsGrid extends BsResizeContainer {
   }
 
   focus() {
-    if (this.element.children[0].tagName == 'div') {
-      (<HTMLDivElement>this.element.children[0]).focus();
+    if (this.useKeyEvents) {
+      if (this.element.children[0].tagName == 'div') {
+        if (document.activeElement !== this.element.children[0]) {
+          (<HTMLDivElement>this.element.children[0]).focus();
+        }
+      }
     }
   }
 
@@ -406,8 +415,14 @@ export class BsGrid extends BsResizeContainer {
   }
 
   keyboardRowIndexChanged() {
+    this.hideKeyboardRowMark = false;
+    clearTimeout(this.keyboardTimeout);
     this.justSelectedIndex = undefined;
     this.columns[0].propertyChanged();
+    this.keyboardTimeout = setTimeout(() => {
+      this.hideKeyboardRowMark = true;
+      this.columns[0].propertyChanged();
+    }, 5000)
   }
 
   detached() {
@@ -819,7 +834,7 @@ export class BsGrid extends BsResizeContainer {
   }
 
   protected isMarked(item: any) {
-    if (this.keyboardRowIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardRowIndex]) {
+    if (this.useKeyEvents && !this.hideKeyboardRowMark && this.keyboardRowIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardRowIndex]) {
       return this.comparer(this.displayedItems[this.keyboardRowIndex], item);
     }
     return false;
