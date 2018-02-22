@@ -3,4 +3,10 @@
     .body-content {
         padding-top: 50px;
     }
+
+    
+}
+
+.marked {
+    border: 2px solid red;
 }
