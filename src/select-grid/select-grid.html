@@ -16,7 +16,7 @@
         </div>
         <div if.bind="selectionMode == 'multiple'">
           <bs-label-collection if.bind="values && values.length > 0"
-                               display-path="displayPath"
+                               display-path.bind="displayPath"
                                values.bind="values">
           </bs-label-collection>
           <span if.bind="!values || values.length === 0">${translations.select}</span>

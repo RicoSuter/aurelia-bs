@@ -52,7 +52,7 @@ export class BsSelectGridDialog extends DialogBase {
   value: any | null | undefined = undefined;
 
   @observable
-  values: any[] = [];
+  values: any[] | null | undefined = undefined;
 
   grid: BsGrid;
   filterBox: BsTextbox;
@@ -71,6 +71,9 @@ export class BsSelectGridDialog extends DialogBase {
   @observable
   selectionMode: SelectionMode;
 
+  @observable
+  displayPath: string | null = null;
+
   activate(selectGrid: BsSelectGrid) {
     this.title = selectGrid.label;
     this.items = selectGrid.items;
@@ -81,6 +84,8 @@ export class BsSelectGridDialog extends DialogBase {
     this.defaultSortColumn = selectGrid.defaultSortColumn;
     this.defaultSortOrder = selectGrid.defaultSortOrder;
     this.selectionMode = selectGrid.selectionMode;
+    this.displayPath = selectGrid.displayPath;
+    this.values = selectGrid.values;
   }
 
   attached() {
@@ -95,10 +100,14 @@ export class BsSelectGridDialog extends DialogBase {
     if (this.selectionMode === SelectionMode.multiple) {
       if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
         let value = this.grid.displayedItems[0];
-        if (this.values.find(v => v === value)) {
-          this.values = this.values.filter(v => v !== value);
+        if (this.values) {
+          if (this.values.find(v => v === value)) {
+            this.values = this.values.filter(v => v !== value);
+          } else {
+            this.values.push(value);
+          }
         } else {
-          this.values.push(value);
+          this.values = [value];
         }
       }
     } else {
@@ -129,7 +138,8 @@ export class BsSelectGridDialog extends DialogBase {
 
   cancel() {
     if (this.selectionMode === SelectionMode.multiple) {
-      this.values = [];
+      this.values = undefined;
+      this.close();
     } else {
       this.value = undefined;
       this.close();

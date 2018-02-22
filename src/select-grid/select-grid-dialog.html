@@ -6,10 +6,12 @@
                   value.bind="filter"
                   view-model.ref="filterBox"
                   enter-pressed.trigger="enterPressed()"></bs-textbox>
+
       <bs-label-collection if.bind="selectionMode == 'multiple'"
-                           display-path="displayPath"
+                           display-path.bind="displayPath"
                            values.bind="values">
       </bs-label-collection>
+
       <bs-grid items.bind="items"
                value.bind="value"
                values.bind="values"
@@ -23,6 +25,7 @@
                view-model.ref="grid">
       </bs-grid>
     </div>
+
     <div class="modal-footer"
          if.bind="selectionMode == 'single'">
       <bs-button click.trigger="cancel()">
@@ -33,6 +36,7 @@
         ${translations.buttonNoSelection}
       </bs-button>
     </div>
+
     <div class="modal-footer"
          if.bind="selectionMode == 'multiple'">
       <bs-button click.trigger="cancel()">

@@ -77,7 +77,9 @@ export class BsSelectGrid extends BsValidationComponent {
         return this.dialogService.show<BsSelectGridDialog>('select-grid/select-grid-dialog', this);
       }).then((dialog: BsSelectGridDialog) => {
         if (this.selectionMode === SelectionMode.multiple) {
-          this.values = dialog.values;
+          if (dialog.values !== undefined) {
+            this.values = dialog.values;
+          }
         } else if (dialog.value !== undefined) {
           this.value = dialog.value;
         }
