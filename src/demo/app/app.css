@@ -3,11 +3,9 @@
     .body-content {
         padding-top: 50px;
     }
-
-    
 }
 
 .bs-grid tr.focus {
     border: 2px solid red;
-    margin: -2px;
+    margin: -4px;
 }

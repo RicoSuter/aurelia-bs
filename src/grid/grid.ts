@@ -286,7 +286,7 @@ export class BsGrid extends BsResizeContainer {
 
   focus() {
     if (this.useKeyEvents) {
-      if (this.element.children[0].tagName == 'div') {
+      if (this.element.children[0].tagName === 'div') {
         if (document.activeElement !== this.element.children[0]) {
           (<HTMLDivElement>this.element.children[0]).focus();
         }
@@ -351,18 +351,19 @@ export class BsGrid extends BsResizeContainer {
       this.selectRow(this.displayedItems[this.keyboardFocusIndex]);
     }
   }
+
   async focusOnPreviousItem() {
-    if (this.justSelectedIndex != undefined) {
+    if (this.justSelectedIndex !== undefined) {
       this.keyboardFocusIndex = this.justSelectedIndex;
     }
 
-    if (this.keyboardFocusIndex == undefined) {
+    if (this.keyboardFocusIndex === undefined) {
       this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
     } else {
       if (this.keyboardFocusIndex > 0) {
         this.keyboardFocusIndex -= 1;
       } else {
-        if (this.currentPage != 0) {
+        if (this.currentPage !== 0) {
           await this.showPage(this.currentPage - 1);
           this.keyboardFocusIndex = this.pageSize - 1;
         }
@@ -371,11 +372,11 @@ export class BsGrid extends BsResizeContainer {
   }
 
   async focusOnNextItem() {
-    if (this.justSelectedIndex != undefined) {
+    if (this.justSelectedIndex !== undefined) {
       this.keyboardFocusIndex = this.justSelectedIndex;
     }
 
-    if (this.keyboardFocusIndex == undefined) {
+    if (this.keyboardFocusIndex === undefined) {
       this.keyboardFocusIndex = 0;
     } else {
       if (this.displayedItems && this.keyboardFocusIndex + 1 < this.displayedItems.length) {
@@ -393,6 +394,7 @@ export class BsGrid extends BsResizeContainer {
     if (this.currentPage > 0) {
       await this.showPage(this.currentPage - 1);
     }
+
     this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
   }
 
@@ -400,32 +402,36 @@ export class BsGrid extends BsResizeContainer {
     if (this.currentPage < this.pageCount) {
       await this.showPage(this.currentPage + 1);
     }
+
     this.keyboardFocusIndex = 0;
   }
 
   async goToFirstItem() {
-    if (this.currentPage != 0) {
+    if (this.currentPage !== 0) {
       await this.showPage(0);
     }
+
     this.keyboardFocusIndex = 0;
   }
 
   async goToLastItem() {
-    if (this.currentPage != this.pageCount - 1) {
+    if (this.currentPage !== this.pageCount - 1) {
       await this.showPage(this.pageCount - 1);
     }
+
     this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
   }
 
-  keyboardRowIndexChanged() {
+  keyboardFocusIndexChanged() {
     this.hideKeyboardFocus = false;
     clearTimeout(this.keyboardFocusTimeout);
+
     this.justSelectedIndex = undefined;
     this.columns[0].propertyChanged();
     this.keyboardFocusTimeout = setTimeout(() => {
       this.hideKeyboardFocus = true;
       this.columns[0].propertyChanged();
-    }, 5000)
+    }, 5000);
   }
 
   detached() {
@@ -944,7 +950,6 @@ export class BsGrid extends BsResizeContainer {
   }
 
   private elementOrChildIsActiveElement(element: Element): boolean {
-
     if (document.activeElement === element) {
       return true;
     }
