@@ -40,6 +40,7 @@
 - **defaultSortOrder (undefined|asc|desc)** Defines the sort order of the initially sorted column (when undefined uses BsColumn.defaultSortOrder of the defaultSortColumn)
 - **sortable** Specifies whether the sorting in the grid can be changed by the user
 - **autoInit (default: true)**
+- **useKeyEvents (default: false)** Activates keyboard events on grid if set to true 
 
 **Data retrieval**
 
