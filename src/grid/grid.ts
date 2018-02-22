@@ -273,8 +273,7 @@ export class BsGrid extends BsResizeContainer {
       this.processColumns();
       this.refreshInternal();
     });
-    this.useKeyEventsChanged(this.useKeyEvents, false)
-    this.element.addEventListener('focus', () => { alert('focus on grid'); });
+    this.useKeyEventsChanged(this.useKeyEvents, false);
   }
 
   focus() {
