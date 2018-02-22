@@ -11,10 +11,10 @@
                            values.bind="values">
       </bs-label-collection>
       <bs-grid items.bind="items"
-               value.bind="selectedItem"
+               value.bind="value"
                values.bind="values"
                load-data.bind="loadData"
-               selection-mode="selectionMode"
+               selection-mode.bind="selectionMode"
                default-sort-column.bind="defaultSortColumn"
                default-sort-order.bind="defaultSortOrder"
                filter.bind="filter"

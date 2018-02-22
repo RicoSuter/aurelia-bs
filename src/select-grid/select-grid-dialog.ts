@@ -49,7 +49,7 @@ export class BsSelectGridDialog extends DialogBase {
   required: boolean;
 
   @observable
-  selectedItem: any | null | undefined = undefined;
+  value: any | null | undefined = undefined;
 
   @observable
   values: any[] = [];
@@ -92,58 +92,52 @@ export class BsSelectGridDialog extends DialogBase {
   }
 
   enterPressed() {
-    if (this.selectionMode == SelectionMode.multiple) {
+    if (this.selectionMode === SelectionMode.multiple) {
       if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
         let value = this.grid.displayedItems[0];
-        if (this.values.find(v => v == value)) {
-          this.values = this.values.filter(v => v != value);
+        if (this.values.find(v => v === value)) {
+          this.values = this.values.filter(v => v !== value);
         } else {
           this.values.push(value);
         }
       }
     } else {
       if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
-        this.selectedItem = this.grid.displayedItems[0];
+        this.value = this.grid.displayedItems[0];
         this.close();
       }
     }
 
   }
 
-  selectedItemChanged() {
-    if (this.selectionMode == SelectionMode.multiple) {
-      if (this.values.find(v => v == this.selectedItem)) {
-        this.values = this.values.filter(v => v != this.selectedItem);
-      } else {
-        this.values.push(this.selectedItem);
-      }
-    } else {
-      if (this.selectedItem) {
+  valueChanged() {
+    if (this.selectionMode === SelectionMode.single) {
+      if (this.value) {
         this.close();
       }
     }
   }
 
   none() {
-    if (this.selectionMode == SelectionMode.multiple) {
+    if (this.selectionMode === SelectionMode.multiple) {
       this.values = [];
     } else {
-      this.selectedItem = null;
+      this.value = null;
       this.close();
     }
   }
 
   cancel() {
-    if (this.selectionMode == SelectionMode.multiple) {
+    if (this.selectionMode === SelectionMode.multiple) {
       this.values = [];
     } else {
-      this.selectedItem = undefined;
+      this.value = undefined;
       this.close();
     }
   }
 
   selectAll() {
-    if (this.selectionMode == SelectionMode.multiple) {
+    if (this.selectionMode === SelectionMode.multiple) {
       this.values = this.grid.items;
     }
   }
