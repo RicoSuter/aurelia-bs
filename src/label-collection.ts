@@ -43,8 +43,12 @@ export class BsLabelCollection extends BsValidationComponent {
     return this.values;
   }
 
-  removeValue(value: any) {
+  removeValue(value: any, event?: KeyboardEvent) {
     this.values = this.values.filter(i => i !== value);
+    if (event) {
+      event.cancelBubble = true;
+      event.preventDefault();
+    }
   }
 
   itemsChanged() {
@@ -63,7 +67,7 @@ export class BsLabelCollection extends BsValidationComponent {
   }
 
   private sort(objA: any, objB: any) {
-    let asc = this.sortOrder != 'desc';
+    let asc = this.sortOrder !== 'desc';
     let a = this.getValue(objA, this.orderBy);
     let b = this.getValue(objB, this.orderBy);
 
@@ -73,7 +77,7 @@ export class BsLabelCollection extends BsValidationComponent {
       return asc ? -1 : 1;
     if (!b)
       return asc ? 1 : -1;
-    if (typeof a == 'number' && typeof (b) == 'number') {
+    if (typeof a === 'number' && typeof (b) === 'number') {
       if (a > b)
         return asc ? 1 : -1;
       if (a < b)
