@@ -279,29 +279,21 @@ export class BsGrid extends BsResizeContainer {
     this.element.addEventListener('focus', () => { alert('focus on grid'); });
   }
 
+  focus() {
+    if (this.element.children[0].tagName == 'div') {
+      (<HTMLDivElement>this.element.children[0]).focus();
+    }
+  }
+
   useKeyEventsChanged(value: boolean, oldValue: boolean) {
     if (value) {
-      if (BsGrid.activeGrid === undefined) {
-        BsGrid.activeGrid = this;
-      }
       window.addEventListener('keydown', this.keydownCallback, false);
     } else if (oldValue) {
       window.removeEventListener('keydown', this.keydownCallback);
     }
   }
-
-  focus() {
-    BsGrid.activeGrid = this;
-  }
-
-  isFocused() {
-    return BsGrid.activeGrid === this;
-  }
-
   async keydownHandler(event: KeyboardEvent) {
-    console.log(this.element);
-    console.log(document.activeElement);
-    if (this.isFocused() && this.useKeyEvents) {
+    if (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents) {
       switch (event.keyCode) {
         case 33:
         case 37:
@@ -914,6 +906,21 @@ export class BsGrid extends BsResizeContainer {
       return value;
     }
     return null;
+  }
+
+  private elementOrChildIsActiveElement(element: Element): boolean {
+
+    if (document.activeElement === element) {
+      return true;
+    }
+
+    for (let i = 0; i < element.children.length; i++) {
+      if (this.elementOrChildIsActiveElement(element.children[i])) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 
