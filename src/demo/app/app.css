@@ -6,6 +6,9 @@
 }
 
 .bs-grid tr.focus {
-    border: 2px solid red;
-    margin: -4px;
+    background-color: rgba(65,137,199, 0.5)
+}
+
+.bs-grid tr.focus.selected {
+    background-color: rgba(85, 124, 159, 0.5)
 }
