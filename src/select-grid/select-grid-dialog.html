@@ -3,7 +3,7 @@
              class="bs-select-grid-dialog">
     <div class="modal-body">
       <bs-textbox placeholder="Filter"
-                  tabindex="tabindex"
+                  tabindex.bind="tabindex"
                   value.bind="filter"
                   view-model.ref="filterBox"
                   enter-pressed.trigger="enterPressed()"></bs-textbox>
