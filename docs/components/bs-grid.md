@@ -40,7 +40,17 @@
 - **defaultSortOrder (undefined|asc|desc)** Defines the sort order of the initially sorted column (when undefined uses BsColumn.defaultSortOrder of the defaultSortColumn)
 - **sortable** Specifies whether the sorting in the grid can be changed by the user
 - **autoInit (default: true)**
-- **useKeyEvents (default: false)** Activates keyboard events on grid if set to true 
+- **useKeyEvents (default: false)** Activates keyboard events on grid if set to true. To show the row in focus by the keyboard navigation, you have to style the row class 'focus' in your css.
+
+```css
+.bs-grid tr.focus {
+    background-color: rgba(65,137,199, 0.5);
+}
+
+.bs-grid tr.focus.selected {
+    background-color: rgba(85, 124, 159, 0.5);
+}
+``` 
 
 **Data retrieval**
 
