@@ -12,6 +12,7 @@
 
 - filter (two-way)
 - showFilter
+- tabindex
 
 ## Methods
 

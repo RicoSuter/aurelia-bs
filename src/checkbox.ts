@@ -10,6 +10,9 @@ export class BsCheckbox extends BsValidationComponent {
   id = createComponentId();
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })

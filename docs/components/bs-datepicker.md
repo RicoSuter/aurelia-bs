@@ -14,6 +14,7 @@
 - readonly
 - help
 - required
+- tabindex
 
 ## Methods
 

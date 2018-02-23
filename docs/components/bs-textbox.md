@@ -16,6 +16,7 @@
 - help
 - rows
 - style
+- tabindex
 
 ## Methods
 

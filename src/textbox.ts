@@ -18,6 +18,9 @@ export class BsTextbox extends BsValidationComponent {
   private element: HTMLInputElement;
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })

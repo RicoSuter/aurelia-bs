@@ -11,16 +11,19 @@
         ${description === null ? translations.noItemSelected : description.name}
       </p>
 
-      <bs-button click.trigger="select()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="select()">
         Select
       </bs-button>
       &nbsp;
-      <bs-button if.bind="description !== null"
+      <bs-button tabindex.bind="tabindex"
+                 if.bind="description !== null"
                  click.trigger="clear()">
         Clear
       </bs-button>
 
       <input ref="fileInput"
+             tabindex.bind="tabindex"
              style="display: none"
              type="file"
              accept.bind="accept"

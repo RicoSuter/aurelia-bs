@@ -10,6 +10,9 @@ export class BsSearchbox {
   private inputElement: HTMLInputElement;
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })

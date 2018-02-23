@@ -9,6 +9,9 @@ export class BsButton {
   placeholder = '';
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   @convert(BooleanConverter)
   enabled = true;
 

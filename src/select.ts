@@ -21,6 +21,9 @@ export class BsSelect extends BsValidationComponent {
   translations = translations[BsSettings.language];
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })

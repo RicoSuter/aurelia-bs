@@ -24,6 +24,9 @@ export class BsSelectGrid extends BsValidationComponent {
   translations = translations[BsSettings.language];
 
   id = createComponentId();
+
+  @bindable
+  tabindex: number = 0;
   controlElement: HTMLDivElement;
 
   @children('bs-column')
@@ -66,6 +69,9 @@ export class BsSelectGrid extends BsValidationComponent {
 
   @bindable
   selectionMode: SelectionMode = SelectionMode.single;
+
+  @bindable
+  useKeyEvents: boolean = BsGridDefaults.useKeyEvents;
 
   constructor(private dialogService: BsDialogService) {
     super();

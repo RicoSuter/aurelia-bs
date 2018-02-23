@@ -74,6 +74,12 @@ export class BsSelectGridDialog extends DialogBase {
   @observable
   displayPath: string | null = null;
 
+  @observable
+  tabindex: number = 0;
+
+  @observable
+  useKeyEvents: boolean;
+
   activate(selectGrid: BsSelectGrid) {
     this.title = selectGrid.label;
     this.items = selectGrid.items;
@@ -86,6 +92,8 @@ export class BsSelectGridDialog extends DialogBase {
     this.selectionMode = selectGrid.selectionMode;
     this.displayPath = selectGrid.displayPath;
     this.values = selectGrid.values;
+    this.tabindex = selectGrid.tabindex;
+    this.useKeyEvents = selectGrid.useKeyEvents;
   }
 
   attached() {

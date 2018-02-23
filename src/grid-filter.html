@@ -15,6 +15,7 @@
     <div show.bind="showFilter"
          class="bs-grid-filter-searchbox">
       <bs-textbox placeholder="Filter"
+                  tabindex.bind="tabindex"
                   value.bind="filter"
                   enter-pressed.trigger="toggleFilter()"
                   view-model.ref="filterBox"></bs-textbox>
