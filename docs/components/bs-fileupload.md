@@ -14,6 +14,7 @@
 - enabled
 - readonly
 - accept
+- tabindex
 
 ## Methods
 

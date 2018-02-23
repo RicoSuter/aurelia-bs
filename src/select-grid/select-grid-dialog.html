@@ -3,6 +3,7 @@
              class="bs-select-grid-dialog">
     <div class="modal-body">
       <bs-textbox placeholder="Filter"
+                  tabindex="tabindex"
                   value.bind="filter"
                   view-model.ref="filterBox"
                   enter-pressed.trigger="enterPressed()"></bs-textbox>
@@ -13,6 +14,7 @@
       </bs-label-collection>
 
       <bs-grid items.bind="items"
+               tabindex.bind="tabindex"
                value.bind="value"
                values.bind="values"
                load-data.bind="loadData"
@@ -22,16 +24,19 @@
                filter.bind="filter"
                height.bind="400"
                class="basic"
+               use-key-events.bind="useKeyEvents"
                view-model.ref="grid">
       </bs-grid>
     </div>
 
     <div class="modal-footer"
          if.bind="selectionMode == 'single'">
-      <bs-button click.trigger="cancel()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="cancel()">
         ${translations.buttonCancel}
       </bs-button>
-      <bs-button click.trigger="none()"
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="none()"
                  if.bind="!required">
         ${translations.buttonNoSelection}
       </bs-button>
@@ -39,16 +44,20 @@
 
     <div class="modal-footer"
          if.bind="selectionMode == 'multiple'">
-      <bs-button click.trigger="cancel()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="cancel()">
         ${translations.buttonCancel}
       </bs-button>
-      <bs-button click.trigger="selectAll()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="selectAll()">
         ${translations.buttonSelectAll}
       </bs-button>
-      <bs-button click.trigger="none()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="none()">
         ${translations.buttonUnselectAll}
       </bs-button>
-      <bs-button click.trigger="ok()">
+      <bs-button tabindex.bind="tabindex"
+                 click.trigger="ok()">
         ${translations.buttonOk}
       </bs-button>
     </div>

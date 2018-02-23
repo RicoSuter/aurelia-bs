@@ -12,6 +12,7 @@
 - enabled
 - primary
 - class
+- tabindex
 
 ## Events
 

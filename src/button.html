@@ -1,5 +1,7 @@
 ﻿<template>
-  <button class.bind="'bs-button btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class"
+  <button tabindex.bind="tabindex"
+          class.bind="'bs-button btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class"
+
           disabled.bind="enabled ? null : 'disabled'"
           click.trigger="onClick()">
     <slot></slot>

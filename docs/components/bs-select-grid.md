@@ -17,6 +17,7 @@
 - enabled
 - required
 - Plus the same properties as [bs-grid](bs-grid.md)
+- tabindex
 
 ## Methods
 

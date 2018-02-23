@@ -28,6 +28,9 @@ export class BsDatepicker extends BsValidationComponent {
   private updating = false;
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay })

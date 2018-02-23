@@ -12,3 +12,4 @@
 - value (two-way)
 - enabled
 - readonly
+- tabindex

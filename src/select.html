@@ -6,6 +6,7 @@
     </label>
     <select class="form-control"
             change.trigger="onChange($event)"
+            tabindex.bind="tabindex"
             ref="select"
             style.bind="height ? 'height: ' + height + 'px !important' : ''"
             multiple.bind="multiple ? 'multiple' : null"

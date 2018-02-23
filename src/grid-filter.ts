@@ -17,6 +17,9 @@ export class BsGridFilter {
   @observable
   showFilter = false;
 
+  @bindable
+  tabindex: number = 0;
+
   toggleFilter() {
     this.showFilter = !this.showFilter;
     if (this.showFilter) {

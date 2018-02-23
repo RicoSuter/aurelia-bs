@@ -10,6 +10,7 @@
     <div class="input-group date"
          ref="element">
       <input type="text"
+             tabindex.bind="tabindex"
              class="form-control"
              placeholder.bind="!value && !required ? translations.noValue : translations.select"
              disabled.bind="enabled === false ? 'disabled' : undefined">

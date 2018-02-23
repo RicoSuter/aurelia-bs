@@ -26,6 +26,9 @@ export class BsFileUpload extends BsValidationComponent {
   translations = translations[BsSettings.language];
 
   @bindable
+  tabindex: number = 0;
+
+  @bindable
   label = '';
 
   @bindable({ defaultBindingMode: bindingMode.twoWay }) // TODO: Must be one-way-back

@@ -15,6 +15,7 @@
 - readonly
 - button
 - allowEmpty
+- tabindex
 
 ## Events
 
