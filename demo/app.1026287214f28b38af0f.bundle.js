@@ -55596,6 +55596,7 @@ var BsButton = /** @class */ (function () {
     function BsButton(element) {
         this.element = element;
         this.placeholder = '';
+        this.tabindex = 0;
         this.enabled = true;
         this.primary = false;
         this.class = '';
@@ -55611,6 +55612,10 @@ var BsButton = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
     ], BsButton.prototype, "placeholder", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsButton.prototype, "tabindex", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         Object(__WEBPACK_IMPORTED_MODULE_1__convert__["c" /* convert */])(__WEBPACK_IMPORTED_MODULE_1__convert__["a" /* BooleanConverter */]),
@@ -55641,7 +55646,7 @@ var BsButton = /** @class */ (function () {
 /***/ "button.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <button class.bind=\"'bs-button btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class\"\r\n          disabled.bind=\"enabled ? null : 'disabled'\"\r\n          click.trigger=\"onClick()\">\r\n    <slot></slot>\r\n  </button>\r\n</template>";
+module.exports = "<template>\r\n  <button tabindex.bind=\"tabindex\"\r\n          class.bind=\"'bs-button btn ' + (enabled ? '' : 'disabled ') + (primary ? 'btn-primary ' : 'btn-default ') + ' ' + class\"\r\n\r\n          disabled.bind=\"enabled ? null : 'disabled'\"\r\n          click.trigger=\"onClick()\">\r\n    <slot></slot>\r\n  </button>\r\n</template>";
 
 /***/ }),
 
@@ -55683,12 +55688,17 @@ var BsCheckbox = /** @class */ (function (_super) {
     function BsCheckbox() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
+        _this.tabindex = 0;
         _this.label = '';
         _this.value = false;
         _this.enabled = true;
         _this.readonly = false;
         return _this;
     }
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsCheckbox.prototype, "tabindex", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -55721,7 +55731,7 @@ var BsCheckbox = /** @class */ (function (_super) {
 /***/ "checkbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <label class=\"bs-checkbox checkbox\"\r\n         for.bind=\"id\">\r\n    <input type=\"checkbox\"\r\n           id.bind=\"id\"\r\n           class=\"custom-checkbox\"\r\n           checked.bind=\"value\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n    <span class=\"icons\">\r\n      <span class=\"icon-checked\"></span>\r\n      <span class=\"icon-unchecked\"></span>\r\n    </span>\r\n    ${label}\r\n  </label>\r\n</template>";
+module.exports = "<template>\r\n  <label class=\"bs-checkbox checkbox\"\r\n         for.bind=\"id\">\r\n    <input type=\"checkbox\"\r\n           tabindex.bind=\"tabindex\"\r\n           id.bind=\"id\"\r\n           class=\"custom-checkbox\"\r\n           checked.bind=\"value\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n    <span class=\"icons\">\r\n      <span class=\"icon-checked\"></span>\r\n      <span class=\"icon-unchecked\"></span>\r\n    </span>\r\n    ${label}\r\n  </label>\r\n</template>";
 
 /***/ }),
 
@@ -55783,6 +55793,7 @@ var BsDatepicker = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_6__settings__["a" /* BsSettings */].language];
         _this.updating = false;
+        _this.tabindex = 0;
         _this.label = '';
         _this.enabled = true;
         _this.readonly = false;
@@ -55848,6 +55859,10 @@ var BsDatepicker = /** @class */ (function (_super) {
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsDatepicker.prototype, "tabindex", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
     ], BsDatepicker.prototype, "label", void 0);
     __decorate([
@@ -55904,7 +55919,7 @@ var BsDatepicker = /** @class */ (function (_super) {
 /***/ "datepicker.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n  <require from=\"./datepicker.min.css\"></require>\r\n\r\n  <div class.bind=\"'bs-datepicker form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n\r\n    <div class=\"input-group date\"\r\n         ref=\"element\">\r\n      <input type=\"text\"\r\n             class=\"form-control\"\r\n             placeholder.bind=\"!value && !required ? translations.noValue : translations.select\"\r\n             disabled.bind=\"enabled === false ? 'disabled' : undefined\">\r\n      <span class=\"input-group-addon\">\r\n        <i class=\"glyphicon glyphicon-th\"></i>\r\n      </span>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <require from=\"./datepicker.min.css\"></require>\r\n\r\n  <div class.bind=\"'bs-datepicker form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n\r\n    <div class=\"input-group date\"\r\n         ref=\"element\">\r\n      <input type=\"text\"\r\n             tabindex.bind=\"tabindex\"\r\n             class=\"form-control\"\r\n             placeholder.bind=\"!value && !required ? translations.noValue : translations.select\"\r\n             disabled.bind=\"enabled === false ? 'disabled' : undefined\">\r\n      <span class=\"input-group-addon\">\r\n        <i class=\"glyphicon glyphicon-th\"></i>\r\n      </span>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -56886,6 +56901,7 @@ var BsFileUpload = /** @class */ (function (_super) {
     function BsFileUpload() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_3__settings__["a" /* BsSettings */].language];
+        _this.tabindex = 0;
         _this.label = '';
         _this.value = '';
         _this.description = null;
@@ -56931,6 +56947,10 @@ var BsFileUpload = /** @class */ (function (_super) {
     };
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsFileUpload.prototype, "tabindex", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
     ], BsFileUpload.prototype, "label", void 0);
     __decorate([
@@ -56971,7 +56991,7 @@ var BsFileUpload = /** @class */ (function (_super) {
 /***/ "fileupload.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'bs-fileupload form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div class=\"input-group\"\r\n         disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n         readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <p>\r\n        ${description === null ? translations.noItemSelected : description.name}\r\n      </p>\r\n\r\n      <bs-button click.trigger=\"select()\">\r\n        Select\r\n      </bs-button>\r\n      &nbsp;\r\n      <bs-button if.bind=\"description !== null\"\r\n                 click.trigger=\"clear()\">\r\n        Clear\r\n      </bs-button>\r\n\r\n      <input ref=\"fileInput\"\r\n             style=\"display: none\"\r\n             type=\"file\"\r\n             accept.bind=\"accept\"\r\n             change.trigger=\"fileSelected($event.target.files[0])\" />\r\n    </div>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'bs-fileupload form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <div class=\"input-group\"\r\n         disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n         readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <p>\r\n        ${description === null ? translations.noItemSelected : description.name}\r\n      </p>\r\n\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"select()\">\r\n        Select\r\n      </bs-button>\r\n      &nbsp;\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 if.bind=\"description !== null\"\r\n                 click.trigger=\"clear()\">\r\n        Clear\r\n      </bs-button>\r\n\r\n      <input ref=\"fileInput\"\r\n             tabindex.bind=\"tabindex\"\r\n             style=\"display: none\"\r\n             type=\"file\"\r\n             accept.bind=\"accept\"\r\n             change.trigger=\"fileSelected($event.target.files[0])\" />\r\n    </div>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -56999,6 +57019,7 @@ var BsGridFilter = /** @class */ (function () {
         this.filter = '';
         this.position = 'right';
         this.showFilter = false;
+        this.tabindex = 0;
     }
     BsGridFilter.prototype.toggleFilter = function () {
         var _this = this;
@@ -57022,6 +57043,10 @@ var BsGridFilter = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", Object)
     ], BsGridFilter.prototype, "showFilter", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_templating__["p" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsGridFilter.prototype, "tabindex", void 0);
     BsGridFilter = __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["l" /* containerless */],
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-grid-filter')
@@ -57051,7 +57076,7 @@ exports.push([module.i, ".bs-grid-filter-searchbox {\r\n    position: absolute; 
 /***/ "grid-filter.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n  <require from=\"./grid-filter.css\"></require>\r\n\r\n  <div class=\"bs-grid-filter\"\r\n       style=\"position: relative\">\r\n    <div style.bind=\"'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'\">\r\n      <a click.trigger=\"toggleFilter()\"\r\n         style=\"cursor: pointer\">\r\n        <big>\r\n          <i class=\"glyphicon glyphicon-filter\"\r\n             style.bind=\"filter ? 'color: red' : 'color: black'\"></i>\r\n        </big>\r\n      </a>\r\n    </div>\r\n    <div show.bind=\"showFilter\"\r\n         class=\"bs-grid-filter-searchbox\">\r\n      <bs-textbox placeholder=\"Filter\"\r\n                  value.bind=\"filter\"\r\n                  enter-pressed.trigger=\"toggleFilter()\"\r\n                  view-model.ref=\"filterBox\"></bs-textbox>\r\n    </div>\r\n  </div>\r\n  <slot></slot>\r\n</template>";
+module.exports = "<template>\r\n  <require from=\"./grid-filter.css\"></require>\r\n\r\n  <div class=\"bs-grid-filter\"\r\n       style=\"position: relative\">\r\n    <div style.bind=\"'position: absolute;' + (position == 'right' ? 'right' : 'left') + ': 0; top: 5px'\">\r\n      <a click.trigger=\"toggleFilter()\"\r\n         style=\"cursor: pointer\">\r\n        <big>\r\n          <i class=\"glyphicon glyphicon-filter\"\r\n             style.bind=\"filter ? 'color: red' : 'color: black'\"></i>\r\n        </big>\r\n      </a>\r\n    </div>\r\n    <div show.bind=\"showFilter\"\r\n         class=\"bs-grid-filter-searchbox\">\r\n      <bs-textbox placeholder=\"Filter\"\r\n                  tabindex.bind=\"tabindex\"\r\n                  value.bind=\"filter\"\r\n                  enter-pressed.trigger=\"toggleFilter()\"\r\n                  view-model.ref=\"filterBox\"></bs-textbox>\r\n    </div>\r\n  </div>\r\n  <slot></slot>\r\n</template>";
 
 /***/ }),
 
@@ -59025,6 +59050,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var BsSearchbox = /** @class */ (function () {
     function BsSearchbox(element) {
         this.element = element;
+        this.tabindex = 0;
         this.label = '';
         this.value = '';
         this.placeholder = '';
@@ -59050,6 +59076,10 @@ var BsSearchbox = /** @class */ (function () {
             this.element.dispatchEvent(event_1);
         }
     };
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsSearchbox.prototype, "tabindex", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -59096,7 +59126,7 @@ var BsSearchbox = /** @class */ (function () {
 /***/ "searchbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class=\"bs-searchbox input-group\">\r\n    <input ref=\"inputElement\"\r\n           type=\"text\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n\r\n    <span class=\"input-group-btn\">\r\n      <button class=\"btn btn-secondary\"\r\n              type=\"button\"\r\n              click.trigger=\"onClick()\"\r\n              disabled.bind=\"value || allowEmpty ? null : 'disabled'\">\r\n        ${button}\r\n      </button>\r\n    </span>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class=\"bs-searchbox input-group\">\r\n    <input ref=\"inputElement\"\r\n           type=\"text\"\r\n           tabindex.bind=\"tabindex\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n\r\n    <span class=\"input-group-btn\">\r\n      <button class=\"btn btn-secondary\"\r\n              type=\"button\"\r\n              click.trigger=\"onClick()\"\r\n              disabled.bind=\"value || allowEmpty ? null : 'disabled'\">\r\n        ${button}\r\n      </button>\r\n    </span>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -59150,6 +59180,7 @@ var BsSelect = /** @class */ (function (_super) {
     function BsSelect() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_4__settings__["a" /* BsSettings */].language];
+        _this.tabindex = 0;
         _this.label = '';
         _this.value = null;
         _this.values = null;
@@ -59261,6 +59292,10 @@ var BsSelect = /** @class */ (function (_super) {
         }
         return null;
     };
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsSelect.prototype, "tabindex", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -59416,6 +59451,7 @@ var BsSelectGrid = /** @class */ (function (_super) {
         _this.dialogService = dialogService;
         _this.translations = translations[__WEBPACK_IMPORTED_MODULE_5__settings__["a" /* BsSettings */].language];
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
+        _this.tabindex = 0;
         _this.columns = [];
         _this.label = '';
         _this.value = null;
@@ -59427,6 +59463,7 @@ var BsSelectGrid = /** @class */ (function (_super) {
         _this.defaultSortOrder = 'asc';
         _this.itemHeight = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["BsGridDefaults"].itemHeight;
         _this.selectionMode = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["SelectionMode"].single;
+        _this.useKeyEvents = __WEBPACK_IMPORTED_MODULE_4__grid_grid__["BsGridDefaults"].useKeyEvents;
         return _this;
     }
     BsSelectGrid.prototype.showPicker = function () {
@@ -59477,6 +59514,10 @@ var BsSelectGrid = /** @class */ (function (_super) {
         }
         return null;
     };
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsSelectGrid.prototype, "tabindex", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["j" /* children */])('bs-column'),
         __metadata("design:type", Array)
@@ -59531,6 +59572,10 @@ var BsSelectGrid = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Number)
     ], BsSelectGrid.prototype, "selectionMode", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Boolean)
+    ], BsSelectGrid.prototype, "useKeyEvents", void 0);
     BsSelectGrid = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(__WEBPACK_IMPORTED_MODULE_2__dialog_service__["a" /* BsDialogService */]),
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["m" /* customElement */])('bs-select-grid'),
@@ -59606,6 +59651,7 @@ var BsSelectGridDialog = /** @class */ (function (_super) {
         _this.values = undefined;
         _this.defaultSortOrder = undefined;
         _this.displayPath = null;
+        _this.tabindex = 0;
         return _this;
     }
     BsSelectGridDialog.prototype.activate = function (selectGrid) {
@@ -59620,6 +59666,8 @@ var BsSelectGridDialog = /** @class */ (function (_super) {
         this.selectionMode = selectGrid.selectionMode;
         this.displayPath = selectGrid.displayPath;
         this.values = selectGrid.values;
+        this.tabindex = selectGrid.tabindex;
+        this.useKeyEvents = selectGrid.useKeyEvents;
     };
     BsSelectGridDialog.prototype.attached = function () {
         this.grid.columns = this.columns;
@@ -59730,6 +59778,14 @@ var BsSelectGridDialog = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
         __metadata("design:type", Object)
     ], BsSelectGridDialog.prototype, "displayPath", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
+        __metadata("design:type", Number)
+    ], BsSelectGridDialog.prototype, "tabindex", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_1_aurelia_binding__["F" /* observable */],
+        __metadata("design:type", Boolean)
+    ], BsSelectGridDialog.prototype, "useKeyEvents", void 0);
     BsSelectGridDialog = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["n" /* inject */])(Element)
     ], BsSelectGridDialog);
@@ -59743,21 +59799,21 @@ var BsSelectGridDialog = /** @class */ (function (_super) {
 /***/ "select-grid/select-grid-dialog.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <bs-dialog title.bind=\"title\"\r\n             class=\"bs-select-grid-dialog\">\r\n    <div class=\"modal-body\">\r\n      <bs-textbox placeholder=\"Filter\"\r\n                  value.bind=\"filter\"\r\n                  view-model.ref=\"filterBox\"\r\n                  enter-pressed.trigger=\"enterPressed()\"></bs-textbox>\r\n\r\n      <bs-label-collection if.bind=\"selectionMode == 'multiple'\"\r\n                           display-path.bind=\"displayPath\"\r\n                           values.bind=\"values\">\r\n      </bs-label-collection>\r\n\r\n      <bs-grid items.bind=\"items\"\r\n               value.bind=\"value\"\r\n               values.bind=\"values\"\r\n               load-data.bind=\"loadData\"\r\n               selection-mode.bind=\"selectionMode\"\r\n               default-sort-column.bind=\"defaultSortColumn\"\r\n               default-sort-order.bind=\"defaultSortOrder\"\r\n               filter.bind=\"filter\"\r\n               height.bind=\"400\"\r\n               class=\"basic\"\r\n               view-model.ref=\"grid\">\r\n      </bs-grid>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\"\r\n         if.bind=\"selectionMode == 'single'\">\r\n      <bs-button click.trigger=\"cancel()\">\r\n        ${translations.buttonCancel}\r\n      </bs-button>\r\n      <bs-button click.trigger=\"none()\"\r\n                 if.bind=\"!required\">\r\n        ${translations.buttonNoSelection}\r\n      </bs-button>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\"\r\n         if.bind=\"selectionMode == 'multiple'\">\r\n      <bs-button click.trigger=\"cancel()\">\r\n        ${translations.buttonCancel}\r\n      </bs-button>\r\n      <bs-button click.trigger=\"selectAll()\">\r\n        ${translations.buttonSelectAll}\r\n      </bs-button>\r\n      <bs-button click.trigger=\"none()\">\r\n        ${translations.buttonUnselectAll}\r\n      </bs-button>\r\n      <bs-button click.trigger=\"ok()\">\r\n        ${translations.buttonOk}\r\n      </bs-button>\r\n    </div>\r\n  </bs-dialog>\r\n</template>";
+module.exports = "<template>\r\n  <bs-dialog title.bind=\"title\"\r\n             class=\"bs-select-grid-dialog\">\r\n    <div class=\"modal-body\">\r\n      <bs-textbox placeholder=\"Filter\"\r\n                  tabindex.bind=\"tabindex\"\r\n                  value.bind=\"filter\"\r\n                  view-model.ref=\"filterBox\"\r\n                  enter-pressed.trigger=\"enterPressed()\"></bs-textbox>\r\n\r\n      <bs-label-collection if.bind=\"selectionMode == 'multiple'\"\r\n                           display-path.bind=\"displayPath\"\r\n                           values.bind=\"values\">\r\n      </bs-label-collection>\r\n\r\n      <bs-grid items.bind=\"items\"\r\n               tabindex.bind=\"tabindex\"\r\n               value.bind=\"value\"\r\n               values.bind=\"values\"\r\n               load-data.bind=\"loadData\"\r\n               selection-mode.bind=\"selectionMode\"\r\n               default-sort-column.bind=\"defaultSortColumn\"\r\n               default-sort-order.bind=\"defaultSortOrder\"\r\n               filter.bind=\"filter\"\r\n               height.bind=\"400\"\r\n               class=\"basic\"\r\n               use-key-events.bind=\"useKeyEvents\"\r\n               view-model.ref=\"grid\">\r\n      </bs-grid>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\"\r\n         if.bind=\"selectionMode == 'single'\">\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"cancel()\">\r\n        ${translations.buttonCancel}\r\n      </bs-button>\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"none()\"\r\n                 if.bind=\"!required\">\r\n        ${translations.buttonNoSelection}\r\n      </bs-button>\r\n    </div>\r\n\r\n    <div class=\"modal-footer\"\r\n         if.bind=\"selectionMode == 'multiple'\">\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"cancel()\">\r\n        ${translations.buttonCancel}\r\n      </bs-button>\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"selectAll()\">\r\n        ${translations.buttonSelectAll}\r\n      </bs-button>\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"none()\">\r\n        ${translations.buttonUnselectAll}\r\n      </bs-button>\r\n      <bs-button tabindex.bind=\"tabindex\"\r\n                 click.trigger=\"ok()\">\r\n        ${translations.buttonOk}\r\n      </bs-button>\r\n    </div>\r\n  </bs-dialog>\r\n</template>";
 
 /***/ }),
 
 /***/ "select-grid/select-grid.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'bs-select-grid'  + (selectionMode == 'multiple' ? ' bs-select-grid-multiple' : '') + ' form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <div click.trigger=\"showPicker()\"\r\n         style.bind=\"enabled ? 'cursor: pointer' : ''\">\r\n      <label class=\"control-label\"\r\n             if.bind=\"label !== ''\"\r\n             for.bind=\"id\">\r\n        ${label}\r\n      </label>\r\n      <div id.bind=\"id\"\r\n           tabindex=\"0\"\r\n           keypress.delegate=\"keyPressed($event)\"\r\n           ref=\"controlElement\">\r\n        <div if.bind=\"selectionMode == 'single'\">\r\n          ${value ? (displayPath ? getValue(value, displayPath) : value) : translations.select}&nbsp;\r\n        </div>\r\n        <div if.bind=\"selectionMode == 'multiple'\">\r\n          <bs-label-collection if.bind=\"values && values.length > 0\"\r\n                               display-path.bind=\"displayPath\"\r\n                               values.bind=\"values\">\r\n          </bs-label-collection>\r\n          <span if.bind=\"!values || values.length === 0\">${translations.select}</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n\r\n        <!-- Columns -->\r\n        <slot></slot>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'bs-select-grid'  + (selectionMode == 'multiple' ? ' bs-select-grid-multiple' : '') + ' form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <div click.trigger=\"showPicker()\"\r\n         style.bind=\"enabled ? 'cursor: pointer' : ''\">\r\n      <label class=\"control-label\"\r\n             if.bind=\"label !== ''\"\r\n             for.bind=\"id\">\r\n        ${label}\r\n      </label>\r\n      <div id.bind=\"id\"\r\n           tabindex.bind=\"tabindex\"\r\n           keypress.delegate=\"keyPressed($event)\"\r\n           ref=\"controlElement\">\r\n        <div if.bind=\"selectionMode == 'single'\">\r\n          ${value ? (displayPath ? getValue(value, displayPath) : value) : translations.select}&nbsp;\r\n        </div>\r\n        <div if.bind=\"selectionMode == 'multiple'\">\r\n          <bs-label-collection if.bind=\"values && values.length > 0\"\r\n                               display-path.bind=\"displayPath\"\r\n                               values.bind=\"values\">\r\n          </bs-label-collection>\r\n          <span if.bind=\"!values || values.length === 0\">${translations.select}</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n\r\n        <!-- Columns -->\r\n        <slot></slot>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
 /***/ "select.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'bs-select form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <select class=\"form-control\"\r\n            change.trigger=\"onChange($event)\"\r\n            ref=\"select\"\r\n            style.bind=\"height ? 'height: ' + height + 'px !important' : ''\"\r\n            multiple.bind=\"multiple ? 'multiple' : null\"\r\n            disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n            readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <option if.bind=\"renderNullOption\"\r\n              value=\"null\">${translations.select}</option>\r\n      <option repeat.for=\"item of items\"\r\n              value.bind=\"$index\">\r\n        ${displayPath ? getValue(item, displayPath) : item}\r\n      </option>\r\n    </select>\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'bs-select form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\">\r\n      ${label}\r\n    </label>\r\n    <select class=\"form-control\"\r\n            change.trigger=\"onChange($event)\"\r\n            tabindex.bind=\"tabindex\"\r\n            ref=\"select\"\r\n            style.bind=\"height ? 'height: ' + height + 'px !important' : ''\"\r\n            multiple.bind=\"multiple ? 'multiple' : null\"\r\n            disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n            readonly.bind=\"readonly ? 'readonly' : undefined\">\r\n      <option if.bind=\"renderNullOption\"\r\n              value=\"null\">${translations.select}</option>\r\n      <option repeat.for=\"item of items\"\r\n              value.bind=\"$index\">\r\n        ${displayPath ? getValue(item, displayPath) : item}\r\n      </option>\r\n    </select>\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ }),
 
@@ -59966,6 +60022,7 @@ var BsTextbox = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.root = root;
         _this.id = Object(__WEBPACK_IMPORTED_MODULE_1__validation_component__["c" /* createComponentId */])();
+        _this.tabindex = 0;
         _this.label = '';
         _this.value = '';
         _this.placeholder = '';
@@ -59997,6 +60054,10 @@ var BsTextbox = /** @class */ (function (_super) {
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["p" /* observable */],
         __metadata("design:type", HTMLInputElement)
     ], BsTextbox.prototype, "element", void 0);
+    __decorate([
+        __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
+        __metadata("design:type", Number)
+    ], BsTextbox.prototype, "tabindex", void 0);
     __decorate([
         __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__["h" /* bindable */],
         __metadata("design:type", Object)
@@ -60047,9 +60108,9 @@ var BsTextbox = /** @class */ (function (_super) {
 /***/ "textbox.html":
 /***/ (function(module, exports) {
 
-module.exports = "<template>\r\n  <div class.bind=\"'bs-textbox form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\"\r\n           for.bind=\"id\">\r\n      ${label}\r\n    </label>\r\n\r\n    <input if.bind=\"rows === 1\"\r\n           ref=\"element\"\r\n           type=\"text\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           id.bind=\"id\"\r\n           style.bind=\"style\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\" />\r\n\r\n    <textarea if.bind=\"rows > 1\"\r\n              ref=\"element\"\r\n              class=\"form-control\"\r\n              value.bind=\"value\"\r\n              style.bind=\"'height: ' + (rows * 1.3) + 'em; resize: none;' + style\"\r\n              placeholder.bind=\"placeholder\"\r\n              disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n              readonly.bind=\"readonly ? 'readonly' : undefined\"></textarea>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
+module.exports = "<template>\r\n  <div class.bind=\"'bs-textbox form-group has-feedback' + (errors.length ? ' has-error' : '')\">\r\n    <label class=\"control-label\"\r\n           if.bind=\"label !== ''\"\r\n           for.bind=\"id\">\r\n      ${label}\r\n    </label>\r\n\r\n    <input if.bind=\"rows === 1\"\r\n           ref=\"element\"\r\n           type=\"text\"\r\n           class=\"form-control\"\r\n           value.bind=\"value\"\r\n           id.bind=\"id\"\r\n           tabindex.bind=\"tabindex\"\r\n           style.bind=\"style\"\r\n           placeholder.bind=\"placeholder\"\r\n           disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n           readonly.bind=\"readonly ? 'readonly' : undefined\" />\r\n\r\n    <textarea if.bind=\"rows > 1\"\r\n              ref=\"element\"\r\n              class=\"form-control\"\r\n              value.bind=\"value\"\r\n              style.bind=\"'height: ' + (rows * 1.3) + 'em; resize: none;' + style\"\r\n              placeholder.bind=\"placeholder\"\r\n              disabled.bind=\"enabled === false ? 'disabled' : undefined\"\r\n              readonly.bind=\"readonly ? 'readonly' : undefined\"></textarea>\r\n\r\n    <p class=\"help-block\"\r\n       if.bind=\"help\">${help}</p>\r\n    <p class=\"help-block\"\r\n       repeat.for=\"error of errors\">\r\n      ${error.message}\r\n      <p>\r\n  </div>\r\n</template>";
 
 /***/ })
 
 },[169]);
-//# sourceMappingURL=app.b852c0fcff7a7744dda3.bundle.map
+//# sourceMappingURL=app.1026287214f28b38af0f.bundle.map
