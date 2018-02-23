@@ -37,7 +37,7 @@
   <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select.md">Docs</a>
 
   <h2>bs-select-grid</h2>
-  <bs-select-grid label="My Select Grid"
+  <bs-select-grid label="My Select Grid (single select)"
                   display-path="name"
                   items.bind="[{name: 'foo', age: 45}, { name: 'bar', age: 34}]">
     <bs-column field="name"
@@ -50,6 +50,22 @@
       ${row.age}
     </bs-column>
   </bs-select-grid>
+
+  <bs-select-grid label="My Select Grid (multi select)"
+                  display-path="name"
+                  selection-mode="multiple"
+                  items.bind="[{name: 'foo', age: 45}, { name: 'bar', age: 34}]">
+    <bs-column field="name"
+               header="Name">
+      ${row.name}
+    </bs-column>
+    <bs-column field="age"
+               width="100"
+               header="Age">
+      ${row.age}
+    </bs-column>
+  </bs-select-grid>
+
   <a href="https://github.com/RSuter/aurelia-bs/blob/master/docs/components/bs-select-grid.md">Docs</a>
 
   <h2>bs-fileupload</h2>

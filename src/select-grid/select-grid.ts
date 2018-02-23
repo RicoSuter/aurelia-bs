@@ -1,4 +1,4 @@
-import { inject, children, customElement, bindable, bindingMode, PLATFORM } from 'aurelia-framework';
+import { inject, children, customElement, bindable, bindingMode } from 'aurelia-framework';
 
 import { BsValidationComponent, createComponentId } from './../validation-component';
 import { BsDialogService } from '../dialog-service';
@@ -6,7 +6,7 @@ import { BsDialogService } from '../dialog-service';
 import { BsSelectGridDialog } from './select-grid-dialog';
 import { BsColumn } from '../grid/column';
 import { convert, BooleanConverter } from '../convert';
-import { BsGridDataRequest, BsGridDataResponse, BsGridDefaults } from '../grid/grid';
+import { BsGridDataRequest, BsGridDataResponse, BsGridDefaults, SelectionMode } from '../grid/grid';
 import { BsSettings } from '../settings';
 
 let translations = {
@@ -35,7 +35,10 @@ export class BsSelectGrid extends BsValidationComponent {
   @bindable({ defaultBindingMode: bindingMode.twoWay })
   value: any = null;
 
-  @bindable
+  @bindable({ defaultBindingMode: bindingMode.twoWay })
+  values: any[] | null = null;
+
+  @bindable()
   items: any[] | null = null;
 
   @bindable
@@ -61,17 +64,24 @@ export class BsSelectGrid extends BsValidationComponent {
   @bindable
   itemHeight = BsGridDefaults.itemHeight;
 
+  @bindable
+  selectionMode: SelectionMode = SelectionMode.single;
+
   constructor(private dialogService: BsDialogService) {
     super();
   }
 
   async showPicker() {
     if (this.enabled) {
-      await this.dialogService.show<BsSelectGridDialog>(PLATFORM.moduleName('aurelia-bs/select-grid/select-grid-dialog'), this).catch(() => {
+      await this.dialogService.show<BsSelectGridDialog>('aurelia-bs/select-grid/select-grid-dialog', this).catch(() => {
         return this.dialogService.show<BsSelectGridDialog>('select-grid/select-grid-dialog', this);
-      }).then((dialog) => {
-        if (dialog.selectedItem !== undefined) {
-          this.value = dialog.selectedItem;
+      }).then((dialog: BsSelectGridDialog) => {
+        if (this.selectionMode === SelectionMode.multiple) {
+          if (dialog.values !== undefined) {
+            this.values = dialog.values;
+          }
+        } else if (dialog.value !== undefined) {
+          this.value = dialog.value;
         }
         this.controlElement.focus();
       });

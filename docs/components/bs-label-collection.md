@@ -13,6 +13,8 @@
 - **values: any (two-way)** The currently selected values
 - displayPath
 - enabled
+- orderBy
+- sortOrder ('asc'/'desc')
 
 ## Methods
 

@@ -6,11 +6,11 @@
     </label>
     <div>
       ${!values || values.length == 0 ? translations.noValues : ''}
-      <span repeat.for="value of values"
+      <span repeat.for="value of sortedValues"
             style="display: inline-block">
         <span class="label label-default"
               if.bind="enabled">
-          <a click.trigger="removeValue(value)"
+          <a click.trigger="removeValue(value, $event)"
              style="color: white; cursor: pointer">
             ${displayPath ? getValue(value, displayPath) : value}&nbsp;&nbsp;
             <big aria-hidden="true">&times;</big>

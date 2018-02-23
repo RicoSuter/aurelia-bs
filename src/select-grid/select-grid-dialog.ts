@@ -7,6 +7,7 @@ import { BsGrid, BsGridDataRequest, BsGridDataResponse } from '../grid/grid';
 import { BsTextbox } from '../textbox';
 import { BsSelectGrid } from './select-grid';
 import { BsSettings } from '../settings';
+import { SelectionMode } from '..';
 
 export interface IDialogButton {
   name?: string;
@@ -17,11 +18,17 @@ export interface IDialogButton {
 let translations = {
   'de': {
     'buttonCancel': 'Abbrechen',
-    'buttonNoSelection': 'Keine Auswahl'
+    'buttonNoSelection': 'Keine Auswahl',
+    'buttonSelectAll': 'Alle auswählen',
+    'buttonUnselectAll': 'Alle deselektieren',
+    'buttonOk': 'OK'
   },
   'en': {
     'buttonCancel': 'Cancel',
-    'buttonNoSelection': 'No Selection'
+    'buttonNoSelection': 'No Selection',
+    'buttonSelectAll': 'Select All',
+    'buttonUnselectAll': 'Unselect All',
+    'buttonOk': 'OK'
   }
 };
 
@@ -42,7 +49,10 @@ export class BsSelectGridDialog extends DialogBase {
   required: boolean;
 
   @observable
-  selectedItem: any | null | undefined = undefined;
+  value: any | null | undefined = undefined;
+
+  @observable
+  values: any[] | null | undefined = undefined;
 
   grid: BsGrid;
   filterBox: BsTextbox;
@@ -58,6 +68,12 @@ export class BsSelectGridDialog extends DialogBase {
   @observable
   defaultSortOrder: 'asc' | 'desc' | undefined = undefined;
 
+  @observable
+  selectionMode: SelectionMode;
+
+  @observable
+  displayPath: string | null = null;
+
   activate(selectGrid: BsSelectGrid) {
     this.title = selectGrid.label;
     this.items = selectGrid.items;
@@ -67,35 +83,76 @@ export class BsSelectGridDialog extends DialogBase {
     this.loadData = selectGrid.loadData;
     this.defaultSortColumn = selectGrid.defaultSortColumn;
     this.defaultSortOrder = selectGrid.defaultSortOrder;
+    this.selectionMode = selectGrid.selectionMode;
+    this.displayPath = selectGrid.displayPath;
+    this.values = selectGrid.values;
   }
 
   attached() {
     this.grid.columns = this.columns;
     this.grid.itemHeight = this.itemHeight;
+    this.grid.selectionMode = this.selectionMode;
     this.grid.columnsChanged();
     this.filterBox.focus();
   }
 
   enterPressed() {
-    if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
-      this.selectedItem = this.grid.displayedItems[0];
-      this.close();
+    if (this.selectionMode === SelectionMode.multiple) {
+      if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
+        let value = this.grid.displayedItems[0];
+        if (this.values) {
+          if (this.values.find(v => v === value)) {
+            this.values = this.values.filter(v => v !== value);
+          } else {
+            this.values.push(value);
+          }
+        } else {
+          this.values = [value];
+        }
+      }
+    } else {
+      if (this.grid.displayedItems && this.grid.displayedItems.length === 1) {
+        this.value = this.grid.displayedItems[0];
+        this.close();
+      }
     }
+
   }
 
-  selectedItemChanged() {
-    if (this.selectedItem) {
-      this.close();
+  valueChanged() {
+    if (this.selectionMode === SelectionMode.single) {
+      if (this.value) {
+        this.close();
+      }
     }
   }
 
   none() {
-    this.selectedItem = null;
-    this.close();
+    if (this.selectionMode === SelectionMode.multiple) {
+      this.values = [];
+    } else {
+      this.value = null;
+      this.close();
+    }
   }
 
   cancel() {
-    this.selectedItem = undefined;
+    if (this.selectionMode === SelectionMode.multiple) {
+      this.values = undefined;
+      this.close();
+    } else {
+      this.value = undefined;
+      this.close();
+    }
+  }
+
+  selectAll() {
+    if (this.selectionMode === SelectionMode.multiple) {
+      this.values = this.grid.items;
+    }
+  }
+
+  ok() {
     this.close();
   }
 }

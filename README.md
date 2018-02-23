@@ -2,11 +2,11 @@
 
 [![npm](https://img.shields.io/npm/v/aurelia-bs.svg)](https://www.npmjs.com/package/aurelia-bs)
 
-**This project is currently in development. It is not recommended to use it in production until version 1.x is released.**
-
 This project provides Bootstrap UI v3 (CSS framework) components for Aurelia JS. 
 
 ## [Demo](https://rawgit.com/RSuter/aurelia-bs/master/demo/index.html)
+
+**We open-sourced our internally implemented Aurelia JS components so that everyone can use and improve them. We would be very glad if you contribute your own components, improvements and bug fixes.**
 
 ## Installation
 

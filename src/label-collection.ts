@@ -1,6 +1,7 @@
 import { customElement, bindable, containerless, bindingMode } from 'aurelia-framework';
 import { BsSettings } from './settings';
 import { BsValidationComponent } from './validation-component';
+import { computedFrom } from 'aurelia-binding';
 
 let translations = {
   'de': {
@@ -28,8 +29,26 @@ export class BsLabelCollection extends BsValidationComponent {
   @bindable
   enabled = true;
 
-  removeValue(value: any) {
+  @bindable
+  orderBy: string;
+
+  @bindable
+  sortOrder: undefined | 'asc' | 'desc' = undefined;
+
+  @computedFrom('values', 'sortOrder', 'orderBy')
+  get sortedValues() {
+    if (this.orderBy) {
+      return [...this.values].sort((a, b) => this.sort(a, b));
+    }
+    return this.values;
+  }
+
+  removeValue(value: any, event?: KeyboardEvent) {
     this.values = this.values.filter(i => i !== value);
+    if (event) {
+      event.cancelBubble = true;
+      event.preventDefault();
+    }
   }
 
   itemsChanged() {
@@ -45,5 +64,30 @@ export class BsLabelCollection extends BsValidationComponent {
       return value;
     }
     return null;
+  }
+
+  private sort(objA: any, objB: any) {
+    let asc = this.sortOrder !== 'desc';
+    let a = this.getValue(objA, this.orderBy);
+    let b = this.getValue(objB, this.orderBy);
+
+    if (!a && !b)
+      return 0;
+    if (!a)
+      return asc ? -1 : 1;
+    if (!b)
+      return asc ? 1 : -1;
+    if (typeof a === 'number' && typeof (b) === 'number') {
+      if (a > b)
+        return asc ? 1 : -1;
+      if (a < b)
+        return asc ? -1 : 1;
+      return 0;
+    }
+    if (a.toLowerCase() > b.toLowerCase())
+      return asc ? 1 : -1;
+    if (a.toLowerCase() < b.toLocaleLowerCase())
+      return asc ? -1 : 1;
+    return 0;
   }
 }
