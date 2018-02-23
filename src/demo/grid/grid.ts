@@ -14,6 +14,7 @@ export class Grid {
       this.data.push({
         date: moment('2016-08-01').add(index, 'days'),
         string: 'Lorem ' + index,
+        value: this.getRandomValue(),
         boolean: this.getRandomValue() > 50,
       });
     }

@@ -4,3 +4,11 @@
         padding-top: 50px;
     }
 }
+
+.bs-grid tr.focus {
+    background-color: rgba(65,137,199, 0.5);
+}
+
+.bs-grid tr.focus.selected {
+    background-color: rgba(85, 124, 159, 0.5);
+}

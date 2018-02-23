@@ -42,7 +42,10 @@ export let BsGridDefaults = {
   hideUnfilteredCounter: false,
 
   /** Hides the paging when there is only a single page. */
-  hideSinglePaging: false
+  hideSinglePaging: false,
+
+  /** Activates Keyboard events of grid.**/
+  useKeyEvents: false,
 };
 
 /**
@@ -65,6 +68,7 @@ export let BsGridDefaults = {
 @inject(Container, Element, ViewCompiler, ViewResources)
 @customElement('bs-grid')
 export class BsGrid extends BsResizeContainer {
+
   /**
    * Defines the locale to use for sorting strings, defaults to browser default.
    */
@@ -87,6 +91,9 @@ export class BsGrid extends BsResizeContainer {
   /** Enables the auto resizing of the grid and shows a scroll when needed. */
   @bindable
   autoResize = true;
+
+  @bindable
+  tabindex = 0;
 
   /** The offset to the bottom of the window used when autoResize is enabled. */
   @bindable
@@ -224,11 +231,26 @@ export class BsGrid extends BsResizeContainer {
   @bindable
   valuePath: string | null = null;
 
+  @bindable
+  useKeyEvents: boolean = BsGridDefaults.useKeyEvents;
+
+  private keydownCallback: any;
+
+  private keyboardFocusTimeout: any;
+
+  @observable
+  private keyboardFocusIndex: number | undefined = undefined;
+
+  private justSelectedIndex: number | undefined = undefined;
+
+  private hideKeyboardFocus: boolean = false;
+
   constructor(private container: Container,
     element: Element,
     private viewCompiler: ViewCompiler,
     private viewResources: ViewResources) {
     super(element);
+    this.keydownCallback = this.keydownHandler.bind(this);
   }
 
   bind(bindingContext: any) {
@@ -259,9 +281,164 @@ export class BsGrid extends BsResizeContainer {
       this.processColumns();
       this.refreshInternal();
     });
+    this.useKeyEventsChanged(this.useKeyEvents, false);
+  }
+
+  focus() {
+    if (this.useKeyEvents) {
+      if (this.element.children[0].tagName === 'div') {
+        if (document.activeElement !== this.element.children[0]) {
+          (<HTMLDivElement>this.element.children[0]).focus();
+        }
+      }
+    }
+  }
+
+  useKeyEventsChanged(value: boolean, oldValue: boolean) {
+    if (value) {
+      window.addEventListener('keydown', this.keydownCallback, false);
+    } else if (oldValue) {
+      window.removeEventListener('keydown', this.keydownCallback);
+    }
+  }
+  async keydownHandler(event: KeyboardEvent) {
+    if (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents) {
+      switch (event.keyCode) {
+        case 33:
+        case 37:
+          await this.goToPreviousPage();
+          event.preventDefault();
+          return;
+        case 38:
+          await this.focusOnPreviousItem();
+          event.preventDefault();
+          return;
+        case 34:
+        case 39:
+          await this.goToNextPage();
+          event.preventDefault();
+          return;
+        case 40:
+          await this.focusOnNextItem();
+          event.preventDefault();
+          return;
+        case 36:
+          await this.goToFirstItem();
+          event.preventDefault();
+          return;
+        case 35:
+          await this.goToLastItem();
+          event.preventDefault();
+          return;
+        case 32:
+          this.selectItemInFocus();
+          event.preventDefault();
+          return;
+        case 27:
+          this.cancelKeyNavigation();
+          event.preventDefault();
+          return;
+      }
+    }
+  }
+
+  cancelKeyNavigation() {
+    this.keyboardFocusIndex = undefined;
+  }
+
+  selectItemInFocus() {
+    if (this.keyboardFocusIndex !== undefined && this.displayedItems) {
+      this.selectRow(this.displayedItems[this.keyboardFocusIndex]);
+    }
+  }
+
+  async focusOnPreviousItem() {
+    if (this.justSelectedIndex !== undefined) {
+      this.keyboardFocusIndex = this.justSelectedIndex;
+    }
+
+    if (this.keyboardFocusIndex === undefined) {
+      this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
+    } else {
+      if (this.keyboardFocusIndex > 0) {
+        this.keyboardFocusIndex -= 1;
+      } else {
+        if (this.currentPage !== 0) {
+          await this.showPage(this.currentPage - 1);
+          this.keyboardFocusIndex = this.pageSize - 1;
+        }
+      }
+    }
+  }
+
+  async focusOnNextItem() {
+    if (this.justSelectedIndex !== undefined) {
+      this.keyboardFocusIndex = this.justSelectedIndex;
+    }
+
+    if (this.keyboardFocusIndex === undefined) {
+      this.keyboardFocusIndex = 0;
+    } else {
+      if (this.displayedItems && this.keyboardFocusIndex + 1 < this.displayedItems.length) {
+        this.keyboardFocusIndex += 1;
+      } else {
+        if (this.currentPage < this.pageCount - 1) {
+          await this.showPage(this.currentPage + 1);
+          this.keyboardFocusIndex = 0;
+        }
+      }
+    }
+  }
+
+  async goToPreviousPage() {
+    if (this.currentPage > 0) {
+      await this.showPage(this.currentPage - 1);
+    }
+
+    this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
+  }
+
+  async goToNextPage() {
+    if (this.currentPage < this.pageCount) {
+      await this.showPage(this.currentPage + 1);
+    }
+
+    this.keyboardFocusIndex = 0;
+  }
+
+  async goToFirstItem() {
+    if (this.currentPage !== 0) {
+      await this.showPage(0);
+    }
+
+    this.keyboardFocusIndex = 0;
+  }
+
+  async goToLastItem() {
+    if (this.currentPage !== this.pageCount - 1) {
+      await this.showPage(this.pageCount - 1);
+    }
+
+    this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
+  }
+
+  keyboardFocusIndexChanged() {
+    this.hideKeyboardFocus = false;
+    clearTimeout(this.keyboardFocusTimeout);
+
+    this.justSelectedIndex = undefined;
+    this.columns[0].propertyChanged();
+    this.keyboardFocusTimeout = setTimeout(() => {
+      this.hideKeyboardFocus = true;
+      this.columns[0].propertyChanged();
+    }, 5000);
   }
 
   detached() {
+    if (this.useKeyEvents) {
+      window.removeEventListener('keydown', this.keydownCallback, false);
+    }
+
     if (this.body.viewSlot) {
       this.body.viewSlot.removeAll();
       this.body.viewSlot = null;
@@ -414,6 +591,7 @@ export class BsGrid extends BsResizeContainer {
   async showPage(pageNumber: number) {
     if (pageNumber !== this.currentPage && pageNumber >= 0 && pageNumber < this.pageCount) {
       this.currentIndex = this.pageSize * pageNumber;
+      this.keyboardFocusIndex = undefined;
       await this.refreshInternal();
       return true;
     }
@@ -638,6 +816,13 @@ export class BsGrid extends BsResizeContainer {
 
         this.dispatchSelectionChangedEvent();
       }
+      if (this.useKeyEvents && this.displayedItems) {
+        for (let index = 0; index < this.displayedItems.length; index++) {
+          if (this.comparer(row, this.displayedItems[index])) {
+            this.justSelectedIndex = index;
+          }
+        }
+      }
     }
   }
 
@@ -657,6 +842,33 @@ export class BsGrid extends BsResizeContainer {
     return selectedItems && (this.comparer(selectedItem, item) || selectedItems.filter(a => this.comparer(a, item)).length > 0);
   }
 
+  protected isInFocus(item: any) {
+    if (this.useKeyEvents && !this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardFocusIndex]) {
+      return this.comparer(this.displayedItems[this.keyboardFocusIndex], item);
+    }
+    return false;
+  }
+
+  protected getRowClasses(selectedItem: any, selectedItems: any[], item: any) {
+    let rowClasses = '';
+    if (this.isSelected(selectedItem, selectedItems, item)) {
+      rowClasses += 'selected';
+    }
+    if (this.isInFocus(item)) {
+      if (rowClasses) {
+        rowClasses += ' ';
+      }
+      rowClasses += 'focus';
+    }
+    if (this.rowClass) {
+      if (rowClasses) {
+        rowClasses += ' ';
+      }
+      rowClasses += this.rowClass;
+    }
+    return rowClasses;
+  }
+
   private compileRowTemplate(columns: BsColumn[]) {
     if (this.body.viewSlot) {
       let rowClass = this.element.getAttribute('row-class.bind');
@@ -667,7 +879,7 @@ export class BsGrid extends BsResizeContainer {
       row.setAttribute('repeat.for', 'row of displayedItems');
       row.setAttribute('click.trigger', 'selectRow(row)');
       row.setAttribute('style.bind', `selectionMode !== 'none' ? (enabled ? 'cursor: pointer' : 'cursor: not-allowed') : ''`);
-      row.setAttribute('class.bind', `isSelected(value, values, row) ? ('selected ' + (` + rowClass + `)) : (` + rowClass + `)`);
+      row.setAttribute('class.bind', `getRowClasses(value, values, row)`);
 
       let view = this.columnsToView(columns, (column: BsColumn, index: number) => {
         const el = column.rowHeader ? 'th' : 'td';
@@ -735,6 +947,20 @@ export class BsGrid extends BsResizeContainer {
       return value;
     }
     return null;
+  }
+
+  private elementOrChildIsActiveElement(element: Element): boolean {
+    if (document.activeElement === element) {
+      return true;
+    }
+
+    for (let i = 0; i < element.children.length; i++) {
+      if (this.elementOrChildIsActiveElement(element.children[i])) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 

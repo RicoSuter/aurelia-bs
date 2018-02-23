@@ -1,5 +1,7 @@
 <template>
-  <div class="bs-grid">
+  <div class="bs-grid"
+       tabindex.bind="tabindex"
+       click.delegate="focus()">
     <!-- Header -->
     <table border="0"
            class="table"
