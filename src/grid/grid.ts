@@ -301,8 +301,8 @@ export class BsGrid extends BsResizeContainer {
       window.removeEventListener('keydown', this.keydownCallback);
     }
   }
-  async keydownHandler(event: KeyboardEvent) {
-    if (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents) {
+  async keydownHandler(event: KeyboardEvent, forceKeyEvent: boolean = false) {
+    if (forceKeyEvent || (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents)) {
       switch (event.keyCode) {
         case 33:
         case 37:
@@ -331,8 +331,9 @@ export class BsGrid extends BsResizeContainer {
           event.preventDefault();
           return;
         case 32:
-          this.selectItemInFocus();
-          event.preventDefault();
+          if (this.selectItemInFocus()) {
+            event.preventDefault();
+          }
           return;
         case 27:
           this.cancelKeyNavigation();
@@ -347,9 +348,11 @@ export class BsGrid extends BsResizeContainer {
   }
 
   selectItemInFocus() {
-    if (this.keyboardFocusIndex !== undefined && this.displayedItems) {
+    if (!this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems) {
       this.selectRow(this.displayedItems[this.keyboardFocusIndex]);
+      return true;
     }
+    return false;
   }
 
   async focusOnPreviousItem() {
@@ -844,7 +847,8 @@ export class BsGrid extends BsResizeContainer {
 
   protected isInFocus(item: any) {
     if (this.useKeyEvents && !this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardFocusIndex]) {
-      return this.comparer(this.displayedItems[this.keyboardFocusIndex], item);
+      let value = this.valuePath ? this.getValue(this.displayedItems[this.keyboardFocusIndex], this.valuePath) : this.displayedItems[this.keyboardFocusIndex];
+      return this.comparer(value, item);
     }
     return false;
   }
