@@ -301,12 +301,12 @@ export class BsGrid extends BsResizeContainer {
       window.removeEventListener('keydown', this.keydownCallback);
     }
   }
-  async keydownHandler(event: KeyboardEvent) {
-    if (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents) {
+  async keydownHandler(event: KeyboardEvent, forceKeyEvent: boolean = false) {
+    if (forceKeyEvent || (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents)) {
       switch (event.keyCode) {
         case 33:
         case 37:
-          await this.goToPreviousPage();
+          await this.showPreviousPage();
           event.preventDefault();
           return;
         case 38:
@@ -315,7 +315,7 @@ export class BsGrid extends BsResizeContainer {
           return;
         case 34:
         case 39:
-          await this.goToNextPage();
+          await this.showNextPage();
           event.preventDefault();
           return;
         case 40:
@@ -323,16 +323,17 @@ export class BsGrid extends BsResizeContainer {
           event.preventDefault();
           return;
         case 36:
-          await this.goToFirstItem();
+          await this.focusOnFirstItem();
           event.preventDefault();
           return;
         case 35:
-          await this.goToLastItem();
+          await this.focusOnLastItem();
           event.preventDefault();
           return;
         case 32:
-          this.selectItemInFocus();
-          event.preventDefault();
+          if (this.selectItemInFocus()) {
+            event.preventDefault();
+          }
           return;
         case 27:
           this.cancelKeyNavigation();
@@ -347,9 +348,11 @@ export class BsGrid extends BsResizeContainer {
   }
 
   selectItemInFocus() {
-    if (this.keyboardFocusIndex !== undefined && this.displayedItems) {
+    if (!this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems) {
       this.selectRow(this.displayedItems[this.keyboardFocusIndex]);
+      return true;
     }
+    return false;
   }
 
   async focusOnPreviousItem() {
@@ -390,7 +393,7 @@ export class BsGrid extends BsResizeContainer {
     }
   }
 
-  async goToPreviousPage() {
+  async showPreviousPage() {
     if (this.currentPage > 0) {
       await this.showPage(this.currentPage - 1);
     }
@@ -398,7 +401,7 @@ export class BsGrid extends BsResizeContainer {
     this.keyboardFocusIndex = this.displayedItems ? this.displayedItems.length - 1 : 0;
   }
 
-  async goToNextPage() {
+  async showNextPage() {
     if (this.currentPage < this.pageCount) {
       await this.showPage(this.currentPage + 1);
     }
@@ -406,7 +409,7 @@ export class BsGrid extends BsResizeContainer {
     this.keyboardFocusIndex = 0;
   }
 
-  async goToFirstItem() {
+  async focusOnFirstItem() {
     if (this.currentPage !== 0) {
       await this.showPage(0);
     }
@@ -414,7 +417,7 @@ export class BsGrid extends BsResizeContainer {
     this.keyboardFocusIndex = 0;
   }
 
-  async goToLastItem() {
+  async focusOnLastItem() {
     if (this.currentPage !== this.pageCount - 1) {
       await this.showPage(this.pageCount - 1);
     }
@@ -844,7 +847,8 @@ export class BsGrid extends BsResizeContainer {
 
   protected isInFocus(item: any) {
     if (this.useKeyEvents && !this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardFocusIndex]) {
-      return this.comparer(this.displayedItems[this.keyboardFocusIndex], item);
+      let value = this.valuePath ? this.getValue(this.displayedItems[this.keyboardFocusIndex], this.valuePath) : this.displayedItems[this.keyboardFocusIndex];
+      return this.comparer(value, item);
     }
     return false;
   }
