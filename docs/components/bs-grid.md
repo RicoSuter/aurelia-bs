@@ -23,14 +23,26 @@
 
 ## Methods
 
-- refresh()
-- getPageNumberForIndex(index)
-- showItemAtIndex(index)
-- showPage(pageNumber)
+- **refresh()**
+- **getPageNumberForIndex(index)**
+- **showItemAtIndex(index)**
+- **showPage(pageNumber)**
+
+**Keyboard Navigation and Focus Control**
+- **focus()** focusses on the grid if useKeyboardEvents = true
+- **keydownHandler(event: KeyEvent, forceKeyEvent?: boolean)** by setting forceKeyEvent to true you can use the keydownHanlder without having focus on the grid. This makes it possible to send keyevents from other components to the grid.
+- **cancelKeyNavigation()** 
+- **showPreviousPage()**
+- **showNextPage()**
+- **focusOnPreviousItem()**
+- **focusOnNextItem()**
+- **focusOnFirstItem()**
+- **focusOnLastItem()**
+- **selectItemInFocus()**
 
 ## Events
 
-- selection-changed
+- **selection-changed**
 
 ## Bindable properties:
 
