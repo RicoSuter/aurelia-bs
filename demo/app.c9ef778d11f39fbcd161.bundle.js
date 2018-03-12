@@ -17806,8 +17806,8 @@ return zhTw;
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__label_collection__ = __webpack_require__("label-collection");
 /* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__loader__ = __webpack_require__("loader");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aurelia_framework__ = __webpack_require__("aurelia-framework");
-/* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__navbar_header__ = __webpack_require__("navbar-header");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__scroll__ = __webpack_require__("scroll");
@@ -17826,13 +17826,15 @@ return zhTw;
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__validation__ = __webpack_require__(168);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__loader__ = __webpack_require__("loader");
+/* unused harmony namespace reexport */
 
 function configure(config) {
     config.globalResources([
         './dialog',
+        './dialogs/alert-dialog',
         './grid/column',
         './grid/grid',
+        './select-grid/select-grid-dialog',
         './select-grid/select-grid',
         './datepicker',
         './dialog',
@@ -57500,13 +57502,14 @@ var BsGrid = /** @class */ (function (_super) {
             window.removeEventListener('keydown', this.keydownCallback);
         }
     };
-    BsGrid.prototype.keydownHandler = function (event) {
+    BsGrid.prototype.keydownHandler = function (event, forceKeyEvent) {
+        if (forceKeyEvent === void 0) { forceKeyEvent = false; }
         return __awaiter(this, void 0, void 0, function () {
             var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        if (!(this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents)) return [3 /*break*/, 15];
+                        if (!(forceKeyEvent || (this.elementOrChildIsActiveElement(this.element) && this.useKeyEvents))) return [3 /*break*/, 15];
                         _a = event.keyCode;
                         switch (_a) {
                             case 33: return [3 /*break*/, 1];
@@ -57521,7 +57524,7 @@ var BsGrid = /** @class */ (function (_super) {
                             case 27: return [3 /*break*/, 14];
                         }
                         return [3 /*break*/, 15];
-                    case 1: return [4 /*yield*/, this.goToPreviousPage()];
+                    case 1: return [4 /*yield*/, this.showPreviousPage()];
                     case 2:
                         _b.sent();
                         event.preventDefault();
@@ -57531,7 +57534,7 @@ var BsGrid = /** @class */ (function (_super) {
                         _b.sent();
                         event.preventDefault();
                         return [2 /*return*/];
-                    case 5: return [4 /*yield*/, this.goToNextPage()];
+                    case 5: return [4 /*yield*/, this.showNextPage()];
                     case 6:
                         _b.sent();
                         event.preventDefault();
@@ -57541,19 +57544,20 @@ var BsGrid = /** @class */ (function (_super) {
                         _b.sent();
                         event.preventDefault();
                         return [2 /*return*/];
-                    case 9: return [4 /*yield*/, this.goToFirstItem()];
+                    case 9: return [4 /*yield*/, this.focusOnFirstItem()];
                     case 10:
                         _b.sent();
                         event.preventDefault();
                         return [2 /*return*/];
-                    case 11: return [4 /*yield*/, this.goToLastItem()];
+                    case 11: return [4 /*yield*/, this.focusOnLastItem()];
                     case 12:
                         _b.sent();
                         event.preventDefault();
                         return [2 /*return*/];
                     case 13:
-                        this.selectItemInFocus();
-                        event.preventDefault();
+                        if (this.selectItemInFocus()) {
+                            event.preventDefault();
+                        }
                         return [2 /*return*/];
                     case 14:
                         this.cancelKeyNavigation();
@@ -57568,9 +57572,11 @@ var BsGrid = /** @class */ (function (_super) {
         this.keyboardFocusIndex = undefined;
     };
     BsGrid.prototype.selectItemInFocus = function () {
-        if (this.keyboardFocusIndex !== undefined && this.displayedItems) {
+        if (!this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems) {
             this.selectRow(this.displayedItems[this.keyboardFocusIndex]);
+            return true;
         }
+        return false;
     };
     BsGrid.prototype.focusOnPreviousItem = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -57626,7 +57632,7 @@ var BsGrid = /** @class */ (function (_super) {
             });
         });
     };
-    BsGrid.prototype.goToPreviousPage = function () {
+    BsGrid.prototype.showPreviousPage = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -57643,7 +57649,7 @@ var BsGrid = /** @class */ (function (_super) {
             });
         });
     };
-    BsGrid.prototype.goToNextPage = function () {
+    BsGrid.prototype.showNextPage = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -57660,7 +57666,7 @@ var BsGrid = /** @class */ (function (_super) {
             });
         });
     };
-    BsGrid.prototype.goToFirstItem = function () {
+    BsGrid.prototype.focusOnFirstItem = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -57677,7 +57683,7 @@ var BsGrid = /** @class */ (function (_super) {
             });
         });
     };
-    BsGrid.prototype.goToLastItem = function () {
+    BsGrid.prototype.focusOnLastItem = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -58093,7 +58099,8 @@ var BsGrid = /** @class */ (function (_super) {
     };
     BsGrid.prototype.isInFocus = function (item) {
         if (this.useKeyEvents && !this.hideKeyboardFocus && this.keyboardFocusIndex !== undefined && this.displayedItems && this.displayedItems[this.keyboardFocusIndex]) {
-            return this.comparer(this.displayedItems[this.keyboardFocusIndex], item);
+            var value = this.valuePath ? this.getValue(this.displayedItems[this.keyboardFocusIndex], this.valuePath) : this.displayedItems[this.keyboardFocusIndex];
+            return this.comparer(value, item);
         }
         return false;
     };
@@ -60113,4 +60120,4 @@ module.exports = "<template>\r\n  <div class.bind=\"'bs-textbox form-group has-f
 /***/ })
 
 },[169]);
-//# sourceMappingURL=app.1026287214f28b38af0f.bundle.map
+//# sourceMappingURL=app.c9ef778d11f39fbcd161.bundle.map

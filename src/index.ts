@@ -3,8 +3,10 @@ import { FrameworkConfiguration, PLATFORM } from 'aurelia-framework';
 export function configure(config: FrameworkConfiguration): void {
   config.globalResources([
     PLATFORM.moduleName('./dialog'),
+    PLATFORM.moduleName('./dialogs/alert-dialog'),
     PLATFORM.moduleName('./grid/column'),
     PLATFORM.moduleName('./grid/grid'),
+    PLATFORM.moduleName('./select-grid/select-grid-dialog'),
     PLATFORM.moduleName('./select-grid/select-grid'),
     PLATFORM.moduleName('./datepicker'),
     PLATFORM.moduleName('./dialog'),
