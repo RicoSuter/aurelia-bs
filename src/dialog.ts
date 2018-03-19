@@ -26,6 +26,9 @@ export class BsDialog {
   @bindable
   class = '';
 
+  @bindable
+  dialogClass = '';
+
   constructor(private dialogService: BsDialogService) {
   }
 
