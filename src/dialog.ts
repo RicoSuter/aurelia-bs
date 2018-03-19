@@ -27,7 +27,7 @@ export class BsDialog {
   class = '';
 
   @bindable
-  dialogClass = '';
+  dialogClass = 'modal-dialog';
 
   constructor(private dialogService: BsDialogService) {
   }
