@@ -24,10 +24,10 @@ export class BsDialog {
   dialog: IDialogBase;
 
   @bindable
-  class = '';
+  fadeInClass = '';
 
   @bindable
-  dialogClass = 'modal-dialog';
+  dialogClass = '';
 
   constructor(private dialogService: BsDialogService) {
   }
