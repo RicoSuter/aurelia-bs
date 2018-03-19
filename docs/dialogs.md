@@ -54,7 +54,7 @@ export class CustomDialog extends DialogBase {
 
 ```html
 <template>
-  <bs-dialog title.bind="title">
+  <bs-dialog title.bind="title" dialog-class="my-custom-dialog">
     <div class="modal-body">
       <h1>My custom dialog</h1>
       <p>${message}</p>
@@ -67,6 +67,10 @@ export class CustomDialog extends DialogBase {
   </bs-dialog>
 </template>
 ```
+
+Bindable Properties of `BsDialog`:
+- **dialogClass:** additional css class for the dialog (default = '')
+- **fadeInClass:** additional css class for fade in div (default = '')
 
 2. Show dialog in another view model:
 
