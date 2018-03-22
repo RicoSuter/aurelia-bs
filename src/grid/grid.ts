@@ -648,6 +648,10 @@ export class BsGrid extends BsResizeContainer {
 
   private sortItems(items: any[]) {
     let orderMultiplier = this.currentSortOrder === 'asc' ? 1 : -1;
+    if (!items) {
+      return undefined;
+    }
+
     if (this.currentSortColumn && this.currentSortColumn.sorter) {
       return items.slice().sort((a: any, b: any) => {
         return this.currentSortColumn!.sorter(a, b) * orderMultiplier;
